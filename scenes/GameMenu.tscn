@@ -1,3 +1,13 @@
-[gd_scene format=3 uid="uid://btvjnixgt4dbl"]
+[gd_scene load_steps=2 format=3 uid="uid://btvjnixgt4dbl"]
+
+[ext_resource type="Texture2D" uid="uid://b4i1k18afnh27" path="res://assets/image/personnages/dumb.png" id="1_txad0"]
 
 [node name="GameMenu" type="Node2D"]
+position = Vector2(167, 72)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(83, 114)
+scale = Vector2(0.232466, 0.201449)
+texture = ExtResource("1_txad0")
