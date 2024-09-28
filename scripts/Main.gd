@@ -108,7 +108,7 @@ func _mission_selected(obj):
 			print("SAVED ", answers)
 			#TODO save which one was selected
 		else:
-			mission.go_away()	
+			mission.go_away()
 	
 	var t = get_tree().create_timer(1.0)
 	await t.timeout
@@ -125,7 +125,7 @@ func _militant_arrived(obj):
 		mis.e_mission = day["missions"][i]
 		dayMissions.append(mis)
 		mis.selected.connect(_mission_selected)
-		mis.position = Vector2(300*(i+1) - 650,300)	
+		mis.position = Vector2(300*(i+1) - 100, 600)	
 		add_child(mis)
 		mis.show()
 	
