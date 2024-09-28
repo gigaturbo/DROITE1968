@@ -6,8 +6,8 @@ const SELECT_TIME = 1
 
 var state = 0
 
-enum NamedEnum {MATRAQUE, MEGAPHONE, COLLAGE, TRACT}
-@export var OBJ_NAME: NamedEnum
+enum ObjEnum {MATRAQUE, MEGAPHONE, COLLAGE, TRACT}
+@export var OBJ_NAME: ObjEnum
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -37,4 +37,10 @@ func _on_texture_button_button_up():
 
 func _on_timer_timeout():
 	selected.emit()
-	
+
+func go_away():
+	var apos = $TextureButton.position
+	var npos = apos + Vector2(0, 256)
+	var tween = get_tree().create_tween()
+	tween.tween_property($TextureButton, "position", npos, 0.33)
+	tween.tween_property($TextureButton, "visible", false, 0)
