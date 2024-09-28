@@ -12,3 +12,12 @@ func _process(delta):
 	pass
 
 
+const lines: Array[String] = [
+	"Hiiiii, how are you?", 
+	"I am speaking alone",
+	"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et posuere magna. Nulla eget finibus nibh. Pellentesque libero elit, malesuada ac nisl a, pharetra bibendum ligula. Donec dapibus eget purus id convallis. Suspendisse lacus arcu, interdum ac ex sed, feugiat volutpat enim."
+	]
+
+func _unhandled_input(event):
+	if event.is_action_pressed("left_click"):
+		DialogManager.start_dialog($TextPosition_corner.position, lines, Vector2(720,0))
