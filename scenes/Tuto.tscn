@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://xpyssfnyfg1s"]
+[gd_scene load_steps=6 format=3 uid="uid://xpyssfnyfg1s"]
 
 [ext_resource type="Script" path="res://scripts/Tuto.gd" id="1_2luo7"]
 [ext_resource type="Texture2D" uid="uid://ngqxl6hnneat" path="res://assets/image/fonds/bureau.png" id="2_0hlah"]
-[ext_resource type="PackedScene" path="res://scenes/elements/Objet1.tscn" id="3_rm8wp"]
+[ext_resource type="PackedScene" uid="uid://b3cusexoa40x6" path="res://scenes/elements/SpeechBubble.tscn" id="4_3t8af"]
+[ext_resource type="FontFile" uid="uid://bpfmyyvhk21ar" path="res://assets/fonts/Super Water.ttf" id="4_rat6j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_flcya"]
+size = Vector2(1129, 755)
 
 [node name="Tuto" type="Node2D"]
 script = ExtResource("1_2luo7")
@@ -12,5 +16,46 @@ scale = Vector2(1.75719, 1.81796)
 texture = ExtResource("2_0hlah")
 centered = false
 
-[node name="Objet1" parent="." instance=ExtResource("3_rm8wp")]
-position = Vector2(209, 292)
+[node name="Part1" type="Node2D" parent="."]
+
+[node name="Panel" type="ColorRect" parent="Part1"]
+custom_minimum_size = Vector2(300, 250)
+offset_left = 212.0
+offset_top = 35.0
+offset_right = 897.0
+offset_bottom = 682.0
+color = Color(0.164706, 0.164706, 0.164706, 0.478431)
+
+[node name="Choix" type="TextureRect" parent="Part1"]
+offset_left = 249.0
+offset_top = 252.0
+offset_right = 875.0
+offset_bottom = 653.0
+texture = ExtResource("2_0hlah")
+stretch_mode = 5
+
+[node name="Contexte" type="RichTextLabel" parent="Part1"]
+custom_minimum_size = Vector2(250, 180)
+offset_left = 245.0
+offset_top = 59.0
+offset_right = 853.0
+offset_bottom = 239.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("4_rat6j")
+theme_override_font_sizes/normal_font_size = 28
+text = "blablabla contexte blablabla contexte blablabla contexte blablabla contexte blablabla contexte blablabla contexte blablabla contexte blablabla contexte blablabla contexte blablabla contexte blablabla contexte blablabla contexte blablabla contexte blablabla contexte blablabla contexte "
+scroll_active = false
+
+[node name="Area2D" type="Area2D" parent="Part1"]
+z_index = 470
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Part1/Area2D"]
+position = Vector2(554.5, 367.5)
+shape = SubResource("RectangleShape2D_flcya")
+
+[node name="SpeechBubble" parent="." instance=ExtResource("4_3t8af")]
+position = Vector2(-103, 133)
+
+[connection signal="input_event" from="Part1/Area2D" to="." method="_on_area_2d_input_event"]
