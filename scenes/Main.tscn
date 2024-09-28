@@ -16,3 +16,4 @@ script = ExtResource("1_3ouxd")
 stream = ExtResource("4_7jf6a")
 
 [connection signal="startButtonPressed" from="Titre" to="." method="_on_titre_start_button_pressed"]
+[connection signal="endTuto" from="Tuto" to="." method="_on_tuto_end_tuto"]
