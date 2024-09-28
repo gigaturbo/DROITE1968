@@ -1,11 +1,19 @@
 extends Node
 
 
-@onready var text_box_scene = preload("res://scenes/elements/TextBox.tscn")
+@onready var text_box_scene_test = preload("res://scenes/elements/TextBoxTest.tscn")
+@onready var text_box_scene_militant = preload("res://scenes/elements/TextBoxMilitant.tscn")
+@onready var text_box_scene_reponse = preload("res://scenes/elements/TextBoxReponse.tscn")
+@onready var text_box_scene_elec = preload("res://scenes/elements/TextBoxElec.tscn")
+
 
 var dialog_lines: Array[String] = []
 var current_line_index =  0
 var text_box
+
+enum TextBoxTypes{MILITANT, REPONSE, ELEC, TEST}
+
+var text_box_type
 
 var text_box_position: Vector2
 
@@ -15,7 +23,12 @@ var can_advance_line = false
 var panelInitialSize
 
 
-func start_dialog(position:Vector2, lines: Array[String], apanelInitialSize:Vector2 = Vector2(0,0)):
+func start_dialog(position:Vector2, 
+					apanelInitialSize:Vector2,
+					type:TextBoxTypes,
+					lines:Array[String]):
+	text_box_type = type
+	
 	if is_dialog_active:
 		return
 	
@@ -27,7 +40,18 @@ func start_dialog(position:Vector2, lines: Array[String], apanelInitialSize:Vect
 	is_dialog_active = true
 	
 func _show_text_box():
-	text_box = text_box_scene.instantiate()
+	
+	match text_box_type:
+		TextBoxTypes.MILITANT:
+			text_box = text_box_scene_militant.instantiate()
+		TextBoxTypes.REPONSE:
+			text_box = text_box_scene_reponse.instantiate()
+		TextBoxTypes.ELEC:
+			text_box = text_box_scene_elec.instantiate()
+		TextBoxTypes.TEST:
+			text_box = text_box_scene_test.instantiate()
+	
+	
 	text_box.finished_displaying.connect(_on_text_box_finished_displaying)
 	get_tree().root.add_child(text_box)
 	text_box.global_position = text_box_position - Vector2(0, text_box.size.y)

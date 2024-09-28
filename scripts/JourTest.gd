@@ -31,14 +31,20 @@ func _on_obj_megaphone_selected():
 
 const testLines: Array[String] = [
 	"Hiiiii, how are you?", 
-	"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et posuere magna. Nulla eget finibus nibh. Pellentesque libero elit, malesuada ac nisl a, pharetra bibendum ligula.",
+	"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et posuere magna. consectetur adipiscing elit. Donec et posuere magna. consectetur adipiscing elit. Donec et posuere magna. Nulla eget finibus nibh. Pellentesque libero elit, malesuada ac nisl a, pharetra bibendum ligula.",
 	"I am speaking alone..."
 	]
 	
 
 func _unhandled_input(event):
 	if event.is_action_pressed("A_button"):
-		DialogManager.start_dialog($TextPosition_corner.position, testLines, Vector2(0,0))
+		DialogManager.start_dialog($TextPosition_corner.position, 
+				Vector2(0,0), 
+				DialogManager.TextBoxTypes.REPONSE,
+				testLines)
 
 	if event.is_action_pressed("B_button"):
-		DialogManager.start_dialog($TextPosition_corner.position, testLines, Vector2(720,200))
+		DialogManager.start_dialog($TextPosition_corner.position, 
+				Vector2(720,200), 
+				DialogManager.TextBoxTypes.REPONSE,
+				testLines)
