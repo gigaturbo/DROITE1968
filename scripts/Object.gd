@@ -36,6 +36,5 @@ func _on_texture_button_button_up():
 	$TextureButton.scale = Vector2(1,1)
 
 func _on_timer_timeout():
-	print("Selected a ", OBJ_NAME)
 	selected.emit()
 	
