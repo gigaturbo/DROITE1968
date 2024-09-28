@@ -25,12 +25,14 @@ position = Vector2(336, 490)
 rotation = -0.0174533
 scale = Vector2(0.308, 0.308)
 texture = ExtResource("3_ofor3")
+metadata/_edit_group_ = true
 
 [node name="charles_bien" type="Sprite2D" parent="."]
 position = Vector2(442.106, 639.091)
 rotation = -0.0349066
 scale = Vector2(0.094864, 0.094864)
 texture = ExtResource("3_ofor3")
+metadata/_edit_group_ = true
 
 [node name="table" type="Sprite2D" parent="."]
 z_index = 128
