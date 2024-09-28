@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bbs350mjapv8d"]
+[gd_scene load_steps=8 format=3 uid="uid://bbs350mjapv8d"]
 
 [ext_resource type="Script" path="res://scripts/JourTest.gd" id="1_a1t5c"]
+[ext_resource type="Texture2D" uid="uid://dmhn1ixdyhgkh" path="res://assets/image/fonds/FOND.png" id="2_fe5fo"]
 [ext_resource type="Texture2D" uid="uid://b5tc2hsjcxuas" path="res://assets/image/fonds/DECOR.png" id="2_vu13m"]
 [ext_resource type="PackedScene" uid="uid://bu7xwqd8bjiex" path="res://scenes/elements/objets/ObjTract.tscn" id="3_7or2i"]
 [ext_resource type="Texture2D" uid="uid://bst6ngrfkq66g" path="res://assets/image/fonds/asset_bureau.png" id="3_pf6xx"]
@@ -10,13 +11,19 @@
 [node name="JourTest" type="Node2D"]
 script = ExtResource("1_a1t5c")
 
-[node name="fond bureau" type="Sprite2D" parent="."]
+[node name="fond" type="Sprite2D" parent="."]
+scale = Vector2(0.308, 0.308)
+texture = ExtResource("2_fe5fo")
+centered = false
+metadata/_edit_group_ = true
+
+[node name="mur" type="Sprite2D" parent="."]
 scale = Vector2(0.308, 0.308)
 texture = ExtResource("2_vu13m")
 centered = false
 metadata/_edit_group_ = true
 
-[node name="bureau" type="Sprite2D" parent="."]
+[node name="table" type="Sprite2D" parent="."]
 scale = Vector2(0.308, 0.308)
 texture = ExtResource("3_pf6xx")
 centered = false
