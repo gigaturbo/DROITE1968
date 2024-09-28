@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c7asq67ysb1xc" path="res://scenes/elements/objets/missionText.tscn" id="5_n3ye4"]
 
 [node name="ObjTract" type="Node2D"]
+z_index = 130
 script = ExtResource("1_pb556")
 
 [node name="TextureButton" type="TextureButton" parent="."]
