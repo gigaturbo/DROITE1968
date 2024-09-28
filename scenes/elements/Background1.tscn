@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://cbb6xjwmrc4f7"]
 
-[ext_resource type="Texture2D" uid="uid://dmhn1ixdyhgkh" path="res://assets/image/fonds/FOND.png" id="1_lls7q"]
-[ext_resource type="Texture2D" uid="uid://b5tc2hsjcxuas" path="res://assets/image/fonds/DECOR.png" id="2_iftml"]
-[ext_resource type="Texture2D" uid="uid://bst6ngrfkq66g" path="res://assets/image/fonds/asset_bureau.png" id="3_i7vtb"]
+[ext_resource type="Texture2D" uid="uid://dm636egfnqwqm" path="res://assets/image/fonds/FOND.png" id="1_lls7q"]
+[ext_resource type="Texture2D" uid="uid://cut7bqf2w0gqm" path="res://assets/image/fonds/DECOR.png" id="2_iftml"]
+[ext_resource type="Texture2D" uid="uid://dei4sutncpiis" path="res://assets/image/fonds/asset_bureau.png" id="3_i7vtb"]
 
 [node name="Background1" type="Node2D"]
 

@@ -22,5 +22,8 @@ position = Vector2(306, 503)
 [node name="MilitantLocation" type="Marker2D" parent="."]
 position = Vector2(574, 578)
 
+[node name="ContexteLocation" type="Marker2D" parent="."]
+position = Vector2(128, 657)
+
 [connection signal="startButtonPressed" from="Titre" to="." method="_on_titre_start_button_pressed"]
 [connection signal="endTuto" from="Tuto" to="." method="_on_tuto_end_tuto"]
