@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cbv1vgdk05kb7"
+path="res://.godot/imported/voix 1.wav-94551e977a404e777f6b3c157268d3cc.sample"
+
+[deps]
+
+source_file="res://assets/audio/bruitages/telephone/voix 1.wav"
+dest_files=["res://.godot/imported/voix 1.wav-94551e977a404e777f6b3c157268d3cc.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -10,12 +10,6 @@ size = Vector2(1129, 755)
 [node name="Tuto" type="Node2D"]
 script = ExtResource("1_2luo7")
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(554.5, 367.5)
-shape = SubResource("RectangleShape2D_flcya")
-
 [node name="BG" type="Sprite2D" parent="."]
 scale = Vector2(1.75719, 1.81796)
 texture = ExtResource("2_0hlah")
@@ -48,5 +42,14 @@ theme_override_fonts/normal_font = ExtResource("4_rat6j")
 theme_override_font_sizes/normal_font_size = 28
 text = "blablabla contexte blablabla contexte blablabla contexte blablabla contexte blablabla contexte blablabla contexte blablabla contexte blablabla contexte blablabla contexte blablabla contexte blablabla contexte blablabla contexte blablabla contexte blablabla contexte blablabla contexte "
 scroll_active = false
+
+[node name="Area2D" type="Area2D" parent="."]
+z_index = 470
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(554.5, 367.5)
+shape = SubResource("RectangleShape2D_flcya")
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
