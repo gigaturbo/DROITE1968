@@ -11,11 +11,23 @@ enum ObjEnum {MATRAQUE, MEGAPHONE, COLLAGE, TRACT}
 
 var e_mission = -1
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
+	$TextureButton.mouse_entered.connect(_on_texture_button_mouse_entered)
+	$TextureButton.mouse_exited.connect(_on_texture_button_mouse_exited)
+	
+	$TextureButton.button_down.connect(_on_texture_button_button_down)
+	$TextureButton.button_up.connect(_on_texture_button_button_up)
+	
+	$MarginContainer.hide()
+	$MyMissionLabel.hide()
 	$Timer.wait_time = SELECT_TIME
 	$Timer.stop()
 	$TextureButton.scale = Vector2(1,1)
+	
+	$MarginContainer/MarginContainer/Label.set_text($MyMissionLabel.text)
 	
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -50,3 +62,11 @@ func go_away():
 func get_selected():
 	var tween = get_tree().create_tween()
 	tween.tween_property($TextureButton, "modulate", Color.TRANSPARENT, 0.5)
+
+
+func _on_texture_button_mouse_entered():
+	$MarginContainer.show()
+
+
+func _on_texture_button_mouse_exited():
+	$MarginContainer.hide()
