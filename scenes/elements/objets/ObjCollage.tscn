@@ -1,12 +1,12 @@
 [gd_scene load_steps=5 format=3 uid="uid://bnyxrgf2gejow"]
 
-[ext_resource type="Script" path="res://scripts/ObjCollage.gd" id="1_ktrl2"]
-[ext_resource type="Texture2D" uid="uid://ccp8dwdrwiwfa" path="res://assets/image/objets/asset_collage.png" id="1_xmx6v"]
-[ext_resource type="Texture2D" uid="uid://c1h0w5c5md2u2" path="res://assets/image/objets/asset_collage_selected.png" id="2_ko5lx"]
-[ext_resource type="Texture2D" uid="uid://di53evnl7w006" path="res://assets/image/objets/asset_collage_highlight.png" id="3_71wdd"]
+[ext_resource type="Script" path="res://scripts/ObjCollage.gd" id="1_hb7ed"]
+[ext_resource type="Texture2D" uid="uid://ccp8dwdrwiwfa" path="res://assets/image/objets/asset_collage.png" id="2_k248m"]
+[ext_resource type="Texture2D" uid="uid://c1h0w5c5md2u2" path="res://assets/image/objets/asset_collage_selected.png" id="3_hiy4t"]
+[ext_resource type="Texture2D" uid="uid://di53evnl7w006" path="res://assets/image/objets/asset_collage_highlight.png" id="4_db3xp"]
 
 [node name="ObjCollage" type="Node2D"]
-script = ExtResource("1_ktrl2")
+script = ExtResource("1_hb7ed")
 
 [node name="TextureButton" type="TextureButton" parent="."]
 anchors_preset = 8
@@ -21,9 +21,9 @@ offset_bottom = 413.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(165, 95)
-texture_normal = ExtResource("1_xmx6v")
-texture_pressed = ExtResource("2_ko5lx")
-texture_hover = ExtResource("3_71wdd")
+texture_normal = ExtResource("2_k248m")
+texture_pressed = ExtResource("3_hiy4t")
+texture_hover = ExtResource("4_db3xp")
 ignore_texture_size = true
 stretch_mode = 5
 
