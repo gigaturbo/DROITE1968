@@ -6,8 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://vu70ggfvtlhw" path="res://assets/image/objets/asset_tract_highlight.png" id="4_ao0cv"]
 
 [node name="ObjTract" type="Node2D"]
+z_index = 130
 script = ExtResource("1_pb556")
-x = 3
 
 [node name="TextureButton" type="TextureButton" parent="."]
 anchors_preset = 8

@@ -24,4 +24,3 @@ func set_text(text):
 	var tween = get_tree().create_tween().bind_node(self)
 	tween.tween_property(text_n, "visible_ratio", 1, 1)
 	
-	textEnd.emit()

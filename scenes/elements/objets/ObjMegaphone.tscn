@@ -6,8 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://bwc7pw4ng8qor" path="res://assets/image/objets/asset_megaphone_highllight.png" id="4_1xkhs"]
 
 [node name="ObjMegaphone" type="Node2D"]
+z_index = 130
 script = ExtResource("1_3wt2p")
-x = 1
 
 [node name="TextureButton" type="TextureButton" parent="."]
 anchors_preset = 8
