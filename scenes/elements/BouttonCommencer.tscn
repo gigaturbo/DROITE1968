@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://1u41ly640v6u"]
+
+[ext_resource type="Texture2D" uid="uid://ngqxl6hnneat" path="res://assets/image/fonds/bureau.png" id="1_1krna"]
+[ext_resource type="Texture2D" uid="uid://5uccg5ce0v6" path="res://assets/image/interfaces/boutton_commencer.png" id="2_xh23u"]
+
+[node name="BouttonCommencer" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.753, 1.799)
+texture = ExtResource("1_1krna")
+centered = false
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = 375.0
+offset_top = 469.0
+offset_right = 815.0
+offset_bottom = 719.0
+scale = Vector2(0.785, 0.785)
+texture_normal = ExtResource("2_xh23u")
