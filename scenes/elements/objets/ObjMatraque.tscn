@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dot1g8gf0cso2"]
+[gd_scene load_steps=6 format=3 uid="uid://dot1g8gf0cso2"]
 
 [ext_resource type="Script" path="res://scripts/Object.gd" id="1_cfnp7"]
 [ext_resource type="Texture2D" uid="uid://ccl4upmm5ydyq" path="res://assets/image/objets/asset_matraque.png" id="2_6h5et"]
 [ext_resource type="Texture2D" uid="uid://bnxrva1hkjlmt" path="res://assets/image/objets/asset_matraque_selected.png" id="3_s1my1"]
 [ext_resource type="Texture2D" uid="uid://lp4578e0nwe8" path="res://assets/image/objets/asset_matraque_highlight.png" id="4_5t1cd"]
+[ext_resource type="PackedScene" uid="uid://c7asq67ysb1xc" path="res://scenes/elements/objets/missionText.tscn" id="5_1u2ed"]
 
 [node name="ObjMatraque" type="Node2D"]
 script = ExtResource("1_cfnp7")
@@ -14,10 +15,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 368.0
-offset_top = 223.0
-offset_right = 698.0
-offset_bottom = 413.0
+offset_left = -165.0
+offset_top = -95.0
+offset_right = 165.0
+offset_bottom = 95.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(165, 95)
@@ -29,6 +30,14 @@ stretch_mode = 5
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
+
+[node name="MarginContainer" parent="." instance=ExtResource("5_1u2ed")]
+
+[node name="MyMissionLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Avant de devenir un célèbre chevalier Jedi, et bien avant de se révéler l’âme la plus noire de la galaxie, Anakin Skywalker est un jeune esclave sur la planète Tatooine. La Force est déjà puissante en lui et il est un remarquable pilote de Podracer. Le maître Jedi Qui-Gon Jinn le découvre et entrevoit alors son immense potentiel.
+Pendant ce temps, l’armée de droïdes de l’insatiable Fédération du Commerce a envahi Naboo, une planète pacifique, dans le cadre d’un plan secret des Sith visant à accroître leur pouvoir. Pour défendre la reine de Naboo, Amidala, les chevaliers Jedi vont devoir affronter le redoutable Seigneur Sith, Dark Maul."
 
 [connection signal="button_down" from="TextureButton" to="." method="_on_texture_button_button_down"]
 [connection signal="button_up" from="TextureButton" to="." method="_on_texture_button_button_up"]

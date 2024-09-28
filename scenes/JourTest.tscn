@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bbs350mjapv8d"]
+[gd_scene load_steps=9 format=3 uid="uid://bbs350mjapv8d"]
 
 [ext_resource type="Script" path="res://scripts/JourTest.gd" id="1_a1t5c"]
 [ext_resource type="Texture2D" uid="uid://dmhn1ixdyhgkh" path="res://assets/image/fonds/FOND.png" id="2_fe5fo"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bu7xwqd8bjiex" path="res://scenes/elements/objets/ObjTract.tscn" id="3_7or2i"]
 [ext_resource type="Texture2D" uid="uid://bst6ngrfkq66g" path="res://assets/image/fonds/asset_bureau.png" id="3_pf6xx"]
 [ext_resource type="PackedScene" uid="uid://dot1g8gf0cso2" path="res://scenes/elements/objets/ObjMatraque.tscn" id="4_67s7u"]
+[ext_resource type="PackedScene" uid="uid://bnyxrgf2gejow" path="res://scenes/elements/objets/ObjCollage.tscn" id="5_6n6vw"]
 [ext_resource type="PackedScene" uid="uid://dyfxwom00d8tb" path="res://scenes/elements/objets/ObjMegaphone.tscn" id="5_dyj3c"]
 
 [node name="JourTest" type="Node2D"]
@@ -34,18 +35,14 @@ position = Vector2(256, 719)
 
 [node name="Objets" type="Node2D" parent="."]
 
-[node name="ObjTract" parent="Objets" instance=ExtResource("3_7or2i")]
-position = Vector2(234, 350)
-OBJ_NAME = 3
+[node name="ObjCollage" parent="Objets" instance=ExtResource("5_6n6vw")]
+position = Vector2(214, 622)
 
 [node name="ObjMatraque" parent="Objets" instance=ExtResource("4_67s7u")]
-position = Vector2(6, 331)
+position = Vector2(876, 621)
 
 [node name="ObjMegaphone" parent="Objets" instance=ExtResource("5_dyj3c")]
-position = Vector2(-211, 350)
-OBJ_NAME = 1
+position = Vector2(547, 645)
 
-[connection signal="selected" from="Objets/ObjTract" to="." method="_on_obj_tract_selected"]
-[connection signal="selected" from="Objets/ObjMatraque" to="." method="_on_obj_matraque_selected"]
-[connection signal="selected" from="Objets/ObjMegaphone" to="." method="_on_obj_megaphone_selected"]
-[connection signal="selected" from="Objets/ObjMegaphone" to="Objets/ObjMegaphone" method="_on_selected"]
+[node name="ObjTract" parent="Objets" instance=ExtResource("3_7or2i")]
+position = Vector2(554, 451)

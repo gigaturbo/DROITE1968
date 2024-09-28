@@ -1,13 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://dyfxwom00d8tb"]
+[gd_scene load_steps=6 format=3 uid="uid://dyfxwom00d8tb"]
 
 [ext_resource type="Script" path="res://scripts/Object.gd" id="1_3wt2p"]
 [ext_resource type="Texture2D" uid="uid://cfcsqfqaq837b" path="res://assets/image/objets/asset_megaphone.png" id="2_aqypa"]
 [ext_resource type="Texture2D" uid="uid://cvadrtvrbueyp" path="res://assets/image/objets/asset_megaphone_selected.png" id="3_8i7tp"]
 [ext_resource type="Texture2D" uid="uid://bwc7pw4ng8qor" path="res://assets/image/objets/asset_megaphone_highllight.png" id="4_1xkhs"]
+[ext_resource type="PackedScene" uid="uid://c7asq67ysb1xc" path="res://scenes/elements/objets/missionText.tscn" id="5_dmb5m"]
 
 [node name="ObjMegaphone" type="Node2D"]
 script = ExtResource("1_3wt2p")
-x = 1
 
 [node name="TextureButton" type="TextureButton" parent="."]
 anchors_preset = 8
@@ -15,10 +15,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 368.0
-offset_top = 223.0
-offset_right = 698.0
-offset_bottom = 413.0
+offset_left = -165.0
+offset_top = -95.0
+offset_right = 165.0
+offset_bottom = 95.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(165, 95)
@@ -31,6 +31,11 @@ stretch_mode = 5
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 
-[connection signal="button_down" from="TextureButton" to="." method="_on_texture_button_button_down"]
-[connection signal="button_up" from="TextureButton" to="." method="_on_texture_button_button_up"]
+[node name="MarginContainer" parent="." instance=ExtResource("5_dmb5m")]
+
+[node name="MyMissionLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "La galaxie est en proie à la Guerre des Clones, un conflit à grande échelle qui oppose les maléfiques Séparatistes et leurs immenses armées d'androïdes à la République. Les Chevaliers Jedi, protecteurs de la République, luttent pour maintenir l'ordre et restaurer la paix tandis que de nouvelles planètes succombent chaque jour aux puissances du mal. Pour prendre l'avantage, le Chevalier Jedi Anakin Skywalker et sa jeune Padawan, Ahsoka Tano, sont chargés d'une mission capitale qui va les confronter au redoutable \"parrain\" de Tatooine, Jabba le Hutt."
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
