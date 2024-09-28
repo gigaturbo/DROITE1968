@@ -9,7 +9,6 @@
 script = ExtResource("1_3ouxd")
 
 [node name="Titre" parent="." instance=ExtResource("2_soksl")]
-visible = false
 
 [node name="Tuto" parent="." instance=ExtResource("3_iwt3s")]
 
@@ -17,10 +16,13 @@ visible = false
 stream = ExtResource("4_7jf6a")
 
 [node name="DoorLocation" type="Marker2D" parent="."]
-position = Vector2(306, 503)
+position = Vector2(282, 480)
 
 [node name="MilitantLocation" type="Marker2D" parent="."]
-position = Vector2(574, 578)
+position = Vector2(569, 534)
+
+[node name="ContexteLocation" type="Marker2D" parent="."]
+position = Vector2(128, 657)
 
 [connection signal="startButtonPressed" from="Titre" to="." method="_on_titre_start_button_pressed"]
 [connection signal="endTuto" from="Tuto" to="." method="_on_tuto_end_tuto"]

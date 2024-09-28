@@ -1,23 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://xpyssfnyfg1s"]
+[gd_scene load_steps=5 format=3 uid="uid://xpyssfnyfg1s"]
 
 [ext_resource type="Script" path="res://scripts/Tuto.gd" id="1_2luo7"]
 [ext_resource type="Texture2D" uid="uid://ngqxl6hnneat" path="res://assets/image/fonds/bureau.png" id="2_0hlah"]
-[ext_resource type="Texture2D" uid="uid://b5tc2hsjcxuas" path="res://assets/image/fonds/DECOR.png" id="2_q7rj7"]
-[ext_resource type="PackedScene" uid="uid://b3cusexoa40x6" path="res://scenes/elements/SpeechBubble.tscn" id="4_3t8af"]
+[ext_resource type="PackedScene" uid="uid://cbb6xjwmrc4f7" path="res://scenes/elements/Background1.tscn" id="2_epp7i"]
 [ext_resource type="FontFile" uid="uid://bpfmyyvhk21ar" path="res://assets/fonts/Super Water.ttf" id="4_rat6j"]
 
 [node name="Tuto" type="Node2D"]
 script = ExtResource("1_2luo7")
 
-[node name="BG" type="Sprite2D" parent="."]
-scale = Vector2(0.308, 0.308)
-texture = ExtResource("2_q7rj7")
-centered = false
+[node name="Fond" parent="." instance=ExtResource("2_epp7i")]
 
 [node name="Part1" type="Node2D" parent="."]
+z_index = 160
 position = Vector2(33, 8)
 scale = Vector2(0.935, 0.935)
-metadata/_edit_group_ = true
 
 [node name="Panel" type="ColorRect" parent="Part1"]
 custom_minimum_size = Vector2(300, 250)
@@ -45,18 +41,14 @@ offset_right = 853.0
 offset_bottom = 239.0
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_fonts/normal_font = ExtResource("4_rat6j")
-theme_override_font_sizes/normal_font_size = 28
-text = "blablabla contexte blablabla contexte blablabla contexte blablabla contexte blablabla contexte blablabla contexte blablabla contexte blablabla contexte blablabla contexte blablabla contexte blablabla contexte blablabla contexte blablabla contexte blablabla contexte blablabla contexte "
+theme_override_font_sizes/normal_font_size = 27
+text = "La chienlit gauchiste est aux portes du pouvoir ! Charles Prairie brigue un siège aux élections législatives de 1968. À vous, chef de son équipe militante, de mobiliser les troupes et d’organiser un meeting qui marquera l’histoire, à quatre jours de la grande confrontation !
+"
 scroll_active = false
 metadata/_edit_use_anchors_ = true
 
-[node name="SpeechBubble" parent="." instance=ExtResource("4_3t8af")]
-position = Vector2(-64, 131)
-
-[node name="Timer" type="Timer" parent="."]
-one_shot = true
-
 [node name="ButtonEnteindreTV" type="Node2D" parent="."]
+z_index = 245
 position = Vector2(-174, -172)
 scale = Vector2(1.285, 1.285)
 metadata/_edit_group_ = true
@@ -89,6 +81,4 @@ offset_bottom = 715.0
 metadata/_edit_group_ = true
 metadata/_edit_use_anchors_ = true
 
-[connection signal="textEnd" from="SpeechBubble" to="." method="_on_speech_bubble_text_end"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="ButtonEnteindreTV/Button" to="." method="_on_button_pressed"]

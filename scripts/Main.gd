@@ -4,7 +4,7 @@ enum EnumMissions{A, B, C, D, E,
 				  F, G, H, I, J,
 				  K, L, M, N, O} # n=15
 enum EnumMilitants{M1, M2, M3, M4, M5} # n=5
-enum EnumContexts{C1, C2, C3, C4, C5, C6} # n=6
+enum EnumContexts{C1, C2, C3, C4, C5} # n=5
 
 var allDays = [{"contexts": [EnumContexts.C1],
 				"militants": [EnumMilitants.M1],
@@ -76,21 +76,45 @@ func getMilitant(mmil : EnumMilitants):
 			EnumMilitants.M3:
 				return {"scn": preload("res://scenes/elements/militants/Militant3.tscn"),
 						"data": {}}
+			EnumMilitants.M4:
+				return {"scn": preload("res://scenes/elements/militants/Militant4.tscn"),
+						"data": {}}
+			EnumMilitants.M5:
+				return {"scn": preload("res://scenes/elements/militants/Militant5.tscn"),
+						"data": {}}
+
+	# TODO ADD ALL
+
+func getContext(mcont : EnumContexts):
+		match mcont:
+			EnumContexts.C1:
+				return {"scn": preload("res://scenes/elements/contexts/Contexte1.tscn"),
+						"data": {}}
+			EnumContexts.C2:
+				return {"scn": preload("res://scenes/elements/contexts/Contexte2.tscn"),
+						"data": {}}
+			EnumContexts.C3:
+				return {"scn": preload("res://scenes/elements/contexts/Contexte3.tscn"),
+						"data": {}}
+			EnumContexts.C4:
+				return {"scn": preload("res://scenes/elements/contexts/Contexte4.tscn"),
+						"data": {}}
+			EnumContexts.C5:
+				return {"scn": preload("res://scenes/elements/contexts/Contexte5.tscn"),
+						"data": {}}
+						
 
 	# TODO ADD ALL
 
 func _on_titre_start_button_pressed():
 	$MusiqueTitre.stop()
-	
 	$Titre.hide()
 	$Tuto.show()
 	$Tuto.startTuto()
 	
-
 func _on_tuto_end_tuto():
 	$Tuto.hide()
-	# START OF THE GAME
-	startDays()
+	startDays() # START OF THE FUN
 	
 func startDays():
 	
@@ -100,27 +124,33 @@ func startDays():
 	for m in dayMissions:
 		m.queue_free()
 	
+	# LOAD BG1 (Generic)
+	var bg = preload("res://scenes/elements/Background1.tscn").instantiate()
+	add_child(bg)
+	
 	# Loop all days
 	for i_day in allDays.size():
 		var day = allDays[i_day]
 		
-		# LOAD BG1 (Generic)
-		var bg = preload("res://scenes/elements/Background1.tscn").instantiate()
-		add_child(bg)
-		
-		# Instanciate militants of the day
+		# Instanciate militants of the day, and  contexts
 		for i_mil in day["militants"].size():
 			
+#			# Context sequence before militant
+			var	con = getContext(day["contexts"][i_mil]).scn.instantiate()
+			add_child(con)
+			con.position = $ContexteLocation.position
+			con.startContext()
+			await con.contextEnded
+			con.hide()
+			
+			# Here come militants
 			var mil = getMilitant(day["militants"][i_mil]).scn.instantiate()
 			mil.e_militant = day["militants"][0]
 			militant = mil
-		#	mil.iAmReady.connect(_militant_arrived)
 			add_child(mil)
 			mil.show()
 			mil.come_in($DoorLocation.position, $MilitantLocation.position)
-			
 			await mil.iAmReady
-
 			print("MILITANT ", mil.e_militant, " arrived")
 			
 			# Instanciate day missions when militant has arrived
@@ -156,7 +186,12 @@ func startDays():
 			
 			await mil.byeBye
 			
-			# Can launch another cycle
+			# Mission results
+			
+			
+			
+			
+			# To next cycle
 	
 	
 # Handle mission selection

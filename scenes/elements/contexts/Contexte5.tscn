@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://3ad6744tuv3t"]
+
+[ext_resource type="Script" path="res://scripts/Contexte.gd" id="1_b6qty"]
+[ext_resource type="Texture2D" uid="uid://djbagq8ddlltq" path="res://assets/image/objets/dummy_obj3.png" id="2_bo6sn"]
+[ext_resource type="PackedScene" uid="uid://c7asq67ysb1xc" path="res://scenes/elements/missions/missionText.tscn" id="3_qcta8"]
+
+[node name="Contexte5" type="Node2D"]
+z_index = 238
+scale = Vector2(0.49, 0.49)
+script = ExtResource("1_b6qty")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = -131.0
+offset_top = -172.0
+offset_right = 125.0
+offset_bottom = 174.0
+texture_normal = ExtResource("2_bo6sn")
+
+[node name="MarginContainer" parent="." instance=ExtResource("3_qcta8")]
+z_index = 140
+offset_left = 77.0
+offset_top = -219.0
+offset_right = 343.0
+offset_bottom = -179.0
+metadata/_edit_group_ = true
+
+[node name="MyMissionLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Drame aujourd’hui chez Peugeot : après 22 jours de grève, la police a investi les usines de Sochaux. Bilan tragique : 2 morts et 150 blessés."
+metadata/_edit_group_ = true

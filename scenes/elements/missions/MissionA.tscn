@@ -1,13 +1,13 @@
 [gd_scene load_steps=6 format=3 uid="uid://bnyxrgf2gejow"]
 
-[ext_resource type="Script" path="res://scripts/Object.gd" id="1_hb7ed"]
-[ext_resource type="Texture2D" uid="uid://ccp8dwdrwiwfa" path="res://assets/image/objets/asset_collage.png" id="2_k248m"]
-[ext_resource type="Texture2D" uid="uid://c1h0w5c5md2u2" path="res://assets/image/objets/asset_collage_selected.png" id="3_hiy4t"]
-[ext_resource type="Texture2D" uid="uid://di53evnl7w006" path="res://assets/image/objets/asset_collage_highlight.png" id="4_db3xp"]
-[ext_resource type="PackedScene" uid="uid://c7asq67ysb1xc" path="res://scenes/elements/missions/missionText.tscn" id="5_dn5fh"]
+[ext_resource type="Script" path="res://scripts/Object.gd" id="1_xxt7c"]
+[ext_resource type="Texture2D" uid="uid://ccp8dwdrwiwfa" path="res://assets/image/objets/asset_collage.png" id="2_36byx"]
+[ext_resource type="Texture2D" uid="uid://c1h0w5c5md2u2" path="res://assets/image/objets/asset_collage_selected.png" id="3_4o8ed"]
+[ext_resource type="Texture2D" uid="uid://di53evnl7w006" path="res://assets/image/objets/asset_collage_highlight.png" id="4_g7jac"]
+[ext_resource type="PackedScene" uid="uid://c7asq67ysb1xc" path="res://scenes/elements/missions/missionText.tscn" id="5_0xdbp"]
 
 [node name="ObjCollage" type="Node2D"]
-script = ExtResource("1_hb7ed")
+script = ExtResource("1_xxt7c")
 
 [node name="TextureButton" type="TextureButton" parent="."]
 z_index = 130
@@ -24,16 +24,16 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 pivot_offset = Vector2(165, 95)
-texture_normal = ExtResource("2_k248m")
-texture_pressed = ExtResource("3_hiy4t")
-texture_hover = ExtResource("4_db3xp")
+texture_normal = ExtResource("2_36byx")
+texture_pressed = ExtResource("3_4o8ed")
+texture_hover = ExtResource("4_g7jac")
 ignore_texture_size = true
 stretch_mode = 5
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 
-[node name="MarginContainer" parent="." instance=ExtResource("5_dn5fh")]
+[node name="MarginContainer" parent="." instance=ExtResource("5_0xdbp")]
 z_index = 140
 
 [node name="MyMissionLabel" type="Label" parent="."]

@@ -2,7 +2,8 @@ extends Node2D
 
 var e_militant = -1
 
-const COME_IN_DUR = 2
+const COME_IN_DUR = 2.5
+const COME_OUT_DUR = 2
 
 signal iAmReady
 signal byeBye
@@ -10,13 +11,16 @@ signal byeBye
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	self.modulate = Color.TRANSPARENT
-#	come_in(Vector2(20,20), Vector2(200,200))
+	self.scale= Vector2(0.6,0.6)
 
 func come_in(from, to):
+	self.scale= Vector2(0.6,0.6)
+	self.modulate = Color.TRANSPARENT
 	self.position = from
 	var tween = Engine.get_main_loop().create_tween().bind_node(self)
-	tween.parallel().tween_property(self, "position", to, COME_IN_DUR)
-	tween.parallel().tween_property(self, "modulate", Color.WHITE, COME_IN_DUR/2.0)
+	tween.tween_property(self, "modulate", Color.WHITE, 1.0*COME_IN_DUR/3.0)
+	tween.tween_property(self, "position", to, 2.0*COME_IN_DUR/3.0)
+	tween.parallel().tween_property(self, "scale", Vector2(1,1), 2.0*COME_IN_DUR/3.0)
 	await tween.finished
 	iAmReady.emit(self)
 
@@ -24,8 +28,9 @@ func come_out(from, to):
 	self.modulate = Color.WHITE
 	self.position = from
 	var tween = Engine.get_main_loop().create_tween().bind_node(self)
-	tween.parallel().tween_property(self, "position", to, COME_IN_DUR)
-	tween.parallel().tween_property(self, "modulate", Color.TRANSPARENT, COME_IN_DUR/1.3)
+	tween.tween_property(self, "position", to, 2.0*COME_OUT_DUR/3.0)
+	tween.parallel().tween_property(self, "scale", Vector2(0.6,0.6), 2.0*COME_IN_DUR/3.0)
+	tween.tween_property(self, "modulate", Color.TRANSPARENT, 1.0*COME_IN_DUR/3.0)
 	await tween.finished
 	byeBye.emit(self)
 	

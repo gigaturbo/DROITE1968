@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1cqrmaakumis"]
+
+[ext_resource type="Script" path="res://scripts/Militant.gd" id="1_mwxip"]
+[ext_resource type="Texture2D" uid="uid://bh4nyoq5hjp0e" path="res://assets/image/personnages/Rene_Wip.png" id="2_25y4c"]
+
+[node name="Militant4" type="Node2D"]
+script = ExtResource("1_mwxip")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 120
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_25y4c")

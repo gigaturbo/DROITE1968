@@ -1,14 +1,14 @@
 [gd_scene load_steps=6 format=3 uid="uid://dlgkuhjdnmntc"]
 
-[ext_resource type="Script" path="res://scripts/Object.gd" id="1_xtqa7"]
-[ext_resource type="Texture2D" uid="uid://dmplfhtwcxrh4" path="res://assets/image/objets/asset_tract.png" id="2_r2bfi"]
-[ext_resource type="Texture2D" uid="uid://r8ihocfsc8yp" path="res://assets/image/objets/asset_tract_selected.png" id="3_aei2e"]
-[ext_resource type="Texture2D" uid="uid://vu70ggfvtlhw" path="res://assets/image/objets/asset_tract_highlight.png" id="4_oicyi"]
-[ext_resource type="PackedScene" uid="uid://c7asq67ysb1xc" path="res://scenes/elements/missions/missionText.tscn" id="5_cio6b"]
+[ext_resource type="Script" path="res://scripts/Object.gd" id="1_c3481"]
+[ext_resource type="Texture2D" uid="uid://ilpyvkp3av1" path="res://assets/image/objets/asset_deguisement.png" id="2_0nkuj"]
+[ext_resource type="Texture2D" uid="uid://cxdh67bnkfpkh" path="res://assets/image/objets/asset_deguisement_selected.png" id="3_41a37"]
+[ext_resource type="Texture2D" uid="uid://cn00njtq1upx" path="res://assets/image/objets/asset_deguisement_highlight.png" id="4_elumk"]
+[ext_resource type="PackedScene" uid="uid://c7asq67ysb1xc" path="res://scenes/elements/missions/missionText.tscn" id="5_dmtn1"]
 
 [node name="ObjTract" type="Node2D"]
 z_index = 130
-script = ExtResource("1_xtqa7")
+script = ExtResource("1_c3481")
 
 [node name="TextureButton" type="TextureButton" parent="."]
 anchors_preset = 8
@@ -24,16 +24,16 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 pivot_offset = Vector2(165, 95)
-texture_normal = ExtResource("2_r2bfi")
-texture_pressed = ExtResource("3_aei2e")
-texture_hover = ExtResource("4_oicyi")
+texture_normal = ExtResource("2_0nkuj")
+texture_pressed = ExtResource("3_41a37")
+texture_hover = ExtResource("4_elumk")
 ignore_texture_size = true
 stretch_mode = 5
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 
-[node name="MarginContainer" parent="." instance=ExtResource("5_cio6b")]
+[node name="MarginContainer" parent="." instance=ExtResource("5_dmtn1")]
 
 [node name="MyMissionLabel" type="Label" parent="."]
 offset_right = 40.0
