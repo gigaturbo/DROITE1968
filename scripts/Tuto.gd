@@ -33,13 +33,6 @@ func _input(event):
 						histState = 1
 						timer.start()
 
-#1:
-#			if event is InputEventMouseButton:
-#				if event.is_pressed():
-#					if event.button_index == 1:
-#						
-
-
 func _on_timer_timeout():
 	eteindre.show()
 	

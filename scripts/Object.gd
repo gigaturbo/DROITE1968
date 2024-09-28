@@ -20,8 +20,8 @@ func _ready():
 func _process(delta):
 	if state == 1:
 		var percent_proc = 1.0 - ($Timer.time_left / SELECT_TIME)
-		var scale =  (1.0 + 0.3 * percent_proc)
-		$TextureButton.scale = Vector2(1,1) * scale
+		var nscale =  (1.0 + 0.3 * percent_proc)
+		$TextureButton.scale = Vector2(1,1) * nscale
 	else :
 			$TextureButton.scale = Vector2(1,1)
 	
@@ -44,3 +44,7 @@ func go_away():
 	var tween = get_tree().create_tween()
 	tween.tween_property($TextureButton, "position", npos, 0.33)
 	tween.tween_property($TextureButton, "visible", false, 0)
+
+func get_selected():
+	var tween = get_tree().create_tween()
+	tween.tween_property($TextureButton, "modulate", Color.TRANSPARENT, 0.5)

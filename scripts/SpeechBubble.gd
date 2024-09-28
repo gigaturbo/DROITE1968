@@ -16,13 +16,12 @@ func set_text(text):
 	var ptext = text_n.get_parsed_text()
 	var nlines = text_n.get_line_count()
 	
-	var duration = ptext.length() * 0.02
 	var text_size = text_n.get_theme_font("normal_font").get_string_size(ptext)
 	var font_size = text_n.get_theme_font_size("normal_font_size")
 	text_n.size = Vector2(text_size.x, text_size.y*nlines)*font_size/16
 	rect_n.size = Vector2(text_size.x, text_size.y*nlines)*font_size/16
 	
 	var tween = get_tree().create_tween().bind_node(self)
-	await tween.tween_property(text_n, "visible_ratio", 1, 1)
+	tween.tween_property(text_n, "visible_ratio", 1, 1)
 	
 	textEnd.emit()
