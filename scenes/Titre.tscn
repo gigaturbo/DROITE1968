@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/Titre.gd" id="1_hojoq"]
 [ext_resource type="Texture2D" uid="uid://cgiq5uh56drrb" path="res://assets/image/fonds/intro.png" id="2_o5eao"]
-[ext_resource type="PackedScene" uid="uid://1u41ly640v6u" path="res://scenes/elements/BouttonCommencer.tscn" id="3_rnxh5"]
+[ext_resource type="PackedScene" uid="uid://bw7cfs8mvijas" path="res://scenes/elements/BouttonCommencer-2.tscn" id="3_pxb7p"]
 
 [node name="Titre" type="Node2D"]
 script = ExtResource("1_hojoq")
@@ -12,4 +12,6 @@ scale = Vector2(1, 1.20724)
 texture = ExtResource("2_o5eao")
 centered = false
 
-[node name="BouttonCommencer" parent="." instance=ExtResource("3_rnxh5")]
+[node name="TextureButton-custom" parent="." instance=ExtResource("3_pxb7p")]
+
+[connection signal="pressed" from="TextureButton-custom" to="." method="_on_texture_buttoncustom_pressed"]

@@ -10,3 +10,5 @@ script = ExtResource("1_3ouxd")
 [node name="Titre" parent="." instance=ExtResource("2_soksl")]
 
 [node name="Tuto" parent="." instance=ExtResource("3_iwt3s")]
+
+[connection signal="startButtonPressed" from="Titre" to="." method="_on_titre_start_button_pressed"]
