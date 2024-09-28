@@ -11,6 +11,7 @@ enum ObjEnum {MATRAQUE, MEGAPHONE, COLLAGE, TRACT}
 
 var e_mission = -1
 
+var rscale = Vector2(1,1)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -25,7 +26,7 @@ func _ready():
 	$MyMissionLabel.hide()
 	$Timer.wait_time = SELECT_TIME
 	$Timer.stop()
-	$TextureButton.scale = Vector2(1,1)
+	rscale = $TextureButton.scale
 	
 	$MarginContainer/MarginContainer/Label.set_text($MyMissionLabel.text)
 	
@@ -34,10 +35,11 @@ func _ready():
 func _process(delta):
 	if state == 1:
 		var percent_proc = 1.0 - ($Timer.time_left / SELECT_TIME)
-		var nscale =  (1.0 + 0.3 * percent_proc)
-		$TextureButton.scale = Vector2(1,1) * nscale
+		var nscale =  Vector2(1,1) * (1.0 + percent_proc * 0.3)
+		print(nscale)
+		$TextureButton.scale = rscale * nscale
 	else :
-			$TextureButton.scale = Vector2(1,1)
+			$TextureButton.scale = rscale
 	
 func _on_texture_button_button_down():
 	$Timer.start()
@@ -47,7 +49,7 @@ func _on_texture_button_button_up():
 	$Timer.wait_time = SELECT_TIME
 	$Timer.stop()
 	state = 0
-	$TextureButton.scale = Vector2(1,1)
+	$TextureButton.scale = rscale
 
 func _on_timer_timeout():
 	selected.emit(self)

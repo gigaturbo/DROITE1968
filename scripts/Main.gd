@@ -125,7 +125,7 @@ func _militant_arrived(obj):
 		mis.e_mission = day["missions"][i]
 		dayMissions.append(mis)
 		mis.selected.connect(_mission_selected)
-		mis.position = Vector2(300*(i+1) - 100, 600)	
+		mis.position = Vector2(200*(i+1) + 200, 700)	
 		add_child(mis)
 		mis.show()
 	
