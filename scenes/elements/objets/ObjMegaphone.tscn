@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://dyfxwom00d8tb"]
+
+[ext_resource type="Script" path="res://scripts/ObjCollage.gd" id="1_3wt2p"]
+[ext_resource type="Texture2D" uid="uid://cfcsqfqaq837b" path="res://assets/image/objets/asset_megaphone.png" id="2_aqypa"]
+[ext_resource type="Texture2D" uid="uid://cvadrtvrbueyp" path="res://assets/image/objets/asset_megaphone_selected.png" id="3_8i7tp"]
+[ext_resource type="Texture2D" uid="uid://bwc7pw4ng8qor" path="res://assets/image/objets/asset_megaphone_highllight.png" id="4_1xkhs"]
+
+[node name="ObjMegaphone" type="Node2D"]
+script = ExtResource("1_3wt2p")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 368.0
+offset_top = 223.0
+offset_right = 698.0
+offset_bottom = 413.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(165, 95)
+texture_normal = ExtResource("2_aqypa")
+texture_pressed = ExtResource("3_8i7tp")
+texture_hover = ExtResource("4_1xkhs")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="button_down" from="TextureButton" to="." method="_on_texture_button_button_down"]
+[connection signal="button_up" from="TextureButton" to="." method="_on_texture_button_button_up"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

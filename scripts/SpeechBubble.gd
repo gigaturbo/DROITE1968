@@ -17,7 +17,6 @@ func set_text(text, wait_t=3):
 	var duration = ptext.length() * 0.02
 	var text_size = text_n.get_theme_font("normal_font").get_string_size(ptext)
 	var font_size = text_n.get_theme_font_size("normal_font_size")
-	print(nlines)
 	text_n.size = Vector2(text_size.x, text_size.y*nlines)*font_size/16
 	rect_n.size = Vector2(text_size.x, text_size.y*nlines)*font_size/16
 	

@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://bnyxrgf2gejow"]
+
+[ext_resource type="Script" path="res://scripts/ObjCollage.gd" id="1_hb7ed"]
+[ext_resource type="Texture2D" uid="uid://ccp8dwdrwiwfa" path="res://assets/image/objets/asset_collage.png" id="2_k248m"]
+[ext_resource type="Texture2D" uid="uid://c1h0w5c5md2u2" path="res://assets/image/objets/asset_collage_selected.png" id="3_hiy4t"]
+[ext_resource type="Texture2D" uid="uid://di53evnl7w006" path="res://assets/image/objets/asset_collage_highlight.png" id="4_db3xp"]
+
+[node name="ObjCollage" type="Node2D"]
+script = ExtResource("1_hb7ed")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 368.0
+offset_top = 223.0
+offset_right = 698.0
+offset_bottom = 413.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(165, 95)
+texture_normal = ExtResource("2_k248m")
+texture_pressed = ExtResource("3_hiy4t")
+texture_hover = ExtResource("4_db3xp")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="button_down" from="TextureButton" to="." method="_on_texture_button_button_down"]
+[connection signal="button_up" from="TextureButton" to="." method="_on_texture_button_button_up"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
