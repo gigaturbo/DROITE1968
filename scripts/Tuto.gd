@@ -5,17 +5,21 @@ signal endTuto
 @onready var bubble = $SpeechBubble
 @onready var part1 = $Part1
 
-
-var histState = 0
-
+var histState = -1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	bubble.hide()
+	histState = -1
 	pass # Replace with function body.
 
 
-func _on_area_2d_input_event(viewport, event, shape_idx):
+func startTuto():
+	bubble.hide()
+	histState = 0
+	pass # Replace with function body.
+
+func _input(event):
 	match histState:
 		0:
 			if event is InputEventMouseButton:

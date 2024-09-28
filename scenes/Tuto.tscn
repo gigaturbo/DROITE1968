@@ -1,12 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://xpyssfnyfg1s"]
+[gd_scene load_steps=5 format=3 uid="uid://xpyssfnyfg1s"]
 
 [ext_resource type="Script" path="res://scripts/Tuto.gd" id="1_2luo7"]
 [ext_resource type="Texture2D" uid="uid://ngqxl6hnneat" path="res://assets/image/fonds/bureau.png" id="2_0hlah"]
 [ext_resource type="PackedScene" uid="uid://b3cusexoa40x6" path="res://scenes/elements/SpeechBubble.tscn" id="4_3t8af"]
 [ext_resource type="FontFile" uid="uid://bpfmyyvhk21ar" path="res://assets/fonts/Super Water.ttf" id="4_rat6j"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_flcya"]
-size = Vector2(1129, 755)
 
 [node name="Tuto" type="Node2D"]
 script = ExtResource("1_2luo7")
@@ -46,16 +43,5 @@ theme_override_font_sizes/normal_font_size = 28
 text = "blablabla contexte blablabla contexte blablabla contexte blablabla contexte blablabla contexte blablabla contexte blablabla contexte blablabla contexte blablabla contexte blablabla contexte blablabla contexte blablabla contexte blablabla contexte blablabla contexte blablabla contexte "
 scroll_active = false
 
-[node name="Area2D" type="Area2D" parent="Part1"]
-z_index = 470
-monitoring = false
-monitorable = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Part1/Area2D"]
-position = Vector2(554.5, 367.5)
-shape = SubResource("RectangleShape2D_flcya")
-
 [node name="SpeechBubble" parent="." instance=ExtResource("4_3t8af")]
 position = Vector2(-103, 133)
-
-[connection signal="input_event" from="Part1/Area2D" to="." method="_on_area_2d_input_event"]
