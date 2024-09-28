@@ -15,31 +15,32 @@ var punctuation_time = 0.2
 
 signal finished_displaying()
 
-#func _ready():
-#	display_text("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec et posuere magna. Nulla eget finibus nibh. Pellentesque libero elit, malesuada ac nisl a, pharetra bibendum ligula. Donec dapibus eget purus id convallis. Suspendisse lacus arcu, interdum ac ex sed, feugiat volutpat enim.")
 
 func display_text(text_to_display: String, panelInitialSize:Vector2 = Vector2(0,0)):
 	if(panelInitialSize.x > 0):
 		MAX_WIDTH = panelInitialSize.x
 		size.x = panelInitialSize.x
 		size.y = panelInitialSize.y
-		
-	text = text_to_display
-	label.text = text_to_display
-	
-	await resized
-	
-	
-	custom_minimum_size.x = min(size.x, MAX_WIDTH)
-	
-	if size.x > MAX_WIDTH:
+		text = text_to_display
+		label.text = text_to_display
 		label.autowrap_mode = TextServer.AUTOWRAP_WORD
-		await resized # wait for x resized
-		await resized # wait for y resized
-		custom_minimum_size.y = size.y + 24
+	else: # no initial size : the windows adjust itself
+		text = text_to_display
+		label.text = text_to_display
+		await resized
+		custom_minimum_size.x = min(size.x, MAX_WIDTH)
 		
-#	global_position.x -= size.x / 2
-#	global_position.y -= size.y + 24
+		if size.x >= MAX_WIDTH:
+			label.autowrap_mode = TextServer.AUTOWRAP_WORD
+			await resized # wait for x resized
+#			await resized # wait for y resized
+			custom_minimum_size.y = size.y
+		
+		# Adjust window position
+		global_position.x -= size.x / 2
+		global_position.y -= size.y + 24
+	
+	
 	
 	label.text = ""
 	_display_letter()
@@ -51,6 +52,7 @@ func _on_letter_display_timer_timeout():
 
 
 func _display_letter():
+	
 	label.text += text[letter_index]
 	letter_index += 1
 	if letter_index >= text.length():

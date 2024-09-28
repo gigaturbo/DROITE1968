@@ -12,4 +12,4 @@ texture = ExtResource("2_iglv7")
 centered = false
 
 [node name="TextPosition_corner" type="Marker2D" parent="."]
-position = Vector2(141, 544)
+position = Vector2(179, 534)
