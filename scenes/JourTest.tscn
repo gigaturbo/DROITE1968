@@ -10,7 +10,7 @@
 script = ExtResource("1_a1t5c")
 
 [node name="BG" type="Sprite2D" parent="."]
-scale = Vector2(1.75719, 1.81796)
+scale = Vector2(1.749, 1.914)
 texture = ExtResource("2_courd")
 centered = false
 
@@ -20,14 +20,14 @@ position = Vector2(141, 544)
 [node name="Objets" type="Node2D" parent="."]
 
 [node name="ObjTract" parent="Objets" instance=ExtResource("3_7or2i")]
-position = Vector2(325, 252)
+position = Vector2(249, 303)
 OBJ_NAME = 3
 
 [node name="ObjMatraque" parent="Objets" instance=ExtResource("4_67s7u")]
-position = Vector2(47, 245)
+position = Vector2(12, 310)
 
 [node name="ObjMegaphone" parent="Objets" instance=ExtResource("5_dyj3c")]
-position = Vector2(-242, 276)
+position = Vector2(-263, 332)
 OBJ_NAME = 1
 
 [connection signal="selected" from="Objets/ObjTract" to="." method="_on_obj_tract_selected"]
