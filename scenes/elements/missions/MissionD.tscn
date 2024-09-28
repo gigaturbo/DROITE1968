@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dmplfhtwcxrh4" path="res://assets/image/objets/asset_tract.png" id="2_uheck"]
 [ext_resource type="Texture2D" uid="uid://r8ihocfsc8yp" path="res://assets/image/objets/asset_tract_selected.png" id="3_vkh6d"]
 [ext_resource type="Texture2D" uid="uid://vu70ggfvtlhw" path="res://assets/image/objets/asset_tract_highlight.png" id="4_ao0cv"]
-[ext_resource type="PackedScene" uid="uid://c7asq67ysb1xc" path="res://scenes/elements/objets/missionText.tscn" id="5_n3ye4"]
+[ext_resource type="PackedScene" uid="uid://c7asq67ysb1xc" path="res://scenes/elements/missions/missionText.tscn" id="5_n3ye4"]
 
 [node name="ObjTract" type="Node2D"]
 z_index = 130

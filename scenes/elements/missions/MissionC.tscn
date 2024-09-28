@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cfcsqfqaq837b" path="res://assets/image/objets/asset_megaphone.png" id="2_aqypa"]
 [ext_resource type="Texture2D" uid="uid://cvadrtvrbueyp" path="res://assets/image/objets/asset_megaphone_selected.png" id="3_8i7tp"]
 [ext_resource type="Texture2D" uid="uid://bwc7pw4ng8qor" path="res://assets/image/objets/asset_megaphone_highllight.png" id="4_1xkhs"]
-[ext_resource type="PackedScene" uid="uid://c7asq67ysb1xc" path="res://scenes/elements/objets/missionText.tscn" id="5_dmb5m"]
+[ext_resource type="PackedScene" uid="uid://c7asq67ysb1xc" path="res://scenes/elements/missions/missionText.tscn" id="5_dmb5m"]
 
 [node name="ObjMegaphone" type="Node2D"]
 z_index = 130
