@@ -9,6 +9,7 @@ func _ready():
 	
 	$Tuto.hide()
 
+	$JourTest.hide()
 
 func _on_titre_start_button_pressed():
 	$MusiqueTitre.stop()
@@ -17,7 +18,12 @@ func _on_titre_start_button_pressed():
 	
 	$Tuto.show()
 	$Tuto.startTuto()
+	
 
 
 func _on_tuto_end_tuto():
 	$Tuto.hide()
+	
+	$JourTest.show()
+
+

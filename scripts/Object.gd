@@ -6,12 +6,16 @@ const SELECT_TIME = 1
 
 var state = 0
 
+enum NamedEnum {MATRAQUE, MEGAPHONE, COLLAGE, TRACT}
+@export var OBJ_NAME: NamedEnum
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Timer.wait_time = SELECT_TIME
 	$Timer.stop()
-	$TextureButton.scale = Vector2(1,1)	
-
+	$TextureButton.scale = Vector2(1,1)
+	
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if state == 1:
@@ -31,7 +35,7 @@ func _on_texture_button_button_up():
 	state = 0
 	$TextureButton.scale = Vector2(1,1)
 
-
 func _on_timer_timeout():
-	print("SELECTED")
+	print("Selected a ", OBJ_NAME)
 	selected.emit()
+	

@@ -4,6 +4,8 @@ signal endTuto
 
 @onready var bubble = $SpeechBubble
 @onready var part1 = $Part1
+@onready var timer = $Timer
+@onready var eteindre = $ButtonEnteindreTV
 
 var histState = -1
 
@@ -11,13 +13,13 @@ var histState = -1
 func _ready():
 	bubble.hide()
 	histState = -1
-	pass # Replace with function body.
-
+	timer.stop()
+	timer.wait_time = 1
+	eteindre.hide()
 
 func startTuto():
 	bubble.hide()
 	histState = 0
-	pass # Replace with function body.
 
 func _input(event):
 	match histState:
@@ -29,9 +31,17 @@ func _input(event):
 						bubble.show()
 						bubble.set_text("Voici le context, blablabla\nblablelble\nkzzdz")
 						histState = 1
-		1:
-			if event is InputEventMouseButton:
-				if event.is_pressed():
-					if event.button_index == 1:
-						endTuto.emit()
-		
+						timer.start()
+
+#1:
+#			if event is InputEventMouseButton:
+#				if event.is_pressed():
+#					if event.button_index == 1:
+#						
+
+
+func _on_timer_timeout():
+	eteindre.show()
+	
+func _on_button_pressed():
+	endTuto.emit()

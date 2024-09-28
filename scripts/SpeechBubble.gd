@@ -3,12 +3,14 @@ extends Node2D
 @onready var text_n = $Node2D/RichTextLabel
 @onready var rect_n = $Node2D/ColorRect
 
+signal textEnd
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	visible = false 
 	text_n.visible_ratio=0
 
-func set_text(text, wait_t=3):
+func set_text(text):
 	visible = true
 	text_n.parse_bbcode(text)
 	var ptext = text_n.get_parsed_text()
@@ -21,4 +23,6 @@ func set_text(text, wait_t=3):
 	rect_n.size = Vector2(text_size.x, text_size.y*nlines)*font_size/16
 	
 	var tween = get_tree().create_tween().bind_node(self)
-	tween.tween_property(text_n, "visible_ratio", 1, 1)
+	await tween.tween_property(text_n, "visible_ratio", 1, 1)
+	
+	textEnd.emit()
