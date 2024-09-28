@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://7d74krn38k4p"]
+[gd_scene load_steps=5 format=3 uid="uid://7d74krn38k4p"]
 
 [ext_resource type="Script" path="res://scripts/Titre.gd" id="1_hojoq"]
 [ext_resource type="Texture2D" uid="uid://cgiq5uh56drrb" path="res://assets/image/fonds/intro.png" id="2_o5eao"]
 [ext_resource type="PackedScene" uid="uid://bw7cfs8mvijas" path="res://scenes/elements/BouttonCommencer.tscn" id="3_pxb7p"]
+[ext_resource type="FontFile" uid="uid://bpfmyyvhk21ar" path="res://assets/fonts/Super Water.ttf" id="4_e2g6g"]
 
 [node name="Titre" type="Node2D"]
 script = ExtResource("1_hojoq")
@@ -13,5 +14,27 @@ texture = ExtResource("2_o5eao")
 centered = false
 
 [node name="TextureButton-custom" parent="." instance=ExtResource("3_pxb7p")]
+offset_left = 144.0
+offset_top = 412.0
+offset_right = 447.0
+offset_bottom = 568.0
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 44.0
+offset_top = -19.0
+offset_right = 903.0
+offset_bottom = 283.0
+theme_override_colors/default_color = Color(0, 0.196078, 0.705882, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 35
+theme_override_fonts/normal_font = ExtResource("4_e2g6g")
+theme_override_font_sizes/normal_font_size = 129
+text = "
+ DROITE 1968"
+scroll_active = false
+autowrap_mode = 0
+tab_size = 6
 
 [connection signal="pressed" from="TextureButton-custom" to="." method="_on_texture_buttoncustom_pressed"]
