@@ -1,6 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://7d74krn38k4p"]
+[gd_scene load_steps=4 format=3 uid="uid://7d74krn38k4p"]
 
 [ext_resource type="Script" path="res://scripts/Titre.gd" id="1_hojoq"]
+[ext_resource type="Texture2D" uid="uid://cgiq5uh56drrb" path="res://assets/image/fonds/intro.png" id="2_o5eao"]
+[ext_resource type="PackedScene" uid="uid://1u41ly640v6u" path="res://scenes/elements/BouttonCommencer.tscn" id="3_rnxh5"]
 
 [node name="Titre" type="Node2D"]
 script = ExtResource("1_hojoq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1, 1.20724)
+texture = ExtResource("2_o5eao")
+centered = false
+
+[node name="BouttonCommencer" parent="." instance=ExtResource("3_rnxh5")]

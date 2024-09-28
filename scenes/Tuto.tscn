@@ -1,6 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://xpyssfnyfg1s"]
+[gd_scene load_steps=4 format=3 uid="uid://xpyssfnyfg1s"]
 
 [ext_resource type="Script" path="res://scripts/Tuto.gd" id="1_2luo7"]
+[ext_resource type="Texture2D" uid="uid://ngqxl6hnneat" path="res://assets/image/fonds/bureau.png" id="2_0hlah"]
+[ext_resource type="PackedScene" uid="uid://drkrhirlao1d4" path="res://scenes/elements/Objet1.tscn" id="3_rm8wp"]
 
 [node name="Tuto" type="Node2D"]
 script = ExtResource("1_2luo7")
+
+[node name="BG" type="Sprite2D" parent="."]
+scale = Vector2(1.75719, 1.81796)
+texture = ExtResource("2_0hlah")
+centered = false
+
+[node name="Objet1" parent="." instance=ExtResource("3_rm8wp")]
+position = Vector2(209, 292)

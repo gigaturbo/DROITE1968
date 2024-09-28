@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://cakpsc8hxpp4q"]
+[gd_scene load_steps=3 format=3 uid="uid://cakpsc8hxpp4q"]
 
 [ext_resource type="Script" path="res://scripts/Main.gd" id="1_3ouxd"]
+[ext_resource type="PackedScene" uid="uid://7d74krn38k4p" path="res://scenes/Titre.tscn" id="2_soksl"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_3ouxd")
+
+[node name="Titre" parent="." instance=ExtResource("2_soksl")]
