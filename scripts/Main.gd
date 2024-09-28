@@ -186,7 +186,12 @@ func startDays():
 			
 			await mil.byeBye
 			
-			# Can launch another cycle
+			# Mission results
+			
+			
+			
+			
+			# To next cycle
 	
 	
 # Handle mission selection
