@@ -9,6 +9,8 @@ var state = 0
 enum ObjEnum {MATRAQUE, MEGAPHONE, COLLAGE, TRACT}
 @export var OBJ_NAME: ObjEnum
 
+var e_mission = -1
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$MarginContainer.hide()
@@ -37,7 +39,7 @@ func _on_texture_button_button_up():
 	$TextureButton.scale = Vector2(1,1)
 
 func _on_timer_timeout():
-	selected.emit()
+	selected.emit(self)
 
 func go_away():
 	var apos = $TextureButton.position

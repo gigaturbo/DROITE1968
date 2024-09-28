@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cakpsc8hxpp4q"]
+[gd_scene load_steps=5 format=3 uid="uid://cakpsc8hxpp4q"]
 
 [ext_resource type="Script" path="res://scripts/Main.gd" id="1_3ouxd"]
 [ext_resource type="PackedScene" uid="uid://7d74krn38k4p" path="res://scenes/Titre.tscn" id="2_soksl"]
 [ext_resource type="PackedScene" uid="uid://xpyssfnyfg1s" path="res://scenes/Tuto.tscn" id="3_iwt3s"]
 [ext_resource type="AudioStream" uid="uid://buchlsyhdvy8e" path="res://assets/audio/musiques/partie 1 finie.wav" id="4_7jf6a"]
-[ext_resource type="PackedScene" uid="uid://bbs350mjapv8d" path="res://scenes/JourTest.tscn" id="4_ld6co"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_3ouxd")
@@ -15,8 +14,6 @@ script = ExtResource("1_3ouxd")
 
 [node name="MusiqueTitre" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_7jf6a")
-
-[node name="JourTest" parent="." instance=ExtResource("4_ld6co")]
 
 [connection signal="startButtonPressed" from="Titre" to="." method="_on_titre_start_button_pressed"]
 [connection signal="endTuto" from="Tuto" to="." method="_on_tuto_end_tuto"]

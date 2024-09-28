@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://beky7la86pyrx"]
+[gd_scene load_steps=4 format=3 uid="uid://cpnemw77p4ckk"]
 
 [ext_resource type="Script" path="res://scripts/TextBox.gd" id="1_2pyvn"]
 [ext_resource type="Texture2D" uid="uid://dhd51cm7da8gw" path="res://assets/image/interfaces/bulle_dialog_down.png" id="1_8gm6i"]

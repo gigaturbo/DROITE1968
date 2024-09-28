@@ -8,7 +8,9 @@ func _ready():
 
 
 
-func _on_obj_tract_selected():
+func _on_obj_tract_selected(objet):
+	print(objet.OBJ_NAME)
+	print(objet.ObjEnum)
 	print("you-ve got tracted")
 	$Objets/ObjTract.get_selected()
 	$Objets/ObjMegaphone.go_away()
