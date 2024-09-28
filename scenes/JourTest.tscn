@@ -23,7 +23,7 @@ centered = false
 metadata/_edit_group_ = true
 
 [node name="TextPosition_corner" type="Marker2D" parent="."]
-position = Vector2(141, 544)
+position = Vector2(256, 719)
 
 [node name="Objets" type="Node2D" parent="."]
 

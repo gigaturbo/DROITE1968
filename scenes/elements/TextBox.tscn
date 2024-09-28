@@ -2,11 +2,15 @@
 
 [ext_resource type="Script" path="res://scripts/TextBox.gd" id="1_2pyvn"]
 [ext_resource type="Texture2D" uid="uid://dhd51cm7da8gw" path="res://assets/image/interfaces/bulle_dialog_down.png" id="1_8gm6i"]
-[ext_resource type="FontFile" uid="uid://clgvt4h14yrnr" path="res://assets/font/rainyhearts.ttf" id="2_2q2c4"]
+[ext_resource type="FontFile" uid="uid://c1114d7vgm2up" path="res://assets/fonts/Helvetica Neue Condensed Bold.ttf" id="3_wtf8g"]
 
 [node name="TextBox" type="MarginContainer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -95.0
 offset_right = 90.0
-offset_bottom = 99.0
+grow_vertical = 0
 theme_override_constants/margin_left = 0
 script = ExtResource("1_2pyvn")
 
@@ -29,11 +33,11 @@ theme_override_constants/margin_bottom = 50
 [node name="Label" type="Label" parent="MarginContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_2q2c4")
-theme_override_font_sizes/font_size = 36
-vertical_alignment = 1
+theme_override_fonts/font = ExtResource("3_wtf8g")
+theme_override_font_sizes/font_size = 24
 
 [node name="LetterDisplayTimer" type="Timer" parent="."]
 one_shot = true
 
+[connection signal="resized" from="MarginContainer" to="." method="_on_margin_container_resized"]
 [connection signal="timeout" from="LetterDisplayTimer" to="." method="_on_letter_display_timer_timeout"]

@@ -22,9 +22,11 @@ func _on_obj_matraque_selected():
 
 func _on_obj_megaphone_selected():
 	print("you-ve got megaphoned")
+<<<<<<< HEAD
 	$Objets/ObjMegaphone.get_selected()
 	$Objets/ObjMatraque.go_away()
 	$Objets/ObjTract.go_away()
+=======
 
 
 const testLines: Array[String] = [
@@ -40,3 +42,4 @@ func _unhandled_input(event):
 
 	if event.is_action_pressed("B_button"):
 		DialogManager.start_dialog($TextPosition_corner.position, testLines, Vector2(720,200))
+>>>>>>> a3d7c6431dc4578a0538aaa742a374fcbbd72595

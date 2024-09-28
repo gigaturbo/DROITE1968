@@ -30,7 +30,7 @@ func _show_text_box():
 	text_box = text_box_scene.instantiate()
 	text_box.finished_displaying.connect(_on_text_box_finished_displaying)
 	get_tree().root.add_child(text_box)
-	text_box.global_position = text_box_position
+	text_box.global_position = text_box_position - Vector2(0, text_box.size.y)
 	text_box.display_text(dialog_lines[current_line_index], panelInitialSize)
 	can_advance_line = false
 
