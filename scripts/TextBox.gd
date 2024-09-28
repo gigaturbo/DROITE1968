@@ -3,15 +3,21 @@ extends MarginContainer
 @onready var label = $MarginContainer/Label
 @onready var timer = $LetterDisplayTimer
 
-var MAX_WIDTH = 526
+# Une fenêtre de texte
+# Si panelInitialSize est donné à display_text, panelInitialSize définie la taille de la fenêtre (celle-ci peut bouger si le texte est trop grand)
+# S'il n'est pas donné, la fenêtre s'ajuste à la séquence de texte à afficher
+
+var MAX_WIDTH = 256 # Only If panelInitialSize is not given to display_text : the maximum width before which a new line is began 
 
 
 var text = ""
 var letter_index = 0
 
-var letter_time = 0.03
-var space_time = 0.06
-var punctuation_time = 0.2
+var letter_time = 0.02
+var space_time = 0.04
+var punctuation_time = 0.15
+
+var previous_size_y = 0
 
 signal finished_displaying()
 
@@ -19,6 +25,7 @@ signal finished_displaying()
 func display_text(text_to_display: String, panelInitialSize:Vector2 = Vector2(0,0)):
 	if(panelInitialSize.x > 0):
 		MAX_WIDTH = panelInitialSize.x
+		global_position.y -= panelInitialSize.y - size.y
 		size.x = panelInitialSize.x
 		size.y = panelInitialSize.y
 		text = text_to_display
@@ -37,11 +44,11 @@ func display_text(text_to_display: String, panelInitialSize:Vector2 = Vector2(0,
 			custom_minimum_size.y = size.y
 		
 		# Adjust window position
-		global_position.x -= size.x / 2
-		global_position.y -= size.y + 24
+#		global_position.x -= size.x / 2
+#		global_position.y -= size.y + 24
 	
 	
-	
+	previous_size_y = size.y
 	label.text = ""
 	_display_letter()
 	
@@ -53,7 +60,12 @@ func _on_letter_display_timer_timeout():
 
 func _display_letter():
 	
+	
+#	global_position.y -= size.y - previous_size_y
+#	previous_size_y = size.y
+	
 	label.text += text[letter_index]
+	
 	letter_index += 1
 	if letter_index >= text.length():
 		finished_displaying.emit()
@@ -66,3 +78,5 @@ func _display_letter():
 			timer.start(space_time)
 		_:
 			timer.start(letter_time)
+
+
