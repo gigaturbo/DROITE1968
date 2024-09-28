@@ -23,7 +23,7 @@ DialogManager="*res://scripts/DialogManager.gd"
 [display]
 
 window/size/viewport_width=1080
-window/size/viewport_height=720
+window/size/viewport_height=764
 window/size/resizable=false
 
 [editor]
