@@ -11,6 +11,7 @@ enum ObjEnum {MATRAQUE, MEGAPHONE, COLLAGE, TRACT}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$MarginContainer.hide()
 	$Timer.wait_time = SELECT_TIME
 	$Timer.stop()
 	$TextureButton.scale = Vector2(1,1)
@@ -48,3 +49,11 @@ func go_away():
 func get_selected():
 	var tween = get_tree().create_tween()
 	tween.tween_property($TextureButton, "modulate", Color.TRANSPARENT, 0.5)
+
+
+func _on_texture_button_mouse_entered():
+	$MarginContainer.show()
+
+
+func _on_texture_button_mouse_exited():
+	$MarginContainer.hide()
