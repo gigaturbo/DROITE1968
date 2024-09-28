@@ -1,11 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://xpyssfnyfg1s"]
+[gd_scene load_steps=5 format=3 uid="uid://xpyssfnyfg1s"]
 
 [ext_resource type="Script" path="res://scripts/Tuto.gd" id="1_2luo7"]
 [ext_resource type="Texture2D" uid="uid://ngqxl6hnneat" path="res://assets/image/fonds/bureau.png" id="2_0hlah"]
 [ext_resource type="FontFile" uid="uid://bpfmyyvhk21ar" path="res://assets/fonts/Super Water.ttf" id="4_rat6j"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_flcya"]
+size = Vector2(1129, 755)
+
 [node name="Tuto" type="Node2D"]
 script = ExtResource("1_2luo7")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(554.5, 367.5)
+shape = SubResource("RectangleShape2D_flcya")
 
 [node name="BG" type="Sprite2D" parent="."]
 scale = Vector2(1.75719, 1.81796)
@@ -39,3 +48,5 @@ theme_override_fonts/normal_font = ExtResource("4_rat6j")
 theme_override_font_sizes/normal_font_size = 28
 text = "blablabla contexte blablabla contexte blablabla contexte blablabla contexte blablabla contexte blablabla contexte blablabla contexte blablabla contexte blablabla contexte blablabla contexte blablabla contexte blablabla contexte blablabla contexte blablabla contexte blablabla contexte "
 scroll_active = false
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
