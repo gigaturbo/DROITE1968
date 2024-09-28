@@ -21,6 +21,25 @@ var previous_size_y = 0
 
 signal finished_displaying()
 
+enum EnumContexts{window1, window2, window3}
+
+var type = 3
+
+func _ready():
+	match type:
+		1:
+			$NinePatchRect1.show()
+			$NinePatchRect2.hide()
+			$NinePatchRect3.hide()
+		2:
+			$NinePatchRect1.hide()
+			$NinePatchRect2.show()
+			$NinePatchRect3.hide()
+		3:
+			$NinePatchRect1.hide()
+			$NinePatchRect2.hide()
+			$NinePatchRect3.show()
+			
 
 func display_text(text_to_display: String, panelInitialSize:Vector2 = Vector2(0,0)):
 	if(panelInitialSize.x > 0):

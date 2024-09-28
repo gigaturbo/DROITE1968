@@ -45,4 +45,5 @@ position = Vector2(876, 621)
 position = Vector2(547, 645)
 
 [node name="ObjTract" parent="Objets" instance=ExtResource("3_7or2i")]
+visible = false
 position = Vector2(554, 451)

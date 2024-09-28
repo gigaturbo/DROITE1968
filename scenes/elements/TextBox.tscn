@@ -1,20 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://cpnemw77p4ckk"]
+[gd_scene load_steps=6 format=3 uid="uid://cpnemw77p4ckk"]
 
 [ext_resource type="Script" path="res://scripts/TextBox.gd" id="1_2pyvn"]
 [ext_resource type="Texture2D" uid="uid://dhd51cm7da8gw" path="res://assets/image/interfaces/bulle_dialog_down.png" id="1_8gm6i"]
+[ext_resource type="Texture2D" uid="uid://c86fqppimbhl4" path="res://assets/image/interfaces/dialog_windows1.png" id="3_hytm8"]
 [ext_resource type="FontFile" uid="uid://c1114d7vgm2up" path="res://assets/fonts/Helvetica Neue Condensed Bold.ttf" id="3_wtf8g"]
+[ext_resource type="Texture2D" uid="uid://d2x44hqkyadnv" path="res://assets/image/interfaces/dialog_windows3.png" id="4_n8kuu"]
 
 [node name="TextBox" type="MarginContainer"]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_top = -95.0
-offset_right = 90.0
+offset_right = 41.0
 grow_vertical = 0
 theme_override_constants/margin_left = 0
 script = ExtResource("1_2pyvn")
 
-[node name="NinePatchRect" type="NinePatchRect" parent="."]
+[node name="NinePatchRect1" type="NinePatchRect" parent="."]
 layout_mode = 2
 texture = ExtResource("1_8gm6i")
 region_rect = Rect2(11, 19, 270, 153)
@@ -22,6 +24,26 @@ patch_margin_left = 27
 patch_margin_top = 24
 patch_margin_right = 63
 patch_margin_bottom = 54
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="."]
+layout_mode = 2
+texture = ExtResource("3_hytm8")
+region_rect = Rect2(0, 0, 46, 34)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 16
+patch_margin_bottom = 18
+
+[node name="NinePatchRect3" type="NinePatchRect" parent="."]
+layout_mode = 2
+texture = ExtResource("4_n8kuu")
+region_rect = Rect2(0, 0, 162, 78)
+patch_margin_left = 24
+patch_margin_top = 21
+patch_margin_right = 48
+patch_margin_bottom = 51
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
