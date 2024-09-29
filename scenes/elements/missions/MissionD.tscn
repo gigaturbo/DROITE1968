@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://bu7xwqd8bjiex"]
 
 [ext_resource type="Script" path="res://scripts/Object.gd" id="1_pb556"]
-[ext_resource type="Texture2D" uid="uid://dmplfhtwcxrh4" path="res://assets/image/objets/asset_tract.png" id="2_uheck"]
-[ext_resource type="Texture2D" uid="uid://r8ihocfsc8yp" path="res://assets/image/objets/asset_tract_selected.png" id="3_vkh6d"]
-[ext_resource type="Texture2D" uid="uid://vu70ggfvtlhw" path="res://assets/image/objets/asset_tract_highlight.png" id="4_ao0cv"]
+[ext_resource type="Texture2D" uid="uid://ccp8dwdrwiwfa" path="res://assets/image/objets/asset_collage.png" id="2_nrefa"]
+[ext_resource type="Texture2D" uid="uid://c1h0w5c5md2u2" path="res://assets/image/objets/asset_collage_selected.png" id="3_hqmqc"]
+[ext_resource type="Texture2D" uid="uid://di53evnl7w006" path="res://assets/image/objets/asset_collage_highlight.png" id="4_qv8xa"]
 [ext_resource type="PackedScene" uid="uid://c7asq67ysb1xc" path="res://scenes/elements/missions/missionText.tscn" id="5_n3ye4"]
 
 [node name="ObjTract" type="Node2D"]
@@ -24,9 +24,9 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 pivot_offset = Vector2(165, 95)
-texture_normal = ExtResource("2_uheck")
-texture_pressed = ExtResource("3_vkh6d")
-texture_hover = ExtResource("4_ao0cv")
+texture_normal = ExtResource("2_nrefa")
+texture_pressed = ExtResource("3_hqmqc")
+texture_hover = ExtResource("4_qv8xa")
 ignore_texture_size = true
 stretch_mode = 5
 

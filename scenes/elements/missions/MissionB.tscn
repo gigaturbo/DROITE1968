@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://dot1g8gf0cso2"]
 
 [ext_resource type="Script" path="res://scripts/Object.gd" id="1_cfnp7"]
-[ext_resource type="Texture2D" uid="uid://ccl4upmm5ydyq" path="res://assets/image/objets/asset_matraque.png" id="2_6h5et"]
-[ext_resource type="Texture2D" uid="uid://bnxrva1hkjlmt" path="res://assets/image/objets/asset_matraque_selected.png" id="3_s1my1"]
-[ext_resource type="Texture2D" uid="uid://lp4578e0nwe8" path="res://assets/image/objets/asset_matraque_highlight.png" id="4_5t1cd"]
+[ext_resource type="Texture2D" uid="uid://ccp8dwdrwiwfa" path="res://assets/image/objets/asset_collage.png" id="2_w6o6c"]
+[ext_resource type="Texture2D" uid="uid://c1h0w5c5md2u2" path="res://assets/image/objets/asset_collage_selected.png" id="3_6vqbw"]
+[ext_resource type="Texture2D" uid="uid://di53evnl7w006" path="res://assets/image/objets/asset_collage_highlight.png" id="4_myitk"]
 [ext_resource type="PackedScene" uid="uid://c7asq67ysb1xc" path="res://scenes/elements/missions/missionText.tscn" id="5_1u2ed"]
 
 [node name="ObjMatraque" type="Node2D"]
@@ -24,9 +24,9 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 pivot_offset = Vector2(165, 95)
-texture_normal = ExtResource("2_6h5et")
-texture_pressed = ExtResource("3_s1my1")
-texture_hover = ExtResource("4_5t1cd")
+texture_normal = ExtResource("2_w6o6c")
+texture_pressed = ExtResource("3_6vqbw")
+texture_hover = ExtResource("4_myitk")
 ignore_texture_size = true
 stretch_mode = 5
 

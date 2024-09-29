@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://dyfxwom00d8tb"]
 
 [ext_resource type="Script" path="res://scripts/Object.gd" id="1_j3vbu"]
-[ext_resource type="Texture2D" uid="uid://cfcsqfqaq837b" path="res://assets/image/objets/asset_megaphone.png" id="2_ruk0x"]
-[ext_resource type="Texture2D" uid="uid://cvadrtvrbueyp" path="res://assets/image/objets/asset_megaphone_selected.png" id="3_lwfoq"]
-[ext_resource type="Texture2D" uid="uid://bwc7pw4ng8qor" path="res://assets/image/objets/asset_megaphone_highllight.png" id="4_sdil1"]
+[ext_resource type="Texture2D" uid="uid://ccl4upmm5ydyq" path="res://assets/image/objets/asset_matraque.png" id="2_q3l53"]
+[ext_resource type="Texture2D" uid="uid://bnxrva1hkjlmt" path="res://assets/image/objets/asset_matraque_selected.png" id="3_dccxu"]
+[ext_resource type="Texture2D" uid="uid://lp4578e0nwe8" path="res://assets/image/objets/asset_matraque_highlight.png" id="4_viopf"]
 [ext_resource type="PackedScene" uid="uid://c7asq67ysb1xc" path="res://scenes/elements/missions/missionText.tscn" id="5_td0i8"]
 
 [node name="ObjMegaphone" type="Node2D"]
@@ -24,9 +24,9 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 pivot_offset = Vector2(165, 95)
-texture_normal = ExtResource("2_ruk0x")
-texture_pressed = ExtResource("3_lwfoq")
-texture_hover = ExtResource("4_sdil1")
+texture_normal = ExtResource("2_q3l53")
+texture_pressed = ExtResource("3_dccxu")
+texture_hover = ExtResource("4_viopf")
 ignore_texture_size = true
 stretch_mode = 5
 
