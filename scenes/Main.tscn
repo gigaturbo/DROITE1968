@@ -83,6 +83,7 @@ stream = ExtResource("9_fr43m")
 
 [node name="MarseillaiseFluteBad" type="AudioStreamPlayer" parent="Musiques"]
 stream = ExtResource("10_mj8ag")
+volume_db = -22.0
 
 [node name="FadingTimer" type="Timer" parent="Musiques"]
 wait_time = 1.5
@@ -151,6 +152,9 @@ stream = ExtResource("26_mmkk8")
 
 [node name="MissionReussite" type="AudioStreamPlayer" parent="Bruitages"]
 stream = ExtResource("27_5ytqm")
+
+[node name="StartWaiter" type="Timer" parent="."]
+wait_time = 2.0
 
 [connection signal="startButtonPressed" from="Titre" to="." method="_on_titre_start_button_pressed"]
 [connection signal="endTuto" from="Tuto" to="." method="_on_tuto_end_tuto"]

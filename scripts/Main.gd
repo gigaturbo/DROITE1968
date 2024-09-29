@@ -99,6 +99,7 @@ var volume_theme_menu = 0
 var volume_theme_menu_radio = 0
 
 var audioAnnonces:Array[AudioStreamPlayer]
+signal startSignal
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -217,9 +218,11 @@ func getContext(mcont : EnumContexts):
 func _on_titre_start_button_pressed():
 	radioMusic = false # change music to the main one (music 1 with no radio mode)
 	$Titre.hide()
-	$Tuto.show()
-	$Tuto.startTuto()
+#	$Tuto.show()
+#	$Tuto.startTuto()
 	$Score.hide()
+	
+	startDays()
 	
 func _on_tuto_end_tuto():
 	$Titre.hide()
@@ -259,8 +262,12 @@ func startDays():
 	var bg = preload("res://scenes/elements/Background1.tscn").instantiate()
 	add_child(bg)
 	
+	$StartWaiter.start()
+	await $StartWaiter.timeout
+	
 	await showContext(0)
 	ncontext = ncontext + 1
+	
 	
 	# Loop all days
 	for i_day in allDays.size():
@@ -450,3 +457,10 @@ func processMusic():
 	
 	$Musiques/Musique1Radio.set_volume_db(vol_theme_menu)
 	$Musiques/Musique1.set_volume_db(vol_theme_menu_radio)
+
+
+
+
+func _unhandled_input(event):
+	if( event.is_action_pressed("advanced_dialog") ):
+		startSignal.emit()

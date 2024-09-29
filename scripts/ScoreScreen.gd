@@ -6,7 +6,6 @@ func _ready():
 	$win.hide()
 	$loose.hide()
 	$perfect.hide()
-	init(12, {})
 
 func init(score, _scoreState):
 	$win.hide()
@@ -21,7 +20,7 @@ func init(score, _scoreState):
 		get_node("../Musiques/MarseillaiseFluteBad").play()
 	elif score < 12:
 		$win.show()
-#		get_node("../Musiques/MarseillaisePianoGood").play()
+		get_node("../Musiques/MarseillaisePianoGood").play()
 	elif score == 12:
 		$perfect.show()
 		get_node("../Musiques/MarseillaisePianoGood").play()
