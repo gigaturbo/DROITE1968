@@ -13,23 +13,19 @@ func _ready():
 	var isFinished = false
 	$charles_bien.show()
 	$charles_bof.show()
+	$charles_neutre.show()
 	$charles_bien.modulate = Color.TRANSPARENT
 	$charles_bof.modulate = Color.TRANSPARENT
-#	await set_text("okzdz fef fez grzh [b]theqgrEGQH[/b] QTH RTJRTRSTJRST okzdz fef fez" + 
-#			 "grzh [b]theqgrEGQH[/b] QTH RTJRTRSTJRST okzdz fef fez grzh [b]theqgrEGQH[/b]" +
-#			 " QTH RTJRTRSTJRST dza d azfe fzegezgqezge gqrge rgege qrg egergergeg eeg er" +
-#			 " QTH RTJRTRSTJRST dza d azfe fzegezgqezge gqrge rgege qrg egergergeg eeg er").finished
-#
-#	await charlesBad().finished
-	
-#	isFinished = true
+	$charles_neutre.modulate = Color.TRANSPARENT
 	
 func reset():
 	var isFinished = false
 	$charles_bien.show()
 	$charles_bof.show()
+	$charles_neutre.show()
 	$charles_bien.modulate = Color.TRANSPARENT
 	$charles_bof.modulate = Color.TRANSPARENT
+	$charles_neutre.modulate = Color.TRANSPARENT
 	$MarginContainer.modulate = Color.TRANSPARENT
 	$MarginContainer/MarginContainer/RichTextLabel.parse_bbcode("")
 	
@@ -37,7 +33,6 @@ func showPanel():
 	await get_tree().create_timer(0.25)
 	var tween = get_tree().create_tween()
 	tween.tween_property($MarginContainer, "modulate", Color.WHITE, 0.5)
-	
 	return tween
 
 func _input(event):
@@ -56,12 +51,12 @@ func set_text(text):
 	await get_tree().create_timer(0.25)
 	var tween = get_tree().create_tween()
 	tween.tween_property(rtl, "visible_characters", parsedText.length(), duration)
-	isFinished = true
 	return tween
 
 func charlesGood():
 	$charles_bien.modulate = Color.TRANSPARENT
 	$charles_bof.modulate = Color.TRANSPARENT
+	$charles_neutre.modulate = Color.TRANSPARENT
 	var tween = get_tree().create_tween()
 	tween.tween_property($charles_bien, "modulate", Color.WHITE, 0.5)
 	return tween
@@ -69,6 +64,15 @@ func charlesGood():
 func charlesBad():
 	$charles_bien.modulate = Color.TRANSPARENT
 	$charles_bof.modulate = Color.TRANSPARENT
+	$charles_neutre.modulate = Color.TRANSPARENT
 	var tween = get_tree().create_tween()
 	tween.tween_property($charles_bof, "modulate", Color.WHITE, 0.5)
+	return tween
+
+func charlesNeutral():
+	$charles_bien.modulate = Color.TRANSPARENT
+	$charles_bof.modulate = Color.TRANSPARENT
+	$charles_neutre.modulate = Color.TRANSPARENT
+	var tween = get_tree().create_tween()
+	tween.tween_property($charles_neutre, "modulate", Color.WHITE, 0.5)
 	return tween

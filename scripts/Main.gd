@@ -6,15 +6,12 @@ enum EnumMissions{A, B, C, D, E,
 enum EnumMilitants{M1, M2, M3, M4, M5} # n=5
 enum EnumContexts{C1, C2, C3, C4, C5, C6} # n=6
 
-var allDays = [{"contexts": [EnumContexts.C1],
-				"militants": [EnumMilitants.M1],
+var allDays = [{"militants": [EnumMilitants.M1],
 				"missions": [[EnumMissions.A, EnumMissions.B, EnumMissions.C]]},
-			   {"contexts": [EnumContexts.C2, EnumContexts.C3],
-				"militants": [EnumMilitants.M2, EnumMilitants.M3],
+			   {"militants": [EnumMilitants.M2, EnumMilitants.M3],
 				"missions": [[EnumMissions.D, EnumMissions.E, EnumMissions.F],
 							 [EnumMissions.G, EnumMissions.H, EnumMissions.I]]},
-				{"contexts": [EnumContexts.C4, EnumContexts.C5],
-				"militants": [EnumMilitants.M4, EnumMilitants.M5],
+				{"militants": [EnumMilitants.M4, EnumMilitants.M5],
 				"missions": [[EnumMissions.J, EnumMissions.K, EnumMissions.L],
 							 [EnumMissions.M, EnumMissions.N, EnumMissions.O]]}]
 
@@ -227,10 +224,27 @@ func _on_tuto_end_tuto():
 	$Tuto.hide()
 	startDays() # START OF THE FUN
 	
+func showContext(n):
+	var	textContext = getContext(n).data
+	var	medium = getContext(n).medium
+	var contextPosition = null
+	match medium:
+		"radio":
+			contextPosition = $RadioLocation.position
+		"talkie":
+			contextPosition = $TalkieLocation.position
+		"phone":
+			contextPosition = $PhoneLocation.position
+	return DialogManager.start_dialog(contextPosition, 
+		Vector2(500,100), 
+		DialogManager.TextBoxTypes.ELEC,
+		[textContext]).inputFinished
+	
 func startDays():
 	$Titre.hide()
 	$Tuto.hide()
-	score= 0 
+	score = 0 
+	var ncontext = 0
 	
 	# Clear everything before instanciating new things
 	if militant:
@@ -242,35 +256,15 @@ func startDays():
 	var bg = preload("res://scenes/elements/Background1.tscn").instantiate()
 	add_child(bg)
 	
+	await showContext(0)
+	ncontext = ncontext + 1
+	
 	# Loop all days
 	for i_day in allDays.size():
 		var day = allDays[i_day]
 		
 		# Instanciate militants of the day, and  contexts
 		for i_mil in day["militants"].size():
-			
-#			# Context sequence before militant
-			var	textContext = getContext(day["contexts"][i_mil]).data
-			var	medium = getContext(day["contexts"][i_mil]).medium
-			var contextPosition = null
-			match medium:
-				"radio":
-					contextPosition = $RadioLocation.position
-				"talkie":
-					contextPosition = $TalkieLocation.position
-				"phone":
-					contextPosition = $PhoneLocation.position
-			await DialogManager.start_dialog(contextPosition, 
-				Vector2(500,100), 
-				DialogManager.TextBoxTypes.ELEC,
-				[textContext]).inputFinished
-			
-#			var	con = getContext(day["contexts"][i_mil]).scn.instantiate()
-#			add_child(con)
-#			con.position = $RadioLocation.position
-#			con.startContext()
-#			await con.contextEnded
-#			con.hide()
 			
 			# Here come militants
 			var mil = getMilitant(day["militants"][i_mil]).scn.instantiate()
@@ -352,6 +346,9 @@ func startDays():
 					mission.get_selected()
 					answers.append({"militant": militant.e_militant,
 									"mission": ms.e_mission})
+					var toadd = scores[i_day][i_mil][ms.e_mission % 3]["score"]
+					score = score + toadd
+					print("SCORE IS NOW ", score)
 					print("SAVED ", answers)
 				else:
 					mission.go_away()
@@ -361,6 +358,10 @@ func startDays():
 			
 			await mil.byeBye
 			
+			# Show context before results
+			await showContext(ncontext)
+			ncontext = ncontext + 1
+			
 			# Mission results
 			res.reset()
 			res.show()
@@ -368,15 +369,19 @@ func startDays():
 			bg.hide()
 			await res.showPanel().finished
 			print(ms.e_mission)
-			#TODO
 			await res.set_text(scores[i_day][i_mil][ms.e_mission % 3]["text"])
-			res.charlesGood()
+			await res.charlesGood().finished
+			res.isFinished = true
 			await res.quitResults
 			res.hide()
 			remove_child(res)
 			
 			bg.show()
 			# To next cycle
+	
+	# Show last context before scores
+	await showContext(5)
+	
 	
 	
 # Handle mission selection

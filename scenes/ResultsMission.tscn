@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://ddi5mp50sahga"]
+[gd_scene load_steps=9 format=3 uid="uid://ddi5mp50sahga"]
 
 [ext_resource type="Texture2D" uid="uid://dm636egfnqwqm" path="res://assets/image/fonds/FOND.png" id="1_bjrli"]
 [ext_resource type="Script" path="res://scripts/ResultsMission.gd" id="1_raxi0"]
 [ext_resource type="Texture2D" uid="uid://cut7bqf2w0gqm" path="res://assets/image/fonds/DECOR.png" id="2_ifkbg"]
 [ext_resource type="Texture2D" uid="uid://cuntowca7kxqh" path="res://assets/image/personnages/Pasqua_Wip.png" id="3_ofor3"]
 [ext_resource type="Texture2D" uid="uid://dei4sutncpiis" path="res://assets/image/fonds/asset_bureau.png" id="4_tkb1l"]
+[ext_resource type="Texture2D" uid="uid://da5hq30cvvdc5" path="res://assets/image/personnages/Pasqua__NotHappy_Wip.png" id="4_ysilo"]
+[ext_resource type="Texture2D" uid="uid://b6q6vghx8tdf2" path="res://assets/image/personnages/Pasqua_Happy_Wip.png" id="5_mnfsh"]
 [ext_resource type="FontFile" uid="uid://c1114d7vgm2up" path="res://assets/fonts/Helvetica Neue Condensed Bold.ttf" id="6_dcc6n"]
 
 [node name="ResultsMission" type="Node2D"]
@@ -24,9 +26,15 @@ centered = false
 position = Vector2(336, 490)
 rotation = -0.0174533
 scale = Vector2(0.308, 0.308)
-texture = ExtResource("3_ofor3")
+texture = ExtResource("4_ysilo")
 
 [node name="charles_bien" type="Sprite2D" parent="."]
+position = Vector2(336, 490)
+rotation = -0.0174533
+scale = Vector2(0.308, 0.308)
+texture = ExtResource("5_mnfsh")
+
+[node name="charles_neutre" type="Sprite2D" parent="."]
 position = Vector2(336, 490)
 rotation = -0.0174533
 scale = Vector2(0.308, 0.308)
