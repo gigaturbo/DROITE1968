@@ -1,15 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://bedhyfrwpts72"]
+[gd_scene load_steps=4 format=3 uid="uid://bedhyfrwpts72"]
 
 [ext_resource type="Script" path="res://scripts/TextBox.gd" id="1_yif3g"]
+[ext_resource type="Texture2D" uid="uid://l70pgr6oj7m8" path="res://assets/image/interfaces/dialogue_personnage-debug.png" id="2_4mcum"]
 [ext_resource type="FontFile" uid="uid://c1114d7vgm2up" path="res://assets/fonts/Helvetica Neue Condensed Bold.ttf" id="10_cksmk"]
 
 [node name="TextBox" type="MarginContainer"]
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_top = -125.5
-offset_right = 517.0
-offset_bottom = 125.5
+offset_top = -281.0
+offset_right = 1017.0
+offset_bottom = 281.0
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 theme_override_constants/margin_left = 0
@@ -17,11 +18,12 @@ script = ExtResource("1_yif3g")
 
 [node name="NinePatchRectMilitant" type="NinePatchRect" parent="."]
 layout_mode = 2
-region_rect = Rect2(-0.326195, 0.080874, 904.15, 352.243)
-patch_margin_left = 257
-patch_margin_top = 120
-patch_margin_right = 260
-patch_margin_bottom = 131
+texture = ExtResource("2_4mcum")
+region_rect = Rect2(-0.326195, 0.080874, 1800.54, 704.052)
+patch_margin_left = 522
+patch_margin_top = 283
+patch_margin_right = 495
+patch_margin_bottom = 279
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
@@ -36,6 +38,15 @@ size_flags_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("10_cksmk")
 theme_override_font_sizes/font_size = 50
+text = "oiezjazoidjdkoifd ezfnf klddf
+ sdnjfnsdodsnf dsofndskfdsnfdskofndsokfsdnfkosdnfok
+dsfnfdsfjn jdsndfksfnsd 
+sdfkosdnf dskofndskdsfsd,jfofnsdfn
+
+
+
+
+dskof,sdokf,dsfs"
 
 [node name="LetterDisplayTimer" type="Timer" parent="."]
 one_shot = true
