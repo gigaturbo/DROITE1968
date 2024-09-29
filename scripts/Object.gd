@@ -55,7 +55,7 @@ func _on_timer_timeout():
 
 func go_away():
 	var apos = $TextureButton.position
-	var npos = apos + Vector2(0, 256)
+	var npos = apos + Vector2(0, 500)
 	var tween = get_tree().create_tween()
 	tween.tween_property($TextureButton, "position", npos, 0.33)
 	tween.tween_property($TextureButton, "visible", false, 0)
@@ -64,7 +64,7 @@ func go_away():
 func get_selected():
 	var tween = get_tree().create_tween()
 	tween.tween_property($TextureButton, "modulate", Color.TRANSPARENT, 0.5)
-	tween.tween_property($TextureButton, "position", -500*Vector2(1,1), 0.1)
+	tween.tween_property($TextureButton, "position", -5000*Vector2(1,1), 0.1)
 
 
 func _on_texture_button_mouse_entered():
