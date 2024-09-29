@@ -19,6 +19,8 @@ config/icon="res://icon.svg"
 
 DebugMenu="*res://addons/debug_menu/debug_menu.tscn"
 DialogManager="*res://scripts/DialogManager.gd"
+DialogManager2="*res://scripts/DialogManager.gd"
+DialogManager3="*res://scripts/DialogManager.gd"
 
 [display]
 
