@@ -59,22 +59,3 @@ func _input(event):
 		if event.is_pressed():
 			if event.button_index == 1:
 				quitResults.emit(self)
-	
-#func set_text(text):
-#
-#	return tween
-#
-#func charlesGood():
-#	$charles_bien.modulate = Color.TRANSPARENT
-#	$charles_bof.modulate = Color.TRANSPARENT
-#	var tween = get_tree().create_tween()
-#	tween.tween_property($charles_bien, "modulate", Color.WHITE, 1)
-#	return tween
-#
-#func charlesBad():
-#	$charles_bien.modulate = Color.TRANSPARENT
-#	$charles_bof.modulate = Color.TRANSPARENT
-#	var tween = get_tree().create_tween()
-#	tween.tween_property($charles_bof, "modulate", Color.WHITE, 1)
-#	return tween
-#
