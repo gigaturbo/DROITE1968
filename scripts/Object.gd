@@ -32,7 +32,7 @@ func _ready():
 	
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if state == 1:
 		var percent_proc = 1.0 - ($Timer.time_left / SELECT_TIME)
 		var nscale =  Vector2(1,1) * (1.0 + percent_proc * 0.3)

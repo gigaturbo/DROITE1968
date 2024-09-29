@@ -16,90 +16,75 @@ var allDays = [{"militants": [EnumMilitants.M1],
 							 [EnumMissions.M, EnumMissions.N, EnumMissions.O]]}]
 
 var presentations = [[["Salut, moi c'est Raymond. Charcutier à Levallois. C'est ici qu'on signe ou quoi ?"]],
-					 [["Bonjour Monsieur, je m’appelle Nicolas. Je suis en deuxième année de droit à Assas ",
-					   "et je voudrais m'engager pour Monsieur Prairie."],
-					  ["Bonjour Monsieur, je suis Marielle, championne d’escrime. J’ai l’habitude de me battre", 
-					   "pour ce en quoi je crois, et je suis prête à m’engager ici, sans attendre. Donnez-moi du ",
-					   "travail, je veux être utile."]],
-					 [["Roger. De Bordeaux. On m’a dit qu’il y avait besoin de renforts ici. C’est pas sérieux ce ",
-					   "qu’il se passe en ce moment, on doit remettre de l’ordre. Tu me dis quoi faire, et je le fais. Simple."],
-					  ["Cher Monsieur, je suis Jacques, médecin. Je pense sincèrement que la situation en France est bien plus ",
-					   "grave qu'on ne le pense… Il est urgent de réagir, et je suis prêt à défendre notre pays."]]]
+				 	[["Bonjour Monsieur, j'me présente : Nicolas, je suis en deuxième année de droit à Assas et je voudrais m'engager pour Monsieur Prairie."],
+				  	["Bonjour Monsieur, je suis Marielle, championne d’escrime. J’ai l’habitude de me battre pour ce en quoi je crois, et je suis prête à m’engager ici, sans attendre.",
+					 "Donnez-moi du travail, je veux être utile."]],
+				 	[["Roger. De Bordeaux. On m’a dit qu’il y avait besoin de renforts ici. C’est pas sérieux ce qu’il se passe ici. Tu me dis quoi faire, et je le fais. Simple."],
+				  	["Cher Monsieur, je suis Jacques, médecin. Je pense sincèrement que la situation en France est bien plus grave qu'on ne le pense…",
+					 "Il est urgent de réagir, et je suis prêt à défendre notre pays."]]]
 
 var questions = [[["Pourquoi tu milites, toi ?",
-				   "Et t'es bon à quoi ?"]],
-				 [["Pourquoi maintenant, gamin ?",
-				   "Et tu sais faire quoi ?"],
-				  ["C’est bien, mon petit, mais pourquoi es-tu là ?",
-				   "Et elle sait faire quoi la championne ?"]],
-				 [["(sa motivation n'est pas à questionner)",
-				   "Bien, sur quoi on peut compter avec toi ?"],
-				  ["Qu’est-ce qui vous motive, Monsieur ?",
-				   "Et pourquoi vous ?"]]]
+			   	   "Et t'es bon à quoi ?"]],
+			 	[["Pourquoi maintenant, gamin ?",
+			   	  "Et tu sais faire quoi ?"],
+			  	["C’est bien, mon petit, mais pourquoi es-tu là ?",
+			   	 "Et elle sait faire quoi la championne ?"]],
+			 	[["(sa motivation n'est pas à questionner)",
+			   	  "Bien, sur quoi on peut compter avec toi ?"],
+			  	["Qu’est-ce qui vous motive, Monsieur ?",
+			   	 "Et pourquoi vous ?"]]]
 
-var reponses = [[[["C’est simple... J’en ai ras-le-bol de ces p’tits jeunes gauchistes qui foutent le bordel ",
-				   "partout. Ces chevelus, là, qui traînent dans les rues. Prairie, lui, au moins, il va les ",
-				   "remettre à leur place. C’est un type avec du cran, vous voyez ? Comme dans les films ",
-				   "d’espionnage que j’aime bien, où y'a toujours un gars qui règle les choses à sa façon. Moi, ",
-				   "j’suis pour ça, pour l’ordre."],
-				  ["Judo, karaté, boxe française. J'pense me mettre à la lutte bretonne. C’est bon pour vous ?"]]],
-				 [[["Monsieur, je réponds à l'appel du Général. Je crois qu’il est de notre devoir de jeunes ",
-					"Français de se lever et de participer à l'action civique."],
-				   ["Je suis très discret, Monsieur, on me remarque pas… Mais je suis prêt à… ",
-					"à \"casser des gueules\", s'il le faut ! Enfin… je veux dire, je suis prêt à me faire ",
-					"respecter, à montrer que je suis un homme !"]],
-				  [["Je n’aime pas le bazar que ces gens de gauche mettent. Le désordre, ça me fait peur. Moi, ",
-					"je crois en une droite sociale, mais bien ordonnée, comme celle du Général et de Monsieur Prairie. ",
-					"C’est pour ça que je veux m’engager."],
-				   ["Je suis audacieuse et volontaire. Quand il y a du travail à faire, je ne recule jamais. ",
-					"Et puis, je suis sportive. L'effort, la discipline, ça me connaît. Vous pouvez compter sur moi."]]],
-				 [["/",
-				   ["Moi, je suis un homme de terrain. Simple. J’ai l’habitude d’encadrer des gars, je sais comment les ",
-					"mettre au maille... les faire bosser, quoi. Mais ici, c’est pas comme chez nous, hein... ",
-					"C’est un peu la jungle, si tu vois ce que je veux dire."]],
-				  [["Le Général et ses compagnons… ils sont les seuls à saisir l’ampleur réelle de la situation. ",
-					"Leur vision dépasse celle des autres. Ils savent ce qui est en jeu, ils comprennent les forces ",
-					"qui menacent notre nation. Je suis convaincu qu’eux seuls peuvent guider la France avec la ",
-					"sagesse et la fermeté nécessaires."],
-				   ["Je suis avant tout quelqu’un de réfléchi, capable d’analyser les choses avec clarté. Je ne prétends ",
-					"pas être parfait, mais je sais que je peux prendre les décisions nécessaires quand d’autres hésiteraient. ",
-					"Et quand il faut agir, je ne recule devant rien. C’est une question de devoir, et je suis prêt à tout."]]]]
+var reponses = [[[["C’est simple... J’en ai ras-le-bol de ces p’tits jeunes gauchistes qui foutent le bordel partout. Ces chevelus, là...",
+					"Prairie, lui, au moins, il va les remettre à leur place. C’est un type avec du cran. Comme dans les films d’espionnage que j’aime bien, où y'a toujours un gars qui règle les choses à sa façon."],
+			  	["Judo, karaté, boxe française. J'pense me mettre à la lutte bretonne. C’est bon pour vous ?"]]],
+			 	[[["Monsieur, je réponds à l'appel du Général. Je crois qu’il est de notre devoir de jeunes Fançais de se lever et de participer à l'action civique."],
+			   	["Je suis très discret, Monsieur, on me remarque pas… Mais je suis prêt à… à \"casser des gueules\", s'il le faut !",
+					"Enfin… je veux dire, je suis prêt à me faire respecter, à montrer que je suis un homme !"]],
+			  	[["Je n’aime pas le bazar que ces gens de gauche mettent. Le désordre, ça me fait peur. Moi, je crois en une droite sociale, mais bien ordonnée.",
+					"Bref, une droite comme celle du Général et de Monsieur Prairie. C’est pour ça que je veux m’engager."],
+			   	["Je suis audacieuse et volontaire. Quand il y a du travail à faire, je ne recule jamais. Je suis sportive, aussi. L'effort, la discipline, ça me connaît !"]]],
+			 	[[["..."],
+			   	["Moi, je suis un homme de terrain. Simple. J’ai l’habitude d’encadrer des gars, je sais comment les mettre au maille... les faire bosser, quoi.",
+					"Mais ici, c’est pas comme chez nous, hein... C’est un peu la jungle, si tu vois ce que je veux dire."]],
+			  	[["Le Général et ses compagnons… ils sont les seuls à saisir l’ampleur réelle de la situation. Leur vision dépasse celle des autres.",
+					" Ils comprennent les forces qui menacent notre nation. Je suis convaincu qu’eux seuls peuvent guider la France."],
+			   	["Je m'efforce toujours de voir au-delà des apparences, là où la vérité réside. Chaque décision que je prends est un pas vers un ordre supérieur...",
+					"J'ai la conviction que tout acte participe à un grand dessein. Et quand il est temps d'agir, je le fais avec force."]]]]
 
 var scores = [[[{"text": "Raymond n'a pas tenu. Les discours de ces petits rouges l’ont rendu fou de rage, et il a flanqué une raclée à sept d’entre eux. Il est actuellement entendu par les flics. Ce n’est pas vraiment à notre avantage…",
-				 "hum":-1, "score":0},
+			 	"hum":-1, "score":0},
 				{"text": "Raymond a réussi à coller trois affiches avant de tomber sur des cocos. Il n'a pas pu s'empêcher de se battre avec eux... Autant dire que l’efficacité n’était pas au rendez-vous.",
-				 "hum":-1, "score":1},
-				{"text": "Raymond ne s’est pas contenté de coller des affiches, il a fait le ménage comme jamais. Les cocos ont pris la fuite, et même les passants réclamaient des tracts, de peur de se prendre un gnon. On peut dire qu'il a fait son boulot.",
-				 "hum":-1, "score":2}]],
-			  [[{"text": "À la première échauffourée, Nicolas a pris peur et s'est enfui. Au final, il n'a réussi à poser que deux affiches et ses compagnons sont à l'hôpital. Une vraie planche pourrie !",
-				 "hum":-1, "score":0},
-				{"text": "Nicolas a tout entendu, de A à Z, et ce qu'il a découvert l'a glacé d'effroi : ils parlent ouvertement de révolution, et c'est certain, le Grand Soir est pour bientôt, probablement dès demain. Mais c’est quand ils ont commencé à lire à haute voix des passages de Lénine que Nicolas a vraiment senti la terreur monter. Pour lui, c’était la preuve que ces types veulent tout renverser.",
-				 "hum":-1, "score":2},
-				{"text": "Nicolas a oublié de mettre des gants, et bien sûr, il s'est coupé en collant la première affiche. Résultat : du sang partout sur le visage de Charles Prairie. Pas très propre, mais au moins, ça filera peut-être la trouille aux cocos ?",
-				 "hum":-1, "score":1}],
-				[{"text": "Marielle ne tape pas vite, fait des fautes, et s’ennuie rapidement... on dirait presque un garçon. Elle en a fait vingt, mais seulement sept seulement sont exploitables. Vraiment décevant.",
-				 "hum":-1, "score":1},
-				{"text": "Marielle a commencé à préparer à manger, malheureusement à la dixième remarque qu'elle a jugée déplacée, elle a rendu son tablier et a claqué la porte. Quinze gars pour un demi-sandwich, c'est peu...",
-				 "hum":-1, "score":0},
+			 	"hum":1, "score":1},
+				{"text": "Raymond a fait le ménage comme jamais. Les cocos ont pris la fuite, et même les passants réclamaient des tracts, de peur de se prendre un gnon. Quel boulot réussi !",
+			 	"hum":1, "score":2}]],
+		  	[[{"text": "À la première échauffourée, Nicolas a pris peur et s'est enfui. Au final, il n'a réussi à poser que deux affiches et ses compagnons sont à l'hôpital. Une vraie planche pourrie !",
+			 	"hum":-1, "score":0},
+				{"text": "Nicolas a tout entendu, de A à Z, et ce qu'il a découvert l'a glacé d'effroi : ils parlent ouvertement de révolution, et c'est certain, le Grand Soir est pour bientôt. Mais c’est quand ils ont commencé à lire à haute voix des passages de Jean-Paul Sartre que Nicolas a vraiment senti la terreur monter... \"L'Enfer chez les Autres\" !",
+			 	"hum":1, "score":2},
+				{"text": "Nicolas a oublié de mettre des gants, et bien sûr, il s'est coupé en collant la première affiche. Résultat : du sang partout sur le visage de Charles Prairie. Pas très propre, mais ça fichera peut-être la trouille aux cocos...",
+			 	"hum":1, "score":1}],
+				[{"text": "Marielle ne tape pas vite, fait des fautes, et s’ennuie rapidement... on dirait presque un garçon. Elle en a fait vingt, mais seulement sept sont exploitables. Un peu décevant.",
+			 	"hum":1, "score":1},
+				{"text": "Marielle a commencé à préparer à manger, malheureusement à la dixième remarque qu'elle a jugée déplacée, elle a rendu son tablier et a claqué la porte en critiquant Monsieur Prairie. Quinze gars pour un demi-sandwich, c'est peu...",
+			 	"hum":-1, "score":0},
 				{"text": "Marielle a fait preuve de caractère, et pas qu’un peu ! Pas de charme à l'œuvre ici, mais bien sa réputation de championne et son tempérament de feu. Elle a réussi à recruter des étudiants et des ouvriers. Qui aurait cru qu’elle en aurait dans le ventre pour rallier autant de gars ?",
-				 "hum":-1, "score":2}]],
-			  [[{"text": "Comme prévu, l’équipe de colleurs s’est fait tomber dessus. Roger, plein de courage, s’est jeté dans la mêlée, mais l’âge ne pardonne pas. Après quelques échanges vigoureux, il a fini par prendre une belle raclée. Il a au moins eu l'utilité de distraire assez longtemps pour que les autres se tirent en vitesse.",
-				 "hum":-1, "score":1},
-				{"text": "Roger a chopé les colleurs communistes au vol ! Juste un regard, et ils ont su qu'ils étaient cuits. Pas besoin de hausser la voix, il les a mis au boulot tout l’après-midi, les forçant à recouvrir toutes leurs affiches avec celles de Charles Prairie. Sous sa surveillance de vieux briscard, pas un n’a bronché. Il les faisait trimer comme des bons petits soldats, et lui, il regardait ça d’un œil amusé. Quand ils ont fini, ils étaient lessivés, humiliés…",
-				 "hum":-1, "score":3},
-				{"text": "Roger a patrouillé avec ses cadets, mais pas un ne connaissait le coin. Alors, quand ils ont vu une bande de jeunes avec des seaux de colle, ils n’ont pas hésité : ils ont appliqué les consignes de Charles Prairie et leur ont bien cassé la figure. Le problème ? C’était nos gars ! On s’est retrouvés avec nos propres militants à l’hôpital. Une vraie catastrophe, et un sacré gâchis !",
-				 "hum":-1, "score":0}],
-				[{"text": "Catastrophe totale ! Jacques a raconté à la presse que Mai 68 était orchestré par une alliance improbable : la Chine de Mao, Israël, la CIA, Cuba, la Suisse et même la Bulgarie. Oui, vous avez bien entendu, il a vraiment dit ça ! Le journaliste n’en a pas raté une miette, et la candidature de Charles Prairie est maintenant la risée de tout le monde. Une humiliation complète.",
-				 "hum":-1, "score":0},
-				{"text": "À la sortie de la messe, Jacques a livré un véritable sermon mystique, parlant de la mission sacrée du Général face à l'antéchrist rouge. Les fidèles, encore sous l'effet des cantiques, étaient captivés, buvant chacune de ses paroles. Ils ont pris les tracts avec ferveur, on peut dire qu’il les a conquis !",
-				 "hum":-1, "score":3},
+			 	"hum":1, "score":2}]],
+		  	[[{"text": "Comme prévu, l’équipe de colleurs s’est fait tomber dessus. Roger, plein de courage, s’est jeté dans la mêlée, mais l’âge ne pardonne pas. Après quelques échanges vigoureux, il a fini par prendre une belle raclée. Il a au moins eu l'utilité de distraire assez longtemps pour que les autres se tirent en vitesse.",
+			 	"hum":1, "score":1},
+				{"text": "Roger a chopé les colleurs communistes au vol ! Juste un regard, et ils ont su qu'ils étaient cuits. Pas besoin de hausser la voix, il les a mis au boulot tout l’après-midi, les forçant à recouvrir toutes leurs affiches avec celles de Charles Prairie. Pas un n’a bronché. Il les a fait trimer en les regardant d’un œil amusé !",
+			 	"hum":1, "score":3},
+				{"text": "Roger a patrouillé avec ses cadets, mais pas un ne connaissait le coin. Alors, quand ils ont vu une bande de jeunes avec des seaux de colle, ils n’ont pas hésité : ils leur ont bien cassé la figure. Le problème ? C’était nos gars ! On s’est retrouvés avec nos propres militants à l’hôpital. Une vraie catastrophe !",
+			 	"hum":-1, "score":0}],
+				[{"text": "Catastrophe totale ! Jacques a raconté à la presse que Mai 68 était orchestré par une alliance improbable : la Chine de Mao, Israël, la CIA, Cuba, la Suisse et même la Bulgarie. Oui, vous avez bien entendu, il a vraiment dit ça ! Le journaliste n’en a pas raté une miette et Charles Prairie est maintenant la risée de tout le monde.",
+			 	"hum":-1, "score":0},
+				{"text": "À la sortie de la messe, Jacques a livré un véritable sermon mystique, parlant de la mission sacrée du Général face à l'antéchrist rouge. Les fidèles, encore sous l'effet des cantiques, étaient captivés et buvaient chacune de ses paroles. Ils ont pris les tracts avec ferveur, on peut dire qu’il les a conquis !",
+			 	"hum":1, "score":3},
 				{"text": "Malheureusement, Jacques n'a pas vraiment les jambes pour ce genre de course. Il s'est fait attraper par la police avant d'avoir pu finir son travail. Avec son statut et sa manière de parler, il s'en tirera sans trop de problèmes et il a tout de même réussi à coller une dizaine de papillons... c’est déjà ça.",
-				 "hum":-1, "score":1}]]]
+			 	"hum":1, "score":1}]]]
 
 var day = allDays[0]
 var dayMissions = []
-var	militant = []
-var	contexts = []
+var	militant = null
 var answers = []
 var score = 0
 
@@ -123,6 +108,7 @@ func _ready():
 	$Musiques/Musique1.set_volume_db(-60)
 	$Titre.show()
 	$Tuto.hide()
+	$Score.hide()
 	
 	audioAnnonces = [$Bruitages/Radio1, $Bruitages/Radio2, $Bruitages/Talkie1, $Bruitages/Talkie2, $Bruitages/Phone1, $Bruitages/Phone2]
 
@@ -232,10 +218,12 @@ func _on_titre_start_button_pressed():
 	$Titre.hide()
 	$Tuto.show()
 	$Tuto.startTuto()
+	$Score.hide()
 	
 func _on_tuto_end_tuto():
 	$Titre.hide()
 	$Tuto.hide()
+	$Score.hide()
 	startDays() # START OF THE FUN
 	
 func showContext(n):
@@ -262,15 +250,10 @@ func showContext(n):
 func startDays():
 	$Titre.hide()
 	$Tuto.hide()
+	$Score.hide()
 	score = 0 
 	var ncontext = 0
-	
-	# Clear everything before instanciating new things
-	if militant:
-		militant.queue_free()
-	for m in dayMissions:
-		m.queue_free()
-	
+		
 	# LOAD BG1 (Generic)
 	var bg = preload("res://scenes/elements/Background1.tscn").instantiate()
 	add_child(bg)
@@ -280,10 +263,9 @@ func startDays():
 	
 	# Loop all days
 	for i_day in allDays.size():
+		day = allDays[i_day]
 		
-		var day = allDays[i_day]
-		
-		# Instanciate militants of the day, and  contexts
+		# Instanciate militants of the day, and contexts
 		for i_mil in day["militants"].size():
 			
 			if(i_day == 2) :
@@ -300,7 +282,7 @@ func startDays():
 			
 			# Here come militants
 			var mil = getMilitant(day["militants"][i_mil]).scn.instantiate()
-			mil.e_militant = day["militants"][0]
+			mil.e_militant = day["militants"][i_mil]
 			militant = mil
 			add_child(mil)
 			mil.show()
@@ -351,7 +333,7 @@ func startDays():
 			)
 			DialogManager.buttonPressed.connect(_dialog_manager_response)
 			
-			var rep2 = await anyDialogAnswered
+			var _rep2 = await anyDialogAnswered
 			
 			# He answers remaining question
 			await DialogManager.start_dialog($ResponseLocation.position,
@@ -359,10 +341,10 @@ func startDays():
 				DialogManager.TextBoxTypes.MILITANT,
 				reponses[i_day][i_mil][1-rep1]).inputFinished
 				
-			# Now instanciate day missions
-			for i in day["missions"][0].size():
-				var mis = getMission(day["missions"][0][i]).scn.instantiate()
-				mis.e_mission = day["missions"][0][i]
+			# Now instanciate day missions of militant
+			for i in day["missions"][i_mil].size():
+				var mis = getMission(day["missions"][i_mil][i]).scn.instantiate()
+				mis.e_mission = day["missions"][i_mil][i]
 				dayMissions.append(mis)
 				mis.selected.connect(_mission_selected)
 				mis.position = Vector2(200*(i+1) + 150, 680)	
@@ -431,9 +413,10 @@ func startDays():
 			bg.show()
 			# To next cycle
 	
-	# Show last context before scores
-	await showContext(5)
-	
+	# Show scores
+	bg.hide()
+	$Score.show()
+	$Score.init(score, answers)
 	
 	
 # Handle mission selection
