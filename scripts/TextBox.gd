@@ -22,6 +22,7 @@ signal finished_displaying()
 
 signal buttonPressed()
 
+
 func display_text(text_to_display: String, panelInitialSize:Vector2 = Vector2(0,0)):
 	MAX_WIDTH /= scale.x
 	if(panelInitialSize.x > 0):

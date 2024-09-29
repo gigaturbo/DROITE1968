@@ -11,6 +11,7 @@ script = ExtResource("1_2luo7")
 [node name="Fond" parent="." instance=ExtResource("2_epp7i")]
 
 [node name="Part1" type="Node2D" parent="."]
+visible = false
 z_index = 160
 position = Vector2(33, 8)
 scale = Vector2(0.935, 0.935)

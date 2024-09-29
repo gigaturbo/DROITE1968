@@ -21,14 +21,20 @@ position = Vector2(282, 480)
 [node name="MilitantLocation" type="Marker2D" parent="."]
 position = Vector2(569, 534)
 
-[node name="ContexteLocation" type="Marker2D" parent="."]
-position = Vector2(128, 657)
+[node name="TalkieLocation" type="Marker2D" parent="."]
+position = Vector2(44, 722)
+
+[node name="PhoneLocation" type="Marker2D" parent="."]
+position = Vector2(59, 721)
+
+[node name="RadioLocation" type="Marker2D" parent="."]
+position = Vector2(543, 621)
 
 [node name="AnswerLocation" type="Marker2D" parent="."]
 position = Vector2(335, 880)
 
 [node name="ResponseLocation" type="Marker2D" parent="."]
-position = Vector2(538, 537)
+position = Vector2(571, 545)
 
 [connection signal="startButtonPressed" from="Titre" to="." method="_on_titre_start_button_pressed"]
 [connection signal="endTuto" from="Tuto" to="." method="_on_tuto_end_tuto"]

@@ -38,6 +38,9 @@ size_flags_vertical = 0
 theme_override_colors/font_color = Color(0.854902, 0.780392, 0.168627, 1)
 theme_override_fonts/font = ExtResource("3_717qe")
 theme_override_font_sizes/font_size = 50
+text = "ezf zeof je,zofez ,
+
+ezklf z,eof kez, fko"
 
 [node name="LetterDisplayTimer" type="Timer" parent="."]
 one_shot = true
