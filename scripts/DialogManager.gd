@@ -22,6 +22,8 @@ var can_advance_line = false
 
 var panelInitialSize
 
+signal textFinished
+signal inputFinished
 
 func start_dialog(position:Vector2, 
 					apanelInitialSize:Vector2,
@@ -38,6 +40,8 @@ func start_dialog(position:Vector2,
 	_show_text_box()
 	
 	is_dialog_active = true
+	
+	return self
 	
 func _show_text_box():
 	
@@ -57,10 +61,22 @@ func _show_text_box():
 	text_box.global_position = text_box_position - Vector2(0, text_box.size.y)
 	text_box.display_text(dialog_lines[current_line_index], panelInitialSize)
 	can_advance_line = false
+	
 
 func _on_text_box_finished_displaying():
 	can_advance_line = true
+	textFinished.emit(self)
 
+func inputCloseDialog():
+	text_box.queue_free()
+	current_line_index += 1
+	if current_line_index >= dialog_lines.size():
+		is_dialog_active = false
+		current_line_index = 0
+		inputFinished.emit(self)
+		return
+	
+	_show_text_box()
 
 func _unhandled_input(event):
 	if(
@@ -68,11 +84,4 @@ func _unhandled_input(event):
 		is_dialog_active &&
 		can_advance_line
 	):
-		text_box.queue_free()
-		current_line_index += 1
-		if current_line_index >= dialog_lines.size():
-			is_dialog_active = false
-			current_line_index = 0
-			return
-		
-		_show_text_box()
+		inputCloseDialog()

@@ -153,6 +153,16 @@ func startDays():
 			await mil.iAmReady
 			print("MILITANT ", mil.e_militant, " arrived")
 			
+			await get_tree().create_timer(0.2).timeout
+			
+			var d = DialogManager.start_dialog($AnswerLocation.position, 
+				$AnswerLocation.position, 
+				DialogManager.TextBoxTypes.REPONSE,
+				["bjr competence ?"])
+			
+			await d.inputFinished
+			
+			
 			# Instanciate day missions when militant has arrived
 			for i in day["missions"][0].size():
 				var mis = getMission(day["missions"][0][i]).scn.instantiate()

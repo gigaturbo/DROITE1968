@@ -10,7 +10,7 @@ func _ready():
 	
 func startContext():
 	$MarginContainer.show()
-	var t1 = get_tree().create_timer(5.0)
+	var t1 = get_tree().create_timer(0.5)
 	await t1.timeout
 	$MarginContainer.hide()
 	
