@@ -104,6 +104,7 @@ var dayMissions = []
 var	militant = []
 var	contexts = []
 var answers = []
+var score = 0
 
 signal anyMissionSelected
 signal anyDialogAnswered
@@ -112,6 +113,7 @@ var res = preload("res://scenes/ResultsMission.tscn").instantiate()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	score = 0
 	$MusiqueTitre.play()
 	$Titre.show()
 	$Tuto.hide()
@@ -146,7 +148,24 @@ func getMission(mmis : EnumMissions):
 		EnumMissions.I:
 			return {"scn": preload("res://scenes/elements/missions/MissionI.tscn"),
 					"data": {}} 
-	# TODO ADD ALL / CHANGE
+		EnumMissions.J:
+			return {"scn": preload("res://scenes/elements/missions/MissionJ.tscn"),
+					"data": {}} 
+		EnumMissions.K:
+			return {"scn": preload("res://scenes/elements/missions/MissionK.tscn"),
+					"data": {}} 
+		EnumMissions.L:
+			return {"scn": preload("res://scenes/elements/missions/MissionL.tscn"),
+					"data": {}} 
+		EnumMissions.M:
+			return {"scn": preload("res://scenes/elements/missions/MissionM.tscn"),
+					"data": {}} 
+		EnumMissions.N:
+			return {"scn": preload("res://scenes/elements/missions/MissionN.tscn"),
+					"data": {}} 
+		EnumMissions.O:
+			return {"scn": preload("res://scenes/elements/missions/MissionO.tscn"),
+					"data": {}}
 
 func getMilitant(mmil : EnumMilitants):
 		match mmil:
@@ -191,7 +210,7 @@ func getContext(mcont : EnumContexts):
 						"medium" : "radio",
 						"data": "Drame aujourd’hui chez Peugeot : après 22 jours de grève, la police a investi les usines de Sochaux. Bilan tragique : 2 morts et 150 blessés."}
 			EnumContexts.C6:
-				return {"scn": preload("res://scenes/elements/contexts/Contexte5.tscn"),
+				return {"scn": preload("res://scenes/elements/contexts/Contexte6.tscn"),
 						"medium" : "talkie",
 						"data": "Un jeune militant communiste a été tué à coups de pistolet à Achicourt, par des membres d'un groupe d'action civique."}
 
@@ -209,6 +228,9 @@ func _on_tuto_end_tuto():
 	startDays() # START OF THE FUN
 	
 func startDays():
+	$Titre.hide()
+	$Tuto.hide()
+	score= 0 
 	
 	# Clear everything before instanciating new things
 	if militant:
