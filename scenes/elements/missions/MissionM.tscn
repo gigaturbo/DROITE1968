@@ -41,6 +41,6 @@ offset_bottom = 23.0
 text = "Le journal Le Monde veut interviewer un de nos militants. Il nous faut quelqu’un qui s’exprime bien pour donner une image impeccable de notre mouvement. Pas question de laisser la presse salir le mouvement du Général.
 
 Commentaire de Charles Prairie : 
-\"Ces journalistes ? Ils prennent ce qu’on dit et le tordent à leur sauce. Il faut être, clair, propre, précis.\""
+\"Ces journalistes ? Ils prennent ce qu’on dit et le tordent à leur sauce. Il faut être clair, propre, précis.\""
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

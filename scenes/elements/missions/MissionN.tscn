@@ -38,6 +38,9 @@ one_shot = true
 [node name="MyMissionLabel" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
-text = "Mision en cours d'écriture"
+text = "Il faut coller des papillons avec des slogans provocateurs, et le faire vite. Sur les murs, les panneaux, et bien sûr sur les affiches adverses ! C’est du vandalisme, donc attention à la police... discrétion et rapidité !
+
+Commentaire de Charles Prairie :
+\"Ah, j’adore celui-là : \"La réforme oui, la chienlit non.\" Ou bien encore \"NON au désordre, NON à l'aventure !\""
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
