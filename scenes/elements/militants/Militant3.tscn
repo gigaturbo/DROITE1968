@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://krv87whorp58"]
 
 [ext_resource type="Script" path="res://scripts/Militant.gd" id="1_ogajm"]
-[ext_resource type="Texture2D" uid="uid://bh4nyoq5hjp0e" path="res://assets/image/personnages/Rene_Wip.png" id="2_5oq4r"]
+[ext_resource type="Texture2D" uid="uid://ud2m5lmq7c52" path="res://assets/image/personnages/Marielle_Wip.png" id="2_f0d7q"]
 
 [node name="Militant3" type="Node2D"]
 script = ExtResource("1_ogajm")
@@ -9,4 +9,4 @@ script = ExtResource("1_ogajm")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 120
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_5oq4r")
+texture = ExtResource("2_f0d7q")
