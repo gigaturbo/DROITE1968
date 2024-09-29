@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b62gd52378jfw"
+path="res://.godot/imported/crayon 4 bis.wav-9e050f0ae1f007411e832d47a1763a96.sample"
+
+[deps]
+
+source_file="res://assets/audio/bruitages/crayon - page/crayon 4 bis.wav"
+dest_files=["res://.godot/imported/crayon 4 bis.wav-9e050f0ae1f007411e832d47a1763a96.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

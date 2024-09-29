@@ -86,6 +86,22 @@ func _on_text_box_finished_displaying():
 	textFinished.emit(self)
 
 func inputCloseDialog():
+	
+	var crayon1 = get_node("../Main/Bruitages/Crayon1")
+	var crayon2 = get_node("../Main/Bruitages/Crayon2")
+	var crayon3 = get_node("../Main/Bruitages/Crayon3")
+	var crayon4 = get_node("../Main/Bruitages/Crayon4")
+	
+	if text_box_type == TextBoxTypes.MILITANT:
+		var tournerPage = get_node("../Main/Bruitages/TournerPage")
+		crayon1.stop()
+		crayon2.stop()
+		crayon3.stop()
+		crayon4.stop()
+		tournerPage.play()
+	
+	
+	
 	if is_instance_valid(text_box):
 		text_box.queue_free()
 	current_line_index += 1
