@@ -53,7 +53,7 @@ var reponses = [[[["C’est simple... J’en ai ras-le-bol de ces p’tits jeune
 					"C’est pour ça que je veux m’engager."],
 				   ["Je suis audacieuse et volontaire. Quand il y a du travail à faire, je ne recule jamais. ",
 					"Et puis, je suis sportive. L'effort, la discipline, ça me connaît. Vous pouvez compter sur moi."]]],
-				 [["/",
+				 [["..................................",
 				   ["Moi, je suis un homme de terrain. Simple. J’ai l’habitude d’encadrer des gars, je sais comment les ",
 					"mettre au maille... les faire bosser, quoi. Mais ici, c’est pas comme chez nous, hein... ",
 					"C’est un peu la jungle, si tu vois ce que je veux dire."]],
@@ -98,8 +98,7 @@ var scores = [[[{"text": "Raymond n'a pas tenu. Les discours de ces petits rouge
 
 var day = allDays[0]
 var dayMissions = []
-var	militant = []
-var	contexts = []
+var	militant = null
 var answers = []
 var score = 0
 
@@ -249,13 +248,7 @@ func startDays():
 	$Score.hide()
 	score = 0 
 	var ncontext = 0
-	
-	# Clear everything before instanciating new things
-	if militant:
-		militant.queue_free()
-	for m in dayMissions:
-		m.queue_free()
-	
+		
 	# LOAD BG1 (Generic)
 	var bg = preload("res://scenes/elements/Background1.tscn").instantiate()
 	add_child(bg)
@@ -267,12 +260,12 @@ func startDays():
 	for i_day in allDays.size():
 		var day = allDays[i_day]
 		
-		# Instanciate militants of the day, and  contexts
+		# Instanciate militants of the day, and contexts
 		for i_mil in day["militants"].size():
 			
 			# Here come militants
 			var mil = getMilitant(day["militants"][i_mil]).scn.instantiate()
-			mil.e_militant = day["militants"][0]
+			mil.e_militant = day["militants"][i_mil]
 			militant = mil
 			add_child(mil)
 			mil.show()
@@ -331,10 +324,10 @@ func startDays():
 				DialogManager.TextBoxTypes.MILITANT,
 				reponses[i_day][i_mil][1-rep1]).inputFinished
 				
-			# Now instanciate day missions
-			for i in day["missions"][0].size():
-				var mis = getMission(day["missions"][0][i]).scn.instantiate()
-				mis.e_mission = day["missions"][0][i]
+			# Now instanciate day missions of militant
+			for i in day["missions"][i_mil].size():
+				var mis = getMission(day["missions"][i_mil][i]).scn.instantiate()
+				mis.e_mission = day["missions"][i_mil][i]
 				dayMissions.append(mis)
 				mis.selected.connect(_mission_selected)
 				mis.position = Vector2(200*(i+1) + 150, 680)	
