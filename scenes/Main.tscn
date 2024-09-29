@@ -28,7 +28,7 @@ position = Vector2(128, 657)
 position = Vector2(335, 880)
 
 [node name="ResponseLocation" type="Marker2D" parent="."]
-position = Vector2(682, 401)
+position = Vector2(538, 537)
 
 [connection signal="startButtonPressed" from="Titre" to="." method="_on_titre_start_button_pressed"]
 [connection signal="endTuto" from="Tuto" to="." method="_on_tuto_end_tuto"]
