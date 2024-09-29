@@ -7,7 +7,7 @@ extends Node
 @onready var text_box_scene_elec = preload("res://scenes/elements/TextBoxElec.tscn")
 
 
-var dialog_lines: Array[String] = []
+var dialog_lines = []
 var current_line_index =  0
 var text_box
 
@@ -32,7 +32,7 @@ signal buttonPressed
 func start_dialog(position:Vector2, 
 					apanelInitialSize:Vector2,
 					type:TextBoxTypes,
-					lines:Array[String],
+					lines, # :Array[String]
 					mid=-1):
 	text_box_type = type
 	
