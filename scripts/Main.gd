@@ -367,17 +367,9 @@ func startDays():
 			res.show()
 			add_child(res)
 			bg.hide()
-			await res.showPanel().finished
-			print(ms.e_mission)
-			await res.set_text(scores[i_day][i_mil][ms.e_mission % 3]["text"])
-			match scores[i_day][i_mil][ms.e_mission % 3]["text"]:
-				-1:
-					await res.charlesBad().finished
-				0:
-					await res.charlesNeutral().finished
-				1:
-					await res.charlesGood().finished
 			
+			await res.showPanel(scores[i_day][i_mil][ms.e_mission % 3]["text"],
+								scores[i_day][i_mil][ms.e_mission % 3]["hum"])
 			res.isFinished = true
 			await res.quitResults
 			res.hide()
