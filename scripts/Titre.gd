@@ -14,3 +14,4 @@ func _on_credits_pressed():
 
 func _on_quitter_pressed():
 	quitterButtonPressed.emit()
+	get_tree().quit()

@@ -109,6 +109,7 @@ func _ready():
 	$Titre.show()
 	$Tuto.hide()
 	$Score.hide()
+	$Credits.hide()
 	
 	audioAnnonces = [$Bruitages/Radio1, $Bruitages/Radio2, $Bruitages/Talkie1, $Bruitages/Talkie2, $Bruitages/Phone1, $Bruitages/Phone2]
 
@@ -220,11 +221,13 @@ func _on_titre_start_button_pressed():
 	$Tuto.show()
 	$Tuto.startTuto()
 	$Score.hide()
+	$Credits.hide()
 	
 func _on_tuto_end_tuto():
 	$Titre.hide()
 	$Tuto.hide()
 	$Score.hide()
+	$Credits.hide()
 	startDays() # START OF THE FUN
 	
 func showContext(n):
@@ -252,6 +255,7 @@ func startDays():
 	$Titre.hide()
 	$Tuto.hide()
 	$Score.hide()
+	$Credits.hide()
 	score = 0 
 	var ncontext = 0
 		
@@ -433,6 +437,7 @@ func _dialog_manager_response(cdialog):
 
 
 
+
 func processMusic():
 	# 0 to 1
 	var musicSwitchRelative = 1.0 - $Musiques/FadingTimer.time_left / $Musiques/FadingTimer.wait_time
@@ -450,3 +455,20 @@ func processMusic():
 	
 	$Musiques/Musique1Radio.set_volume_db(vol_theme_menu)
 	$Musiques/Musique1.set_volume_db(vol_theme_menu_radio)
+
+
+func _on_credits_exit_credits():
+	$Titre.show()
+	$Tuto.hide()
+	$Score.hide()
+	$Credits.hide()
+	$Credits.init()
+
+
+func _on_titre_credit_button_pressed():
+	$Titre.hide()
+	$Tuto.hide()
+	$Score.hide()
+	
+	$Credits.show()
+	$Credits.init()

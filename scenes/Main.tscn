@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cakpsc8hxpp4q"]
+[gd_scene load_steps=29 format=3 uid="uid://cakpsc8hxpp4q"]
 
 [ext_resource type="Script" path="res://scripts/Main.gd" id="1_3ouxd"]
 [ext_resource type="PackedScene" uid="uid://7d74krn38k4p" path="res://scenes/Titre.tscn" id="2_soksl"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bsgomoihxbkhq" path="res://scenes/ScoreScreen.tscn" id="4_ei2rq"]
 [ext_resource type="AudioStream" uid="uid://b4kw4drmwhmmn" path="res://assets/audio/musiques/Musique partie 1 .wav" id="4_p8i6v"]
 [ext_resource type="AudioStream" uid="uid://cr06tod2m228o" path="res://assets/audio/musiques/musique 2/boucle 1.wav" id="5_4hdlf"]
+[ext_resource type="PackedScene" uid="uid://cj6equ6e6k0h7" path="res://scenes/CreditsScreen.tscn" id="5_vykkf"]
 [ext_resource type="AudioStream" uid="uid://bslgn04n088ac" path="res://assets/audio/musiques/musique 2/break 1.wav" id="6_n7fuy"]
 [ext_resource type="AudioStream" uid="uid://c2e1caa41q8gu" path="res://assets/audio/musiques/musique 2/boucle 2.wav" id="7_byrpe"]
 [ext_resource type="AudioStream" uid="uid://c2sdu7e66t6qn" path="res://assets/audio/musiques/musique 2/break 2.wav" id="8_w6bya"]
@@ -36,6 +37,8 @@ script = ExtResource("1_3ouxd")
 [node name="Tuto" parent="." instance=ExtResource("3_iwt3s")]
 
 [node name="Score" parent="." instance=ExtResource("4_ei2rq")]
+
+[node name="Credits" parent="." instance=ExtResource("5_vykkf")]
 
 [node name="DoorLocation" type="Marker2D" parent="."]
 position = Vector2(285, 488)
@@ -152,5 +155,7 @@ stream = ExtResource("26_mmkk8")
 [node name="MissionReussite" type="AudioStreamPlayer" parent="Bruitages"]
 stream = ExtResource("27_5ytqm")
 
+[connection signal="creditButtonPressed" from="Titre" to="." method="_on_titre_credit_button_pressed"]
 [connection signal="startButtonPressed" from="Titre" to="." method="_on_titre_start_button_pressed"]
 [connection signal="endTuto" from="Tuto" to="." method="_on_tuto_end_tuto"]
+[connection signal="exitCredits" from="Credits" to="." method="_on_credits_exit_credits"]
