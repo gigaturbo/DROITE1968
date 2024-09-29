@@ -27,9 +27,9 @@ patch_margin_bottom = 279
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
-theme_override_constants/margin_left = 100
+theme_override_constants/margin_left = 175
 theme_override_constants/margin_top = 70
-theme_override_constants/margin_right = 100
+theme_override_constants/margin_right = 175
 theme_override_constants/margin_bottom = 70
 
 [node name="Label" type="Label" parent="MarginContainer"]
@@ -38,15 +38,6 @@ size_flags_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("10_cksmk")
 theme_override_font_sizes/font_size = 50
-text = "oiezjazoidjdkoifd ezfnf klddf
- sdnjfnsdodsnf dsofndskfdsnfdskofndsokfsdnfkosdnfok
-dsfnfdsfjn jdsndfksfnsd 
-sdfkosdnf dskofndskdsfsd,jfofnsdfn
-
-
-
-
-dskof,sdokf,dsfs"
 
 [node name="LetterDisplayTimer" type="Timer" parent="."]
 one_shot = true
