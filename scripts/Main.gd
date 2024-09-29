@@ -43,7 +43,7 @@ var reponses = [[[["C’est simple... J’en ai ras-le-bol de ces p’tits jeune
 			  	[["Je n’aime pas le bazar que ces gens de gauche mettent. Le désordre, ça me fait peur. Moi, je crois en une droite sociale, mais bien ordonnée.",
 					"Bref, une droite comme celle du Général et de Monsieur Prairie. C’est pour ça que je veux m’engager."],
 			   	["Je suis audacieuse et volontaire. Quand il y a du travail à faire, je ne recule jamais. Je suis sportive, aussi. L'effort, la discipline, ça me connaît !"]]],
-			 	[["...",
+			 	[[["..."],
 			   	["Moi, je suis un homme de terrain. Simple. J’ai l’habitude d’encadrer des gars, je sais comment les mettre au maille... les faire bosser, quoi.",
 					"Mais ici, c’est pas comme chez nous, hein... C’est un peu la jungle, si tu vois ce que je veux dire."]],
 			  	[["Le Général et ses compagnons… ils sont les seuls à saisir l’ampleur réelle de la situation. Leur vision dépasse celle des autres.",
