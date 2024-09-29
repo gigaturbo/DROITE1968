@@ -472,6 +472,7 @@ func _on_credits_exit_credits():
 	$Credits.init()
 
 
+
 func _on_titre_credit_button_pressed():
 	$Titre.hide()
 	$Tuto.hide()
