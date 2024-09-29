@@ -199,13 +199,15 @@ func getContext(mcont : EnumContexts):
 
 	# TODO ADD ALL
 
+
 func _on_titre_start_button_pressed():
 	$MusiqueTitre.stop()
 	$Titre.hide()
 	$Tuto.show()
 	$Tuto.startTuto()
 	$Score.hide()
-	
+
+
 func _on_tuto_end_tuto():
 	$Titre.hide()
 	$Tuto.hide()
@@ -377,5 +379,6 @@ func _dialog_manager_response(cdialog):
 	DialogManager.inputCloseDialog()
 	DialogManager2.inputCloseDialog()
 	anyDialogAnswered.emit(answered)
+
 
 
