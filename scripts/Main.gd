@@ -68,6 +68,36 @@ var reponses = [[[["C’est simple... J’en ai ras-le-bol de ces p’tits jeune
 					"pas être parfait, mais je sais que je peux prendre les décisions nécessaires quand d’autres hésiteraient. ",
 					"Et quand il faut agir, je ne recule devant rien. C’est une question de devoir, et je suis prêt à tout."]]]]
 
+var scores = [[[{"text": "Raymond n'a pas tenu. Les discours de ces petits rouges l’ont rendu fou de rage, et il a flanqué une raclée à sept d’entre eux. Il est actuellement entendu par les flics. Ce n’est pas vraiment à notre avantage…",
+				 "hum":-1, "score":0},
+				{"text": "Raymond a réussi à coller trois affiches avant de tomber sur des cocos. Il n'a pas pu s'empêcher de se battre avec eux... Autant dire que l’efficacité n’était pas au rendez-vous.",
+				 "hum":-1, "score":1},
+				{"text": "Raymond ne s’est pas contenté de coller des affiches, il a fait le ménage comme jamais. Les cocos ont pris la fuite, et même les passants réclamaient des tracts, de peur de se prendre un gnon. On peut dire qu'il a fait son boulot.",
+				 "hum":-1, "score":2}]],
+			  [[{"text": "À la première échauffourée, Nicolas a pris peur et s'est enfui. Au final, il n'a réussi à poser que deux affiches et ses compagnons sont à l'hôpital. Une vraie planche pourrie !",
+				 "hum":-1, "score":0},
+				{"text": "Nicolas a tout entendu, de A à Z, et ce qu'il a découvert l'a glacé d'effroi : ils parlent ouvertement de révolution, et c'est certain, le Grand Soir est pour bientôt, probablement dès demain. Mais c’est quand ils ont commencé à lire à haute voix des passages de Lénine que Nicolas a vraiment senti la terreur monter. Pour lui, c’était la preuve que ces types veulent tout renverser.",
+				 "hum":-1, "score":2},
+				{"text": "Nicolas a oublié de mettre des gants, et bien sûr, il s'est coupé en collant la première affiche. Résultat : du sang partout sur le visage de Charles Prairie. Pas très propre, mais au moins, ça filera peut-être la trouille aux cocos ?",
+				 "hum":-1, "score":1}],
+				[{"text": "Marielle ne tape pas vite, fait des fautes, et s’ennuie rapidement... on dirait presque un garçon. Elle en a fait vingt, mais seulement sept seulement sont exploitables. Vraiment décevant.",
+				 "hum":-1, "score":1},
+				{"text": "Marielle a commencé à préparer à manger, malheureusement à la dixième remarque qu'elle a jugée déplacée, elle a rendu son tablier et a claqué la porte. Quinze gars pour un demi-sandwich, c'est peu...",
+				 "hum":-1, "score":0},
+				{"text": "Marielle a fait preuve de caractère, et pas qu’un peu ! Pas de charme à l'œuvre ici, mais bien sa réputation de championne et son tempérament de feu. Elle a réussi à recruter des étudiants et des ouvriers. Qui aurait cru qu’elle en aurait dans le ventre pour rallier autant de gars ?",
+				 "hum":-1, "score":2}]],
+			  [[{"text": "Comme prévu, l’équipe de colleurs s’est fait tomber dessus. Roger, plein de courage, s’est jeté dans la mêlée, mais l’âge ne pardonne pas. Après quelques échanges vigoureux, il a fini par prendre une belle raclée. Il a au moins eu l'utilité de distraire assez longtemps pour que les autres se tirent en vitesse.",
+				 "hum":-1, "score":1},
+				{"text": "Roger a chopé les colleurs communistes au vol ! Juste un regard, et ils ont su qu'ils étaient cuits. Pas besoin de hausser la voix, il les a mis au boulot tout l’après-midi, les forçant à recouvrir toutes leurs affiches avec celles de Charles Prairie. Sous sa surveillance de vieux briscard, pas un n’a bronché. Il les faisait trimer comme des bons petits soldats, et lui, il regardait ça d’un œil amusé. Quand ils ont fini, ils étaient lessivés, humiliés…",
+				 "hum":-1, "score":2},
+				{"text": "?", #TODO
+				 "hum":-1, "score":0}],
+				[{"text": "?", #TODO
+				 "hum":-1, "score":0},
+				{"text": "?", #TODO
+				 "hum":-1, "score":1},
+				{"text": "?", #TODO
+				 "hum":-1, "score":2}]]]
 
 var day = allDays[0]
 var dayMissions = []
