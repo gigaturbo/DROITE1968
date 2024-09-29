@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://fqjkv7yn5845"
-path="res://.godot/imported/telephone 2.wav-9e9654803ee1407962c4c2e7757e8579.sample"
+path="res://.godot/imported/telephone 2.wav-9ddc4c514e36efb2c803b1eda72b3a30.sample"
 
 [deps]
 
-source_file="res://assets/audio/bruitages/tel - talkie - radio/telephone 2.wav"
-dest_files=["res://.godot/imported/telephone 2.wav-9e9654803ee1407962c4c2e7757e8579.sample"]
+source_file="res://assets/audio/bruitages/tel_talkie_radio/telephone 2.wav"
+dest_files=["res://.godot/imported/telephone 2.wav-9ddc4c514e36efb2c803b1eda72b3a30.sample"]
 
 [params]
 

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dhvpvvj57oto3"
-path="res://.godot/imported/reussite.wav-e333e3e5c65704faf163637a8983166d.sample"
+path="res://.godot/imported/reussite.wav-d62e83f9372fae06c8f7d5a7651688dd.sample"
 
 [deps]
 
-source_file="res://assets/audio/bruitages/reussite - echec /reussite.wav"
-dest_files=["res://.godot/imported/reussite.wav-e333e3e5c65704faf163637a8983166d.sample"]
+source_file="res://assets/audio/bruitages/reussite_echec/reussite.wav"
+dest_files=["res://.godot/imported/reussite.wav-d62e83f9372fae06c8f7d5a7651688dd.sample"]
 
 [params]
 

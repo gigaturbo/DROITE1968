@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://ciijqcgjkgmfo"
-path="res://.godot/imported/radio 2.wav-070df8a2bcc5bbecf5c9a9226962431a.sample"
+path="res://.godot/imported/radio 2.wav-eb3f8bf380b5bf9258a5a9cc474cbaaf.sample"
 
 [deps]
 
-source_file="res://assets/audio/bruitages/tel - talkie - radio/radio 2.wav"
-dest_files=["res://.godot/imported/radio 2.wav-070df8a2bcc5bbecf5c9a9226962431a.sample"]
+source_file="res://assets/audio/bruitages/tel_talkie_radio/radio 2.wav"
+dest_files=["res://.godot/imported/radio 2.wav-eb3f8bf380b5bf9258a5a9cc474cbaaf.sample"]
 
 [params]
 

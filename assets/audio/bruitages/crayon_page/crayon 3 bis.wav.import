@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://b06ktxnutb0kb"
-path="res://.godot/imported/crayon 3 bis.wav-6595854486396eaa11b76801a4093934.sample"
+path="res://.godot/imported/crayon 3 bis.wav-c6b1802b5bc169ea9dcf3cbf077a0413.sample"
 
 [deps]
 
-source_file="res://assets/audio/bruitages/crayon - page/crayon 3 bis.wav"
-dest_files=["res://.godot/imported/crayon 3 bis.wav-6595854486396eaa11b76801a4093934.sample"]
+source_file="res://assets/audio/bruitages/crayon_page/crayon 3 bis.wav"
+dest_files=["res://.godot/imported/crayon 3 bis.wav-c6b1802b5bc169ea9dcf3cbf077a0413.sample"]
 
 [params]
 
