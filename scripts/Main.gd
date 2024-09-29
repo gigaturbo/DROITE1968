@@ -114,6 +114,7 @@ func _ready():
 	$MusiqueTitre.play()
 	$Titre.show()
 	$Tuto.hide()
+	$Score.hide()
 
 
 func getMission(mmis : EnumMissions):
@@ -218,10 +219,12 @@ func _on_titre_start_button_pressed():
 	$Titre.hide()
 	$Tuto.show()
 	$Tuto.startTuto()
+	$Score.hide()
 	
 func _on_tuto_end_tuto():
 	$Titre.hide()
 	$Tuto.hide()
+	$Score.hide()
 	startDays() # START OF THE FUN
 	
 func showContext(n):
@@ -243,6 +246,7 @@ func showContext(n):
 func startDays():
 	$Titre.hide()
 	$Tuto.hide()
+	$Score.hide()
 	score = 0 
 	var ncontext = 0
 	
@@ -378,9 +382,10 @@ func startDays():
 			bg.show()
 			# To next cycle
 	
-	# Show last context before scores
-	await showContext(5)
-	
+	# Show scores
+	bg.hide()
+	$Score.show()
+	$Score.init(score, answers)
 	
 	
 # Handle mission selection

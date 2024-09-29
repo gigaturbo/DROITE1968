@@ -1,3 +1,24 @@
-[gd_scene format=3 uid="uid://bsgomoihxbkhq"]
+[gd_scene load_steps=5 format=3 uid="uid://bsgomoihxbkhq"]
+
+[ext_resource type="Texture2D" uid="uid://dg0wjopk50ru4" path="res://assets/image/fonds/Win_Screen.png" id="1_1jtq1"]
+[ext_resource type="Script" path="res://scripts/ScoreScreen.gd" id="1_roevx"]
+[ext_resource type="Texture2D" uid="uid://dcpc4aiqw4jw1" path="res://assets/image/fonds/Lose_Screen.png" id="3_bb2pl"]
+[ext_resource type="Texture2D" uid="uid://2ywjg4losapk" path="res://assets/image/fonds/Super_Win_Screen.png" id="4_m500t"]
 
 [node name="ScoreScreen" type="Node2D"]
+script = ExtResource("1_roevx")
+
+[node name="win" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_1jtq1")
+centered = false
+
+[node name="loose" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_bb2pl")
+centered = false
+
+[node name="perfect" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_m500t")
+centered = false
