@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://d3auvj2tcftsx"]
 
-[ext_resource type="Texture2D" uid="uid://dmhn1ixdyhgkh" path="res://assets/image/fonds/FOND.png" id="1_axqdr"]
+[ext_resource type="Texture2D" uid="uid://dm636egfnqwqm" path="res://assets/image/fonds/FOND.png" id="1_axqdr"]
 [ext_resource type="Script" path="res://scripts/Resultats.gd" id="1_fydi5"]
-[ext_resource type="Texture2D" uid="uid://b5tc2hsjcxuas" path="res://assets/image/fonds/DECOR.png" id="2_h87lj"]
-[ext_resource type="Texture2D" uid="uid://bst6ngrfkq66g" path="res://assets/image/fonds/asset_bureau.png" id="3_eijkr"]
+[ext_resource type="Texture2D" uid="uid://cut7bqf2w0gqm" path="res://assets/image/fonds/DECOR.png" id="2_h87lj"]
+[ext_resource type="Texture2D" uid="uid://dei4sutncpiis" path="res://assets/image/fonds/asset_bureau.png" id="3_eijkr"]
 
 [node name="Resultats" type="Node2D"]
 script = ExtResource("1_fydi5")

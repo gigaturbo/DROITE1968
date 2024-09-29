@@ -6,15 +6,12 @@ enum EnumMissions{A, B, C, D, E,
 enum EnumMilitants{M1, M2, M3, M4, M5} # n=5
 enum EnumContexts{C1, C2, C3, C4, C5, C6} # n=6
 
-var allDays = [{"contexts": [EnumContexts.C1],
-				"militants": [EnumMilitants.M1],
+var allDays = [{"militants": [EnumMilitants.M1],
 				"missions": [[EnumMissions.A, EnumMissions.B, EnumMissions.C]]},
-			   {"contexts": [EnumContexts.C2, EnumContexts.C3],
-				"militants": [EnumMilitants.M2, EnumMilitants.M3],
+			   {"militants": [EnumMilitants.M2, EnumMilitants.M3],
 				"missions": [[EnumMissions.D, EnumMissions.E, EnumMissions.F],
 							 [EnumMissions.G, EnumMissions.H, EnumMissions.I]]},
-				{"contexts": [EnumContexts.C4, EnumContexts.C5],
-				"militants": [EnumMilitants.M4, EnumMilitants.M5],
+				{"militants": [EnumMilitants.M4, EnumMilitants.M5],
 				"missions": [[EnumMissions.J, EnumMissions.K, EnumMissions.L],
 							 [EnumMissions.M, EnumMissions.N, EnumMissions.O]]}]
 
@@ -89,21 +86,22 @@ var scores = [[[{"text": "Raymond n'a pas tenu. Les discours de ces petits rouge
 			  [[{"text": "Comme prévu, l’équipe de colleurs s’est fait tomber dessus. Roger, plein de courage, s’est jeté dans la mêlée, mais l’âge ne pardonne pas. Après quelques échanges vigoureux, il a fini par prendre une belle raclée. Il a au moins eu l'utilité de distraire assez longtemps pour que les autres se tirent en vitesse.",
 				 "hum":-1, "score":1},
 				{"text": "Roger a chopé les colleurs communistes au vol ! Juste un regard, et ils ont su qu'ils étaient cuits. Pas besoin de hausser la voix, il les a mis au boulot tout l’après-midi, les forçant à recouvrir toutes leurs affiches avec celles de Charles Prairie. Sous sa surveillance de vieux briscard, pas un n’a bronché. Il les faisait trimer comme des bons petits soldats, et lui, il regardait ça d’un œil amusé. Quand ils ont fini, ils étaient lessivés, humiliés…",
-				 "hum":-1, "score":2},
-				{"text": "?", #TODO
+				 "hum":-1, "score":3},
+				{"text": "Roger a patrouillé avec ses cadets, mais pas un ne connaissait le coin. Alors, quand ils ont vu une bande de jeunes avec des seaux de colle, ils n’ont pas hésité : ils ont appliqué les consignes de Charles Prairie et leur ont bien cassé la figure. Le problème ? C’était nos gars ! On s’est retrouvés avec nos propres militants à l’hôpital. Une vraie catastrophe, et un sacré gâchis !",
 				 "hum":-1, "score":0}],
-				[{"text": "?", #TODO
+				[{"text": "Catastrophe totale ! Jacques a raconté à la presse que Mai 68 était orchestré par une alliance improbable : la Chine de Mao, Israël, la CIA, Cuba, la Suisse et même la Bulgarie. Oui, vous avez bien entendu, il a vraiment dit ça ! Le journaliste n’en a pas raté une miette, et la candidature de Charles Prairie est maintenant la risée de tout le monde. Une humiliation complète.",
 				 "hum":-1, "score":0},
-				{"text": "?", #TODO
-				 "hum":-1, "score":1},
-				{"text": "?", #TODO
-				 "hum":-1, "score":2}]]]
+				{"text": "À la sortie de la messe, Jacques a livré un véritable sermon mystique, parlant de la mission sacrée du Général face à l'antéchrist rouge. Les fidèles, encore sous l'effet des cantiques, étaient captivés, buvant chacune de ses paroles. Ils ont pris les tracts avec ferveur, on peut dire qu’il les a conquis !",
+				 "hum":-1, "score":3},
+				{"text": "Malheureusement, Jacques n'a pas vraiment les jambes pour ce genre de course. Il s'est fait attraper par la police avant d'avoir pu finir son travail. Avec son statut et sa manière de parler, il s'en tirera sans trop de problèmes et il a tout de même réussi à coller une dizaine de papillons... c’est déjà ça.",
+				 "hum":-1, "score":1}]]]
 
 var day = allDays[0]
 var dayMissions = []
 var	militant = []
 var	contexts = []
 var answers = []
+var score = 0
 
 signal anyMissionSelected
 signal anyDialogAnswered
@@ -118,6 +116,7 @@ var volume_theme_menu_radio = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	score = 0
 	$Musiques/Musique1Radio.play()
 	$Musiques/Musique1.play()
 	$Musiques/Musique1.set_volume_db(-60)
@@ -157,7 +156,24 @@ func getMission(mmis : EnumMissions):
 		EnumMissions.I:
 			return {"scn": preload("res://scenes/elements/missions/MissionI.tscn"),
 					"data": {}} 
-	# TODO ADD ALL / CHANGE
+		EnumMissions.J:
+			return {"scn": preload("res://scenes/elements/missions/MissionJ.tscn"),
+					"data": {}} 
+		EnumMissions.K:
+			return {"scn": preload("res://scenes/elements/missions/MissionK.tscn"),
+					"data": {}} 
+		EnumMissions.L:
+			return {"scn": preload("res://scenes/elements/missions/MissionL.tscn"),
+					"data": {}} 
+		EnumMissions.M:
+			return {"scn": preload("res://scenes/elements/missions/MissionM.tscn"),
+					"data": {}} 
+		EnumMissions.N:
+			return {"scn": preload("res://scenes/elements/missions/MissionN.tscn"),
+					"data": {}} 
+		EnumMissions.O:
+			return {"scn": preload("res://scenes/elements/missions/MissionO.tscn"),
+					"data": {}}
 
 func getMilitant(mmil : EnumMilitants):
 		match mmil:
@@ -202,7 +218,7 @@ func getContext(mcont : EnumContexts):
 						"medium" : "radio",
 						"data": "Drame aujourd’hui chez Peugeot : après 22 jours de grève, la police a investi les usines de Sochaux. Bilan tragique : 2 morts et 150 blessés."}
 			EnumContexts.C6:
-				return {"scn": preload("res://scenes/elements/contexts/Contexte5.tscn"),
+				return {"scn": preload("res://scenes/elements/contexts/Contexte6.tscn"),
 						"medium" : "talkie",
 						"data": "Un jeune militant communiste a été tué à coups de pistolet à Achicourt, par des membres d'un groupe d'action civique."}
 
@@ -219,7 +235,27 @@ func _on_tuto_end_tuto():
 	$Tuto.hide()
 	startDays() # START OF THE FUN
 	
+func showContext(n):
+	var	textContext = getContext(n).data
+	var	medium = getContext(n).medium
+	var contextPosition = null
+	match medium:
+		"radio":
+			contextPosition = $RadioLocation.position
+		"talkie":
+			contextPosition = $TalkieLocation.position
+		"phone":
+			contextPosition = $PhoneLocation.position
+	return DialogManager.start_dialog(contextPosition, 
+		Vector2(500,100), 
+		DialogManager.TextBoxTypes.ELEC,
+		[textContext]).inputFinished
+	
 func startDays():
+	$Titre.hide()
+	$Tuto.hide()
+	score = 0 
+	var ncontext = 0
 	
 	# Clear everything before instanciating new things
 	if militant:
@@ -231,6 +267,9 @@ func startDays():
 	var bg = preload("res://scenes/elements/Background1.tscn").instantiate()
 	add_child(bg)
 	
+	await showContext(0)
+	ncontext = ncontext + 1
+	
 	# Loop all days
 	for i_day in allDays.size():
 		var day = allDays[i_day]
@@ -240,30 +279,6 @@ func startDays():
 			
 			if(i_mil == 3) :
 				$Musique1.stop()
-			
-#			# Context sequence before militant
-			var	textContext = getContext(day["contexts"][i_mil]).data
-			var	medium = getContext(day["contexts"][i_mil]).medium
-			var contextPosition = null
-			match medium:
-				"radio":
-					contextPosition = $RadioLocation.position
-				"talkie":
-					contextPosition = $TalkieLocation.position
-				"phone":
-					contextPosition = $PhoneLocation.position
-			await DialogManager.start_dialog(contextPosition, 
-				Vector2(500,100), 
-				DialogManager.TextBoxTypes.ELEC,
-				[textContext]).inputFinished
-			
-#			var	con = getContext(day["contexts"][i_mil]).scn.instantiate()
-#			add_child(con)
-#			con.position = $RadioLocation.position
-#			con.startContext()
-#			await con.contextEnded
-#			con.hide()
-			
 			
 			# Pour les deux derniers militants, une musique spéciale
 			if(i_mil == 3) :
@@ -360,6 +375,9 @@ func startDays():
 					mission.get_selected()
 					answers.append({"militant": militant.e_militant,
 									"mission": ms.e_mission})
+					var toadd = scores[i_day][i_mil][ms.e_mission % 3]["score"]
+					score = score + toadd
+					print("SCORE IS NOW ", score)
 					print("SAVED ", answers)
 				else:
 					mission.go_away()
@@ -369,22 +387,29 @@ func startDays():
 			
 			await mil.byeBye
 			
+			# Show context before results
+			await showContext(ncontext)
+			ncontext = ncontext + 1
+			
 			# Mission results
 			res.reset()
 			res.show()
 			add_child(res)
 			bg.hide()
-			await res.showPanel().finished
-			print(ms.e_mission)
-			#TODO
-			await res.set_text(scores[i_day][i_mil][ms.e_mission % 3]["text"])
-			res.charlesGood()
+			
+			await res.showPanel(scores[i_day][i_mil][ms.e_mission % 3]["text"],
+								scores[i_day][i_mil][ms.e_mission % 3]["hum"])
+			res.isFinished = true
 			await res.quitResults
 			res.hide()
 			remove_child(res)
 			
 			bg.show()
 			# To next cycle
+	
+	# Show last context before scores
+	await showContext(5)
+	
 	
 	
 # Handle mission selection
@@ -399,33 +424,3 @@ func _dialog_manager_response(cdialog):
 	anyDialogAnswered.emit(answered)
 
 
-
-
-
-
-#func _input(event):
-#
-#	if event.is_action_pressed("A_button"):
-#
-#		radioMusic = !radioMusic
-#		print("ok")
-#		$Musiques/FadingTimer.start()
-		
-		
-func processMusic():
-	# 0 to 1
-	var musicSwitchRelative = 1.0 - $Musiques/FadingTimer.time_left / $Musiques/FadingTimer.wait_time
-	
-	if !radioMusic:
-		musicSwitchRelative = 1 - musicSwitchRelative
-	
-	var vol_theme_menu = lerp(-60, volume_theme_menu, (musicSwitchRelative)**0.02) # **0.05
-	var vol_theme_menu_radio = lerp(-60, volume_theme_menu_radio, (1 - musicSwitchRelative)**0.2)
-	
-	print("\nvol_theme_menu")
-	print(vol_theme_menu)
-	print("vol_theme_menu_radio")
-	print(vol_theme_menu_radio)
-	
-	$Musiques/Musique1Radio.set_volume_db(vol_theme_menu)
-	$Musiques/Musique1.set_volume_db(vol_theme_menu_radio)
