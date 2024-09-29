@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ciijqcgjkgmfo"
+path="res://.godot/imported/radio 2.wav-070df8a2bcc5bbecf5c9a9226962431a.sample"
+
+[deps]
+
+source_file="res://assets/audio/bruitages/tel - talkie - radio/radio 2.wav"
+dest_files=["res://.godot/imported/radio 2.wav-070df8a2bcc5bbecf5c9a9226962431a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

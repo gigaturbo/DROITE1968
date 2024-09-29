@@ -110,11 +110,22 @@ signal anyDialogAnswered
 
 var res = preload("res://scenes/ResultsMission.tscn").instantiate()
 
+
+var radioMusic = true
+var volume_theme_menu = 0
+var volume_theme_menu_radio = 0
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$MusiqueTitre.play()
+	$Musiques/Musique1Radio.play()
+	$Musiques/Musique1.play()
+	$Musiques/Musique1.set_volume_db(-60)
 	$Titre.show()
 	$Tuto.hide()
+
+func _process(delta):
+	processMusic()
 
 
 func getMission(mmis : EnumMissions):
@@ -198,7 +209,7 @@ func getContext(mcont : EnumContexts):
 	# TODO ADD ALL
 
 func _on_titre_start_button_pressed():
-	$MusiqueTitre.stop()
+	radioMusic = false # change music to the main one (music 1 with no radio mode)
 	$Titre.hide()
 	$Tuto.show()
 	$Tuto.startTuto()
@@ -227,6 +238,9 @@ func startDays():
 		# Instanciate militants of the day, and  contexts
 		for i_mil in day["militants"].size():
 			
+			if(i_mil == 3) :
+				$Musique1.stop()
+			
 #			# Context sequence before militant
 			var	textContext = getContext(day["contexts"][i_mil]).data
 			var	medium = getContext(day["contexts"][i_mil]).medium
@@ -249,6 +263,14 @@ func startDays():
 #			con.startContext()
 #			await con.contextEnded
 #			con.hide()
+			
+			
+			# Pour les deux derniers militants, une musique spéciale
+			if(i_mil == 3) :
+				$Musique2Boucle1.play()
+			if(i_mil == 4) :
+				$Musique2Boucle2.play()
+				
 			
 			# Here come militants
 			var mil = getMilitant(day["militants"][i_mil]).scn.instantiate()
@@ -324,6 +346,14 @@ func startDays():
 			# Await a mission select, then fire militant
 			var ms = await self.anyMissionSelected
 			
+			# Pour les deux derniers militants, une musique spéciale
+			if(i_mil == 3) :
+				$Musique2Boucle1.stop()
+				$Musique2Break1.play()
+			if(i_mil == 4) :
+				$Musique2Boucle2.stop()
+				$Musique2Break2.play()
+			
 			print("MISSION ", ms.e_mission, " selected")
 			for mission in dayMissions:
 				if mission.e_mission == ms.e_mission:
@@ -369,3 +399,33 @@ func _dialog_manager_response(cdialog):
 	anyDialogAnswered.emit(answered)
 
 
+
+
+
+
+#func _input(event):
+#
+#	if event.is_action_pressed("A_button"):
+#
+#		radioMusic = !radioMusic
+#		print("ok")
+#		$Musiques/FadingTimer.start()
+		
+		
+func processMusic():
+	# 0 to 1
+	var musicSwitchRelative = 1.0 - $Musiques/FadingTimer.time_left / $Musiques/FadingTimer.wait_time
+	
+	if !radioMusic:
+		musicSwitchRelative = 1 - musicSwitchRelative
+	
+	var vol_theme_menu = lerp(-60, volume_theme_menu, (musicSwitchRelative)**0.02) # **0.05
+	var vol_theme_menu_radio = lerp(-60, volume_theme_menu_radio, (1 - musicSwitchRelative)**0.2)
+	
+	print("\nvol_theme_menu")
+	print(vol_theme_menu)
+	print("vol_theme_menu_radio")
+	print(vol_theme_menu_radio)
+	
+	$Musiques/Musique1Radio.set_volume_db(vol_theme_menu)
+	$Musiques/Musique1.set_volume_db(vol_theme_menu_radio)
