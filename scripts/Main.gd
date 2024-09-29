@@ -93,13 +93,27 @@ signal anyDialogAnswered
 
 var res = preload("res://scenes/ResultsMission.tscn").instantiate()
 
+
+var radioMusic = true
+var volume_theme_menu = 0
+var volume_theme_menu_radio = 0
+
+var audioAnnonces:Array[AudioStreamPlayer]
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	score = 0
-	$MusiqueTitre.play()
+	$Musiques/Musique1Radio.play()
+	$Musiques/Musique1.play()
+	$Musiques/Musique1.set_volume_db(-60)
 	$Titre.show()
 	$Tuto.hide()
 	$Score.hide()
+	
+	audioAnnonces = [$Bruitages/Radio1, $Bruitages/Radio2, $Bruitages/Talkie1, $Bruitages/Talkie2, $Bruitages/Phone1, $Bruitages/Phone2]
+
+func _process(delta):
+	processMusic()
 
 
 func getMission(mmis : EnumMissions):
@@ -201,13 +215,12 @@ func getContext(mcont : EnumContexts):
 
 
 func _on_titre_start_button_pressed():
-	$MusiqueTitre.stop()
+	radioMusic = false # change music to the main one (music 1 with no radio mode)
 	$Titre.hide()
 	$Tuto.show()
 	$Tuto.startTuto()
 	$Score.hide()
-
-
+	
 func _on_tuto_end_tuto():
 	$Titre.hide()
 	$Tuto.hide()
@@ -218,13 +231,18 @@ func showContext(n):
 	var	textContext = getContext(n).data
 	var	medium = getContext(n).medium
 	var contextPosition = null
+	var rand = randi()%2
 	match medium:
 		"radio":
 			contextPosition = $RadioLocation.position
+			audioAnnonces[rand].play()
 		"talkie":
 			contextPosition = $TalkieLocation.position
+			audioAnnonces[2 + rand].play()
 		"phone":
 			contextPosition = $PhoneLocation.position
+			audioAnnonces[4 + rand].play()
+			
 	return DialogManager.start_dialog(contextPosition, 
 		Vector2(500,100), 
 		DialogManager.TextBoxTypes.ELEC,
@@ -250,6 +268,18 @@ func startDays():
 		
 		# Instanciate militants of the day, and contexts
 		for i_mil in day["militants"].size():
+			
+			if(i_day == 2) :
+				$Musiques/Musique1.stop()
+			
+			# Pour les deux derniers militants, une musique spéciale
+			if(i_day == 2 && i_mil == 0) :
+				$Musiques/Musique2Boucle1.play()
+			if(i_day == 2 && i_mil == 1) :
+				$Musiques/Musique2Boucle2.play()
+				
+			
+			$Bruitages/PorteArrive.play()
 			
 			# Here come militants
 			var mil = getMilitant(day["militants"][i_mil]).scn.instantiate()
@@ -325,6 +355,16 @@ func startDays():
 			# Await a mission select, then fire militant
 			var ms = await self.anyMissionSelected
 			
+			
+			
+			# Pour les deux derniers militants, une musique spéciale
+			if(i_day == 2 && i_mil == 0) :
+				$Musiques/Musique2Boucle1.stop()
+				$Musiques/Musique2Break1.play()
+			if(i_day == 2 && i_mil == 1) :
+				$Musiques/Musique2Boucle2.stop()
+				$Musiques/Musique2Break2.play()
+			
 			print("MISSION ", ms.e_mission, " selected")
 			for mission in dayMissions:
 				if mission.e_mission == ms.e_mission:
@@ -338,8 +378,11 @@ func startDays():
 				else:
 					mission.go_away()
 
+			$Bruitages/Zip.play()
+			
 			await get_tree().create_timer(1.0).timeout
 			militant.come_out($MilitantLocation.position, $DoorLocation.position)
+			$Bruitages/PortePart.play()
 			
 			await mil.byeBye
 			
@@ -356,9 +399,17 @@ func startDays():
 			await res.showPanel(scores[i_day][i_mil][ms.e_mission % 3]["text"],
 								scores[i_day][i_mil][ms.e_mission % 3]["hum"])
 			res.isFinished = true
+			
+			if scores[i_day][i_mil][ms.e_mission % 3]["hum"] == -1:
+				$Bruitages/MissionEchec.play()
+			if scores[i_day][i_mil][ms.e_mission % 3]["hum"] == 1:
+				$Bruitages/MissionReussite.play()
+			
 			await res.quitResults
 			res.hide()
 			remove_child(res)
+			
+			
 			
 			bg.show()
 			# To next cycle
@@ -382,3 +433,20 @@ func _dialog_manager_response(cdialog):
 
 
 
+func processMusic():
+	# 0 to 1
+	var musicSwitchRelative = 1.0 - $Musiques/FadingTimer.time_left / $Musiques/FadingTimer.wait_time
+	
+	if !radioMusic:
+		musicSwitchRelative = 1 - musicSwitchRelative
+	
+	var vol_theme_menu = lerp(-60, volume_theme_menu, (musicSwitchRelative)**0.02) # **0.05
+	var vol_theme_menu_radio = lerp(-60, volume_theme_menu_radio, (1 - musicSwitchRelative)**0.2)
+	
+#	print("\nvol_theme_menu")
+#	print(vol_theme_menu)
+#	print("vol_theme_menu_radio")
+#	print(vol_theme_menu_radio)
+	
+	$Musiques/Musique1Radio.set_volume_db(vol_theme_menu)
+	$Musiques/Musique1.set_volume_db(vol_theme_menu_radio)

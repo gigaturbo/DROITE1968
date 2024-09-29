@@ -18,12 +18,29 @@ var space_time = 0.01
 var punctuation_time = 0.2
 
 
+var myDialogManager
+
+# audio
+var crayons:Array[AudioStreamPlayer]
+var crayon1:AudioStreamPlayer
+var crayon2:AudioStreamPlayer
+var crayon3:AudioStreamPlayer
+var crayon4:AudioStreamPlayer
+var tournerPage:AudioStreamPlayer
+
 signal finished_displaying()
 
 signal buttonPressed()
 
 
-func display_text(text_to_display: String, panelInitialSize:Vector2 = Vector2(0,0)):
+func display_text(aDialogManager, text_to_display: String, panelInitialSize:Vector2 = Vector2(0,0)):
+	myDialogManager = aDialogManager
+	crayon1 = get_node("../Main/Bruitages/Crayon1")
+	crayon2 = get_node("../Main/Bruitages/Crayon2")
+	crayon3 = get_node("../Main/Bruitages/Crayon3")
+	crayon4 = get_node("../Main/Bruitages/Crayon4")
+	crayons=[crayon1, crayon2, crayon3, crayon4]
+	
 	MAX_WIDTH /= scale.x
 	if(panelInitialSize.x > 0):
 		MAX_WIDTH = panelInitialSize.x
@@ -61,6 +78,11 @@ func _on_letter_display_timer_timeout():
 
 
 func _display_letter():
+	
+	
+	if myDialogManager.text_box_type == myDialogManager.TextBoxTypes.MILITANT:
+		if(!crayon1.playing && !crayon2.playing && !crayon3.playing && !crayon4.playing):
+			crayons[randi() % 4].play()
 	
 	label.text += text[letter_index]
 	
