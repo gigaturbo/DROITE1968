@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cakpsc8hxpp4q"]
+[gd_scene load_steps=28 format=3 uid="uid://cakpsc8hxpp4q"]
 
 [ext_resource type="Script" path="res://scripts/Main.gd" id="1_3ouxd"]
 [ext_resource type="PackedScene" uid="uid://7d74krn38k4p" path="res://scenes/Titre.tscn" id="2_soksl"]
@@ -86,6 +86,7 @@ stream = ExtResource("9_fr43m")
 
 [node name="MarseillaiseFluteBad" type="AudioStreamPlayer" parent="Musiques"]
 stream = ExtResource("10_mj8ag")
+volume_db = -22.0
 
 [node name="FadingTimer" type="Timer" parent="Musiques"]
 wait_time = 1.5
@@ -123,11 +124,11 @@ volume_db = -3.0
 
 [node name="Radio1" type="AudioStreamPlayer" parent="Bruitages"]
 stream = ExtResource("19_8ukpo")
-volume_db = -8.0
+volume_db = -10.0
 
 [node name="Radio2" type="AudioStreamPlayer" parent="Bruitages"]
 stream = ExtResource("20_ep3jp")
-volume_db = -8.0
+volume_db = -10.0
 
 [node name="Talkie1" type="AudioStreamPlayer" parent="Bruitages"]
 stream = ExtResource("21_jfrb2")
@@ -155,7 +156,9 @@ stream = ExtResource("26_mmkk8")
 [node name="MissionReussite" type="AudioStreamPlayer" parent="Bruitages"]
 stream = ExtResource("27_5ytqm")
 
-[connection signal="creditButtonPressed" from="Titre" to="." method="_on_titre_credit_button_pressed"]
+[node name="StartWaiter" type="Timer" parent="."]
+wait_time = 2.0
+
 [connection signal="startButtonPressed" from="Titre" to="." method="_on_titre_start_button_pressed"]
 [connection signal="endTuto" from="Tuto" to="." method="_on_tuto_end_tuto"]
 [connection signal="exitCredits" from="Credits" to="." method="_on_credits_exit_credits"]
