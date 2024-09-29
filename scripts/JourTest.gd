@@ -40,11 +40,11 @@ func _unhandled_input(event):
 	if event.is_action_pressed("A_button"):
 		DialogManager.start_dialog($TextPosition_corner.position, 
 				Vector2(0,0), 
-				DialogManager.TextBoxTypes.REPONSE,
+				DialogManager.TextBoxTypes.MILITANT,
 				testLines)
 
 	if event.is_action_pressed("B_button"):
 		DialogManager.start_dialog($TextPosition_corner.position, 
 				Vector2(720,200), 
-				DialogManager.TextBoxTypes.REPONSE,
+				DialogManager.TextBoxTypes.MILITANT,
 				testLines)
