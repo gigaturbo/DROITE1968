@@ -62,9 +62,11 @@ position = Vector2(538, 632)
 
 [node name="Musique1Radio" type="AudioStreamPlayer" parent="Musiques"]
 stream = ExtResource("4_p8i6v")
+volume_db = -2.0
 
 [node name="Musique1" type="AudioStreamPlayer" parent="Musiques"]
 stream = ExtResource("4_p8i6v")
+volume_db = -2.0
 
 [node name="Musique2Boucle1" type="AudioStreamPlayer" parent="Musiques"]
 stream = ExtResource("5_4hdlf")
@@ -121,27 +123,27 @@ volume_db = -3.0
 
 [node name="Radio1" type="AudioStreamPlayer" parent="Bruitages"]
 stream = ExtResource("19_8ukpo")
-volume_db = -10.0
+volume_db = -11.0
 
 [node name="Radio2" type="AudioStreamPlayer" parent="Bruitages"]
 stream = ExtResource("20_ep3jp")
-volume_db = -10.0
+volume_db = -11.0
 
 [node name="Talkie1" type="AudioStreamPlayer" parent="Bruitages"]
 stream = ExtResource("21_jfrb2")
-volume_db = -9.0
+volume_db = -10.0
 
 [node name="Talkie2" type="AudioStreamPlayer" parent="Bruitages"]
 stream = ExtResource("22_4jltt")
-volume_db = -9.0
+volume_db = -10.0
 
 [node name="Phone1" type="AudioStreamPlayer" parent="Bruitages"]
 stream = ExtResource("23_unx8b")
-volume_db = -5.0
+volume_db = -6.0
 
 [node name="Phone2" type="AudioStreamPlayer" parent="Bruitages"]
 stream = ExtResource("24_kgwk2")
-volume_db = -5.0
+volume_db = -6.0
 
 [node name="Zip" type="AudioStreamPlayer" parent="Bruitages"]
 stream = ExtResource("24_84ysf")
@@ -152,6 +154,7 @@ stream = ExtResource("26_mmkk8")
 
 [node name="MissionReussite" type="AudioStreamPlayer" parent="Bruitages"]
 stream = ExtResource("27_5ytqm")
+volume_db = 3.0
 
 [node name="StartWaiter" type="Timer" parent="."]
 wait_time = 2.0
