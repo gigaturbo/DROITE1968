@@ -35,9 +35,14 @@ var flip
 func start_dialog(position:Vector2, 
 					apanelInitialSize:Vector2,
 					type:TextBoxTypes,
-					lines,
+<<<<<<< HEAD
+					lines, # :Array[String]
+					mid=-1):
+=======
+					lines:Array[String],
 					mid=-1,
 					aflip=false):
+>>>>>>> b36f2ac6fc1a750245bf0ef64395cad837d5d45d
 	text_box_type = type
 	flip = aflip
 	

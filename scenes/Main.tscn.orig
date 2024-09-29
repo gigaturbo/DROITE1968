@@ -34,7 +34,11 @@ position = Vector2(543, 621)
 position = Vector2(335, 880)
 
 [node name="ResponseLocation" type="Marker2D" parent="."]
+<<<<<<< HEAD
 position = Vector2(538, 632)
+=======
+position = Vector2(571, 545)
+>>>>>>> b36f2ac6fc1a750245bf0ef64395cad837d5d45d
 
 [connection signal="startButtonPressed" from="Titre" to="." method="_on_titre_start_button_pressed"]
 [connection signal="endTuto" from="Tuto" to="." method="_on_tuto_end_tuto"]
