@@ -24,16 +24,21 @@ func _unhandled_input(event):
 		DialogManager.start_dialog(Vector2(200, 300), 
 			Vector2(500,150), 
 			DialogManager.TextBoxTypes.REPONSE,
-			["t'es qui ?"])
+			["t'es qui ?"],
+			0)
 		DialogManager.buttonPressed.connect(reponse)
 		
 		DialogManager2.start_dialog(Vector2(200, 300) + Vector2(0, 300), 
 			Vector2(500,150), 
 			DialogManager2.TextBoxTypes.REPONSE,
-			["test ^^"])
+			["test ^^"],
+			1)
 		DialogManager2.buttonPressed.connect(reponse)
 
 func reponse(oneDialogManager):
 	print(oneDialogManager.text_box.text)
+	print(oneDialogManager.id)
+	DialogManager.text_box.queue_free()
+	DialogManager2.text_box.queue_free()
 
 

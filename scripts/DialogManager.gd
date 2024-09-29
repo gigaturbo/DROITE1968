@@ -22,6 +22,8 @@ var can_advance_line = false
 
 var panelInitialSize
 
+var id = -1
+
 signal textFinished
 signal inputFinished
 
@@ -30,11 +32,14 @@ signal buttonPressed
 func start_dialog(position:Vector2, 
 					apanelInitialSize:Vector2,
 					type:TextBoxTypes,
-					lines:Array[String]):
+					lines:Array[String],
+					mid=-1):
 	text_box_type = type
 	
 	if is_dialog_active:
 		return
+	
+	id = mid
 	
 	panelInitialSize = apanelInitialSize
 	dialog_lines = lines
