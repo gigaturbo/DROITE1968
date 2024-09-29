@@ -38,6 +38,9 @@ one_shot = true
 [node name="MyMissionLabel" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
-text = "C'est la guerre ! La République croule sous les attaques de l'impitoyable Sith, le Comte Dooku. Il y a des héros dans les deux camps. Le Mal est partout."
+text = "Il est temps de recruter de nouveaux militants. Il faut convaincre des gars solides, motivés et athlétiques que Charles Prairie est l’homme capable de faire cesser le chaos dans les rues. On a besoin d’hommes qui ne reculeront pas devant le travail.
+
+Commentaire de Charles Prairie :
+\"Faut nous ramener des costauds, et c’est pas pour déménager des meubles...\""
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

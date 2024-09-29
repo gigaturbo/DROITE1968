@@ -29,12 +29,17 @@ signal inputFinished
 
 signal buttonPressed
 
+var flip
+
+# flip not working yet
 func start_dialog(position:Vector2, 
 					apanelInitialSize:Vector2,
 					type:TextBoxTypes,
-					lines, # :Array[String]
-					mid=-1):
+					lines,
+					mid=-1,
+					aflip=false):
 	text_box_type = type
+	flip = aflip
 	
 	if is_dialog_active:
 		return
@@ -60,6 +65,11 @@ func _show_text_box():
 			text_box.buttonPressed.connect(_on_text_box_button_pressed)
 		TextBoxTypes.ELEC:
 			text_box = text_box_scene_elec.instantiate()
+			if flip:
+				# dont work for the moment
+				var ninepatch = text_box.get_node("NinePatchRectElec")
+				ninepatch.scale.x *= -1
+				ninepatch.position.x += - ninepatch.scale.x * ninepatch.size.x
 		TextBoxTypes.TEST:
 			text_box = text_box_scene_test.instantiate()
 	

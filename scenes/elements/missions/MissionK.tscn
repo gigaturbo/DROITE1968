@@ -38,6 +38,9 @@ one_shot = true
 [node name="MyMissionLabel" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
-text = "C'est la guerre ! La République croule sous les attaques de l'impitoyable Sith, le Comte Dooku. Il y a des héros dans les deux camps. Le Mal est partout."
+text = "Il faut recouvrir les affiches de nos adversaires, et le plus vite possible. L'idée, c'est de passer juste derrière eux, pour que leurs affiches restent à peine en place avant d'être recouvertes par le visage imposant de Charles Prairie.
+
+Commentaire de Charles Prairie :
+\"Ils emploient des gamins pour leurs collages, rapides comme des lapins. Mais ces mômes sont impressionnables. Alors, un bon regard bien appuyé, et ils fileront sans demander leur reste.\""
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -4,7 +4,7 @@ enum EnumMissions{A, B, C, D, E,
 				  F, G, H, I, J,
 				  K, L, M, N, O} # n=15
 enum EnumMilitants{M1, M2, M3, M4, M5} # n=5
-enum EnumContexts{C1, C2, C3, C4, C5} # n=5
+enum EnumContexts{C1, C2, C3, C4, C5, C6} # n=6
 
 var allDays = [{"contexts": [EnumContexts.C1],
 				"militants": [EnumMilitants.M1],
@@ -173,20 +173,28 @@ func getContext(mcont : EnumContexts):
 		match mcont:
 			EnumContexts.C1:
 				return {"scn": preload("res://scenes/elements/contexts/Contexte1.tscn"),
-						"data": {}}
+						"medium" : "talkie",
+						"data": "François Mitterrand fustige la dérive autoritaire après l'annonce de la dissolution de l'Assemblée nationale par le général De Gaulle !"}
 			EnumContexts.C2:
 				return {"scn": preload("res://scenes/elements/contexts/Contexte2.tscn"),
-						"data": {}}
+						"medium" : "phone",
+						"data": "Le Général a sérieusement envisagé de démissionner avant de décider de rester pour s'opposer à \"l’entreprise communiste totalitaire\". Le combat continue !"}
 			EnumContexts.C3:
 				return {"scn": preload("res://scenes/elements/contexts/Contexte3.tscn"),
-						"data": {}}
+						"medium" : "talkie",
+						"data": "André Malraux l'a dit clairement : si la gauche prend le pouvoir, elle se fera renverser par ses propres alliés révolutionnaires. Et après, c'est la dictature, sous une forme ou une autre ! Recrute bien, compagnon..."}
 			EnumContexts.C4:
 				return {"scn": preload("res://scenes/elements/contexts/Contexte4.tscn"),
-						"data": {}}
+						"medium" : "phone",
+						"data": "Compagnon, les renforts que tu m’as demandés de Gironde sont arrivés."}
 			EnumContexts.C5:
 				return {"scn": preload("res://scenes/elements/contexts/Contexte5.tscn"),
-						"data": {}}
-						
+						"medium" : "radio",
+						"data": "Drame aujourd’hui chez Peugeot : après 22 jours de grève, la police a investi les usines de Sochaux. Bilan tragique : 2 morts et 150 blessés."}
+			EnumContexts.C6:
+				return {"scn": preload("res://scenes/elements/contexts/Contexte5.tscn"),
+						"medium" : "talkie",
+						"data": "Un jeune militant communiste a été tué à coups de pistolet à Achicourt, par des membres d'un groupe d'action civique."}
 
 	# TODO ADD ALL
 
@@ -221,12 +229,27 @@ func startDays():
 		for i_mil in day["militants"].size():
 			
 #			# Context sequence before militant
-			var	con = getContext(day["contexts"][i_mil]).scn.instantiate()
-			add_child(con)
-			con.position = $ContexteLocation.position
-			con.startContext()
-			await con.contextEnded
-			con.hide()
+			var	textContext = getContext(day["contexts"][i_mil]).data
+			var	medium = getContext(day["contexts"][i_mil]).medium
+			var contextPosition = null
+			match medium:
+				"radio":
+					contextPosition = $RadioLocation.position
+				"talkie":
+					contextPosition = $TalkieLocation.position
+				"phone":
+					contextPosition = $PhoneLocation.position
+			await DialogManager.start_dialog(contextPosition, 
+				Vector2(500,100), 
+				DialogManager.TextBoxTypes.ELEC,
+				[textContext]).inputFinished
+			
+#			var	con = getContext(day["contexts"][i_mil]).scn.instantiate()
+#			add_child(con)
+#			con.position = $RadioLocation.position
+#			con.startContext()
+#			await con.contextEnded
+#			con.hide()
 			
 			# Here come militants
 			var mil = getMilitant(day["militants"][i_mil]).scn.instantiate()

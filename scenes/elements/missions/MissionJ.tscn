@@ -38,6 +38,9 @@ one_shot = true
 [node name="MyMissionLabel" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
-text = "C'est la guerre ! La République croule sous les attaques de l'impitoyable Sith, le Comte Dooku. Il y a des héros dans les deux camps. Le Mal est partout."
+text = "Une première équipe de colleurs d’affiches a été malmenée hier, attaquée à coup de barres de fer et de chaînes de vélo. Il y a un manque d’effectif, et cette fois, on a besoin d’hommes solides pour escorter ceux qui iront sur le terrain. Ça va chauffer...
+
+Commentaire de Charles Prairie :
+\"Nom de nom ! Si j’avais deux minutes, j’irais leur expliquer les choses à ma façon à ces cloportes !\""
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -38,6 +38,8 @@ one_shot = true
 [node name="MyMissionLabel" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
-text = "C'est la guerre ! La République croule sous les attaques de l'impitoyable Sith, le Comte Dooku. Il y a des héros dans les deux camps. Le Mal est partout."
+text = "Nous avons identifié des points stratégiques dans la ville où nos affiches sont régulièrement arrachées par les rouges. Il faut coller des affiches piégées avec du verre pilé, de façon à ce que ceux qui tenteront de retirer le visage de Charles Prairie se blessent. Cette mission sera escortée.
+
+Commentaire de Charles Prairie : \"Il faut frapper fort. Un peu de verre pilé, et ils réfléchiront à deux fois avant de toucher à ma tête.\""
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

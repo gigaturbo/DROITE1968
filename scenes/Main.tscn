@@ -21,8 +21,14 @@ position = Vector2(282, 480)
 [node name="MilitantLocation" type="Marker2D" parent="."]
 position = Vector2(569, 534)
 
-[node name="ContexteLocation" type="Marker2D" parent="."]
-position = Vector2(128, 657)
+[node name="TalkieLocation" type="Marker2D" parent="."]
+position = Vector2(44, 722)
+
+[node name="PhoneLocation" type="Marker2D" parent="."]
+position = Vector2(59, 721)
+
+[node name="RadioLocation" type="Marker2D" parent="."]
+position = Vector2(543, 621)
 
 [node name="AnswerLocation" type="Marker2D" parent="."]
 position = Vector2(335, 880)

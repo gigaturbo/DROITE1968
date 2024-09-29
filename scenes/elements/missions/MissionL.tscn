@@ -38,6 +38,9 @@ one_shot = true
 [node name="MyMissionLabel" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
-text = "C'est la guerre ! La République croule sous les attaques de l'impitoyable Sith, le Comte Dooku. Il y a des héros dans les deux camps. Le Mal est partout."
+text = "Il faut patrouiller en ville avec trois jeunes cadets de Gironde, fraîchement débarqués et un peu perdus dans le coin. L'objectif : surveiller les alentours, et repérer toute bande de rouges qui viendrait s'aventurer sur notre terrain pour vandaliser nos affiches.
+
+Commentaire de Charles Prairie :
+\"Le meeting approche, pas le temps de jouer. Au premier groupe suspect, pas de quartier, on leur casse la figure.\""
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
