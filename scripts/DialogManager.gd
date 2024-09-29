@@ -25,6 +25,8 @@ var panelInitialSize
 signal textFinished
 signal inputFinished
 
+signal buttonPressed
+
 func start_dialog(position:Vector2, 
 					apanelInitialSize:Vector2,
 					type:TextBoxTypes,
@@ -80,12 +82,14 @@ func inputCloseDialog():
 	_show_text_box()
 
 func _on_text_box_button_pressed():
-	print("button pressed")
+	buttonPressed.emit(self)
+	
 
 func _unhandled_input(event):
-	if(
-		event.is_action_pressed("advanced_dialog") &&
-		is_dialog_active &&
-		can_advance_line
-	):
-		inputCloseDialog()
+	if( event.is_action_pressed("advanced_dialog") && is_dialog_active):
+		if( text_box_type == TextBoxTypes.REPONSE ):
+			if(current_line_index + 1 >= dialog_lines.size() ):
+				return
+		
+		if( can_advance_line):
+			inputCloseDialog()

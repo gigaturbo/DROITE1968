@@ -18,35 +18,6 @@ var allDays = [{"contexts": [EnumContexts.C1],
 				"missions": [[EnumMissions.J, EnumMissions.K, EnumMissions.L],
 							 [EnumMissions.M, EnumMissions.N, EnumMissions.O]]}]
 
-var presentations = [["Salut, moi c'est Raymond. Charcutier à Levallois. C'est ici qu'on signe ou quoi ?"],
-					 ["Bonjour Monsieur, je m’appelle Nicolas. Je suis en deuxième année de droit à Assas et je voudrais m'engager pour Monsieur Prairie.",
-					  "Bonjour Monsieur, je suis Marielle, championne d’escrime. J’ai l’habitude de me battre pour ce en quoi je crois, et je suis prête à m’engager ici, sans attendre. Donnez-moi du travail, je veux être utile."],
-					 ["Roger. De Bordeaux. On m’a dit qu’il y avait besoin de renforts ici. C’est pas sérieux ce qu’il se passe en ce moment, on doit remettre de l’ordre. Tu me dis quoi faire, et je le fais. Simple.",
-					  "Cher Monsieur, je suis Jacques, médecin. Je pense sincèrement que la situation en France est bien plus grave qu'on ne le pense… Il est urgent de réagir, et je suis prêt à défendre notre pays."]]
-
-var questions = [[["Pourquoi tu milites, toi ?",
-				   "Et t'es bon à quoi ?"]],
-				 [["Pourquoi maintenant, gamin ?",
-				   "Et tu sais faire quoi ?"],
-				  ["C’est bien, mon petit, mais pourquoi es-tu là ?",
-				   "Et elle sait faire quoi la championne ?"]],
-				 [["(sa motivation n'est pas à questionner)",
-				   "Bien, sur quoi on peut compter avec toi ?"],
-				  ["Qu’est-ce qui vous motive, Monsieur ?",
-				   "Et pourquoi vous ?"]]]
-
-var reponses = [[["C’est simple... J’en ai ras-le-bol de ces p’tits jeunes gauchistes qui foutent le bordel partout. Ces chevelus, là, qui traînent dans les rues. Prairie, lui, au moins, il va les remettre à leur place. C’est un type avec du cran, vous voyez ? Comme dans les films d’espionnage que j’aime bien, où y'a toujours un gars qui règle les choses à sa façon. Moi, j’suis pour ça, pour l’ordre.",
-				  "Judo, karaté, boxe française. J'pense me mettre à la lutte bretonne. C’est bon pour vous ?"]],
-				 [["Monsieur, je réponds à l'appel du Général. Je crois qu’il est de notre devoir de jeunes Français de se lever et de participer à l'action civique.",
-				   "Je suis très discret, Monsieur, on me remarque pas… Mais je suis prêt à… à \"casser des gueules\", s'il le faut ! Enfin… je veux dire, je suis prêt à me faire respecter, à montrer que je suis un homme !"],
-				  ["Je n’aime pas le bazar que ces gens de gauche mettent. Le désordre, ça me fait peur. Moi, je crois en une droite sociale, mais bien ordonnée, comme celle du Général et de Monsieur Prairie. C’est pour ça que je veux m’engager.",
-				   "Je suis audacieuse et volontaire. Quand il y a du travail à faire, je ne recule jamais. Et puis, je suis sportive. L'effort, la discipline, ça me connaît. Vous pouvez compter sur moi."]],
-				 [["/",
-				   "Moi, je suis un homme de terrain. Simple. J’ai l’habitude d’encadrer des gars, je sais comment les mettre au maille... les faire bosser, quoi. Mais ici, c’est pas comme chez nous, hein... C’est un peu la jungle, si tu vois ce que je veux dire."],
-				  ["Le Général et ses compagnons… ils sont les seuls à saisir l’ampleur réelle de la situation. Leur vision dépasse celle des autres. Ils savent ce qui est en jeu, ils comprennent les forces qui menacent notre nation. Je suis convaincu qu’eux seuls peuvent guider la France avec la sagesse et la fermeté nécessaires.",
-				   "Je suis avant tout quelqu’un de réfléchi, capable d’analyser les choses avec clarté. Je ne prétends pas être parfait, mais je sais que je peux prendre les décisions nécessaires quand d’autres hésiteraient. Et quand il faut agir, je ne recule devant rien. C’est une question de devoir, et je suis prêt à tout."]]]
-
-
 var day = allDays[0]
 var dayMissions = []
 var	militant = []
@@ -184,35 +155,13 @@ func startDays():
 			
 			await get_tree().create_timer(0.2).timeout
 			
-			# Militant present him/herself
-			await DialogManager.start_dialog($ResponseLocation.position, 
-				Vector2(250,100), 
-				DialogManager.TextBoxTypes.MILITANT,
-				[presentations[i_day][i_mil]]).inputFinished
-			
-			# Question 1
-			await DialogManager.start_dialog($AnswerLocation.position, 
-				Vector2(500,150), 
+			var d = DialogManager.start_dialog($AnswerLocation.position, 
+				Vector2(450,250), 
 				DialogManager.TextBoxTypes.REPONSE,
-				[questions[i_day][i_mil][0]]).inputFinished
+				["bjr competence ?"])
 			
-			# Reponse 1
-			await DialogManager.start_dialog($ResponseLocation.position,
-				Vector2(500,100), 
-				DialogManager.TextBoxTypes.MILITANT,
-				[reponses[i_day][i_mil][0]]).inputFinished	
-				
-			# Question 2
-			await DialogManager.start_dialog($AnswerLocation.position, 
-				Vector2(500,150), 
-				DialogManager.TextBoxTypes.REPONSE,
-				[questions[i_day][i_mil][1]]).inputFinished
+			await d.inputFinished
 			
-			# Reponse 2
-			await DialogManager.start_dialog($ResponseLocation.position,
-				Vector2(500,150), 
-				DialogManager.TextBoxTypes.MILITANT,
-				[reponses[i_day][i_mil][0]]).inputFinished	
 			
 			# Instanciate day missions when militant has arrived
 			for i in day["missions"][0].size():
