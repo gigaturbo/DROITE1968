@@ -1,85 +1,36 @@
-[gd_scene load_steps=5 format=3 uid="uid://xpyssfnyfg1s"]
+[gd_scene load_steps=4 format=3 uid="uid://xpyssfnyfg1s"]
 
 [ext_resource type="Script" path="res://scripts/Tuto.gd" id="1_2luo7"]
-[ext_resource type="Texture2D" uid="uid://ngqxl6hnneat" path="res://assets/image/fonds/bureau.png" id="2_0hlah"]
 [ext_resource type="PackedScene" uid="uid://cbb6xjwmrc4f7" path="res://scenes/elements/Background1.tscn" id="2_epp7i"]
-[ext_resource type="FontFile" uid="uid://bpfmyyvhk21ar" path="res://assets/fonts/Super Water.ttf" id="4_rat6j"]
+[ext_resource type="FontFile" uid="uid://c1114d7vgm2up" path="res://assets/fonts/Helvetica Neue Condensed Bold.ttf" id="3_c4555"]
 
 [node name="Tuto" type="Node2D"]
 script = ExtResource("1_2luo7")
 
 [node name="Fond" parent="." instance=ExtResource("2_epp7i")]
 
-[node name="Part1" type="Node2D" parent="."]
-z_index = 160
-position = Vector2(33, 8)
-scale = Vector2(0.935, 0.935)
-
-[node name="Panel" type="ColorRect" parent="Part1"]
-custom_minimum_size = Vector2(300, 250)
-offset_left = 212.0
-offset_top = 35.0
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+offset_left = 184.0
+offset_top = 179.0
 offset_right = 897.0
-offset_bottom = 682.0
-color = Color(0.164706, 0.164706, 0.164706, 1)
-metadata/_edit_use_anchors_ = true
+offset_bottom = 441.0
 
-[node name="Choix" type="TextureRect" parent="Part1"]
-offset_left = 249.0
-offset_top = 252.0
-offset_right = 875.0
-offset_bottom = 653.0
-texture = ExtResource("2_0hlah")
-stretch_mode = 5
-metadata/_edit_use_anchors_ = true
+[node name="ColorRect" type="ColorRect" parent="MarginContainer2"]
+layout_mode = 2
+color = Color(0.196078, 0.196078, 0.196078, 0.917647)
 
-[node name="Contexte" type="RichTextLabel" parent="Part1"]
-custom_minimum_size = Vector2(250, 180)
-offset_left = 245.0
-offset_top = 59.0
-offset_right = 853.0
-offset_bottom = 239.0
-theme_override_colors/default_color = Color(1, 1, 1, 1)
-theme_override_fonts/normal_font = ExtResource("4_rat6j")
-theme_override_font_sizes/normal_font_size = 27
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 20
+
+[node name="Label" type="Label" parent="MarginContainer2/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_c4555")
+theme_override_font_sizes/font_size = 28
 text = "La chienlit gauchiste est aux portes du pouvoir ! Charles Prairie brigue un siège aux élections législatives de 1968. À vous, chef de son équipe militante, de mobiliser les troupes et d’organiser un meeting qui marquera l’histoire, à quatre jours de la grande confrontation !
 "
-scroll_active = false
-metadata/_edit_use_anchors_ = true
-
-[node name="ButtonEnteindreTV" type="Node2D" parent="."]
-visible = false
-z_index = 245
-position = Vector2(-174, -172)
-scale = Vector2(1.285, 1.285)
-metadata/_edit_group_ = true
-
-[node name="ColorRect" type="ColorRect" parent="ButtonEnteindreTV"]
-offset_left = 399.0
-offset_top = 658.0
-offset_right = 742.0
-offset_bottom = 715.0
-color = Color(0, 0, 0, 1)
-metadata/_edit_group_ = true
-metadata/_edit_use_anchors_ = true
-
-[node name="RichTextLabel" type="RichTextLabel" parent="ButtonEnteindreTV"]
-offset_left = 421.0
-offset_top = 665.0
-offset_right = 783.0
-offset_bottom = 705.0
-theme_override_font_sizes/normal_font_size = 30
-text = "Eteindre la télévison"
-scroll_active = false
-metadata/_edit_group_ = true
-metadata/_edit_use_anchors_ = true
-
-[node name="Button" type="Button" parent="ButtonEnteindreTV"]
-offset_left = 399.0
-offset_top = 658.0
-offset_right = 742.0
-offset_bottom = 715.0
-metadata/_edit_group_ = true
-metadata/_edit_use_anchors_ = true
-
-[connection signal="pressed" from="ButtonEnteindreTV/Button" to="." method="_on_button_pressed"]
+horizontal_alignment = 3
+autowrap_mode = 3

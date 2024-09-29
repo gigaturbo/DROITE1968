@@ -213,8 +213,8 @@ func _on_titre_start_button_pressed():
 	$Titre.hide()
 	$Score.hide()
 	$Credits.hide()
-	
-	startDays()
+	$Tuto.show()
+	$Tuto.startTuto()
 	
 func _on_tuto_end_tuto():
 	$Titre.hide()

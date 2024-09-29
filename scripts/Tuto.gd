@@ -3,14 +3,12 @@ extends Node2D
 signal endTuto
 
 @onready var part1 = $Part1
-@onready var eteindre = $ButtonEnteindreTV
 
 var histState = -1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	histState = -1
-	eteindre.hide()
 
 func startTuto():
 	histState = 0
