@@ -16,9 +16,17 @@ grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 4
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRectBorder" type="ColorRect" parent="."]
 layout_mode = 2
-color = Color(1, 1, 1, 0.643137)
+color = Color(0.768627, 0.25098, 0.0235294, 1)
+
+[node name="ColorRect" type="ColorRect" parent="ColorRectBorder"]
+layout_mode = 2
+offset_right = 266.0
+offset_bottom = 40.0
+scale = Vector2(0.9, 0.9)
+pivot_offset = Vector2(133, 20)
+color = Color(0.960784, 0.921569, 0.901961, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
