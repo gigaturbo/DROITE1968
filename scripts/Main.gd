@@ -268,10 +268,6 @@ func startDays():
 # Handle mission selection
 func _mission_selected(obj):
 	anyMissionSelected.emit(obj)
-	
-func _input(event):
-	if Input.is_action_pressed("ui_cancel"):
-		get_tree().quit()
 #	
 #
 

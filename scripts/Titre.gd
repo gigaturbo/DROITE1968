@@ -34,11 +34,12 @@ func _unhandled_input(event):
 			["test ^^"],
 			1)
 		DialogManager2.buttonPressed.connect(reponse)
+	
 
 func reponse(oneDialogManager):
 	print(oneDialogManager.text_box.text)
 	print(oneDialogManager.id)
-	DialogManager.text_box.queue_free()
-	DialogManager2.text_box.queue_free()
+	DialogManager.inputCloseDialog()
+	DialogManager2.inputCloseDialog()
 
 
