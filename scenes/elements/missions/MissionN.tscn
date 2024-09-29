@@ -37,9 +37,9 @@ one_shot = true
 [node name="MyMissionLabel" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
-text = "Il faut coller des papillons avec des slogans provocateurs, et le faire vite. Sur les murs, les panneaux, et bien sûr sur les affiches adverses ! C’est du vandalisme, donc attention à la police... discrétion et rapidité !
+text = "Distribution de tracts à la sortie de la messe dominicale. Le public est acquis, mais il faut les encourager à aller voter. Il est essentiel de les rassurer en utilisant un langage qui leur ressemble.
 
 Commentaire de Charles Prairie :
-\"Ah, j’adore celui-là : \"La réforme oui, la chienlit non.\" Ou bien encore \"NON au désordre, NON à l'aventure !\""
+\"Ils savent bien, ces braves gens, que si les rouges prennent le pouvoir, ce sera l'apocalypse.\""
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
