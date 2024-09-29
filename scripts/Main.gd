@@ -114,7 +114,7 @@ func _ready():
 	
 	audioAnnonces = [$Bruitages/Radio1, $Bruitages/Radio2, $Bruitages/Talkie1, $Bruitages/Talkie2, $Bruitages/Phone1, $Bruitages/Phone2]
 
-func _process(delta):
+func _process(_delta):
 	processMusic()
 
 
@@ -189,38 +189,28 @@ func getMilitant(mmil : EnumMilitants):
 func getContext(mcont : EnumContexts):
 		match mcont:
 			EnumContexts.C1:
-				return {"scn": preload("res://scenes/elements/contexts/Contexte1.tscn"),
-						"medium" : "talkie",
+				return {"medium" : "talkie",
 						"data": "François Mitterrand fustige la dérive autoritaire après l'annonce de la dissolution de l'Assemblée nationale par le général De Gaulle !"}
 			EnumContexts.C2:
-				return {"scn": preload("res://scenes/elements/contexts/Contexte2.tscn"),
-						"medium" : "phone",
+				return {"medium" : "phone",
 						"data": "Le Général a sérieusement envisagé de démissionner avant de décider de rester pour s'opposer à \"l’entreprise communiste totalitaire\". Le combat continue !"}
 			EnumContexts.C3:
-				return {"scn": preload("res://scenes/elements/contexts/Contexte3.tscn"),
-						"medium" : "talkie",
+				return {"medium" : "talkie",
 						"data": "André Malraux l'a dit clairement : si la gauche prend le pouvoir, elle se fera renverser par ses propres alliés révolutionnaires. Et après, c'est la dictature, sous une forme ou une autre ! Recrute bien, compagnon..."}
 			EnumContexts.C4:
-				return {"scn": preload("res://scenes/elements/contexts/Contexte4.tscn"),
-						"medium" : "phone",
+				return {"medium" : "phone",
 						"data": "Compagnon, les renforts que tu m’as demandés de Gironde sont arrivés."}
 			EnumContexts.C5:
-				return {"scn": preload("res://scenes/elements/contexts/Contexte5.tscn"),
-						"medium" : "radio",
+				return {"medium" : "radio",
 						"data": "Drame aujourd’hui chez Peugeot : après 22 jours de grève, la police a investi les usines de Sochaux. Bilan tragique : 2 morts et 150 blessés."}
 			EnumContexts.C6:
-				return {"scn": preload("res://scenes/elements/contexts/Contexte6.tscn"),
-						"medium" : "talkie",
+				return {"medium" : "talkie",
 						"data": "Un jeune militant communiste a été tué à coups de pistolet à Achicourt, par des membres d'un groupe d'action civique."}
-
-	# TODO ADD ALL
 
 
 func _on_titre_start_button_pressed():
 	radioMusic = false # change music to the main one (music 1 with no radio mode)
 	$Titre.hide()
-#	$Tuto.show()
-#	$Tuto.startTuto()
 	$Score.hide()
 	$Credits.hide()
 	
@@ -288,8 +278,7 @@ func startDays():
 				$Musiques/Musique2Boucle1.play()
 			if(i_day == 2 && i_mil == 1) :
 				$Musiques/Musique2Boucle2.play()
-				
-			
+
 			$Bruitages/PorteArrive.play()
 			
 			# Here come militants
@@ -443,8 +432,6 @@ func _dialog_manager_response(cdialog):
 	anyDialogAnswered.emit(answered)
 
 
-
-
 func processMusic():
 	# 0 to 1
 	var musicSwitchRelative = 1.0 - $Musiques/FadingTimer.time_left / $Musiques/FadingTimer.wait_time
@@ -454,12 +441,7 @@ func processMusic():
 	
 	var vol_theme_menu = lerp(-60, volume_theme_menu, (musicSwitchRelative)**0.02) # **0.05
 	var vol_theme_menu_radio = lerp(-60, volume_theme_menu_radio, (1 - musicSwitchRelative)**0.2)
-	
-#	print("\nvol_theme_menu")
-#	print(vol_theme_menu)
-#	print("vol_theme_menu_radio")
-#	print(vol_theme_menu_radio)
-	
+
 	$Musiques/Musique1Radio.set_volume_db(vol_theme_menu)
 	$Musiques/Musique1.set_volume_db(vol_theme_menu_radio)
 
@@ -470,7 +452,6 @@ func _on_credits_exit_credits():
 	$Score.hide()
 	$Credits.hide()
 	$Credits.init()
-
 
 
 func _on_titre_credit_button_pressed():
