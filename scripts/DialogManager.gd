@@ -46,6 +46,7 @@ func _show_text_box():
 			text_box = text_box_scene_militant.instantiate()
 		TextBoxTypes.REPONSE:
 			text_box = text_box_scene_reponse.instantiate()
+			text_box.buttonPressed.connect(_on_text_box_button_pressed)
 		TextBoxTypes.ELEC:
 			text_box = text_box_scene_elec.instantiate()
 		TextBoxTypes.TEST:
@@ -61,6 +62,8 @@ func _show_text_box():
 func _on_text_box_finished_displaying():
 	can_advance_line = true
 
+func _on_text_box_button_pressed():
+	print("button pressed")
 
 func _unhandled_input(event):
 	if(

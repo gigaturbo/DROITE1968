@@ -20,6 +20,8 @@ var punctuation_time = 0.15
 
 signal finished_displaying()
 
+signal buttonPressed()
+
 func display_text(text_to_display: String, panelInitialSize:Vector2 = Vector2(0,0)):
 	print(panelInitialSize)
 	MAX_WIDTH /= scale.x
@@ -76,3 +78,29 @@ func _display_letter():
 			timer.start(letter_time)
 
 
+
+
+func _on_button_pressed():
+	buttonPressed.emit()
+
+
+func _on_button_mouse_entered():
+	$NinePatchRectReponse.hide()
+	$NinePatchRectReponseHL.show()
+	$NinePatchRectReponseSEL.hide()
+
+func _on_button_mouse_exited():
+	$NinePatchRectReponse.show()
+	$NinePatchRectReponseHL.hide()
+	$NinePatchRectReponseSEL.hide()
+
+
+func _on_button_button_down():
+	$NinePatchRectReponse.hide()
+	$NinePatchRectReponseHL.hide()
+	$NinePatchRectReponseSEL.show()
+	
+func _on_button_button_up():
+	$NinePatchRectReponse.hide()
+	$NinePatchRectReponseHL.show()
+	$NinePatchRectReponseSEL.hide()
