@@ -190,36 +190,52 @@ func startDays():
 			
 			# Militant present him/herself
 			await DialogManager.start_dialog($ResponseLocation.position, 
-				Vector2(500,100), 
+				Vector2(400,200), 
 				DialogManager.TextBoxTypes.MILITANT,
 				[presentations[i_day][i_mil]]).inputFinished
 			
-	
-#			DialogManager.start_dialog(Vector2(200, 300), 
-#				Vector2(500,150), 
-#				DialogManager.TextBoxTypes.REPONSE,
-#				[questions[i_day][i_mil][0]],
-#				0)
-#			DialogManager.buttonPressed.connect(reponse)
-#
-#			DialogManager2.start_dialog(Vector2(200, 300) + Vector2(0, 300), 
-#				Vector2(500,150), 
-#				DialogManager2.TextBoxTypes.REPONSE,
-#				0,
-#				1)
+			# Q1
+			DialogManager.start_dialog($AnswerLocation.position, 
+				Vector2(250,75), 
+				DialogManager.TextBoxTypes.REPONSE,
+				[questions[i_day][i_mil][0]],
+				0
+			)
+			DialogManager.buttonPressed.connect(_dialog_manager_response)
+
+			# Q2
+			DialogManager2.start_dialog($AnswerLocation.position + Vector2(300, 0), 
+				Vector2(250,75), 
+				DialogManager2.TextBoxTypes.REPONSE,
+				[questions[i_day][i_mil][1]],
+				1
+			)
+			DialogManager2.buttonPressed.connect(_dialog_manager_response)
 			
-			for i_qr in range(0, 1):
-				# Question
-				await DialogManager.start_dialog($AnswerLocation.position, 
-					Vector2(500,150), 
-					DialogManager.TextBoxTypes.REPONSE,
-					[questions[i_day][i_mil][i_qr]]).inputFinished
-				
-				# Reponse
-				await DialogManager.start_dialog($ResponseLocation.position,
-					Vector2(500,100), 
-					DialogManager.TextBoxTypes.MILITANT,
-					[reponses[i_day][i_mil][i_qr]]).inputFinished
+			var rep1 = await anyDialogAnswered
+			
+			# He answers selected question
+			await DialogManager.start_dialog($ResponseLocation.position,
+				Vector2(500,150), 
+				DialogManager.TextBoxTypes.MILITANT,
+				[reponses[i_day][i_mil][rep1]]).inputFinished
+			
+			# Show remaining question
+			DialogManager.start_dialog($AnswerLocation.position + Vector2(150, 0), 
+				Vector2(250,75), 
+				DialogManager.TextBoxTypes.REPONSE,
+				[questions[i_day][i_mil][1-rep1]],
+				0
+			)
+			DialogManager.buttonPressed.connect(_dialog_manager_response)
+			
+			var rep2 = await anyDialogAnswered
+			
+			# He answers remaining question
+			await DialogManager.start_dialog($ResponseLocation.position,
+				Vector2(500,100), 
+				DialogManager.TextBoxTypes.MILITANT,
+				[reponses[i_day][i_mil][1-rep1]]).inputFinished
 				
 			# Now instanciate day missions
 			for i in day["missions"][0].size():
@@ -268,39 +284,12 @@ func startDays():
 # Handle mission selection
 func _mission_selected(obj):
 	anyMissionSelected.emit(obj)
-#	
-#
 
-
-## a virer plus tard
-#func _unhandled_input(event):
-#	if event.is_action_pressed("A_button"):
-#
-#		DialogManager.start_dialog(Vector2(200, 300), 
-#			Vector2(500,150), 
-#			DialogManager.TextBoxTypes.REPONSE,
-#			["t'es qui ?"],
-#			0)
-#		DialogManager.buttonPressed.connect(reponse)
-#
-#		DialogManager2.start_dialog(Vector2(200, 300) + Vector2(0, 300), 
-#			Vector2(500,150), 
-#			DialogManager2.TextBoxTypes.REPONSE,
-#			["test ^^"],
-#			1)
-#		DialogManager2.buttonPressed.connect(reponse)
-#
-#func reponse(oneDialogManager):
-#	print(oneDialogManager.text_box.text)
-#	print(oneDialogManager.id)
-#	DialogManager.text_box.queue_free()
-#	DialogManager2.text_box.queue_free()
-#
 
 func _dialog_manager_response(cdialog):
 	var answered = cdialog.id
-	DialogManager.text_box.queue_free()
-	DialogManager2.text_box.queue_free()
+	DialogManager.inputCloseDialog()
+	DialogManager2.inputCloseDialog()
 	anyDialogAnswered.emit(answered)
 
 

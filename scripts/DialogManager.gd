@@ -76,7 +76,8 @@ func _on_text_box_finished_displaying():
 	textFinished.emit(self)
 
 func inputCloseDialog():
-	text_box.queue_free()
+	if is_instance_valid(text_box):
+		text_box.queue_free()
 	current_line_index += 1
 	if current_line_index >= dialog_lines.size():
 		is_dialog_active = false
