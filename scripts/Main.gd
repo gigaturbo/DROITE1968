@@ -55,9 +55,10 @@ var answers = []
 
 signal anyMissionSelected
 
+var res = preload("res://scenes/ResultsMission.tscn").instantiate()
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-
 	$MusiqueTitre.play()
 	$Titre.show()
 	$Tuto.hide()
@@ -142,6 +143,7 @@ func _on_titre_start_button_pressed():
 	$Tuto.startTuto()
 	
 func _on_tuto_end_tuto():
+	$Titre.hide()
 	$Tuto.hide()
 	startDays() # START OF THE FUN
 	
@@ -186,35 +188,24 @@ func startDays():
 			
 			# Militant present him/herself
 			await DialogManager.start_dialog($ResponseLocation.position, 
-				Vector2(250,100), 
+				Vector2(500,100), 
 				DialogManager.TextBoxTypes.MILITANT,
 				[presentations[i_day][i_mil]]).inputFinished
 			
-			# Question 1
-			await DialogManager.start_dialog($AnswerLocation.position, 
-				Vector2(500,150), 
-				DialogManager.TextBoxTypes.REPONSE,
-				[questions[i_day][i_mil][0]]).inputFinished
-			
-			# Reponse 1
-			await DialogManager.start_dialog($ResponseLocation.position,
-				Vector2(500,100), 
-				DialogManager.TextBoxTypes.MILITANT,
-				[reponses[i_day][i_mil][0]]).inputFinished	
+			for i_qr in range(0, 1):
+				# Question
+				await DialogManager.start_dialog($AnswerLocation.position, 
+					Vector2(500,150), 
+					DialogManager.TextBoxTypes.REPONSE,
+					[questions[i_day][i_mil][i_qr]]).inputFinished
 				
-			# Question 2
-			await DialogManager.start_dialog($AnswerLocation.position, 
-				Vector2(500,150), 
-				DialogManager.TextBoxTypes.REPONSE,
-				[questions[i_day][i_mil][1]]).inputFinished
-			
-			# Reponse 2
-			await DialogManager.start_dialog($ResponseLocation.position,
-				Vector2(500,150), 
-				DialogManager.TextBoxTypes.MILITANT,
-				[reponses[i_day][i_mil][0]]).inputFinished	
-			
-			# Instanciate day missions when militant has arrived
+				# Reponse
+				await DialogManager.start_dialog($ResponseLocation.position,
+					Vector2(500,100), 
+					DialogManager.TextBoxTypes.MILITANT,
+					[reponses[i_day][i_mil][i_qr]]).inputFinished
+				
+			# Now instanciate day missions
 			for i in day["missions"][0].size():
 				var mis = getMission(day["missions"][0][i]).scn.instantiate()
 				mis.e_mission = day["missions"][0][i]
@@ -224,7 +215,7 @@ func startDays():
 				add_child(mis)
 				mis.show()
 			
-			# Await a mission select and fire militant
+			# Await a mission select, then fire militant
 			var ms = await self.anyMissionSelected
 			
 			print("MISSION ", ms.e_mission, " selected")
@@ -237,21 +228,24 @@ func startDays():
 				else:
 					mission.go_away()
 
-
-			var t1 = get_tree().create_timer(0.2)
-			await t1.timeout
-
-			var t = get_tree().create_timer(1.0)
-			await t.timeout
+			await get_tree().create_timer(1.0).timeout
 			militant.come_out($MilitantLocation.position, $DoorLocation.position)
 			
 			await mil.byeBye
 			
 			# Mission results
+			res.reset()
+			res.show()
+			add_child(res)
+			bg.hide()
+			await res.showPanel().finished
+			await res.set_text("Ok zoomer Ok zoomer Ok zoomer Ok zoomer Ok zoomer Ok zoomer Ok zoomer Ok zoomer Ok zoomer Ok zoomer Ok zoomer ")
+			res.charlesGood()
+			await res.quitResults
+			res.hide()
+			remove_child(res)
 			
-			
-			
-			
+			bg.show()
 			# To next cycle
 	
 	

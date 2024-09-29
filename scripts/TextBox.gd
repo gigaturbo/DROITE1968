@@ -13,8 +13,8 @@ var MAX_WIDTH = 512 # Only If panelInitialSize is not given to display_text : t
 var text = ""
 var letter_index = 0
 
-var letter_time = 0.02
-var space_time = 0.04
+var letter_time = 0.01
+var space_time = 0.02
 var punctuation_time = 0.15
 
 
