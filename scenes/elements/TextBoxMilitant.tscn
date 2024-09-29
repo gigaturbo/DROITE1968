@@ -1,16 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://bedhyfrwpts72"]
+[gd_scene load_steps=3 format=3 uid="uid://bedhyfrwpts72"]
 
 [ext_resource type="Script" path="res://scripts/TextBox.gd" id="1_yif3g"]
-[ext_resource type="Texture2D" uid="uid://bgwiu6oj1eys3" path="res://assets/image/interfaces/dialogue_personnage.png" id="2_vm6fm"]
 [ext_resource type="FontFile" uid="uid://c1114d7vgm2up" path="res://assets/fonts/Helvetica Neue Condensed Bold.ttf" id="10_cksmk"]
 
 [node name="TextBox" type="MarginContainer"]
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_top = -243.0
-offset_right = 904.0
-offset_bottom = 243.0
+offset_top = -125.5
+offset_right = 517.0
+offset_bottom = 125.5
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 theme_override_constants/margin_left = 0
@@ -18,19 +17,18 @@ script = ExtResource("1_yif3g")
 
 [node name="NinePatchRectMilitant" type="NinePatchRect" parent="."]
 layout_mode = 2
-texture = ExtResource("2_vm6fm")
-region_rect = Rect2(-0.326195, 0.080874, 1800.32, 703.971)
-patch_margin_left = 443
-patch_margin_top = 249
-patch_margin_right = 461
-patch_margin_bottom = 237
+region_rect = Rect2(-0.326195, 0.080874, 904.15, 352.243)
+patch_margin_left = 257
+patch_margin_top = 120
+patch_margin_right = 260
+patch_margin_bottom = 131
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
-theme_override_constants/margin_left = 230
-theme_override_constants/margin_top = 110
-theme_override_constants/margin_right = 230
-theme_override_constants/margin_bottom = 110
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 70
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 70
 
 [node name="Label" type="Label" parent="MarginContainer"]
 layout_mode = 2
