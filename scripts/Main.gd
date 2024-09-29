@@ -112,7 +112,6 @@ var res = preload("res://scenes/ResultsMission.tscn").instantiate()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-
 	$MusiqueTitre.play()
 	$Titre.show()
 	$Tuto.hide()
@@ -346,7 +345,9 @@ func startDays():
 			add_child(res)
 			bg.hide()
 			await res.showPanel().finished
-			await res.set_text("Ok zoomer Ok zoomer Ok zoomer Ok zoomer Ok zoomer Ok zoomer Ok zoomer Ok zoomer Ok zoomer Ok zoomer Ok zoomer ")
+			print(ms.e_mission)
+			#TODO
+			await res.set_text(scores[i_day][i_mil][ms.e_mission % 3]["text"])
 			res.charlesGood()
 			await res.quitResults
 			res.hide()

@@ -31,6 +31,7 @@ func reset():
 	$charles_bien.modulate = Color.TRANSPARENT
 	$charles_bof.modulate = Color.TRANSPARENT
 	$MarginContainer.modulate = Color.TRANSPARENT
+	$MarginContainer/MarginContainer/RichTextLabel.parse_bbcode("")
 	
 func showPanel():
 	await get_tree().create_timer(0.25)
