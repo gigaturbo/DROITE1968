@@ -38,6 +38,9 @@ one_shot = true
 [node name="MyMissionLabel" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
-text = "C'est la guerre ! La République croule sous les attaques de l'impitoyable Sith, le Comte Dooku. Il y a des héros dans les deux camps. Le Mal est partout."
+text = "La ville doit être recouverte de nos affiches d'ici demain matin, surtout celles des rouges qu’il faudra recouvrir sans ménagement. C’est de nuit que ce travail doit se faire, quand personne ne regarde, mais tout le monde verra le résultat au lever du jour.
+
+Commentaire de Charles Prairie :
+\"Fais attention… la nuit, on ne sait jamais qui peut traîner dans l’ombre. Mais si tu les croises, montre-leur qu’on ne rigole pas.\""
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

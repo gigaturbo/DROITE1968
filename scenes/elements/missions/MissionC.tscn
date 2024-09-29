@@ -39,6 +39,9 @@ z_index = 140
 [node name="MyMissionLabel" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
-text = "La galaxie est en proie à la Guerre des Clones, un conflit à grande échelle qui oppose les maléfiques Séparatistes et leurs immenses armées d'androïdes à la République. Les Chevaliers Jedi, protecteurs de la République, luttent pour maintenir l'ordre et restaurer la paix tandis que de nouvelles planètes succombent chaque jour aux puissances du mal. Pour prendre l'avantage, le Chevalier Jedi Anakin Skywalker et sa jeune Padawan, Ahsoka Tano, sont chargés d'une mission capitale qui va les confronter au redoutable \"parrain\" de Tatooine, Jabba le Hutt."
+text = "Nos militants distribuent des tracts sur les marchés, mais la dernière fois, ça s'est mal terminé : ils se sont fait cabosser par des opposants. Il faut envoyer un gars pour les protéger cette fois-ci. 
+
+Commentaire de Charles Prairie :
+\"Même un regard de travers, vous réglez ça tout de suite. Sans attendre.\""
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

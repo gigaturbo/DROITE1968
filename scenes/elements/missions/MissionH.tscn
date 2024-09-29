@@ -38,6 +38,9 @@ one_shot = true
 [node name="MyMissionLabel" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
-text = "C'est la guerre ! La République croule sous les attaques de l'impitoyable Sith, le Comte Dooku. Il y a des héros dans les deux camps. Le Mal est partout."
+text = "Les militants qui collent nos affiches ont besoin d’être soutenus dans leur effort. Préparer des sandwichs et servir du bon vin rouge est une tâche essentielle, un véritable acte de dévouement, pour nourrir nos combattants et leur donner la force de continuer la lutte. 
+
+Commentaire de Charles Prairie :
+\"Et rien de tel qu'une petite touche féminine pour donner envie à nos gars de faire durer la soirée, tu comprends.\""
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -39,8 +39,10 @@ z_index = 140
 [node name="MyMissionLabel" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
-text = "Avant de devenir un célèbre chevalier Jedi, et bien avant de se révéler l’âme la plus noire de la galaxie, Anakin Skywalker est un jeune esclave sur la planète Tatooine. La Force est déjà puissante en lui et il est un remarquable pilote de Podracer. Le maître Jedi Qui-Gon Jinn le découvre et entrevoit alors son immense potentiel.
-Pendant ce temps, l’armée de droïdes de l’insatiable Fédération du Commerce a envahi Naboo, une planète pacifique, dans le cadre d’un plan secret des Sith visant à accroître leur pouvoir. Pour défendre la reine de Naboo, Amidala, les chevaliers Jedi vont devoir affronter le redoutable Seigneur Sith, Dark Maul."
+text = "La ville d'à côté est un bastion communiste. Leur candidat y a un soutien solide, et la plupart des quartiers sont tapissés de leurs affiches. Il est temps de rétablir l’équilibre. Allez coller nos affiches dans les rues principales et faites en sorte qu’elles soient bien visibles.
+
+Commentaire de Charles Prairie :
+\"Et si jamais vous croisez leurs militants, rappelez-leur qu’on ne fait pas que coller des affiches, nous.\""
 
 [connection signal="button_down" from="TextureButton" to="." method="_on_texture_button_button_down"]
 [connection signal="button_up" from="TextureButton" to="." method="_on_texture_button_button_up"]

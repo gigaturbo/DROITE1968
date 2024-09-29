@@ -17,29 +17,29 @@ func _on_texture_buttoncustom_pressed():
 
 
 
-# a virer plus tard
-func _unhandled_input(event):
-	if event.is_action_pressed("A_button"):
-		
-		DialogManager.start_dialog(Vector2(200, 300), 
-			Vector2(500,150), 
-			DialogManager.TextBoxTypes.REPONSE,
-			["t'es qui ?"],
-			0)
-		DialogManager.buttonPressed.connect(reponse)
-		
-		DialogManager2.start_dialog(Vector2(200, 300) + Vector2(0, 300), 
-			Vector2(500,150), 
-			DialogManager2.TextBoxTypes.REPONSE,
-			["test ^^"],
-			1)
-		DialogManager2.buttonPressed.connect(reponse)
-	
-
-func reponse(oneDialogManager):
-	print(oneDialogManager.text_box.text)
-	print(oneDialogManager.id)
-	DialogManager.inputCloseDialog()
-	DialogManager2.inputCloseDialog()
+## a virer plus tard
+#func _unhandled_input(event):
+#	if event.is_action_pressed("A_button"):
+#
+#		DialogManager.start_dialog(Vector2(200, 300), 
+#			Vector2(500,150), 
+#			DialogManager.TextBoxTypes.REPONSE,
+#			["t'es qui ?"],
+#			0)
+#		DialogManager.buttonPressed.connect(reponse)
+#
+#		DialogManager2.start_dialog(Vector2(200, 300) + Vector2(0, 300), 
+#			Vector2(500,150), 
+#			DialogManager2.TextBoxTypes.REPONSE,
+#			["test ^^"],
+#			1)
+#		DialogManager2.buttonPressed.connect(reponse)
+#
+#
+#func reponse(oneDialogManager):
+#	print(oneDialogManager.text_box.text)
+#	print(oneDialogManager.id)
+#	DialogManager.inputCloseDialog()
+#	DialogManager2.inputCloseDialog()
 
 

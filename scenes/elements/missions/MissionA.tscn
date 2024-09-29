@@ -39,6 +39,8 @@ z_index = 140
 [node name="MyMissionLabel" type="Label" parent="."]
 offset_right = 40.0
 offset_bottom = 23.0
-text = "Depuis le blocus de la planète Naboo par la Fédération du commerce, la République, gouvernée par le Chancelier Palpatine, connaît une véritable crise. Un groupe de dissidents, mené par le sombre Jedi comte Dooku, manifeste son mécontentement envers le fonctionnement du régime."
+text = "Il parait qu'au lycée Jacques-Decour, une bande de communistes se réunit tous les midis pour organiser l'arrachage de nos affiches de campagne. On a besoin d'informations à leur sujet, il faut aller les observer discrètement.
+
+Le commentaire de Charles Prairie : \"Pourquoi se contenter d'espionner quand on peut effrayer ?\""
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
