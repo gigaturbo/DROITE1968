@@ -25,7 +25,7 @@ position = Vector2(569, 534)
 position = Vector2(128, 657)
 
 [node name="AnswerLocation" type="Marker2D" parent="."]
-position = Vector2(318, 735)
+position = Vector2(332, 846)
 
 [connection signal="startButtonPressed" from="Titre" to="." method="_on_titre_start_button_pressed"]
 [connection signal="endTuto" from="Tuto" to="." method="_on_tuto_end_tuto"]
