@@ -156,7 +156,7 @@ func startDays():
 			await get_tree().create_timer(0.2).timeout
 			
 			var d = DialogManager.start_dialog($AnswerLocation.position, 
-				$AnswerLocation.position, 
+				Vector2(500,300), 
 				DialogManager.TextBoxTypes.REPONSE,
 				["bjr competence ?"])
 			
