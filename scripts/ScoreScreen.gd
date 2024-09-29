@@ -8,7 +8,7 @@ func _ready():
 	$perfect.hide()
 	init(12, {})
 
-func init(score, scoreState):
+func init(score, _scoreState):
 	$win.hide()
 	$loose.hide()
 	$perfect.hide()
@@ -22,5 +22,5 @@ func init(score, scoreState):
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
