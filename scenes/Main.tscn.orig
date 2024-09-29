@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://cakpsc8hxpp4q"]
+
+[ext_resource type="Script" path="res://scripts/Main.gd" id="1_3ouxd"]
+[ext_resource type="PackedScene" uid="uid://7d74krn38k4p" path="res://scenes/Titre.tscn" id="2_soksl"]
+[ext_resource type="PackedScene" uid="uid://xpyssfnyfg1s" path="res://scenes/Tuto.tscn" id="3_iwt3s"]
+[ext_resource type="AudioStream" uid="uid://buchlsyhdvy8e" path="res://assets/audio/musiques/partie 1 finie.wav" id="4_7jf6a"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_3ouxd")
+
+[node name="Titre" parent="." instance=ExtResource("2_soksl")]
+
+[node name="Tuto" parent="." instance=ExtResource("3_iwt3s")]
+
+[node name="MusiqueTitre" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_7jf6a")
+
+[node name="DoorLocation" type="Marker2D" parent="."]
+position = Vector2(282, 480)
+
+[node name="MilitantLocation" type="Marker2D" parent="."]
+position = Vector2(569, 534)
+
+[node name="TalkieLocation" type="Marker2D" parent="."]
+position = Vector2(44, 722)
+
+[node name="PhoneLocation" type="Marker2D" parent="."]
+position = Vector2(59, 721)
+
+[node name="RadioLocation" type="Marker2D" parent="."]
+position = Vector2(543, 621)
+
+[node name="AnswerLocation" type="Marker2D" parent="."]
+position = Vector2(335, 880)
+
+[node name="ResponseLocation" type="Marker2D" parent="."]
+<<<<<<< HEAD
+position = Vector2(538, 632)
+=======
+position = Vector2(571, 545)
+>>>>>>> b36f2ac6fc1a750245bf0ef64395cad837d5d45d
+
+[connection signal="startButtonPressed" from="Titre" to="." method="_on_titre_start_button_pressed"]
+[connection signal="endTuto" from="Tuto" to="." method="_on_tuto_end_tuto"]
