@@ -54,6 +54,7 @@ var	contexts = []
 var answers = []
 
 signal anyMissionSelected
+signal anyDialogAnswered
 
 var res = preload("res://scenes/ResultsMission.tscn").instantiate()
 
@@ -193,6 +194,20 @@ func startDays():
 				DialogManager.TextBoxTypes.MILITANT,
 				[presentations[i_day][i_mil]]).inputFinished
 			
+	
+#			DialogManager.start_dialog(Vector2(200, 300), 
+#				Vector2(500,150), 
+#				DialogManager.TextBoxTypes.REPONSE,
+#				[questions[i_day][i_mil][0]],
+#				0)
+#			DialogManager.buttonPressed.connect(reponse)
+#
+#			DialogManager2.start_dialog(Vector2(200, 300) + Vector2(0, 300), 
+#				Vector2(500,150), 
+#				DialogManager2.TextBoxTypes.REPONSE,
+#				0,
+#				1)
+			
 			for i_qr in range(0, 1):
 				# Question
 				await DialogManager.start_dialog($AnswerLocation.position, 
@@ -259,5 +274,37 @@ func _input(event):
 		get_tree().quit()
 #	
 #
+
+
+## a virer plus tard
+#func _unhandled_input(event):
+#	if event.is_action_pressed("A_button"):
 #
+#		DialogManager.start_dialog(Vector2(200, 300), 
+#			Vector2(500,150), 
+#			DialogManager.TextBoxTypes.REPONSE,
+#			["t'es qui ?"],
+#			0)
+#		DialogManager.buttonPressed.connect(reponse)
+#
+#		DialogManager2.start_dialog(Vector2(200, 300) + Vector2(0, 300), 
+#			Vector2(500,150), 
+#			DialogManager2.TextBoxTypes.REPONSE,
+#			["test ^^"],
+#			1)
+#		DialogManager2.buttonPressed.connect(reponse)
+#
+#func reponse(oneDialogManager):
+#	print(oneDialogManager.text_box.text)
+#	print(oneDialogManager.id)
+#	DialogManager.text_box.queue_free()
+#	DialogManager2.text_box.queue_free()
+#
+
+func _dialog_manager_response(cdialog):
+	var answered = cdialog.id
+	DialogManager.text_box.queue_free()
+	DialogManager2.text_box.queue_free()
+	anyDialogAnswered.emit(answered)
+
 
