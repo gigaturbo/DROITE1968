@@ -120,11 +120,11 @@ volume_db = -3.0
 
 [node name="Radio1" type="AudioStreamPlayer" parent="Bruitages"]
 stream = ExtResource("19_8ukpo")
-volume_db = -8.0
+volume_db = -10.0
 
 [node name="Radio2" type="AudioStreamPlayer" parent="Bruitages"]
 stream = ExtResource("20_ep3jp")
-volume_db = -8.0
+volume_db = -10.0
 
 [node name="Talkie1" type="AudioStreamPlayer" parent="Bruitages"]
 stream = ExtResource("21_jfrb2")
