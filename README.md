@@ -1,8 +1,10 @@
-# DROITE 1968
+# [DROITE 1968](https://aimeube.itch.io/droite-1968)
 
 *Jeu créé pendant la Game Jam des [Rendez-Vous de l'Histoire 2024](http://rdvh2024.lascienceentreenjeu.fr/)*
 
 *Lien vers tous les jeux : http://jeux.lascienceentreenjeu.fr*
+
+*Lien de la page [itch.io](https://aimeube.itch.io/droite-1968) du jeu (jeu en ligne possible)*
 
 ---
 ### *Paris, 1968...*
