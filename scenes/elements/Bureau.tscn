@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cbb6xjwmrc4f7"]
+
+[ext_resource type="Texture2D" uid="uid://dm636egfnqwqm" path="res://assets/image/fonds/FOND.png" id="1_chxvs"]
+[ext_resource type="Texture2D" uid="uid://cut7bqf2w0gqm" path="res://assets/image/fonds/DECOR.png" id="2_ernt3"]
+[ext_resource type="Texture2D" uid="uid://dei4sutncpiis" path="res://assets/image/fonds/asset_bureau.png" id="3_rux51"]
+
+[node name="Background1" type="Node2D"]
+
+[node name="fond" type="Sprite2D" parent="."]
+scale = Vector2(0.308, 0.308)
+texture = ExtResource("1_chxvs")
+centered = false
+metadata/_edit_group_ = true
+
+[node name="mur" type="Sprite2D" parent="."]
+scale = Vector2(0.308, 0.308)
+texture = ExtResource("2_ernt3")
+centered = false
+metadata/_edit_group_ = true
+
+[node name="table" type="Sprite2D" parent="."]
+z_index = 128
+scale = Vector2(0.308, 0.308)
+texture = ExtResource("3_rux51")
+centered = false
+metadata/_edit_group_ = true

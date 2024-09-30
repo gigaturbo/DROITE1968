@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://bnyxrgf2gejow"]
 
-[ext_resource type="Script" path="res://scripts/Object.gd" id="1_xxt7c"]
+[ext_resource type="Script" path="res://scripts/Mission.gd" id="1_xxt7c"]
 [ext_resource type="Texture2D" uid="uid://ilpyvkp3av1" path="res://assets/image/objets/asset_deguisement.png" id="2_8qkmh"]
 [ext_resource type="Texture2D" uid="uid://cxdh67bnkfpkh" path="res://assets/image/objets/asset_deguisement_selected.png" id="3_rmtvq"]
 [ext_resource type="Texture2D" uid="uid://cn00njtq1upx" path="res://assets/image/objets/asset_deguisement_highlight.png" id="4_8x13c"]
-[ext_resource type="PackedScene" uid="uid://c7asq67ysb1xc" path="res://scenes/elements/missions/missionText.tscn" id="5_0xdbp"]
+[ext_resource type="PackedScene" uid="uid://c7asq67ysb1xc" path="res://scenes/elements/textbox/MissionText.tscn" id="5_0xdbp"]
 
 [node name="ObjCollage" type="Node2D"]
 script = ExtResource("1_xxt7c")

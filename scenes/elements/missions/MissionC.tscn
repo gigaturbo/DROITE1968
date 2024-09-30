@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://dyfxwom00d8tb"]
 
-[ext_resource type="Script" path="res://scripts/Object.gd" id="1_j3vbu"]
+[ext_resource type="Script" path="res://scripts/Mission.gd" id="1_j3vbu"]
 [ext_resource type="Texture2D" uid="uid://ccl4upmm5ydyq" path="res://assets/image/objets/asset_matraque.png" id="2_q3l53"]
 [ext_resource type="Texture2D" uid="uid://bnxrva1hkjlmt" path="res://assets/image/objets/asset_matraque_selected.png" id="3_dccxu"]
 [ext_resource type="Texture2D" uid="uid://lp4578e0nwe8" path="res://assets/image/objets/asset_matraque_highlight.png" id="4_viopf"]
-[ext_resource type="PackedScene" uid="uid://c7asq67ysb1xc" path="res://scenes/elements/missions/missionText.tscn" id="5_td0i8"]
+[ext_resource type="PackedScene" uid="uid://c7asq67ysb1xc" path="res://scenes/elements/textbox/MissionText.tscn" id="5_td0i8"]
 
 [node name="ObjMegaphone" type="Node2D"]
 z_index = 130

@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://cvjgmvfckdkng"]
 
-[ext_resource type="Script" path="res://scripts/Object.gd" id="1_mfgo4"]
+[ext_resource type="Script" path="res://scripts/Mission.gd" id="1_mfgo4"]
 [ext_resource type="Texture2D" uid="uid://w25v0rr48u58" path="res://assets/image/objets/asset_talkiewalkie.png" id="2_kilak"]
 [ext_resource type="Texture2D" uid="uid://ch5nyu87wi1an" path="res://assets/image/objets/asset_talkiewalkie_selected.png" id="3_45v6d"]
 [ext_resource type="Texture2D" uid="uid://vx2ugxqxxh46" path="res://assets/image/objets/asset_talkiewalkie_highlight.png" id="4_bbb1s"]
-[ext_resource type="PackedScene" uid="uid://c7asq67ysb1xc" path="res://scenes/elements/missions/missionText.tscn" id="5_lw075"]
+[ext_resource type="PackedScene" uid="uid://c7asq67ysb1xc" path="res://scenes/elements/textbox/MissionText.tscn" id="5_lw075"]
 
 [node name="ObjTract" type="Node2D"]
 z_index = 130

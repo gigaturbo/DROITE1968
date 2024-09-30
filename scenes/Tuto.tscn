@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://xpyssfnyfg1s"]
 
 [ext_resource type="Script" path="res://scripts/Tuto.gd" id="1_2luo7"]
-[ext_resource type="PackedScene" uid="uid://cbb6xjwmrc4f7" path="res://scenes/elements/Background1.tscn" id="2_epp7i"]
+[ext_resource type="PackedScene" uid="uid://cbb6xjwmrc4f7" path="res://scenes/elements/Bureau.tscn" id="2_epp7i"]
 [ext_resource type="FontFile" uid="uid://c1114d7vgm2up" path="res://assets/fonts/Helvetica Neue Condensed Bold.ttf" id="3_c4555"]
 
 [node name="Tuto" type="Node2D"]
 script = ExtResource("1_2luo7")
 
-[node name="Fond" parent="." instance=ExtResource("2_epp7i")]
+[node name="Bureau" parent="." instance=ExtResource("2_epp7i")]
 
 [node name="MarginContainer2" type="MarginContainer" parent="."]
 offset_left = 184.0

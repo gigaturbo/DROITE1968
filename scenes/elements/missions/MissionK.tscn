@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://bb07slim1pfaa"]
 
-[ext_resource type="Script" path="res://scripts/Object.gd" id="1_20log"]
+[ext_resource type="Script" path="res://scripts/Mission.gd" id="1_20log"]
 [ext_resource type="Texture2D" uid="uid://ccp8dwdrwiwfa" path="res://assets/image/objets/asset_collage.png" id="2_c36x4"]
 [ext_resource type="Texture2D" uid="uid://c1h0w5c5md2u2" path="res://assets/image/objets/asset_collage_selected.png" id="3_wut52"]
 [ext_resource type="Texture2D" uid="uid://di53evnl7w006" path="res://assets/image/objets/asset_collage_highlight.png" id="4_wfw2e"]
-[ext_resource type="PackedScene" uid="uid://c7asq67ysb1xc" path="res://scenes/elements/missions/missionText.tscn" id="5_ux6ny"]
+[ext_resource type="PackedScene" uid="uid://c7asq67ysb1xc" path="res://scenes/elements/textbox/MissionText.tscn" id="5_ux6ny"]
 
 [node name="ObjTract" type="Node2D"]
 z_index = 130

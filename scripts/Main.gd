@@ -253,7 +253,7 @@ func startDays():
 	var ncontext = 0
 		
 	# LOAD BG1 (Generic)
-	var bg = preload("res://scenes/elements/Background1.tscn").instantiate()
+	var bg = preload("res://scenes/elements/Bureau.tscn").instantiate()
 	add_child(bg)
 	
 	$StartWaiter.start()
@@ -289,7 +289,6 @@ func startDays():
 			mil.show()
 			mil.come_in($DoorLocation.position, $MilitantLocation.position)
 			await mil.iAmReady
-			print("MILITANT ", mil.e_militant, " arrived")
 			
 			await get_tree().create_timer(0.2).timeout
 			
@@ -365,7 +364,6 @@ func startDays():
 				$Musiques/Musique2Boucle2.stop()
 				$Musiques/Musique2Break2.play()
 			
-			print("MISSION ", ms.e_mission, " selected")
 			for mission in dayMissions:
 				if mission.e_mission == ms.e_mission:
 					mission.get_selected()
@@ -373,8 +371,6 @@ func startDays():
 									"mission": ms.e_mission})
 					var toadd = scores[i_day][i_mil][ms.e_mission % 3]["score"]
 					score = score + toadd
-					print("SCORE IS NOW ", score)
-					print("SAVED ", answers)
 				else:
 					mission.go_away()
 

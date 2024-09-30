@@ -1,9 +1,9 @@
 extends Node
 
-@onready var text_box_scene_test = preload("res://scenes/elements/TextBoxTest.tscn")
-@onready var text_box_scene_militant = preload("res://scenes/elements/TextBoxMilitant.tscn")
-@onready var text_box_scene_reponse = preload("res://scenes/elements/TextBoxReponse.tscn")
-@onready var text_box_scene_elec = preload("res://scenes/elements/TextBoxElec.tscn")
+@onready var text_box_scene_test = preload("res://scenes/elements/textbox/TextBoxTest.tscn")
+@onready var text_box_scene_militant = preload("res://scenes/elements/textbox/TextBoxMilitant.tscn")
+@onready var text_box_scene_reponse = preload("res://scenes/elements/textbox//TextBoxReponse.tscn")
+@onready var text_box_scene_elec = preload("res://scenes/elements/textbox/TextBoxElec.tscn")
 
 var dialog_lines = []
 var current_line_index =  0
