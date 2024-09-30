@@ -1,9 +1,13 @@
-Jeu créé pendant la Game Jam des [Rendez-Vous de l'Histoire 2024](http://rdvh2024.lascienceentreenjeu.fr/)
-Lien vers tous les jeux : http://jeux.lascienceentreenjeu.fr
+# DROITE 1968
 
+*Jeu créé pendant la Game Jam des [Rendez-Vous de l'Histoire 2024](http://rdvh2024.lascienceentreenjeu.fr/)*
+
+*Lien vers tous les jeux : http://jeux.lascienceentreenjeu.fr*
+
+---
 ### *Paris, 1968...*
 
-La chienlit aux portes du pouvoir ! Les droites doivent remporter les élections législatives pour empêcher les « révolutionnaires » d’instaurer leur odieuse « dictature marxiste  ». Vous êtes le délégué d’un arrondissement parisien du parti gaulliste. Votre mission est de faire élire député Charles Prairie. Mobiliser efficacement vos militants pour remporter la victoire !
+*La chienlit aux portes du pouvoir ! Les droites doivent remporter les élections législatives pour empêcher les « révolutionnaires » d’instaurer leur odieuse « dictature marxiste  ». Vous êtes le délégué d’un arrondissement parisien du parti gaulliste. Votre mission est de faire élire député Charles Prairie. Mobiliser efficacement vos militants pour remporter la victoire !*
 
 ## Gameplay
 
