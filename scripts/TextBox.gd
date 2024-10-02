@@ -13,6 +13,7 @@ var MAX_WIDTH = 512 # Only If panelInitialSize is not given to display_text : t
 var text = ""
 var letter_index = 0
 
+var quickTextSpeed = false
 var letter_time = 0.007
 var space_time = 0.01
 var punctuation_time = 0.2
@@ -84,7 +85,11 @@ func _display_letter():
 		if(!crayon1.playing && !crayon2.playing && !crayon3.playing && !crayon4.playing):
 			crayons[randi() % 4].play()
 	
-	label.text += text[letter_index]
+	if quickTextSpeed:
+		label.text = text
+		letter_index = text.length()
+	else:
+		label.text += text[letter_index]
 	
 	letter_index += 1
 	if letter_index >= text.length():
@@ -126,3 +131,9 @@ func _on_button_button_up():
 	$NinePatchRectReponse.hide()
 	$NinePatchRectReponseHL.show()
 	$NinePatchRectReponseSEL.hide()
+
+
+func _unhandled_input(event):
+	
+	if event.is_action_pressed("quick_advance_dialog"):
+		quickTextSpeed = !quickTextSpeed 

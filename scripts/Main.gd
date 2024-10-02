@@ -15,6 +15,60 @@ var allDays = [{"militants": [EnumMilitants.M1],
 				"missions": [[EnumMissions.J, EnumMissions.K, EnumMissions.L],
 							 [EnumMissions.M, EnumMissions.N, EnumMissions.O]]}]
 
+var missionContent = {EnumMissions.A: ["deguisement", "titre", "Il parait qu'au lycée Jacques-Decour, une bande de communistes se réunit tous les midis pour organiser l'arrachage de nos affiches de campagne. On a besoin d'informations à leur sujet, il faut aller les observer discrètement.
+
+Commentaire de Charles Prairie : \"Pourquoi se contenter d'espionner quand on peut effrayer ?\""], 
+						EnumMissions.B: ["collage", "titre", "La ville d'à côté est un bastion communiste. Leur candidat y a un soutien solide, et la plupart des quartiers sont tapissés de leurs affiches. Il est temps de rétablir l’équilibre. Allez coller nos affiches dans les rues principales et faites en sorte qu’elles soient bien visibles.
+
+Commentaire de Charles Prairie : \"Et si jamais vous croisez leurs militants, rappelez-leur qu’on ne fait pas que coller des affiches, nous.\""], 
+						EnumMissions.C: ["matraque", "titre", "Nos militants distribuent des tracts sur les marchés, mais la dernière fois, ça s'est mal terminé : ils se sont fait cabosser par des opposants. Il faut envoyer un gars pour les protéger cette fois-ci. 
+
+Commentaire de Charles Prairie : \"Même un regard de travers, vous réglez ça tout de suite. Sans attendre.\""], 
+						EnumMissions.D: ["collage", "titre", "La ville doit être recouverte de nos affiches d'ici demain matin, surtout celles des rouges qu’il faudra recouvrir sans ménagement. C’est de nuit que ce travail doit se faire, quand personne ne regarde, mais tout le monde verra le résultat au lever du jour.
+
+Commentaire de Charles Prairie :\"Fais attention… la nuit, on ne sait jamais qui peut traîner dans l’ombre. Mais si tu les croises, montre-leur qu’on ne rigole pas.\""], 
+						EnumMissions.E: ["deguisement", "titre", "Des étudiants en sociologie organisent des assemblées générales régulières à la Maison des Syndicats. Ils y discutent de leurs prochaines actions et cherchent à recruter. Il est temps d’y envoyer quelqu’un se fondre dans la masse et écouter ce qui se dit.
+
+Commentaire de Charles Prairie : \"Aucun vrai gaulliste ne peut se faire passer pour de la racaille gauchiste, voyons...\""], 
+						EnumMissions.F: ["collagepiege", "titre", "Nous avons identifié des points stratégiques dans la ville où nos affiches sont régulièrement arrachées par les rouges. Il faut coller des affiches piégées avec du verre pilé, de façon à ce que ceux qui tenteront de retirer le visage de Charles Prairie se blessent. Cette mission sera escortée.
+
+Commentaire de Charles Prairie : \"Il faut frapper fort. Un peu de verre pilé, et ils réfléchiront à deux fois avant de toucher à ma tête.\""],
+						EnumMissions.G: ["machine", "titre", "100 tracts doivent être tapés à la machine pour la distribution de demain matin. C'est une tâche importante qui demande précision et rapidité.
+
+Commentaire de Charles Prairie : aucun."], 
+						EnumMissions.H: ["manger", "titre", "Les militants qui collent nos affiches ont besoin d’être soutenus dans leur effort. Préparer des sandwichs et servir du bon vin rouge est une tâche essentielle, un véritable acte de dévouement, pour nourrir nos combattants et leur donner la force de continuer la lutte. 
+
+Commentaire de Charles Prairie :
+\"Et rien de tel qu'une petite touche féminine pour donner envie à nos gars de faire durer la soirée, tu comprends.\""], 
+						EnumMissions.I: ["carnet", "titre", "Il est temps de recruter de nouveaux militants. Il faut convaincre des gars solides, motivés et athlétiques que Charles Prairie est l’homme capable de faire cesser le chaos dans les rues. On a besoin d’hommes qui ne reculeront pas devant le travail.
+
+Commentaire de Charles Prairie :
+\"Faut nous ramener des costauds, et c’est pas pour déménager des meubles...\""], 
+						EnumMissions.J: ["matraque", "titre", "Une première équipe de colleurs d’affiches a été malmenée hier, attaquée à coup de barres de fer et de chaînes de vélo. Il y a un manque d’effectif, et cette fois, on a besoin d’hommes solides pour escorter ceux qui iront sur le terrain. Ça va chauffer...
+
+Commentaire de Charles Prairie :
+\"Nom de nom ! Si j’avais deux minutes, j’irais leur expliquer les choses à ma façon à ces cloportes !\""], 
+						EnumMissions.K: ["collage", "titre", "Il faut recouvrir les affiches de nos adversaires, et le plus vite possible. L'idée, c'est de passer juste derrière eux, pour que leurs affiches restent à peine en place avant d'être recouvertes par le visage imposant de Charles Prairie.
+
+Commentaire de Charles Prairie :
+\"Ils emploient des gamins pour leurs collages, rapides comme des lapins. Mais ces mômes sont impressionnables. Alors, un bon regard bien appuyé, et ils fileront sans demander leur reste.\""], 
+						EnumMissions.L: ["talkiewalkie", "titre", "Il faut patrouiller en ville avec trois jeunes cadets de Gironde, fraîchement débarqués et un peu perdus dans le coin. L'objectif : surveiller les alentours, et repérer toute bande de rouges qui viendrait s'aventurer sur notre terrain pour vandaliser nos affiches.
+
+Commentaire de Charles Prairie :
+\"Le meeting approche, pas le temps de jouer. Au premier groupe suspect, pas de quartier, on leur casse la figure.\""], 
+						EnumMissions.M: ["journal", "titre", "Le journal Le Monde veut interviewer un de nos militants. Il nous faut quelqu’un qui s’exprime bien pour donner une image impeccable de notre mouvement. Pas question de laisser la presse salir le mouvement du Général.
+
+Commentaire de Charles Prairie : 
+\"Ces journalistes ? Ils prennent ce qu’on dit et le tordent à leur sauce. Il faut être clair, propre, précis.\""], 
+						EnumMissions.N: ["papillon", "titre", "Distribution de tracts à la sortie de la messe dominicale. Le public est acquis, mais il faut les encourager à aller voter. Il est essentiel de les rassurer en utilisant un langage qui leur ressemble.
+
+Commentaire de Charles Prairie :
+\"Ils savent bien, ces braves gens, que si les rouges prennent le pouvoir, ce sera l'apocalypse.\""], 
+						EnumMissions.O: ["carnet", "titre", "Il faut coller des papillons avec des slogans provocateurs, et le faire vite. Sur les murs, les panneaux, et bien sûr sur les affiches adverses ! C’est du vandalisme, donc attention à la police... discrétion et rapidité !
+
+Commentaire de Charles Prairie :
+\"Ah, j’adore celui-là : \'La réforme oui, la chienlit non.\' Ou bien encore \'NON au désordre, NON à l'aventure !\'\""]}
+
 var presentations = [[["Salut, moi c'est Raymond. Charcutier à Levallois. C'est ici qu'on signe ou quoi ?"]],
 				 	[["Bonjour Monsieur, j'me présente : Nicolas, je suis en deuxième année de droit à Assas et je voudrais m'engager pour Monsieur Prairie."],
 				  	["Bonjour Monsieur, je suis Marielle, championne d’escrime. J’ai l’habitude de me battre pour ce en quoi je crois, et je suis prête à m’engager ici, sans attendre.",
@@ -82,6 +136,7 @@ var scores = [[[{"text": "Raymond n'a pas tenu. Les discours de ces petits rouge
 				{"text": "Malheureusement, Jacques n'a pas vraiment les jambes pour ce genre de course. Il s'est fait attraper par la police avant d'avoir pu finir son travail. Avec son statut et sa manière de parler, il s'en tirera sans trop de problèmes et il a tout de même réussi à coller une dizaine de papillons... c’est déjà ça.",
 			 	"hum":1, "score":1}]]]
 
+
 var day = allDays[0]
 var dayMissions = []
 var	militant = null
@@ -117,54 +172,13 @@ func _ready():
 func _process(_delta):
 	processMusic()
 
-
 func getMission(mmis : EnumMissions):
-	match mmis:
-		EnumMissions.A:
-			return {"scn": preload("res://scenes/elements/missions/MissionA.tscn"),
-					"data": {}}
-		EnumMissions.B:
-			return {"scn": preload("res://scenes/elements/missions/MissionB.tscn"),
-					"data": {}}
-		EnumMissions.C:
-			return {"scn": preload("res://scenes/elements/missions/MissionC.tscn"),
-					"data": {}}
-		EnumMissions.D:
-			return {"scn": preload("res://scenes/elements/missions/MissionD.tscn"),
-					"data": {}}            
-		EnumMissions.E:
-			return {"scn": preload("res://scenes/elements/missions/MissionE.tscn"),
-					"data": {}}
-		EnumMissions.F:
-			return {"scn": preload("res://scenes/elements/missions/MissionF.tscn"),
-					"data": {}}
-		EnumMissions.G:
-			return {"scn": preload("res://scenes/elements/missions/MissionG.tscn"),
-					"data": {}}
-		EnumMissions.H:
-			return {"scn": preload("res://scenes/elements/missions/MissionH.tscn"),
-					"data": {}}
-		EnumMissions.I:
-			return {"scn": preload("res://scenes/elements/missions/MissionI.tscn"),
-					"data": {}} 
-		EnumMissions.J:
-			return {"scn": preload("res://scenes/elements/missions/MissionJ.tscn"),
-					"data": {}} 
-		EnumMissions.K:
-			return {"scn": preload("res://scenes/elements/missions/MissionK.tscn"),
-					"data": {}} 
-		EnumMissions.L:
-			return {"scn": preload("res://scenes/elements/missions/MissionL.tscn"),
-					"data": {}} 
-		EnumMissions.M:
-			return {"scn": preload("res://scenes/elements/missions/MissionM.tscn"),
-					"data": {}} 
-		EnumMissions.N:
-			return {"scn": preload("res://scenes/elements/missions/MissionN.tscn"),
-					"data": {}} 
-		EnumMissions.O:
-			return {"scn": preload("res://scenes/elements/missions/MissionO.tscn"),
-					"data": {}}
+	var aMissionContent = missionContent[mmis]
+	
+	var mission = preload("res://scenes/elements/MissionItem.tscn").instantiate()
+	mission.init(aMissionContent[0], aMissionContent[2])
+	
+	return mission
 
 func getMilitant(mmil : EnumMilitants):
 		match mmil:
@@ -343,7 +357,7 @@ func startDays():
 				
 			# Now instanciate day missions of militant
 			for i in day["missions"][i_mil].size():
-				var mis = getMission(day["missions"][i_mil][i]).scn.instantiate()
+				var mis = getMission(day["missions"][i_mil][i])
 				mis.e_mission = day["missions"][i_mil][i]
 				dayMissions.append(mis)
 				mis.selected.connect(_mission_selected)
@@ -457,3 +471,8 @@ func _on_titre_credit_button_pressed():
 	
 	$Credits.show()
 	$Credits.init()
+
+
+func _input(event):
+	if Input.is_action_pressed("ui_cancel"):
+		get_tree().quit()

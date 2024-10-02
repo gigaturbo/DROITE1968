@@ -22,14 +22,18 @@ func _ready():
 	$TextureButton.button_down.connect(_on_texture_button_button_down)
 	$TextureButton.button_up.connect(_on_texture_button_button_up)
 	
-	$MarginContainer.hide()
-	$MyMissionLabel.hide()
+	$MissionText.hide()
 	$Timer.wait_time = SELECT_TIME
 	$Timer.stop()
 	rscale = $TextureButton.scale
+
+func init(itemType: String, missionText:String):
+	$TextureButton.set_texture_normal(load("res://assets/image/objets/asset_" + itemType + ".png"))
+	$TextureButton.set_texture_pressed(load("res://assets/image/objets/asset_" + itemType + "_highlight" + ".png"))
+	$TextureButton.set_texture_hover(load("res://assets/image/objets/asset_" + itemType + "_selected" + ".png"))
 	
-	$MarginContainer/MarginContainer/Label.set_text($MyMissionLabel.text)
-	
+	$MissionText/MarginContainerText/Label.set_text(missionText)
+
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -68,8 +72,8 @@ func get_selected():
 
 
 func _on_texture_button_mouse_entered():
-	$MarginContainer.show()
+	$MissionText.show()
 
 
 func _on_texture_button_mouse_exited():
-	$MarginContainer.hide()
+	$MissionText.hide()

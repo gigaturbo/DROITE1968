@@ -160,7 +160,7 @@ stream = ExtResource("27_5ytqm")
 volume_db = 3.0
 
 [node name="StartWaiter" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 1.5
 
 [connection signal="creditButtonPressed" from="Titre" to="." method="_on_titre_credit_button_pressed"]
 [connection signal="startButtonPressed" from="Titre" to="." method="_on_titre_start_button_pressed"]

@@ -1,6 +1,6 @@
 extends Node
 
-@onready var text_box_scene_test = preload("res://scenes/elements/textbox/TextBoxTest.tscn")
+
 @onready var text_box_scene_militant = preload("res://scenes/elements/textbox/TextBoxMilitant.tscn")
 @onready var text_box_scene_reponse = preload("res://scenes/elements/textbox//TextBoxReponse.tscn")
 @onready var text_box_scene_elec = preload("res://scenes/elements/textbox/TextBoxElec.tscn")
@@ -28,6 +28,7 @@ signal inputFinished
 signal buttonPressed
 
 var flip
+var quickText
 
 # flip not working yet
 func start_dialog(position:Vector2, 
@@ -35,9 +36,15 @@ func start_dialog(position:Vector2,
 					type:TextBoxTypes,
 					lines,
 					mid=-1,
-					aflip=false):
+					aflip=false,
+					aquickText = false):
 	text_box_type = type
 	flip = aflip
+	
+	if type == TextBoxTypes.REPONSE:
+		quickText = true
+	quickText = aquickText
+	
 	
 	if is_dialog_active:
 		return
@@ -68,14 +75,13 @@ func _show_text_box():
 				var ninepatch = text_box.get_node("NinePatchRectElec")
 				ninepatch.scale.x *= -1
 				ninepatch.position.x += - ninepatch.scale.x * ninepatch.size.x
-		TextBoxTypes.TEST:
-			text_box = text_box_scene_test.instantiate()
 	
 	
 	text_box.finished_displaying.connect(_on_text_box_finished_displaying)
 	get_tree().root.add_child(text_box)
 	text_box.global_position = text_box_position - Vector2(0, text_box.size.y)
 	text_box.display_text(self, dialog_lines[current_line_index], panelInitialSize)
+	text_box.quickTextSpeed = quickText
 	can_advance_line = false
 	
 
