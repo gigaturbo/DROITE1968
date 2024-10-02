@@ -42,7 +42,7 @@ func start_dialog(position:Vector2,
 	flip = aflip
 	
 	if type == TextBoxTypes.REPONSE:
-		quickText = true
+		aquickText = true
 	quickText = aquickText
 	
 	

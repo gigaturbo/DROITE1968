@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://bhigejj3wrnsb"
+path="res://.godot/imported/asset_carnet_clickmap.png-3c601fde894887b337add11dce6e611e.res"
+
+[deps]
+
+source_file="res://assets/image/objets/asset_carnet_clickmap.png"
+dest_files=["res://.godot/imported/asset_carnet_clickmap.png-3c601fde894887b337add11dce6e611e.res"]
+
+[params]
+
+create_from=1
+threshold=0.5

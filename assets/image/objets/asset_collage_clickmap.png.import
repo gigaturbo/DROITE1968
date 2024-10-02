@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://dx3x12kx6rp24"
+path="res://.godot/imported/asset_collage_clickmap.png-cdb5d7dbcc8627fa89f7ee771c40f91a.res"
+
+[deps]
+
+source_file="res://assets/image/objets/asset_collage_clickmap.png"
+dest_files=["res://.godot/imported/asset_collage_clickmap.png-cdb5d7dbcc8627fa89f7ee771c40f91a.res"]
+
+[params]
+
+create_from=1
+threshold=0.5

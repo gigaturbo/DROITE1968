@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://bdaokdsscwuke"
+path="res://.godot/imported/asset_journal_clickmap.png-1986e1162f8fa98a44c6670ec46ce27c.res"
+
+[deps]
+
+source_file="res://assets/image/objets/asset_journal_clickmap.png"
+dest_files=["res://.godot/imported/asset_journal_clickmap.png-1986e1162f8fa98a44c6670ec46ce27c.res"]
+
+[params]
+
+create_from=1
+threshold=0.5

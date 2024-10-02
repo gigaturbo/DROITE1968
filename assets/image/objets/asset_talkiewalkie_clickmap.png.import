@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://b152bwxc34ybb"
+path="res://.godot/imported/asset_talkiewalkie_clickmap.png-1c88cbb2302cf317efac9faa37b2b336.res"
+
+[deps]
+
+source_file="res://assets/image/objets/asset_talkiewalkie_clickmap.png"
+dest_files=["res://.godot/imported/asset_talkiewalkie_clickmap.png-1c88cbb2302cf317efac9faa37b2b336.res"]
+
+[params]
+
+create_from=1
+threshold=0.5

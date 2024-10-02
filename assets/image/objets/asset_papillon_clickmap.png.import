@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://bgbo5ngqlpui"
+path="res://.godot/imported/asset_papillon_clickmap.png-1eb4bfa95f5cb243b8fd55faae2c4ae2.res"
+
+[deps]
+
+source_file="res://assets/image/objets/asset_papillon_clickmap.png"
+dest_files=["res://.godot/imported/asset_papillon_clickmap.png-1eb4bfa95f5cb243b8fd55faae2c4ae2.res"]
+
+[params]
+
+create_from=1
+threshold=0.5

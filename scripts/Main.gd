@@ -476,3 +476,4 @@ func _on_titre_credit_button_pressed():
 func _input(event):
 	if Input.is_action_pressed("ui_cancel"):
 		get_tree().quit()
+	

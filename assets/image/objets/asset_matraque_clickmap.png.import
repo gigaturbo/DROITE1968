@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://jefdqmdu1sxg"
+path="res://.godot/imported/asset_matraque_clickmap.png-71d0bb1c832bcf692e957b30f7d43fc2.res"
+
+[deps]
+
+source_file="res://assets/image/objets/asset_matraque_clickmap.png"
+dest_files=["res://.godot/imported/asset_matraque_clickmap.png-71d0bb1c832bcf692e957b30f7d43fc2.res"]
+
+[params]
+
+create_from=1
+threshold=0.5

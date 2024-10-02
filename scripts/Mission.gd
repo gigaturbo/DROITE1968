@@ -29,8 +29,9 @@ func _ready():
 
 func init(itemType: String, missionText:String):
 	$TextureButton.set_texture_normal(load("res://assets/image/objets/asset_" + itemType + ".png"))
-	$TextureButton.set_texture_pressed(load("res://assets/image/objets/asset_" + itemType + "_highlight" + ".png"))
-	$TextureButton.set_texture_hover(load("res://assets/image/objets/asset_" + itemType + "_selected" + ".png"))
+	$TextureButton.set_texture_hover(load("res://assets/image/objets/asset_" + itemType + "_highlight" + ".png"))
+	$TextureButton.set_texture_pressed(load("res://assets/image/objets/asset_" + itemType + "_selected" + ".png"))
+	$TextureButton.set_click_mask(load("res://assets/image/objets/asset_" + itemType + "_clickmap" + ".png"))
 	
 	$MissionText/MarginContainerText/Label.set_text(missionText)
 
@@ -42,7 +43,7 @@ func _process(_delta):
 		var nscale =  Vector2(1,1) * (1.0 + percent_proc * 0.3)
 		$TextureButton.scale = rscale * nscale
 	else :
-			$TextureButton.scale = rscale
+		$TextureButton.scale = rscale
 	
 func _on_texture_button_button_down():
 	$Timer.start()
