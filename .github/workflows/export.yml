@@ -39,7 +39,7 @@ jobs:
         uses: manleydev/butler-publish-itchio-action@master
         env:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
-          CHANNEL: windows-latest
+          CHANNEL: windows
           ITCH_GAME: test-droite1968
           ITCH_USER: gigaturbo
           VERSION: ${{github.ref_name}}
@@ -74,7 +74,7 @@ jobs:
         uses: manleydev/butler-publish-itchio-action@master
         env:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
-          CHANNEL: linux-latest
+          CHANNEL: linux
           ITCH_GAME: test-droite1968
           ITCH_USER: gigaturbo
           VERSION: ${{github.ref_name}}
@@ -111,7 +111,7 @@ jobs:
         uses: manleydev/butler-publish-itchio-action@master
         env:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
-          CHANNEL: web-latest
+          CHANNEL: web
           ITCH_GAME: test-droite1968
           ITCH_USER: gigaturbo
           VERSION: ${{github.ref_name}}
@@ -147,7 +147,7 @@ jobs:
         uses: manleydev/butler-publish-itchio-action@master
         env:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
-          CHANNEL: mac-latest
+          CHANNEL: mac
           ITCH_GAME: test-droite1968
           ITCH_USER: gigaturbo
           VERSION: ${{github.ref_name}}
