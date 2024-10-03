@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cj6equ6e6k0h7"]
 
 [ext_resource type="Script" path="res://scripts/Credits.gd" id="1_wb21d"]
-[ext_resource type="Texture2D" uid="uid://cv0geu7gmwhli" path="res://assets/image/fonds/credits.png" id="2_yyj4c"]
+[ext_resource type="Texture2D" uid="uid://dus7tmwduesaf" path="res://assets/image/fonds/credits.jpg" id="2_tallv"]
 [ext_resource type="Texture2D" uid="uid://djsuewtmyrd4e" path="res://assets/image/interfaces/ui_fleche_normal.png" id="3_68uj5"]
 [ext_resource type="Texture2D" uid="uid://cg50oracp1h5u" path="res://assets/image/interfaces/ui_fleche_selected et highlight.png" id="4_vomwk"]
 
@@ -10,7 +10,7 @@ script = ExtResource("1_wb21d")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.308, 0.308)
-texture = ExtResource("2_yyj4c")
+texture = ExtResource("2_tallv")
 centered = false
 
 [node name="TextureButton" type="TextureButton" parent="."]

@@ -459,10 +459,6 @@ func processMusic():
 	else:
 		vol_theme_menu_radio = -60
 	
-	print("\nmusicSwitchRelative " + str(musicSwitchRelative))
-	print("vol_theme_menu " + str(vol_theme_menu))
-	print("vol_theme_menu_radio " + str(vol_theme_menu_radio))
-	
 	$Musiques/Musique1.set_volume_db(vol_theme_menu)
 	$Musiques/Musique1Radio.set_volume_db(vol_theme_menu_radio)
 
