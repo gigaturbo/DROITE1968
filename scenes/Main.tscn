@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cakpsc8hxpp4q"]
+[gd_scene load_steps=33 format=3 uid="uid://cakpsc8hxpp4q"]
 
 [ext_resource type="Script" path="res://scripts/Main.gd" id="1_3ouxd"]
 [ext_resource type="PackedScene" uid="uid://7d74krn38k4p" path="res://scenes/Titre.tscn" id="2_soksl"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://cr06tod2m228o" path="res://assets/audio/musiques/musique 2/boucle 1.wav" id="5_4hdlf"]
 [ext_resource type="PackedScene" uid="uid://cj6equ6e6k0h7" path="res://scenes/Credits.tscn" id="5_vykkf"]
 [ext_resource type="AudioStream" uid="uid://bslgn04n088ac" path="res://assets/audio/musiques/musique 2/break 1.wav" id="6_n7fuy"]
+[ext_resource type="AudioStream" uid="uid://kqx84kthy2fx" path="res://assets/audio/musiques/Musique partie 1 radio.mp3" id="6_or610"]
 [ext_resource type="AudioStream" uid="uid://c2e1caa41q8gu" path="res://assets/audio/musiques/musique 2/boucle 2.wav" id="7_byrpe"]
 [ext_resource type="AudioStream" uid="uid://c2sdu7e66t6qn" path="res://assets/audio/musiques/musique 2/break 2.wav" id="8_w6bya"]
 [ext_resource type="AudioStream" uid="uid://c4nj57lkew3be" path="res://assets/audio/musiques/marseillaise/marseillaise piano.wav" id="9_fr43m"]
@@ -28,6 +29,12 @@
 [ext_resource type="AudioStream" uid="uid://fqjkv7yn5845" path="res://assets/audio/bruitages/tel_talkie_radio/telephone 2.wav" id="24_kgwk2"]
 [ext_resource type="AudioStream" uid="uid://d1wxvcj7shmu8" path="res://assets/audio/bruitages/reussite_echec/echec.wav" id="26_mmkk8"]
 [ext_resource type="AudioStream" uid="uid://dhvpvvj57oto3" path="res://assets/audio/bruitages/reussite_echec/reussite.wav" id="27_5ytqm"]
+[ext_resource type="Texture2D" uid="uid://b5kyywgf3myph" path="res://assets/image/FX/chemin_blanc.png" id="30_7frup"]
+[ext_resource type="Script" path="res://scripts/radio_CPUParticles2D.gd" id="31_j4dn1"]
+
+[sub_resource type="Gradient" id="Gradient_dy0w0"]
+offsets = PackedFloat32Array(0, 0.284211, 0.368421, 0.857895, 0.994737)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_3ouxd")
@@ -64,8 +71,7 @@ position = Vector2(538, 632)
 [node name="Musiques" type="Node" parent="."]
 
 [node name="Musique1Radio" type="AudioStreamPlayer" parent="Musiques"]
-stream = ExtResource("4_p8i6v")
-volume_db = -2.0
+stream = ExtResource("6_or610")
 
 [node name="Musique1" type="AudioStreamPlayer" parent="Musiques"]
 stream = ExtResource("4_p8i6v")
@@ -90,8 +96,17 @@ stream = ExtResource("9_fr43m")
 stream = ExtResource("10_mj8ag")
 volume_db = -22.0
 
-[node name="FadingTimer" type="Timer" parent="Musiques"]
+[node name="RadioSwitchFader" type="Timer" parent="Musiques"]
 wait_time = 1.5
+one_shot = true
+
+[node name="RadioStartWaiter" type="Timer" parent="Musiques"]
+wait_time = 0.75
+one_shot = true
+autostart = true
+
+[node name="RadioStartFader" type="Timer" parent="Musiques"]
+wait_time = 0.5
 one_shot = true
 
 [node name="Bruitages" type="Node" parent="."]
@@ -162,7 +177,31 @@ volume_db = 3.0
 [node name="StartWaiter" type="Timer" parent="."]
 wait_time = 1.5
 
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(141, 580)
+amount = 3
+lifetime = 3.0
+fixed_fps = 24
+texture = ExtResource("30_7frup")
+direction = Vector2(0.422618, -0.906308)
+spread = 10.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 101.69
+initial_velocity_max = 101.69
+damping_min = 28.813
+damping_max = 28.813
+angle_min = -25.0
+angle_max = -25.0
+scale_amount_min = 0.45
+scale_amount_max = 0.45
+color = Color(0.894118, 0.909804, 0.964706, 0.870588)
+color_ramp = SubResource("Gradient_dy0w0")
+script = ExtResource("31_j4dn1")
+scaleTexture = 0.45
+angleTexture = 65
+
 [connection signal="creditButtonPressed" from="Titre" to="." method="_on_titre_credit_button_pressed"]
 [connection signal="startButtonPressed" from="Titre" to="." method="_on_titre_start_button_pressed"]
 [connection signal="endTuto" from="Tuto" to="." method="_on_tuto_end_tuto"]
 [connection signal="exitCredits" from="Credits" to="." method="_on_credits_exit_credits"]
+[connection signal="timeout" from="Musiques/RadioStartWaiter" to="." method="_on_radio_start_waiter_timeout"]

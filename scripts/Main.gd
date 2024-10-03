@@ -150,8 +150,8 @@ var res = preload("res://scenes/ResultsMission.tscn").instantiate()
 
 
 var radioMusic = true
-var volume_theme_menu = 0
-var volume_theme_menu_radio = 0
+var basevolume_theme_menu
+var basevolume_theme_menu_radio
 
 var audioAnnonces:Array[AudioStreamPlayer]
 signal startSignal
@@ -159,16 +159,15 @@ signal startSignal
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	score = 0
-	$Musiques/Musique1Radio.play()
-	$Musiques/Musique1.play()
-	$Musiques/Musique1.set_volume_db(-60)
 	$Titre.show()
 	$Tuto.hide()
 	$Score.hide()
 	$Credits.hide()
 	
 	audioAnnonces = [$Bruitages/Radio1, $Bruitages/Radio2, $Bruitages/Talkie1, $Bruitages/Talkie2, $Bruitages/Phone1, $Bruitages/Phone2]
-
+	basevolume_theme_menu = $Musiques/Musique1.volume_db
+	basevolume_theme_menu_radio = $Musiques/Musique1Radio.volume_db
+	
 func _process(_delta):
 	processMusic()
 
@@ -198,7 +197,6 @@ func getMilitant(mmil : EnumMilitants):
 				return {"scn": preload("res://scenes/elements/militants/Militant5.tscn"),
 						"data": {}}
 
-	# TODO ADD ALL
 
 func getContext(mcont : EnumContexts):
 		match mcont:
@@ -224,6 +222,8 @@ func getContext(mcont : EnumContexts):
 
 func _on_titre_start_button_pressed():
 	radioMusic = false # change music to the main one (music 1 with no radio mode)
+	$Musiques/RadioSwitchFader.start()
+	$CPUParticles2D.queue_free()
 	$Titre.hide()
 	$Score.hide()
 	$Credits.hide()
@@ -443,17 +443,29 @@ func _dialog_manager_response(cdialog):
 
 
 func processMusic():
-	# 0 to 1
-	var musicSwitchRelative = 1.0 - $Musiques/FadingTimer.time_left / $Musiques/FadingTimer.wait_time
+	
+	# Volume switch (0 to 1) between theme1 and theme1_radio
+	var musicSwitchRelative = $Musiques/RadioSwitchFader.time_left / $Musiques/RadioSwitchFader.wait_time
 	
 	if !radioMusic:
 		musicSwitchRelative = 1 - musicSwitchRelative
 	
-	var vol_theme_menu = lerp(-60, volume_theme_menu, (musicSwitchRelative)**0.02) # **0.05
-	var vol_theme_menu_radio = lerp(-60, volume_theme_menu_radio, (1 - musicSwitchRelative)**0.2)
+	var modulator = 0.1 # 0.05 will make the transition more or less smooth
+	var vol_theme_menu = lerp(-60.0, basevolume_theme_menu, (musicSwitchRelative)**modulator)
+	var vol_theme_menu_radio = lerp(-60.0, basevolume_theme_menu_radio, (1 - musicSwitchRelative)**modulator)
+	
+	if($Musiques/RadioStartWaiter.is_stopped()):
+		vol_theme_menu_radio = lerp(-60.0, vol_theme_menu_radio, (1 - $Musiques/RadioStartFader.time_left / $Musiques/RadioStartFader.wait_time)** modulator)
+	else:
+		vol_theme_menu_radio = -60
+	
+	print("\nmusicSwitchRelative " + str(musicSwitchRelative))
+	print("vol_theme_menu " + str(vol_theme_menu))
+	print("vol_theme_menu_radio " + str(vol_theme_menu_radio))
+	
+	$Musiques/Musique1.set_volume_db(vol_theme_menu)
+	$Musiques/Musique1Radio.set_volume_db(vol_theme_menu_radio)
 
-	$Musiques/Musique1Radio.set_volume_db(vol_theme_menu)
-	$Musiques/Musique1.set_volume_db(vol_theme_menu_radio)
 
 
 func _on_credits_exit_credits():
@@ -474,6 +486,13 @@ func _on_titre_credit_button_pressed():
 
 
 func _input(event):
-	if Input.is_action_pressed("ui_cancel"):
+	if event.is_action_pressed("ui_cancel"):
 		get_tree().quit()
 	
+
+# wait before starting the radio music
+func _on_radio_start_waiter_timeout():
+	$Musiques/Musique1Radio.set_volume_db(-60)
+	$Musiques/Musique1Radio.play()
+	$Musiques/Musique1.play()
+	$Musiques/RadioStartFader.start()
