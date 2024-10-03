@@ -16,6 +16,7 @@ config/features=PackedStringArray("4.1", "GL Compatibility")
 boot_splash/bg_color=Color(0.168627, 0.172549, 0.352941, 1)
 boot_splash/image="res://assets/image/fonds/menu.png"
 config/icon="res://assets/image/objets/icon_jeu_manger_256.png"
+config/size/borderless=true
 
 [autoload]
 
