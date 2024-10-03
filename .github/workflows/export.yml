@@ -36,6 +36,9 @@ jobs:
         with:
           files: |
             build/windows/${{ env.EXPORT_NAME }}-latest.exe
+      - name: Publish
+        run: |
+          butler push build/windows/${{ env.EXPORT_NAME }}-latest.exe ${{secrets.ITCHIO_USERNAME}}/${{secrets.ITCHIO_GAME}}:windows --userversion ${{github.ref_name}}
       # - name: Publish
       #   uses: manleydev/butler-publish-itchio-action@master
       #   env:
