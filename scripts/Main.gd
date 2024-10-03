@@ -318,7 +318,7 @@ func startDays():
 			
 				# Militant present him/herself
 				await DialogManager.start_dialog($ResponseLocation.position, 
-					Vector2(400,200), 
+					Vector2(400,100), 
 					DialogManager.TextBoxTypes.MILITANT,
 					presentations[i_day][i_mil]).inputFinished
 			
@@ -480,7 +480,7 @@ func processMusic():
 	
 	$Musiques/Musique1.set_volume_db(vol_theme_menu)
 	$Musiques/Musique1Radio.set_volume_db(vol_theme_menu_radio)
-
+	
 
 
 func _on_credits_exit_credits():
@@ -519,3 +519,17 @@ func _on_radio_start_waiter_timeout():
 	$Musiques/Musique1Radio.play()
 	$Musiques/Musique1.play()
 	$Musiques/RadioStartFader.start()
+	
+
+
+
+func _on_mute_button_pressed():
+	AudioServer.set_bus_mute(0, $CanvasLayer/MuteButton.button_pressed)
+
+
+func _on_mute_button_mouse_entered():
+	$CanvasLayer/MuteButton.modulate = Color(1,1,1,1)
+
+
+func _on_mute_button_mouse_exited():
+	$CanvasLayer/MuteButton.modulate = Color(1,1,1,0.5)
