@@ -165,6 +165,23 @@ func _ready():
 	$Score.hide()
 	$Credits.hide()
 	
+	var appearTime = 0.5
+	var startModulateMem = $Titre.get_node("Start").modulate
+	var creditsModulateMem = $Titre.get_node("Credits").modulate
+	var quitterModulateMem = $Titre.get_node("Quitter").modulate
+	var muteModulateMem = $CanvasLayer/MuteButton.modulate
+	
+	$Titre.get_node("Start").modulate = Color(1,1,1,0)
+	$Titre.get_node("Credits").modulate = Color(1,1,1,0)
+	$Titre.get_node("Quitter").modulate = Color(1,1,1,0)
+	$CanvasLayer/MuteButton.modulate = Color(1,1,1,0)
+	
+	create_tween().tween_property($Titre.get_node("Start"), "modulate", startModulateMem, appearTime)
+	create_tween().tween_property($Titre.get_node("Credits"), "modulate", creditsModulateMem, appearTime)
+	create_tween().tween_property($Titre.get_node("Quitter"), "modulate", quitterModulateMem, appearTime)
+	create_tween().tween_property($CanvasLayer/MuteButton, "modulate", muteModulateMem, appearTime)
+	
+	
 	audioAnnonces = [$Bruitages/Radio1, $Bruitages/Radio2, $Bruitages/Talkie1, $Bruitages/Talkie2, $Bruitages/Phone1, $Bruitages/Phone2]
 	basevolume_theme_menu = $Musiques/Musique1.volume_db
 	basevolume_theme_menu_radio = $Musiques/Musique1Radio.volume_db

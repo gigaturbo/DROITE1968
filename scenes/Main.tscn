@@ -102,7 +102,6 @@ volume_db = -22.0
 one_shot = true
 
 [node name="RadioStartWaiter" type="Timer" parent="Musiques"]
-wait_time = 0.75
 one_shot = true
 autostart = true
 
