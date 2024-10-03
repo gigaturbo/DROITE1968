@@ -16,7 +16,7 @@
 script = ExtResource("1_hojoq")
 
 [node name="Fond" type="Sprite2D" parent="."]
-scale = Vector2(0.308438, 0.310484)
+scale = Vector2(0.308, 0.308)
 texture = ExtResource("2_557xm")
 centered = false
 

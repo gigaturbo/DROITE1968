@@ -4,31 +4,31 @@
 [ext_resource type="PackedScene" uid="uid://7d74krn38k4p" path="res://scenes/Titre.tscn" id="2_soksl"]
 [ext_resource type="PackedScene" uid="uid://xpyssfnyfg1s" path="res://scenes/Tuto.tscn" id="3_iwt3s"]
 [ext_resource type="PackedScene" uid="uid://bsgomoihxbkhq" path="res://scenes/Score.tscn" id="4_ei2rq"]
-[ext_resource type="AudioStream" uid="uid://b4kw4drmwhmmn" path="res://assets/audio/musiques/Musique partie 1 .wav" id="4_p8i6v"]
-[ext_resource type="AudioStream" uid="uid://cr06tod2m228o" path="res://assets/audio/musiques/musique 2/boucle 1.wav" id="5_4hdlf"]
 [ext_resource type="PackedScene" uid="uid://cj6equ6e6k0h7" path="res://scenes/Credits.tscn" id="5_vykkf"]
-[ext_resource type="AudioStream" uid="uid://bslgn04n088ac" path="res://assets/audio/musiques/musique 2/break 1.wav" id="6_n7fuy"]
 [ext_resource type="AudioStream" uid="uid://kqx84kthy2fx" path="res://assets/audio/musiques/Musique partie 1 radio.mp3" id="6_or610"]
-[ext_resource type="AudioStream" uid="uid://c2e1caa41q8gu" path="res://assets/audio/musiques/musique 2/boucle 2.wav" id="7_byrpe"]
-[ext_resource type="AudioStream" uid="uid://c2sdu7e66t6qn" path="res://assets/audio/musiques/musique 2/break 2.wav" id="8_w6bya"]
-[ext_resource type="AudioStream" uid="uid://c4nj57lkew3be" path="res://assets/audio/musiques/marseillaise/marseillaise piano.wav" id="9_fr43m"]
-[ext_resource type="AudioStream" uid="uid://bwsu4euogov6r" path="res://assets/audio/musiques/marseillaise/marseillaise shity flute.wav" id="10_mj8ag"]
-[ext_resource type="AudioStream" uid="uid://d1inv42e4ni2b" path="res://assets/audio/bruitages/crayon_page/crayon 1 bis.wav" id="12_xtvse"]
-[ext_resource type="AudioStream" uid="uid://budlrs1h4yd53" path="res://assets/audio/bruitages/crayon_page/crayon 2 bis.wav" id="13_noreu"]
-[ext_resource type="AudioStream" uid="uid://b06ktxnutb0kb" path="res://assets/audio/bruitages/crayon_page/crayon 3 bis.wav" id="14_531wo"]
-[ext_resource type="AudioStream" uid="uid://b62gd52378jfw" path="res://assets/audio/bruitages/crayon_page/crayon 4 bis.wav" id="15_l4buq"]
-[ext_resource type="AudioStream" uid="uid://cujt175tynmo1" path="res://assets/audio/bruitages/crayon_page/tourner page .wav" id="16_70w1c"]
-[ext_resource type="AudioStream" uid="uid://0vwsdnc26og0" path="res://assets/audio/bruitages/portes/arivée.wav" id="16_xwjws"]
-[ext_resource type="AudioStream" uid="uid://dyyn1tvvcj4kb" path="res://assets/audio/bruitages/portes/depart.wav" id="17_772qk"]
-[ext_resource type="AudioStream" uid="uid://c78j5l453kssk" path="res://assets/audio/bruitages/tel_talkie_radio/radio 1.wav" id="19_8ukpo"]
-[ext_resource type="AudioStream" uid="uid://ciijqcgjkgmfo" path="res://assets/audio/bruitages/tel_talkie_radio/radio 2.wav" id="20_ep3jp"]
-[ext_resource type="AudioStream" uid="uid://dgwvdr50xu700" path="res://assets/audio/bruitages/tel_talkie_radio/talkie 1.wav" id="21_jfrb2"]
-[ext_resource type="AudioStream" uid="uid://dac6evq4q2xhf" path="res://assets/audio/bruitages/tel_talkie_radio/talkie 2.wav" id="22_4jltt"]
-[ext_resource type="AudioStream" uid="uid://bqq6saqtc1ed4" path="res://assets/audio/bruitages/tel_talkie_radio/telephone 1.wav" id="23_unx8b"]
-[ext_resource type="AudioStream" uid="uid://c5bpocccbwksv" path="res://assets/audio/bruitages/zip.wav" id="24_84ysf"]
-[ext_resource type="AudioStream" uid="uid://fqjkv7yn5845" path="res://assets/audio/bruitages/tel_talkie_radio/telephone 2.wav" id="24_kgwk2"]
-[ext_resource type="AudioStream" uid="uid://d1wxvcj7shmu8" path="res://assets/audio/bruitages/reussite_echec/echec.wav" id="26_mmkk8"]
-[ext_resource type="AudioStream" uid="uid://dhvpvvj57oto3" path="res://assets/audio/bruitages/reussite_echec/reussite.wav" id="27_5ytqm"]
+[ext_resource type="AudioStream" uid="uid://bwhkwdvdk0ees" path="res://assets/audio/musiques/Musique partie 1 .mp3" id="7_xdedb"]
+[ext_resource type="AudioStream" uid="uid://bfxp3fk4geu2t" path="res://assets/audio/musiques/musique 2/boucle 1.mp3" id="8_vxwbx"]
+[ext_resource type="AudioStream" uid="uid://rxv7jekw2dph" path="res://assets/audio/musiques/musique 2/break 1.mp3" id="9_p234n"]
+[ext_resource type="AudioStream" uid="uid://dcix8e3cwam78" path="res://assets/audio/musiques/musique 2/boucle 2.mp3" id="10_7jv1a"]
+[ext_resource type="AudioStream" uid="uid://cvooxt7xse2kj" path="res://assets/audio/musiques/musique 2/break 2.mp3" id="11_0fmxd"]
+[ext_resource type="AudioStream" uid="uid://c6hg5bfvywykr" path="res://assets/audio/musiques/marseillaise/marseillaise piano.mp3" id="12_5i6fn"]
+[ext_resource type="AudioStream" uid="uid://c7wfi6wji46is" path="res://assets/audio/musiques/marseillaise/marseillaise shity flute.mp3" id="13_43jp8"]
+[ext_resource type="AudioStream" uid="uid://duvor6s6sf7c6" path="res://assets/audio/bruitages/crayon_page/crayon 1 bis.mp3" id="14_simo3"]
+[ext_resource type="AudioStream" uid="uid://owlfrng43o6s" path="res://assets/audio/bruitages/crayon_page/crayon 2 bis.mp3" id="15_l3r7r"]
+[ext_resource type="AudioStream" uid="uid://ujmochqy53qu" path="res://assets/audio/bruitages/crayon_page/crayon 3 bis.mp3" id="16_xrm7c"]
+[ext_resource type="AudioStream" uid="uid://b8ewhfw3tytf1" path="res://assets/audio/bruitages/crayon_page/crayon 4 bis.mp3" id="17_qate6"]
+[ext_resource type="AudioStream" uid="uid://bk2xc5e8aq75v" path="res://assets/audio/bruitages/crayon_page/tourner page .mp3" id="18_k5h2e"]
+[ext_resource type="AudioStream" uid="uid://deqiavnft1nsr" path="res://assets/audio/bruitages/portes/arivée.mp3" id="19_k871p"]
+[ext_resource type="AudioStream" uid="uid://cikp4824t7uvh" path="res://assets/audio/bruitages/portes/depart.mp3" id="20_qkeop"]
+[ext_resource type="AudioStream" uid="uid://m7oj8hehvudl" path="res://assets/audio/bruitages/tel_talkie_radio/radio 1.mp3" id="21_styn3"]
+[ext_resource type="AudioStream" uid="uid://ccp4txep0r02w" path="res://assets/audio/bruitages/tel_talkie_radio/radio 2.mp3" id="22_c1x8k"]
+[ext_resource type="AudioStream" uid="uid://cwgr0ye1dbiwm" path="res://assets/audio/bruitages/tel_talkie_radio/talkie 1.mp3" id="23_pklpq"]
+[ext_resource type="AudioStream" uid="uid://rqya6gbr4wt6" path="res://assets/audio/bruitages/tel_talkie_radio/talkie 2.mp3" id="24_shlo4"]
+[ext_resource type="AudioStream" uid="uid://btpxd51fh2rky" path="res://assets/audio/bruitages/tel_talkie_radio/telephone 1.mp3" id="25_83vgw"]
+[ext_resource type="AudioStream" uid="uid://brbgg4cgxts4s" path="res://assets/audio/bruitages/tel_talkie_radio/telephone 2.mp3" id="26_lmiq2"]
+[ext_resource type="AudioStream" uid="uid://dwir2bv7dskdx" path="res://assets/audio/bruitages/zip.mp3" id="27_ieiqw"]
+[ext_resource type="AudioStream" uid="uid://xbdatc4ynnon" path="res://assets/audio/bruitages/reussite_echec/echec.mp3" id="28_7kkeb"]
+[ext_resource type="AudioStream" uid="uid://eo8i83eogpha" path="res://assets/audio/bruitages/reussite_echec/reussite.mp3" id="29_nshja"]
 [ext_resource type="Texture2D" uid="uid://b5kyywgf3myph" path="res://assets/image/FX/chemin_blanc.png" id="30_7frup"]
 [ext_resource type="Script" path="res://scripts/radio_CPUParticles2D.gd" id="31_j4dn1"]
 
@@ -74,30 +74,29 @@ position = Vector2(538, 632)
 stream = ExtResource("6_or610")
 
 [node name="Musique1" type="AudioStreamPlayer" parent="Musiques"]
-stream = ExtResource("4_p8i6v")
+stream = ExtResource("7_xdedb")
 volume_db = -2.0
 
 [node name="Musique2Boucle1" type="AudioStreamPlayer" parent="Musiques"]
-stream = ExtResource("5_4hdlf")
+stream = ExtResource("8_vxwbx")
 
 [node name="Musique2Break1" type="AudioStreamPlayer" parent="Musiques"]
-stream = ExtResource("6_n7fuy")
+stream = ExtResource("9_p234n")
 
 [node name="Musique2Boucle2" type="AudioStreamPlayer" parent="Musiques"]
-stream = ExtResource("7_byrpe")
+stream = ExtResource("10_7jv1a")
 
 [node name="Musique2Break2" type="AudioStreamPlayer" parent="Musiques"]
-stream = ExtResource("8_w6bya")
+stream = ExtResource("11_0fmxd")
 
 [node name="MarseillaisePianoGood" type="AudioStreamPlayer" parent="Musiques"]
-stream = ExtResource("9_fr43m")
+stream = ExtResource("12_5i6fn")
 
 [node name="MarseillaiseFluteBad" type="AudioStreamPlayer" parent="Musiques"]
-stream = ExtResource("10_mj8ag")
+stream = ExtResource("13_43jp8")
 volume_db = -22.0
 
 [node name="RadioSwitchFader" type="Timer" parent="Musiques"]
-wait_time = 1.5
 one_shot = true
 
 [node name="RadioStartWaiter" type="Timer" parent="Musiques"]
@@ -112,66 +111,66 @@ one_shot = true
 [node name="Bruitages" type="Node" parent="."]
 
 [node name="Crayon1" type="AudioStreamPlayer" parent="Bruitages"]
-stream = ExtResource("12_xtvse")
+stream = ExtResource("14_simo3")
 volume_db = -4.0
 
 [node name="Crayon2" type="AudioStreamPlayer" parent="Bruitages"]
-stream = ExtResource("13_noreu")
+stream = ExtResource("15_l3r7r")
 volume_db = -7.0
 
 [node name="Crayon3" type="AudioStreamPlayer" parent="Bruitages"]
-stream = ExtResource("14_531wo")
+stream = ExtResource("16_xrm7c")
 volume_db = -7.0
 
 [node name="Crayon4" type="AudioStreamPlayer" parent="Bruitages"]
-stream = ExtResource("15_l4buq")
+stream = ExtResource("17_qate6")
 volume_db = -8.0
 
 [node name="TournerPage" type="AudioStreamPlayer" parent="Bruitages"]
-stream = ExtResource("16_70w1c")
+stream = ExtResource("18_k5h2e")
 volume_db = -9.0
 
 [node name="PorteArrive" type="AudioStreamPlayer" parent="Bruitages"]
-stream = ExtResource("16_xwjws")
+stream = ExtResource("19_k871p")
 volume_db = -3.0
 
 [node name="PortePart" type="AudioStreamPlayer" parent="Bruitages"]
-stream = ExtResource("17_772qk")
+stream = ExtResource("20_qkeop")
 volume_db = -3.0
 
 [node name="Radio1" type="AudioStreamPlayer" parent="Bruitages"]
-stream = ExtResource("19_8ukpo")
+stream = ExtResource("21_styn3")
 volume_db = -11.0
 
 [node name="Radio2" type="AudioStreamPlayer" parent="Bruitages"]
-stream = ExtResource("20_ep3jp")
+stream = ExtResource("22_c1x8k")
 volume_db = -11.0
 
 [node name="Talkie1" type="AudioStreamPlayer" parent="Bruitages"]
-stream = ExtResource("21_jfrb2")
+stream = ExtResource("23_pklpq")
 volume_db = -10.0
 
 [node name="Talkie2" type="AudioStreamPlayer" parent="Bruitages"]
-stream = ExtResource("22_4jltt")
+stream = ExtResource("24_shlo4")
 volume_db = -10.0
 
 [node name="Phone1" type="AudioStreamPlayer" parent="Bruitages"]
-stream = ExtResource("23_unx8b")
+stream = ExtResource("25_83vgw")
 volume_db = -6.0
 
 [node name="Phone2" type="AudioStreamPlayer" parent="Bruitages"]
-stream = ExtResource("24_kgwk2")
+stream = ExtResource("26_lmiq2")
 volume_db = -6.0
 
 [node name="Zip" type="AudioStreamPlayer" parent="Bruitages"]
-stream = ExtResource("24_84ysf")
+stream = ExtResource("27_ieiqw")
 volume_db = -6.0
 
 [node name="MissionEchec" type="AudioStreamPlayer" parent="Bruitages"]
-stream = ExtResource("26_mmkk8")
+stream = ExtResource("28_7kkeb")
 
 [node name="MissionReussite" type="AudioStreamPlayer" parent="Bruitages"]
-stream = ExtResource("27_5ytqm")
+stream = ExtResource("29_nshja")
 volume_db = 3.0
 
 [node name="StartWaiter" type="Timer" parent="."]
