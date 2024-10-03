@@ -165,6 +165,23 @@ func _ready():
 	$Score.hide()
 	$Credits.hide()
 	
+	var appearTime = 0.5
+	var startModulateMem = $Titre.get_node("Start").modulate
+	var creditsModulateMem = $Titre.get_node("Credits").modulate
+	var quitterModulateMem = $Titre.get_node("Quitter").modulate
+	var muteModulateMem = $CanvasLayer/MuteButton.modulate
+	
+	$Titre.get_node("Start").modulate = Color(1,1,1,0)
+	$Titre.get_node("Credits").modulate = Color(1,1,1,0)
+	$Titre.get_node("Quitter").modulate = Color(1,1,1,0)
+	$CanvasLayer/MuteButton.modulate = Color(1,1,1,0)
+	
+	create_tween().tween_property($Titre.get_node("Start"), "modulate", startModulateMem, appearTime)
+	create_tween().tween_property($Titre.get_node("Credits"), "modulate", creditsModulateMem, appearTime)
+	create_tween().tween_property($Titre.get_node("Quitter"), "modulate", quitterModulateMem, appearTime)
+	create_tween().tween_property($CanvasLayer/MuteButton, "modulate", muteModulateMem, appearTime)
+	
+	
 	audioAnnonces = [$Bruitages/Radio1, $Bruitages/Radio2, $Bruitages/Talkie1, $Bruitages/Talkie2, $Bruitages/Phone1, $Bruitages/Phone2]
 	basevolume_theme_menu = $Musiques/Musique1.volume_db
 	basevolume_theme_menu_radio = $Musiques/Musique1Radio.volume_db
@@ -318,7 +335,7 @@ func startDays():
 			
 				# Militant present him/herself
 				await DialogManager.start_dialog($ResponseLocation.position, 
-					Vector2(400,200), 
+					Vector2(400,100), 
 					DialogManager.TextBoxTypes.MILITANT,
 					presentations[i_day][i_mil]).inputFinished
 			
@@ -372,7 +389,7 @@ func startDays():
 				mis.e_mission = day["missions"][i_mil][i]
 				dayMissions.append(mis)
 				mis.selected.connect(_mission_selected)
-				mis.position = Vector2(200*(i+1) + 150, 680)
+				mis.position = Vector2(100 + 220*(i+1), 680)
 				add_child(mis)
 				mis.show()
 			
@@ -480,7 +497,7 @@ func processMusic():
 	
 	$Musiques/Musique1.set_volume_db(vol_theme_menu)
 	$Musiques/Musique1Radio.set_volume_db(vol_theme_menu_radio)
-
+	
 
 
 func _on_credits_exit_credits():
@@ -519,3 +536,17 @@ func _on_radio_start_waiter_timeout():
 	$Musiques/Musique1Radio.play()
 	$Musiques/Musique1.play()
 	$Musiques/RadioStartFader.start()
+	
+
+
+
+func _on_mute_button_pressed():
+	AudioServer.set_bus_mute(0, $CanvasLayer/MuteButton.button_pressed)
+
+
+func _on_mute_button_mouse_entered():
+	$CanvasLayer/MuteButton.modulate = Color(1,1,1,1)
+
+
+func _on_mute_button_mouse_exited():
+	$CanvasLayer/MuteButton.modulate = Color(1,1,1,0.5)

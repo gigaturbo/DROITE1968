@@ -12,6 +12,7 @@ enum ObjEnum {MATRAQUE, MEGAPHONE, COLLAGE, TRACT}
 var e_mission = -1
 
 var rscale = Vector2(1,1)
+var zMem
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -26,6 +27,7 @@ func _ready():
 	$Timer.wait_time = SELECT_TIME
 	$Timer.stop()
 	rscale = $TextureButton.scale
+	zMem = z_index
 
 func init(itemType: String, missionText:String):
 	$TextureButton.set_texture_normal(load("res://assets/image/objets/asset_" + itemType + ".png"))
@@ -34,7 +36,27 @@ func init(itemType: String, missionText:String):
 	$TextureButton.set_click_mask(load("res://assets/image/objets/asset_" + itemType + "_clickmap" + ".png"))
 	
 	$MissionText/MarginContainerText/Label.set_text(missionText)
-
+	
+	match itemType:
+		"machine":
+			$TextureButton.scale = 0.9 * Vector2(1,1)
+			rscale = $TextureButton.scale
+		"manger":
+			$TextureButton.position += Vector2(0, -20)
+			$TextureButton.scale = 1 * Vector2(1,1)
+			rscale = $TextureButton.scale
+		"carnet":
+			$TextureButton.scale = 0.9 * Vector2(1,1)
+			rscale = $TextureButton.scale
+		"matraque":
+			$TextureButton.scale = 1.35 * Vector2(1,1)
+			rscale = $TextureButton.scale
+		"collagepiege":
+			$TextureButton.scale = 0.9 * Vector2(1,1)
+			rscale = $TextureButton.scale
+		"journal":
+			$TextureButton.scale = 0.7 * Vector2(1,1)
+			rscale = $TextureButton.scale
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -48,12 +70,17 @@ func _process(_delta):
 func _on_texture_button_button_down():
 	$Timer.start()
 	state = 1
+	
+	# passe au dessus des autres item
+	z_index = 200
 
 func _on_texture_button_button_up():
 	$Timer.wait_time = SELECT_TIME
 	$Timer.stop()
 	state = 0
 	$TextureButton.scale = rscale
+	
+	z_index = zMem
 
 func _on_timer_timeout():
 	selected.emit(self)

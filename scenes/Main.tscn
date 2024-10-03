@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cakpsc8hxpp4q"]
+[gd_scene load_steps=35 format=3 uid="uid://cakpsc8hxpp4q"]
 
 [ext_resource type="Script" path="res://scripts/Main.gd" id="1_3ouxd"]
 [ext_resource type="PackedScene" uid="uid://7d74krn38k4p" path="res://scenes/Titre.tscn" id="2_soksl"]
@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://cvooxt7xse2kj" path="res://assets/audio/musiques/musique 2/break 2.mp3" id="11_0fmxd"]
 [ext_resource type="AudioStream" uid="uid://c6hg5bfvywykr" path="res://assets/audio/musiques/marseillaise/marseillaise piano.mp3" id="12_5i6fn"]
 [ext_resource type="AudioStream" uid="uid://c7wfi6wji46is" path="res://assets/audio/musiques/marseillaise/marseillaise shity flute.mp3" id="13_43jp8"]
+[ext_resource type="Texture2D" uid="uid://ds3n6x7k26r0u" path="res://assets/image/interfaces/bouton_music_on.png" id="14_g7jy8"]
 [ext_resource type="AudioStream" uid="uid://duvor6s6sf7c6" path="res://assets/audio/bruitages/crayon_page/crayon 1 bis.mp3" id="14_simo3"]
 [ext_resource type="AudioStream" uid="uid://owlfrng43o6s" path="res://assets/audio/bruitages/crayon_page/crayon 2 bis.mp3" id="15_l3r7r"]
 [ext_resource type="AudioStream" uid="uid://ujmochqy53qu" path="res://assets/audio/bruitages/crayon_page/crayon 3 bis.mp3" id="16_xrm7c"]
@@ -31,6 +32,7 @@
 [ext_resource type="AudioStream" uid="uid://eo8i83eogpha" path="res://assets/audio/bruitages/reussite_echec/reussite.mp3" id="29_nshja"]
 [ext_resource type="Texture2D" uid="uid://b5kyywgf3myph" path="res://assets/image/FX/chemin_blanc.png" id="30_7frup"]
 [ext_resource type="Script" path="res://scripts/radio_CPUParticles2D.gd" id="31_j4dn1"]
+[ext_resource type="Texture2D" uid="uid://bwe73k1qvuxih" path="res://assets/image/interfaces/bouton_music_off.png" id="33_bt3gb"]
 
 [sub_resource type="Gradient" id="Gradient_dy0w0"]
 offsets = PackedFloat32Array(0, 0.284211, 0.368421, 0.857895, 0.994737)
@@ -100,7 +102,7 @@ volume_db = -22.0
 one_shot = true
 
 [node name="RadioStartWaiter" type="Timer" parent="Musiques"]
-wait_time = 0.75
+wait_time = 1.25
 one_shot = true
 autostart = true
 
@@ -198,6 +200,22 @@ angleTexture = 65
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="MuteButton" type="TextureButton" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0.482353)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -179.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = 178.0
+grow_horizontal = 0
+scale = Vector2(0.25, 0.25)
+pivot_offset = Vector2(175, 0)
+toggle_mode = true
+texture_normal = ExtResource("14_g7jy8")
+texture_pressed = ExtResource("33_bt3gb")
+
 [node name="AdminSkipON" type="Label" parent="CanvasLayer"]
 visible = false
 offset_right = 40.0
@@ -209,3 +227,6 @@ text = "ADMIN SKIP ON"
 [connection signal="endTuto" from="Tuto" to="." method="_on_tuto_end_tuto"]
 [connection signal="exitCredits" from="Credits" to="." method="_on_credits_exit_credits"]
 [connection signal="timeout" from="Musiques/RadioStartWaiter" to="." method="_on_radio_start_waiter_timeout"]
+[connection signal="mouse_entered" from="CanvasLayer/MuteButton" to="." method="_on_mute_button_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/MuteButton" to="." method="_on_mute_button_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/MuteButton" to="." method="_on_mute_button_pressed"]
