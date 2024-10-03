@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://ynanmq04j5ya"]
+[gd_scene load_steps=6 format=3 uid="uid://cj0756elngnxk"]
 
 [ext_resource type="Script" path="res://scripts/Mission.gd" id="1_axrgl"]
+[ext_resource type="Texture2D" uid="uid://ccl4upmm5ydyq" path="res://assets/image/objets/asset_matraque.png" id="2_rwxyn"]
 [ext_resource type="FontFile" uid="uid://c1114d7vgm2up" path="res://assets/fonts/Helvetica Neue Condensed Bold.ttf" id="3_nxpt6"]
+[ext_resource type="Texture2D" uid="uid://bnxrva1hkjlmt" path="res://assets/image/objets/asset_matraque_selected.png" id="3_p7qn3"]
+[ext_resource type="Texture2D" uid="uid://lp4578e0nwe8" path="res://assets/image/objets/asset_matraque_highlight.png" id="4_a5oax"]
 
 [node name="ObjTract" type="Node2D"]
 z_index = 130
@@ -20,6 +23,9 @@ offset_bottom = 95.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(165, 95)
+texture_normal = ExtResource("2_rwxyn")
+texture_pressed = ExtResource("3_p7qn3")
+texture_hover = ExtResource("4_a5oax")
 ignore_texture_size = true
 stretch_mode = 5
 

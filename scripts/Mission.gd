@@ -70,7 +70,7 @@ func get_selected():
 	var tween = get_tree().create_tween()
 	tween.tween_property($TextureButton, "modulate", Color.TRANSPARENT, 0.5)
 	tween.tween_property($TextureButton, "position", -5000*Vector2(1,1), 0.1)
-
+	$MissionText.hide()
 
 func _on_texture_button_mouse_entered():
 	$MissionText.show()
@@ -78,3 +78,4 @@ func _on_texture_button_mouse_entered():
 
 func _on_texture_button_mouse_exited():
 	$MissionText.hide()
+	_on_texture_button_button_up()
