@@ -20,26 +20,32 @@ enum EnumPosition {CENTER, TOP_LEFT, TOP_RIGHT, BOTTOM_LEFT, BOTTOM_RIGHT}
 @export var quick : bool = false
 @export var presize_box : bool = true
 @export var positionning : EnumPosition = EnumPosition.TOP_LEFT
+@export var font_size : int = 20
+@export var font_color : Color = Color.WHITE
+@export var minimum_width : int = 200
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#setText("Texte de [b]test[/b], [u]test[/u] de [i]texte[/i]... Texte de [b]test[/b], [u]test[/u] de [i]texte[/i]...")
 	$MarginContainer.hide()
 	
-func setText(ntext : String, minstant_text = instant_text, mquick = quick, mpresize_box = presize_box, mpositionning : EnumPosition = positionning):
+func setText(ntext : String, position : Vector2 = self.position, show = true):
 	
-	instant_text = minstant_text
-	quick = mquick
-	presize_box = mpresize_box
-	positionning = mpositionning
+	_rtl.custom_minimum_size = Vector2(minimum_width, 0)
+	_rtl.update_minimum_size()
 	
-	$MarginContainer.show()
 	_bbtext = ntext
-	_rtl.parse_bbcode(_bbtext)
+	_rtl.push_font_size(font_size)
+	_rtl.push_color(font_color)
+	_rtl.append_text(_bbtext)
 	_rtext = _rtl.get_parsed_text()
+	_rtl.pop()
+	_rtl.pop()
+	_rtl.update_minimum_size()
+	
+	print(_rtl.get_combined_minimum_size())
 	
 	if presize_box:
-		$MarginContainer.size = _rtl.size
+		$MarginContainer.size = _rtl.get_combined_minimum_size()
 		_cc.alignment = VERTICAL_ALIGNMENT_TOP
 		_cc.vertical = true
 	else:
@@ -47,7 +53,14 @@ func setText(ntext : String, minstant_text = instant_text, mquick = quick, mpres
 	
 	_rtl.visible_characters = 0
 	
-	setPosition()
+	setPosition(position)
+	
+	if show:
+		$MarginContainer.show()
+	
+func startText():
+	
+	$MarginContainer.show()
 	
 	if not instant_text:
 		_nextLetter()

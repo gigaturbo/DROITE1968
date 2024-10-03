@@ -6,11 +6,16 @@
 
 [node name="TextExtraDiegetique" type="Node2D"]
 script = ExtResource("1_4l42a")
+positionning = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-offset_right = 326.0
-offset_bottom = 106.0
+offset_right = 260.0
+offset_bottom = 50.0
 metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+layout_mode = 2
+color = Color(0.131268, 0.447867, 0.658654, 1)
 
 [node name="NinePatchRect2" type="NinePatchRect" parent="MarginContainer"]
 layout_mode = 2
@@ -22,6 +27,10 @@ theme_override_constants/margin_left = 30
 theme_override_constants/margin_top = 25
 theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 25
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/MarginContainer"]
+layout_mode = 2
+color = Color(0.74013, 0.0162831, 0.389602, 1)
 
 [node name="CenterContainer" type="BoxContainer" parent="MarginContainer/MarginContainer"]
 layout_mode = 2
@@ -35,7 +44,6 @@ theme_override_fonts/normal_font = ExtResource("3_yvvx2")
 bbcode_enabled = true
 fit_content = true
 scroll_active = false
-autowrap_mode = 2
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
