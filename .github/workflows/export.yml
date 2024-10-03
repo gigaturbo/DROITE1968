@@ -114,6 +114,9 @@ jobs:
         with:
           files: |
             build/${{ env.EXPORT_NAME }}-latest.zip
+      - name: Publish
+        run: |
+          butler push build/${{ env.EXPORT_NAME }}-latest.zip ${{secrets.ITCHIO_USERNAME}}/${{secrets.ITCHIO_GAME}}:web --userversion ${{github.ref_name}}
       # - name: Publish
       #   uses: manleydev/butler-publish-itchio-action@master
       #   env:
