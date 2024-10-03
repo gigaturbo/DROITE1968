@@ -28,13 +28,13 @@ jobs:
         run: |
           mkdir -v -p build/windows
           cd $PROJECT_PATH
-          godot --headless --verbose --export-release "Windows Desktop" ./build/windows/$EXPORT_NAME-${{github.ref_name}}.exe
+          godot --headless --verbose --export-release "Windows Desktop" ./build/windows/$EXPORT_NAME-latest.exe
       - name: Release
         uses: softprops/action-gh-release@v2
         if: startsWith(github.ref, 'refs/tags/')
         with:
           files: |
-            build/windows/${{ env.EXPORT_NAME }}-${{github.ref_name}}.exe
+            build/windows/${{ env.EXPORT_NAME }}-latest.exe
       - name: Publish
         uses: manleydev/butler-publish-itchio-action@master
         env:
@@ -43,7 +43,7 @@ jobs:
           ITCH_GAME: test-droite1968
           ITCH_USER: gigaturbo
           VERSION: ${{github.ref_name}}
-          PACKAGE: build/windows/${{ env.EXPORT_NAME }}-${{github.ref_name}}.exe
+          PACKAGE: build/windows/${{ env.EXPORT_NAME }}-latest.exe
 
   export-linux:
     name: Linux Export
@@ -63,13 +63,13 @@ jobs:
         run: |
           mkdir -v -p build/linux
           cd $PROJECT_PATH
-          godot --headless --verbose --export-release "Linux/X11" ./build/linux/$EXPORT_NAME-${{github.ref_name}}.linux.bin
+          godot --headless --verbose --export-release "Linux/X11" ./build/linux/$EXPORT_NAME-latest.linux.bin
       - name: Release
         uses: softprops/action-gh-release@v2
         if: startsWith(github.ref, 'refs/tags/')
         with:
           files: |
-            build/linux/${{ env.EXPORT_NAME }}-${{github.ref_name}}.linux.bin
+            build/linux/${{ env.EXPORT_NAME }}-latest.linux.bin
       - name: Publish
         uses: manleydev/butler-publish-itchio-action@master
         env:
@@ -78,7 +78,7 @@ jobs:
           ITCH_GAME: test-droite1968
           ITCH_USER: gigaturbo
           VERSION: ${{github.ref_name}}
-          PACKAGE: build/linux/${{ env.EXPORT_NAME }}-${{github.ref_name}}.linux.bin
+          PACKAGE: build/linux/${{ env.EXPORT_NAME }}-latest.linux.bin
 
 
   export-web:
@@ -100,13 +100,13 @@ jobs:
           mkdir -v -p build/web
           cd $PROJECT_PATH
           godot --headless --verbose --export-release "HTML5" ./build/web/index.html
-          cd build/web/ && zip ../$EXPORT_NAME-${{github.ref_name}}.zip ./* && cd $PROJECT_PATH
+          cd build/web/ && zip ../$EXPORT_NAME-latest.zip ./* && cd $PROJECT_PATH
       - name: Release
         uses: softprops/action-gh-release@v2
         if: startsWith(github.ref, 'refs/tags/')
         with:
           files: |
-            build/${{ env.EXPORT_NAME }}-${{github.ref_name}}.zip
+            build/${{ env.EXPORT_NAME }}-latest.zip
       - name: Publish
         uses: manleydev/butler-publish-itchio-action@master
         env:
@@ -115,7 +115,7 @@ jobs:
           ITCH_GAME: test-droite1968
           ITCH_USER: gigaturbo
           VERSION: ${{github.ref_name}}
-          PACKAGE: build/${{ env.EXPORT_NAME }}-${{github.ref_name}}.zip
+          PACKAGE: build/${{ env.EXPORT_NAME }}-latest.zip
         
 
   export-mac:
@@ -136,13 +136,13 @@ jobs:
         run: |
           mkdir -v -p build/mac
           cd $PROJECT_PATH
-          godot --headless --verbose --export-release "macOS" ./build/mac/$EXPORT_NAME-${{github.ref_name}}.macos.zip
+          godot --headless --verbose --export-release "macOS" ./build/mac/$EXPORT_NAME-latest.macos.zip
       - name: Release
         uses: softprops/action-gh-release@v2
         if: startsWith(github.ref, 'refs/tags/')
         with:
           files: |
-            build/mac/${{ env.EXPORT_NAME }}-${{github.ref_name}}.macos.zip
+            build/mac/${{ env.EXPORT_NAME }}-latest.macos.zip
       - name: Publish
         uses: manleydev/butler-publish-itchio-action@master
         env:
@@ -151,4 +151,4 @@ jobs:
           ITCH_GAME: test-droite1968
           ITCH_USER: gigaturbo
           VERSION: ${{github.ref_name}}
-          PACKAGE: build/mac/${{ env.EXPORT_NAME }}-${{github.ref_name}}.macos.zip
+          PACKAGE: build/mac/${{ env.EXPORT_NAME }}-latest.macos.zip
