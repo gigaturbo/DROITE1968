@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bk2xc5e8aq75v"
+path="res://.godot/imported/tourner page .mp3-8d684e23dff33a07bfcce675238d0946.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/bruitages/crayon_page/tourner page .mp3"
+dest_files=["res://.godot/imported/tourner page .mp3-8d684e23dff33a07bfcce675238d0946.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

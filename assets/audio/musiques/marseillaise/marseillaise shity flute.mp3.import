@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c7wfi6wji46is"
+path="res://.godot/imported/marseillaise shity flute.mp3-ab1a998b5c9671f7abd5c87d269f422c.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/musiques/marseillaise/marseillaise shity flute.mp3"
+dest_files=["res://.godot/imported/marseillaise shity flute.mp3-ab1a998b5c9671f7abd5c87d269f422c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

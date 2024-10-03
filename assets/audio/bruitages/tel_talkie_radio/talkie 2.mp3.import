@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://rqya6gbr4wt6"
+path="res://.godot/imported/talkie 2.mp3-ad8f8f342a28e614a5c96c2e757ade63.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/bruitages/tel_talkie_radio/talkie 2.mp3"
+dest_files=["res://.godot/imported/talkie 2.mp3-ad8f8f342a28e614a5c96c2e757ade63.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

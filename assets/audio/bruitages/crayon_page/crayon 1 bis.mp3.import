@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://duvor6s6sf7c6"
+path="res://.godot/imported/crayon 1 bis.mp3-ded734e47974978b0480311a57548965.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/bruitages/crayon_page/crayon 1 bis.mp3"
+dest_files=["res://.godot/imported/crayon 1 bis.mp3-ded734e47974978b0480311a57548965.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

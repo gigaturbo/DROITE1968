@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://440ndqragclo"
+path="res://.godot/imported/voix 1.mp3-a86e7df5da4224dc901ccf23e04058b1.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/bruitages/telephone/voix 1.mp3"
+dest_files=["res://.godot/imported/voix 1.mp3-a86e7df5da4224dc901ccf23e04058b1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
