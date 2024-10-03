@@ -372,7 +372,7 @@ func startDays():
 				mis.e_mission = day["missions"][i_mil][i]
 				dayMissions.append(mis)
 				mis.selected.connect(_mission_selected)
-				mis.position = Vector2(200*(i+1) + 150, 680)
+				mis.position = Vector2(100 + 220*(i+1), 680)
 				add_child(mis)
 				mis.show()
 			
