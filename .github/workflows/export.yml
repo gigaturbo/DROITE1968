@@ -35,6 +35,15 @@ jobs:
         with:
           files: |
             build/windows/${{ env.EXPORT_NAME }}-${{github.ref_name}}.exe
+    - name: Publish
+      uses: manleydev/butler-publish-itchio-action@master
+      env:
+        BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
+        CHANNEL: windows-latest
+        ITCH_GAME: test-droite1968
+        ITCH_USER: gigaturbo
+        VERSION: ${{github.ref_name}}
+        PACKAGE: build/windows/${{ env.EXPORT_NAME }}-${{github.ref_name}}.exe
 
   export-linux:
     name: Linux Export
@@ -61,6 +70,16 @@ jobs:
         with:
           files: |
             build/linux/${{ env.EXPORT_NAME }}-${{github.ref_name}}.linux.bin
+      - name: Publish
+      uses: manleydev/butler-publish-itchio-action@master
+      env:
+        BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
+        CHANNEL: linux-latest
+        ITCH_GAME: test-droite1968
+        ITCH_USER: gigaturbo
+        VERSION: ${{github.ref_name}}
+        PACKAGE: build/linux/${{ env.EXPORT_NAME }}-${{github.ref_name}}.linux.bin
+
 
   export-web:
     name: Web Export
@@ -81,13 +100,23 @@ jobs:
           mkdir -v -p build/web
           cd $PROJECT_PATH
           godot --headless --verbose --export-release "HTML5" ./build/web/index.html
-          cd build/web/ && zip ../$EXPORT_NAME-${{github.ref_name}}.web.zip ./* && cd $PROJECT_PATH
+          cd build/web/ && zip ../$EXPORT_NAME-${{github.ref_name}}.zip ./* && cd $PROJECT_PATH
       - name: Release
         uses: softprops/action-gh-release@v2
         if: startsWith(github.ref, 'refs/tags/')
         with:
           files: |
-            build/${{ env.EXPORT_NAME }}-${{github.ref_name}}.web.zip
+            build/${{ env.EXPORT_NAME }}-${{github.ref_name}}.zip
+      - name: Publish
+      uses: manleydev/butler-publish-itchio-action@master
+      env:
+        BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
+        CHANNEL: web-latest
+        ITCH_GAME: test-droite1968
+        ITCH_USER: gigaturbo
+        VERSION: ${{github.ref_name}}
+        PACKAGE: build/${{ env.EXPORT_NAME }}-${{github.ref_name}}.zip
+        
 
   export-mac:
     name: Mac Export
@@ -114,3 +143,12 @@ jobs:
         with:
           files: |
             build/mac/${{ env.EXPORT_NAME }}-${{github.ref_name}}.macos.zip
+      - name: Publish
+      uses: manleydev/butler-publish-itchio-action@master
+      env:
+        BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
+        CHANNEL: mac-latest
+        ITCH_GAME: test-droite1968
+        ITCH_USER: gigaturbo
+        VERSION: ${{github.ref_name}}
+        PACKAGE: build/mac/${{ env.EXPORT_NAME }}-${{github.ref_name}}.macos.zip
