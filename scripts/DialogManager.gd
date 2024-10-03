@@ -31,6 +31,7 @@ var flip
 var quickText
 
 # flip not working yet
+# aquickText true if the text should be instantly shown
 func start_dialog(position:Vector2, 
 					apanelInitialSize:Vector2,
 					type:TextBoxTypes,
@@ -72,9 +73,8 @@ func _show_text_box():
 			text_box = text_box_scene_elec.instantiate()
 			if flip:
 				# dont work for the moment
-				var ninepatch = text_box.get_node("NinePatchRectElec")
-				ninepatch.scale.x *= -1
-				ninepatch.position.x += - ninepatch.scale.x * ninepatch.size.x
+				text_box.get_node("NinePatchRectElec").hide()
+				text_box.get_node("NinePatchRectElecFlip").show()
 	
 	
 	text_box.finished_displaying.connect(_on_text_box_finished_displaying)

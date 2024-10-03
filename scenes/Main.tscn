@@ -57,7 +57,7 @@ position = Vector2(389, 410)
 position = Vector2(44, 722)
 
 [node name="PhoneLocation" type="Marker2D" parent="."]
-position = Vector2(620, 741)
+position = Vector2(462, 749)
 
 [node name="RadioLocation" type="Marker2D" parent="."]
 position = Vector2(543, 621)

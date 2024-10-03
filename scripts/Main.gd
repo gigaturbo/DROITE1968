@@ -243,6 +243,8 @@ func showContext(n):
 	var	medium = getContext(n).medium
 	var contextPosition = null
 	var rand = randi()%2
+	
+	var flip = false
 	match medium:
 		"radio":
 			contextPosition = $RadioLocation.position
@@ -253,11 +255,14 @@ func showContext(n):
 		"phone":
 			contextPosition = $PhoneLocation.position
 			audioAnnonces[4 + rand].play()
+			flip = true
 			
 	return DialogManager.start_dialog(contextPosition, 
 		Vector2(500,100), 
 		DialogManager.TextBoxTypes.ELEC,
-		[textContext]).inputFinished
+		[textContext], 
+		-1,
+		flip).inputFinished
 	
 func startDays():
 	$Titre.hide()
@@ -296,6 +301,7 @@ func startDays():
 
 			$Bruitages/PorteArrive.play()
 			
+			
 			# Here come militants
 			var mil = getMilitant(day["militants"][i_mil]).scn.instantiate()
 			mil.e_militant = day["militants"][i_mil]
@@ -303,15 +309,18 @@ func startDays():
 			add_child(mil)
 			mil.show()
 			mil.come_in($DoorLocation.position, $MilitantLocation.position)
-			await mil.iAmReady
 			
-			await get_tree().create_timer(0.2).timeout
 			
-			# Militant present him/herself
-			await DialogManager.start_dialog($ResponseLocation.position, 
-				Vector2(400,200), 
-				DialogManager.TextBoxTypes.MILITANT,
-				presentations[i_day][i_mil]).inputFinished
+			if(!adminSkip):
+				await mil.iAmReady
+			
+				await get_tree().create_timer(0.2).timeout
+			
+				# Militant present him/herself
+				await DialogManager.start_dialog($ResponseLocation.position, 
+					Vector2(400,200), 
+					DialogManager.TextBoxTypes.MILITANT,
+					presentations[i_day][i_mil]).inputFinished
 			
 			if(!adminSkip):
 				# Q1
@@ -392,11 +401,15 @@ func startDays():
 
 			$Bruitages/Zip.play()
 			
-			await get_tree().create_timer(1.0).timeout
+			if(!adminSkip):
+				await get_tree().create_timer(1.0).timeout
+			
 			militant.come_out($MilitantLocation.position, $DoorLocation.position)
 			$Bruitages/PortePart.play()
 			
-			await mil.byeBye
+			
+			if(!adminSkip):
+				await mil.byeBye
 			
 			# Show context before results
 			await showContext(ncontext)
