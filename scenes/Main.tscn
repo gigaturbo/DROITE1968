@@ -173,9 +173,6 @@ stream = ExtResource("28_7kkeb")
 stream = ExtResource("29_nshja")
 volume_db = 3.0
 
-[node name="StartWaiter" type="Timer" parent="."]
-wait_time = 1.5
-
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 position = Vector2(141, 580)
 amount = 3
@@ -198,6 +195,14 @@ color_ramp = SubResource("Gradient_dy0w0")
 script = ExtResource("31_j4dn1")
 scaleTexture = 0.45
 angleTexture = 65
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="AdminSkipON" type="Label" parent="CanvasLayer"]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+text = "ADMIN SKIP ON"
 
 [connection signal="creditButtonPressed" from="Titre" to="." method="_on_titre_credit_button_pressed"]
 [connection signal="startButtonPressed" from="Titre" to="." method="_on_titre_start_button_pressed"]

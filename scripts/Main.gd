@@ -142,6 +142,7 @@ var dayMissions = []
 var	militant = null
 var answers = []
 var score = 0
+var adminSkip = false
 
 signal anyMissionSelected
 signal anyDialogAnswered
@@ -270,8 +271,8 @@ func startDays():
 	var bg = preload("res://scenes/elements/Bureau.tscn").instantiate()
 	add_child(bg)
 	
-	$StartWaiter.start()
-	await $StartWaiter.timeout
+	if(!adminSkip):
+		await get_tree().create_timer(1.5).timeout
 	
 	await showContext(0)
 	ncontext = ncontext + 1
@@ -312,48 +313,49 @@ func startDays():
 				DialogManager.TextBoxTypes.MILITANT,
 				presentations[i_day][i_mil]).inputFinished
 			
-			# Q1
-			DialogManager.start_dialog($AnswerLocation.position, 
-				Vector2(250,75), 
-				DialogManager.TextBoxTypes.REPONSE,
-				[questions[i_day][i_mil][0]],
-				0
-			)
-			DialogManager.buttonPressed.connect(_dialog_manager_response)
+			if(!adminSkip):
+				# Q1
+				DialogManager.start_dialog($AnswerLocation.position, 
+					Vector2(250,75), 
+					DialogManager.TextBoxTypes.REPONSE,
+					[questions[i_day][i_mil][0]],
+					0
+				)
+				DialogManager.buttonPressed.connect(_dialog_manager_response)
 
-			# Q2
-			DialogManager2.start_dialog($AnswerLocation.position + Vector2(300, 0), 
-				Vector2(250,75), 
-				DialogManager2.TextBoxTypes.REPONSE,
-				[questions[i_day][i_mil][1]],
-				1
-			)
-			DialogManager2.buttonPressed.connect(_dialog_manager_response)
-			
-			var rep1 = await anyDialogAnswered
-			
-			# He answers selected question
-			await DialogManager.start_dialog($ResponseLocation.position,
-				Vector2(500,150), 
-				DialogManager.TextBoxTypes.MILITANT,
-				reponses[i_day][i_mil][rep1]).inputFinished
-			
-			# Show remaining question
-			DialogManager.start_dialog($AnswerLocation.position + Vector2(150, 0), 
-				Vector2(250,75), 
-				DialogManager.TextBoxTypes.REPONSE,
-				[questions[i_day][i_mil][1-rep1]],
-				0
-			)
-			DialogManager.buttonPressed.connect(_dialog_manager_response)
-			
-			var _rep2 = await anyDialogAnswered
-			
-			# He answers remaining question
-			await DialogManager.start_dialog($ResponseLocation.position,
-				Vector2(500,100), 
-				DialogManager.TextBoxTypes.MILITANT,
-				reponses[i_day][i_mil][1-rep1]).inputFinished
+				# Q2
+				DialogManager2.start_dialog($AnswerLocation.position + Vector2(300, 0), 
+					Vector2(250,75), 
+					DialogManager2.TextBoxTypes.REPONSE,
+					[questions[i_day][i_mil][1]],
+					1
+				)
+				DialogManager2.buttonPressed.connect(_dialog_manager_response)
+				
+				var rep1 = await anyDialogAnswered
+				
+				# He answers selected question
+				await DialogManager.start_dialog($ResponseLocation.position,
+					Vector2(500,150), 
+					DialogManager.TextBoxTypes.MILITANT,
+					reponses[i_day][i_mil][rep1]).inputFinished
+				
+				# Show remaining question
+				DialogManager.start_dialog($AnswerLocation.position + Vector2(150, 0), 
+					Vector2(250,75), 
+					DialogManager.TextBoxTypes.REPONSE,
+					[questions[i_day][i_mil][1-rep1]],
+					0
+				)
+				DialogManager.buttonPressed.connect(_dialog_manager_response)
+				
+				var _rep2 = await anyDialogAnswered
+				
+				# He answers remaining question
+				await DialogManager.start_dialog($ResponseLocation.position,
+					Vector2(500,100), 
+					DialogManager.TextBoxTypes.MILITANT,
+					reponses[i_day][i_mil][1-rep1]).inputFinished
 				
 			# Now instanciate day missions of militant
 			for i in day["missions"][i_mil].size():
@@ -361,7 +363,7 @@ func startDays():
 				mis.e_mission = day["missions"][i_mil][i]
 				dayMissions.append(mis)
 				mis.selected.connect(_mission_selected)
-				mis.position = Vector2(200*(i+1) + 150, 680)	
+				mis.position = Vector2(200*(i+1) + 150, 680)
 				add_child(mis)
 				mis.show()
 			
@@ -459,6 +461,10 @@ func processMusic():
 	else:
 		vol_theme_menu_radio = -60
 	
+#	print("\nmusicSwitchRelative " + str(musicSwitchRelative))
+#	print("vol_theme_menu " + str(vol_theme_menu))
+#	print("vol_theme_menu_radio " + str(vol_theme_menu_radio))
+	
 	$Musiques/Musique1.set_volume_db(vol_theme_menu)
 	$Musiques/Musique1Radio.set_volume_db(vol_theme_menu_radio)
 
@@ -484,7 +490,15 @@ func _on_titre_credit_button_pressed():
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):
 		get_tree().quit()
+		
 	
+	if event.is_action_pressed("admin_skip"):
+		adminSkip = !adminSkip
+		
+		if(adminSkip):
+			$CanvasLayer/AdminSkipON.show()
+		else:
+			$CanvasLayer/AdminSkipON.hide()
 
 # wait before starting the radio music
 func _on_radio_start_waiter_timeout():
