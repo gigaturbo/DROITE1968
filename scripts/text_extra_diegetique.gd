@@ -15,6 +15,9 @@ enum EnumPosition {CENTER, TOP_LEFT, TOP_RIGHT, BOTTOM_LEFT, BOTTOM_RIGHT}
 @onready var _rtl = $MarginContainer/MarginContainer/CenterContainer/RichTextLabel
 @onready var _cc = $MarginContainer/MarginContainer/CenterContainer
 @onready var _timer = $Timer
+var _finalSize = null
+var _finalState = 0
+var _started = false
 
 @export var instant_text : bool = false
 @export var quick : bool = false
@@ -24,11 +27,38 @@ enum EnumPosition {CENTER, TOP_LEFT, TOP_RIGHT, BOTTOM_LEFT, BOTTOM_RIGHT}
 @export var font_color : Color = Color.WHITE
 @export var minimum_width : int = 200
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$MarginContainer.hide()
+
+func _process(_delta: float) -> void:
 	
-func setText(ntext : String, nposition : Vector2 = self.position, bshow = true):
+	if _finalState == 0:
+		_rtl.visible_ratio = 1
+		_finalState = 1
+		$MarginContainer.modulate = Color.TRANSPARENT
+		$MarginContainer.show()
+	elif _finalState == 1:
+		_finalSize = $MarginContainer.size
+		_finalState = 2
+		if presize_box:
+			$MarginContainer.custom_minimum_size = _finalSize
+			_cc.alignment = VERTICAL_ALIGNMENT_TOP
+			_cc.vertical = true
+		$MarginContainer.hide()
+		$MarginContainer.modulate = Color.WHITE
+	elif _finalState == 2:
+		_rtl.visible_characters = 0
+		_finalState = 3
+	elif _finalState == 3:
+		_finalState = 4 # Ready to start
+	elif _finalState == 4 and _started:
+		_finalState = 5
+		_textStart()
+		
+
+func setText(ntext : String, nposition : Vector2 = self.position):
 	
 	_bbtext = ntext
 	_rtl.clear()
@@ -38,38 +68,15 @@ func setText(ntext : String, nposition : Vector2 = self.position, bshow = true):
 	_rtext = _rtl.get_parsed_text()
 	_rtl.pop()
 	_rtl.pop()
-	
-	#if presize_box:
-		#$MarginContainer.size = _rtl.get_combined_minimum_size()
-		#_cc.alignment = VERTICAL_ALIGNMENT_TOP
-		#_cc.vertical = true
-	#else:
-		#_cc.alignment = VERTICAL_ALIGNMENT_CENTER
-	
-	#$MarginContainer.size = Vector2(minimum_width, minimum_width)
-	#$MarginContainer.custom_minimum_size = Vector2(minimum_width, 0)
-	#$MarginContainer.update_minimum_size()
-	print($MarginContainer.size)
-	
 	_rtl.visible_characters = 0
 	
-	setPosition(nposition)
-
+	print(self.position)
+	print(nposition)
+	$MarginContainer.global_position = nposition
 	
-	if bshow:
-		$MarginContainer.show()
+	#$MarginContainer.position = nposition
+	$MarginContainer.custom_minimum_size = Vector2(minimum_width, 0)
 	
-func startText():
-	
-	$MarginContainer.show()
-	
-	if not instant_text:
-		_nextLetter()
-	else:
-		_rtl.visible_ratio = 1
-		textFinished.emit()
-
-func setPosition(pos : Vector2 = self.position):
 	match positionning:
 		EnumPosition.CENTER:
 			$MarginContainer.anchors_preset = Control.PRESET_CENTER
@@ -79,7 +86,32 @@ func setPosition(pos : Vector2 = self.position):
 			$MarginContainer.anchors_preset = Control.PRESET_BOTTOM_LEFT
 		EnumPosition.TOP_RIGHT:
 			$MarginContainer.anchors_preset = Control.PRESET_TOP_RIGHT
+	
+	# Set state to dirty
+	_finalState = 0 
+	_started = false
+	
+	# For chaining
+	return self
+	
+func startText():
+	# Set state to dirty but started
+	_started = true
+	_finalState = 0 
+	
+	# For chaining
+	return self
 
+func _textStart():
+	
+	_rtl.visible_characters = 0
+	$MarginContainer.show()
+		
+	if not instant_text:
+		_nextLetter()
+	else:
+		_rtl.visible_ratio = 1
+		textFinished.emit()
 
 func removeDialog():
 	queue_free()
@@ -101,7 +133,6 @@ func _nextLetter():
 	else:
 		_rtl.visible_ratio = 1
 		textFinished.emit()
-		print("at emit:", $MarginContainer.size)  #660 130
 
 
 func _on_timer_timeout() -> void:

@@ -10,13 +10,14 @@ positionning = 0
 minimum_width = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-offset_right = 560.0
-offset_bottom = 254.0
+offset_right = 245.0
+offset_bottom = 128.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 metadata/_edit_group_ = true
 
 [node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+visible = false
 layout_mode = 2
 color = Color(0.131268, 0.447867, 0.658654, 1)
 
@@ -32,6 +33,7 @@ theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 25
 
 [node name="ColorRect" type="ColorRect" parent="MarginContainer/MarginContainer"]
+visible = false
 layout_mode = 2
 color = Color(0.74013, 0.0162831, 0.389602, 1)
 
@@ -42,15 +44,15 @@ vertical = true
 [node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/MarginContainer/CenterContainer"]
 clip_contents = false
 layout_mode = 2
-size_flags_vertical = 6
+size_flags_vertical = 2
 theme_override_fonts/normal_font = ExtResource("3_yvvx2")
 bbcode_enabled = true
-text = "mmmm ok sa roule les geekos mmmm ok sa roule les geekos mmmm mmmm ok sa roule les geekos mmmm ok sa roule les geekos mmmm mmmm ok sa roule les geekos mmmm ok sa roule les geekos mmmm mmmm ok sa roule les geekos mmmm ok sa roule les geekos mmmm mmmm ok sa roule les geekos mmmm ok sa roule les geekos mmmm mmmm ok sa roule les geekos mmmm ok sa roule les geekos mmmm mmmm ok sa roule les geekos mmmm ok sa roule les geekos mmmm mmmm ok sa roule les geekos mmmm ok sa roule les geekos mmmm mmmm ok sa roule les geekos mmmm ok sa roule les geekos mmmm mmmm ok sa roule les geekos mmmm ok sa roule les geekos mmmm "
 fit_content = true
 scroll_active = false
 autowrap_mode = 2
 
 [node name="ColorRect2" type="ColorRect" parent="MarginContainer/MarginContainer/CenterContainer"]
+visible = false
 layout_mode = 2
 color = Color(0.93, 0.651, 0, 1)
 
