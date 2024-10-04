@@ -13,8 +13,10 @@ scale = Vector2(0.345, 0.345)
 texture = ExtResource("3_v8q8v")
 
 [node name="TextExtraDiegetique" parent="." instance=ExtResource("2_vpbsj")]
-position = Vector2(723, 270)
-minimum_width = 600
+position = Vector2(419, 331)
+presize_box = false
+positionning = 4
+minimum_width = 400
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(418, 333)

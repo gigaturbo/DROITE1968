@@ -28,34 +28,35 @@ enum EnumPosition {CENTER, TOP_LEFT, TOP_RIGHT, BOTTOM_LEFT, BOTTOM_RIGHT}
 func _ready() -> void:
 	$MarginContainer.hide()
 	
-func setText(ntext : String, position : Vector2 = self.position, show = true):
-	
-	_rtl.custom_minimum_size = Vector2(minimum_width, 0)
-	_rtl.update_minimum_size()
+func setText(ntext : String, nposition : Vector2 = self.position, bshow = true):
 	
 	_bbtext = ntext
+	_rtl.clear()
 	_rtl.push_font_size(font_size)
 	_rtl.push_color(font_color)
 	_rtl.append_text(_bbtext)
 	_rtext = _rtl.get_parsed_text()
 	_rtl.pop()
 	_rtl.pop()
-	_rtl.update_minimum_size()
 	
-	print(_rtl.get_combined_minimum_size())
+	#if presize_box:
+		#$MarginContainer.size = _rtl.get_combined_minimum_size()
+		#_cc.alignment = VERTICAL_ALIGNMENT_TOP
+		#_cc.vertical = true
+	#else:
+		#_cc.alignment = VERTICAL_ALIGNMENT_CENTER
 	
-	if presize_box:
-		$MarginContainer.size = _rtl.get_combined_minimum_size()
-		_cc.alignment = VERTICAL_ALIGNMENT_TOP
-		_cc.vertical = true
-	else:
-		_cc.alignment = VERTICAL_ALIGNMENT_CENTER
+	#$MarginContainer.size = Vector2(minimum_width, minimum_width)
+	#$MarginContainer.custom_minimum_size = Vector2(minimum_width, 0)
+	#$MarginContainer.update_minimum_size()
+	print($MarginContainer.size)
 	
 	_rtl.visible_characters = 0
 	
-	setPosition(position)
+	setPosition(nposition)
+
 	
-	if show:
+	if bshow:
 		$MarginContainer.show()
 	
 func startText():
@@ -71,13 +72,14 @@ func startText():
 func setPosition(pos : Vector2 = self.position):
 	match positionning:
 		EnumPosition.CENTER:
-			self.position = pos - $MarginContainer.size/2
+			$MarginContainer.anchors_preset = Control.PRESET_CENTER
 		EnumPosition.BOTTOM_RIGHT:
-			self.position = pos - $MarginContainer.size
+			$MarginContainer.anchors_preset = Control.PRESET_BOTTOM_RIGHT
 		EnumPosition.BOTTOM_LEFT:
-			self.position = pos - $MarginContainer.size * Vector2(0,1)
+			$MarginContainer.anchors_preset = Control.PRESET_BOTTOM_LEFT
 		EnumPosition.TOP_RIGHT:
-			self.position = pos - $MarginContainer.size * Vector2(1,0)
+			$MarginContainer.anchors_preset = Control.PRESET_TOP_RIGHT
+
 
 func removeDialog():
 	queue_free()
@@ -99,6 +101,7 @@ func _nextLetter():
 	else:
 		_rtl.visible_ratio = 1
 		textFinished.emit()
+		print("at emit:", $MarginContainer.size)  #660 130
 
 
 func _on_timer_timeout() -> void:
