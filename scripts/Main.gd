@@ -140,8 +140,9 @@ func _ready():
 					$CanvasLayer/QuitButton
 					]
 	for o in objList:
+		var colorMem = o.modulate
 		o.modulate = Color.TRANSPARENT
-		create_tween().tween_property(o, "modulate", Color.WHITE, appearTime).set_trans(Tween.TRANS_QUINT)
+		create_tween().tween_property(o, "modulate", colorMem, appearTime).set_trans(Tween.TRANS_QUINT)
 	
 	# Animate play button
 	var tween = get_tree().create_tween().set_loops()
@@ -547,7 +548,7 @@ func setPauseMode(mybool):
 			if "modulate" in _i:
 				if ! _i in [DialogManagerGUI.text_box, DialogManagerGUIYes.text_box, DialogManagerGUINo.text_box,
 				$CanvasLayer/MuteButton, $CanvasLayer/QuitButton, $CanvasLayer/ReplayButton, $CanvasLayer/AdminSkipON]:
-					_i.modulate = Color(0.5,0.5,0.5)
+					_i.modulate = Color(0.3,0.3,0.4)
 	
 	else:# QUIT PAUSE MODE
 		pauseStateOn = false
