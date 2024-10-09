@@ -25,9 +25,9 @@ centered = false
 
 [node name="Start" type="TextureButton" parent="."]
 offset_left = 164.0
-offset_top = 500.0
+offset_top = 498.0
 offset_right = 665.0
-offset_bottom = 664.0
+offset_bottom = 662.0
 scale = Vector2(0.35, 0.35)
 pivot_offset = Vector2(250, 82)
 texture_normal = ExtResource("4_ib5wl")

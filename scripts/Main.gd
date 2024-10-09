@@ -140,8 +140,9 @@ func _ready():
 					$CanvasLayer/QuitButton
 					]
 	for o in objList:
+		var colorMem = o.modulate
 		o.modulate = Color.TRANSPARENT
-		create_tween().tween_property(o, "modulate", Color.WHITE, appearTime).set_trans(Tween.TRANS_QUINT)
+		create_tween().tween_property(o, "modulate", colorMem, appearTime).set_trans(Tween.TRANS_QUINT)
 	
 	# Animate play button
 	var tween = get_tree().create_tween().set_loops()
@@ -309,13 +310,14 @@ func startDays():
 				await mil.iAmReady
 			
 				await get_tree().create_timer(0.2).timeout
-			
-				# Show tutorial panel (militant)
-				$TED.setText("")
-				$TED.show()
-				await $TED.setText("[center]ANALYSEZ LE MILITANT[/center]").startText().textFinished
-				await $TED.mousePressed
-				$TED.hide()
+				
+				if i_day == 0 && i_mil == 0 :
+					# Show tutorial panel (militant)
+					$TED.setText("")
+					$TED.show()
+					await $TED.setText("[center]ANALYSEZ LE MILITANT[/center]").startText().textFinished
+					await $TED.mousePressed
+					$TED.hide()
 			
 				# Militant present him/herself
 				await DialogManager.start_dialog($ResponseLocation.position, 
@@ -379,12 +381,13 @@ func startDays():
 				mis.show()
 			
 			if(!adminSkip):
-				# Show tutorial panel (mission)
-				await $TED.setText("")
-				$TED.show()
-				await $TED.setText("[center]DONNEZ-LUI LA BONNE MISSION\nOU RISQUEZ L'ÉCHEC![/center]").startText().textFinished
-				await $TED.mousePressed
-				$TED.hide()
+				if i_day == 0 && i_mil == 0 :
+					# Show tutorial panel (mission)
+					await $TED.setText("")
+					$TED.show()
+					await $TED.setText("[center]DONNEZ-LUI LA BONNE MISSION\nOU RISQUEZ L'ÉCHEC![/center]").startText().textFinished
+					await $TED.mousePressed
+					$TED.hide()
 			
 			# enable missions clicking
 			for mis in dayMissions:
@@ -545,7 +548,7 @@ func setPauseMode(mybool):
 			if "modulate" in _i:
 				if ! _i in [DialogManagerGUI.text_box, DialogManagerGUIYes.text_box, DialogManagerGUINo.text_box,
 				$CanvasLayer/MuteButton, $CanvasLayer/QuitButton, $CanvasLayer/ReplayButton, $CanvasLayer/AdminSkipON]:
-					_i.modulate = Color(0.5,0.5,0.5)
+					_i.modulate = Color(0.3,0.3,0.4)
 	
 	else:# QUIT PAUSE MODE
 		pauseStateOn = false
