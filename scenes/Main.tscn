@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://cakpsc8hxpp4q"]
+[gd_scene load_steps=77 format=3 uid="uid://cakpsc8hxpp4q"]
 
 [ext_resource type="Script" path="res://scripts/Main.gd" id="1_3ouxd"]
 [ext_resource type="PackedScene" uid="uid://7d74krn38k4p" path="res://scenes/Titre.tscn" id="2_soksl"]
@@ -73,6 +73,7 @@
 [ext_resource type="Texture2D" uid="uid://cgqnmun46ckdh" path="res://assets/image/FX/fumee/fumee_00033.png" id="67_glst1"]
 [ext_resource type="Texture2D" uid="uid://dv1m8s1pext5s" path="res://assets/image/FX/fumee/fumee_00034.png" id="68_54plf"]
 [ext_resource type="Texture2D" uid="uid://bullebpuqrurj" path="res://assets/image/FX/fumee/fumee_00035.png" id="69_ntkpa"]
+[ext_resource type="Texture2D" uid="uid://cfnd0h0aq0pmg" path="res://assets/image/interfaces/bouton_replay.png" id="73_aq4lc"]
 
 [sub_resource type="Gradient" id="Gradient_dy0w0"]
 offsets = PackedFloat32Array(0, 0.284211, 0.368421, 0.857895, 0.994737)
@@ -389,6 +390,22 @@ texture_normal = ExtResource("14_g7jy8")
 texture_pressed = ExtResource("33_bt3gb")
 script = ExtResource("34_q8p1b")
 
+[node name="ReplayButton" type="TextureButton" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0.482353)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1191.0
+offset_top = 149.0
+offset_right = -1016.0
+offset_bottom = 323.0
+grow_horizontal = 0
+scale = Vector2(0.25, 0.25)
+pivot_offset = Vector2(175, 0)
+toggle_mode = true
+texture_normal = ExtResource("73_aq4lc")
+script = ExtResource("34_q8p1b")
+
 [node name="QuitButton" type="TextureButton" parent="CanvasLayer"]
 modulate = Color(1, 1, 1, 0.482353)
 anchors_preset = 1
@@ -411,7 +428,10 @@ offset_bottom = 23.0
 text = "ADMIN SKIP ON"
 
 [node name="QuitWindowLocation" type="Marker2D" parent="CanvasLayer"]
-position = Vector2(408, 555)
+position = Vector2(408, 572)
+
+[node name="ReplayWindowLocation" type="Marker2D" parent="CanvasLayer"]
+position = Vector2(326, 571)
 
 [connection signal="creditButtonPressed" from="Titre" to="." method="_on_titre_credit_button_pressed"]
 [connection signal="histoireButtonPressed" from="Titre" to="." method="_on_titre_histoire_button_pressed"]
@@ -426,6 +446,9 @@ position = Vector2(408, 555)
 [connection signal="mouse_entered" from="CanvasLayer/MuteButton" to="CanvasLayer/MuteButton" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/MuteButton" to="CanvasLayer/MuteButton" method="_on_mouse_exited"]
 [connection signal="pressed" from="CanvasLayer/MuteButton" to="." method="_on_mute_button_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/ReplayButton" to="CanvasLayer/ReplayButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/ReplayButton" to="CanvasLayer/ReplayButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="CanvasLayer/ReplayButton" to="." method="tryReplayGame"]
 [connection signal="mouse_entered" from="CanvasLayer/QuitButton" to="CanvasLayer/QuitButton" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/QuitButton" to="CanvasLayer/QuitButton" method="_on_mouse_exited"]
 [connection signal="pressed" from="CanvasLayer/QuitButton" to="." method="tryQuitGame"]

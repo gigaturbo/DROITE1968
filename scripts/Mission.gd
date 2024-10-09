@@ -2,7 +2,7 @@ extends Node2D
 
 signal selected
 
-const SELECT_TIME = 1
+const SELECT_TIME = 0.8
 
 var state = 0
 
