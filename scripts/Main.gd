@@ -164,6 +164,7 @@ func _ready():
 	$Score.hide()
 	$Credits.hide()
 	$Histoire.hide()
+	$CendrierFumee.hide()
 	
 	var appearTime = 1
 	
@@ -244,12 +245,12 @@ func getContext(mcont : EnumContexts):
 func _on_titre_start_button_pressed():
 	radioMusic = false # change music to the main one (music 1 with no radio mode)
 	$Musiques/RadioSwitchFader.start()
-	if is_instance_valid($CPUParticles2D):
-		$CPUParticles2D.queue_free()
+	$CPUParticles2D.hide()
 	$Titre.hide()
 	$Score.hide()
 	$Credits.hide()
 	$Histoire.hide()
+	$CendrierFumee.hide()
 	$Tuto.show()
 	$Tuto.startTuto()
 	
@@ -257,7 +258,9 @@ func _on_tuto_end_tuto():
 	$Titre.hide()
 	$Tuto.hide()
 	$Score.hide()
+	$CPUParticles2D.hide()
 	$Histoire.hide()
+	$CendrierFumee.hide()
 	$Credits.hide()
 	startDays() # START OF THE FUN
 	
@@ -293,6 +296,9 @@ func startDays():
 	$Score.hide()
 	$Histoire.hide()
 	$Credits.hide()
+	$CPUParticles2D.hide()
+	$CendrierFumee.show()
+	$CendrierFumee.play()
 	score = 0 
 	dayMissions = []
 	militant = null
@@ -328,7 +334,6 @@ func startDays():
 
 			$Bruitages/PorteArrive.play()
 			
-			
 			# Here come militants
 			var mil = getMilitant(day["militants"][i_mil]).scn.instantiate()
 			mil.e_militant = day["militants"][i_mil]
@@ -336,7 +341,6 @@ func startDays():
 			add_child(mil)
 			mil.show()
 			mil.come_in($DoorLocation.position, $MilitantLocation.position)
-			
 			
 			if(!adminSkip):
 				await mil.iAmReady
@@ -463,30 +467,33 @@ func startDays():
 			ncontext = ncontext + 1
 			
 			# Mission results
-			var res = res_scene.instantiate()
-			add_child(res)
-			res.reset()
-			res.show()
-			bg.hide()
-			
-			await res.showPanel(scores[i_day][i_mil][ms.e_mission % 3]["text"],
-								scores[i_day][i_mil][ms.e_mission % 3]["hum"])
-			res.isFinished = true
-			
-			if scores[i_day][i_mil][ms.e_mission % 3]["hum"] == -1:
-				$Bruitages/MissionEchec.play()
-			if scores[i_day][i_mil][ms.e_mission % 3]["hum"] == 1:
-				$Bruitages/MissionReussite.play()
-			
-			await res.quitResults
-			res.hide()
-			remove_child(res)
+			if(!adminSkip):
+				var res = res_scene.instantiate()
+				add_child(res)
+				res.reset()
+				res.show()
+				bg.hide()
+				
+				await res.showPanel(scores[i_day][i_mil][ms.e_mission % 3]["text"],
+									scores[i_day][i_mil][ms.e_mission % 3]["hum"])
+				res.isFinished = true
+				
+				if scores[i_day][i_mil][ms.e_mission % 3]["hum"] == -1:
+					$Bruitages/MissionEchec.play()
+				if scores[i_day][i_mil][ms.e_mission % 3]["hum"] == 1:
+					$Bruitages/MissionReussite.play()
+				
+				await res.quitResults
+				res.hide()
+				remove_child(res)
 			
 			bg.show()
 			# To next cycle
 	
 	# Show scores
 	bg.hide()
+	$CendrierFumee.hide()
+	$CendrierFumee.stop()
 	$Score.show()
 	$Score.init(score, answers)
 	
@@ -530,15 +537,16 @@ func _on_credits_exit_credits():
 	$Score.hide()
 	$Credits.hide()
 	$Credits.init()
+	$CPUParticles2D.show()
 
 
 func _on_titre_credit_button_pressed():
 	$Titre.hide()
 	$Tuto.hide()
 	$Score.hide()
-	
 	$Credits.show()
 	$Credits.init()
+	$CPUParticles2D.show()
 
 
 func _input(event):
@@ -589,13 +597,11 @@ func _on_score_quitter_pressed() -> void:
 
 func _on_titre_histoire_button_pressed() -> void:
 	$Titre.hide()
-	if is_instance_valid($CPUParticles2D):
-		$CPUParticles2D.hide()
+	$CPUParticles2D.hide()
 	$Histoire.show()
 
 
 func _on_histoire_retour_pressed() -> void:
 	$Histoire.hide()
 	$Titre.show()
-	if is_instance_valid($CPUParticles2D):
-		$CPUParticles2D.hide()
+	$CPUParticles2D.show()

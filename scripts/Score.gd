@@ -54,7 +54,7 @@ func init(score, answers):
 	for i_ans in answers.size():
 		ans = answers[i_ans]["hum"]
 		_rs[i_ans].frame = 0 if ans < 0 else (1 if ans == 0 else 2)
-		tween.tween_property(_rs[i_ans], "modulate", Color.WHITE, 0.333)
+		tween.tween_property(_rs[i_ans], "modulate", Color.WHITE, 0.8)
 
 	if score == 12:
 		$letter.show()
