@@ -5,9 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://bxldmrajuemoc" path="res://assets/image/fonds/score_fond_victoire.jpg" id="3_lfeuq"]
 [ext_resource type="Texture2D" uid="uid://b0hd7x3qx8vvc" path="res://assets/image/interfaces/asset_lettre success.png" id="4_cw203"]
 [ext_resource type="Texture2D" uid="uid://d002bs7e86m04" path="res://assets/image/interfaces/UI_asset_score.png" id="5_6o8fn"]
-[ext_resource type="Texture2D" uid="uid://citd48nuvgepv" path="res://assets/image/interfaces/UI_score_bouton_echec.png" id="6_36g1r"]
-[ext_resource type="Texture2D" uid="uid://dknu6ii8dluy7" path="res://assets/image/interfaces/UI_score_bouton_neutre.png" id="7_nhfy4"]
-[ext_resource type="Texture2D" uid="uid://b4684x8qm1gqi" path="res://assets/image/interfaces/UI_score_bouton_succes.png" id="8_khs83"]
+[ext_resource type="Texture2D" uid="uid://b7pj4f6veerxi" path="res://assets/image/interfaces/UI_mission_resultat_echec.png" id="6_stxf3"]
+[ext_resource type="Texture2D" uid="uid://cxkx7pabu2w2j" path="res://assets/image/interfaces/UI_mission_resultat_neutre.png" id="7_1kouk"]
+[ext_resource type="Texture2D" uid="uid://c8kvqffie85bx" path="res://assets/image/interfaces/UI_mission_resultat_succes.png" id="8_ywu1c"]
 [ext_resource type="Texture2D" uid="uid://dn4duftgwv3i1" path="res://assets/image/interfaces/ui_bouton_quitter_normal.png" id="9_j3vn7"]
 [ext_resource type="Texture2D" uid="uid://h78u66xsijrn" path="res://assets/image/interfaces/ui_bouton_rejouer_normal.png" id="9_ofaey"]
 [ext_resource type="Texture2D" uid="uid://btioh6yfg58yg" path="res://assets/image/interfaces/ui_bouton_rejouer_selected.png" id="10_76v8n"]
@@ -22,13 +22,13 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("6_36g1r")
+"texture": ExtResource("6_stxf3")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_nhfy4")
+"texture": ExtResource("7_1kouk")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_khs83")
+"texture": ExtResource("8_ywu1c")
 }],
 "loop": true,
 "name": &"default",
@@ -58,8 +58,8 @@ position = Vector2(190.639, 440.375)
 scale = Vector2(0.270958, 0.270958)
 
 [node name="calepin" type="Node2D" parent="."]
-position = Vector2(844.71, 345.71)
-scale = Vector2(0.227345, 0.227345)
+position = Vector2(846, 308)
+scale = Vector2(0.278762, 0.278762)
 metadata/_edit_group_ = true
 
 [node name="calepin_sprite" type="Sprite2D" parent="calepin"]
@@ -67,23 +67,28 @@ position = Vector2(-12, 0)
 texture = ExtResource("5_6o8fn")
 
 [node name="result1" type="AnimatedSprite2D" parent="calepin"]
-position = Vector2(408, -544)
+position = Vector2(493.921, -473.772)
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_fvw2m")
 
 [node name="result2" type="AnimatedSprite2D" parent="calepin"]
-position = Vector2(352, -264)
+position = Vector2(388.355, -183.464)
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_fvw2m")
 
 [node name="result3" type="AnimatedSprite2D" parent="calepin"]
-position = Vector2(292, 76)
+position = Vector2(295.984, 124.438)
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_fvw2m")
 
 [node name="result4" type="AnimatedSprite2D" parent="calepin"]
-position = Vector2(232, 372)
+position = Vector2(208.012, 414.747)
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_fvw2m")
 
 [node name="result5" type="AnimatedSprite2D" parent="calepin"]
-position = Vector2(180, 684)
+position = Vector2(124.438, 700.656)
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_fvw2m")
 
 [node name="calepin_pos" type="Marker2D" parent="."]

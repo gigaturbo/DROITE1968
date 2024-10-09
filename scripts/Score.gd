@@ -11,17 +11,20 @@ signal rejouerPressed
 signal quitterPressed
 signal creditsPressed
 
+@export var _DEBUG : bool = true
 
 func _ready():
 	reset()
+	if _DEBUG:
+		init(11, [{"hum": -2},{"hum": -1},{"hum": -0},{"hum": 1},{"hum": 2}])
 
 func reset():
 	$win.hide()
 	$loose.hide()
 	$calepin.hide()
 	$letter.hide()
-	$calepin.position = Vector2(1300,413)
-	$letter.position = Vector2(233,1000)
+	$calepin.position = Vector2(1400,413)
+	$letter.position = Vector2(233,-100)
 	$buttons.modulate = Color.TRANSPARENT
 	for r in _rs:
 		r.modulate = Color.TRANSPARENT
@@ -29,17 +32,20 @@ func reset():
 func init(score, answers):
 	reset()
 	
-	get_node("../Musiques/Musique1Radio").stop()
-	get_node("../Musiques/Musique1").stop()
+	if not _DEBUG:
+		get_node("../Musiques/Musique1Radio").stop()
+		get_node("../Musiques/Musique1").stop()
 	
 	var tween = get_tree().create_tween()
 	
 	if score < 6:
 		$loose.show()
-		get_node("../Musiques/MarseillaiseFluteBad").play()
+		if not _DEBUG:
+			get_node("../Musiques/MarseillaiseFluteBad").play()
 	elif score <= 12:
 		$win.show()
-		get_node("../Musiques/MarseillaisePianoGood").play()
+		if not _DEBUG:
+			get_node("../Musiques/MarseillaisePianoGood").play()
 
 	$calepin.show()
 	tween.parallel().tween_property($calepin, "position", $calepin_pos.position, 2).set_trans(Tween.TRANS_ELASTIC)
@@ -52,7 +58,7 @@ func init(score, answers):
 
 	if score == 12:
 		$letter.show()
-		tween.tween_property($letter, "position", $letter_pos.position, 2).set_trans(Tween.TRANS_ELASTIC)
+		tween.tween_property($letter, "position", $letter_pos.position, 2).set_trans(Tween.TRANS_QUINT)
 	
 	tween.tween_property($buttons, "modulate", Color.WHITE, 0.5)
 
