@@ -1,8 +1,8 @@
 [gd_scene load_steps=13 format=3 uid="uid://bsgomoihxbkhq"]
 
 [ext_resource type="Script" path="res://scripts/Score.gd" id="1_roevx"]
-[ext_resource type="Texture2D" uid="uid://cwaswctt5o2dr" path="res://assets/image/fonds/Win_Screen.jpg" id="2_tnjfn"]
-[ext_resource type="Texture2D" uid="uid://egct3n84mfn4" path="res://assets/image/fonds/Lose_Screen.jpg" id="3_ljfiy"]
+[ext_resource type="Texture2D" uid="uid://22jmbjmy8bfb" path="res://assets/image/fonds/score_fond_defaite.jpg" id="2_wbg1m"]
+[ext_resource type="Texture2D" uid="uid://bxldmrajuemoc" path="res://assets/image/fonds/score_fond_victoire.jpg" id="3_lfeuq"]
 [ext_resource type="Texture2D" uid="uid://b0hd7x3qx8vvc" path="res://assets/image/interfaces/asset_lettre success.png" id="4_cw203"]
 [ext_resource type="Texture2D" uid="uid://d002bs7e86m04" path="res://assets/image/interfaces/UI_asset_score.png" id="5_6o8fn"]
 [ext_resource type="Texture2D" uid="uid://citd48nuvgepv" path="res://assets/image/interfaces/UI_score_bouton_echec.png" id="6_36g1r"]
@@ -33,22 +33,28 @@ animations = [{
 script = ExtResource("1_roevx")
 
 [node name="loose" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_ljfiy")
+scale = Vector2(0.308, 0.308)
+texture = ExtResource("2_wbg1m")
 centered = false
 
 [node name="win" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_tnjfn")
+scale = Vector2(0.308, 0.308)
+texture = ExtResource("3_lfeuq")
 centered = false
 
 [node name="letter" type="Sprite2D" parent="."]
-position = Vector2(233, 405)
+position = Vector2(187.639, 435.375)
 scale = Vector2(0.270958, 0.270958)
 texture = ExtResource("4_cw203")
+metadata/_edit_group_ = true
+
+[node name="letter_pos" type="Marker2D" parent="."]
+position = Vector2(190.639, 440.375)
+scale = Vector2(0.270958, 0.270958)
+metadata/_edit_group_ = true
 
 [node name="calepin" type="Node2D" parent="."]
-position = Vector2(808, 365)
+position = Vector2(844.71, 345.71)
 scale = Vector2(0.227345, 0.227345)
 metadata/_edit_group_ = true
 
@@ -77,12 +83,9 @@ position = Vector2(180, 684)
 sprite_frames = SubResource("SpriteFrames_fvw2m")
 
 [node name="calepin_pos" type="Marker2D" parent="."]
-position = Vector2(821, 413)
+position = Vector2(845.71, 344.71)
 scale = Vector2(0.270958, 0.270958)
-
-[node name="letter_pos" type="Marker2D" parent="."]
-position = Vector2(236, 410)
-scale = Vector2(0.270958, 0.270958)
+metadata/_edit_group_ = true
 
 [node name="buttons" type="Node2D" parent="."]
 position = Vector2(359, 666)
