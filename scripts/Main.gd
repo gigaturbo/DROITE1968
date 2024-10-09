@@ -120,6 +120,8 @@ var basevolume_theme_menu_radio
 var audioAnnonces:Array[AudioStreamPlayer]
 signal startSignal
 
+var playbuttontween:Tween
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	score = 0
@@ -145,10 +147,10 @@ func _ready():
 		create_tween().tween_property(o, "modulate", colorMem, appearTime).set_trans(Tween.TRANS_QUINT)
 	
 	# Animate play button
-	var tween = get_tree().create_tween().set_loops()
-	tween.tween_property($Titre.get_node("Start"), "position:y", -4, 0.75).as_relative().set_trans(Tween.TRANS_LINEAR)
-	tween.tween_property($Titre.get_node("Start"), "position:y", 8, 1.5).as_relative().set_trans(Tween.TRANS_LINEAR)
-	tween.tween_property($Titre.get_node("Start"), "position:y", -4, 0.75).as_relative().set_trans(Tween.TRANS_LINEAR)
+	var playbuttontween = create_tween().set_loops()
+	playbuttontween.tween_property($Titre.get_node("Start"), "position:y", -4, 0.75).as_relative().set_trans(Tween.TRANS_LINEAR)
+	playbuttontween.tween_property($Titre.get_node("Start"), "position:y", 8, 1.5).as_relative().set_trans(Tween.TRANS_LINEAR)
+	playbuttontween.tween_property($Titre.get_node("Start"), "position:y", -4, 0.75).as_relative().set_trans(Tween.TRANS_LINEAR)
 	
 	audioAnnonces = [$Bruitages/Radio1, $Bruitages/Radio2, $Bruitages/Talkie1, $Bruitages/Talkie2, $Bruitages/Phone1, $Bruitages/Phone2]
 	basevolume_theme_menu = $Musiques/Musique1.volume_db
@@ -655,8 +657,9 @@ func tryReplayGame():
 
 
 func reallyReplayGame():
-			var mainScene = preload("res://scenes/Main.tscn")
-			get_tree().change_scene_to_packed(mainScene)
+		
+	var mainScene = preload("res://scenes/Main.tscn")
+	get_tree().change_scene_to_packed(mainScene)
 
 
 func _input(event):
