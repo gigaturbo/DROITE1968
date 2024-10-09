@@ -37,7 +37,7 @@ func init(itemType: String, missionText:String):
 	$TextureButton.set_texture_pressed(load("res://assets/image/objets/asset_" + itemType + "_selected" + ".png"))
 	$TextureButton.set_click_mask(load("res://assets/image/objets/asset_" + itemType + "_clickmap" + ".png"))
 	
-	$MissionText/MarginContainerText/Label.set_text(missionText)
+	$MissionText/MarginContainerText/Label.parse_bbcode(missionText)
 	
 	match itemType:
 		"machine":
