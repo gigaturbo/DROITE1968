@@ -16,7 +16,7 @@ signal creditsPressed
 func _ready():
 	reset()
 	if _DEBUG:
-		init(11, [{"hum": -2},{"hum": -1},{"hum": -0},{"hum": 1},{"hum": 2}])
+		init(2, [{"hum": -2},{"hum": -1},{"hum": -0},{"hum": 1},{"hum": 2}])
 
 func reset():
 	$win.hide()

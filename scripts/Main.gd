@@ -142,6 +142,7 @@ func _ready():
 		o.modulate = Color.TRANSPARENT
 		create_tween().tween_property(o, "modulate", Color.WHITE, appearTime).set_trans(Tween.TRANS_QUINT)
 	
+	# Animate play button
 	var tween = get_tree().create_tween().set_loops()
 	tween.tween_property($Titre.get_node("Start"), "position:y", -4, 0.75).as_relative().set_trans(Tween.TRANS_LINEAR)
 	tween.tween_property($Titre.get_node("Start"), "position:y", 8, 1.5).as_relative().set_trans(Tween.TRANS_LINEAR)
@@ -470,6 +471,7 @@ func _dialog_manager_response(cdialog):
 	DialogManager.inputCloseDialog()
 	DialogManager2.inputCloseDialog()
 	anyDialogAnswered.emit(answered)
+
 
 # for GUI
 func _dialog_manager_response_GUI(cdialog):
