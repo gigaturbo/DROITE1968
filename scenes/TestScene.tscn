@@ -13,7 +13,7 @@ scale = Vector2(0.345, 0.345)
 texture = ExtResource("3_v8q8v")
 
 [node name="TextExtraDiegetique" parent="." instance=ExtResource("2_vpbsj")]
-position = Vector2(649, 272)
+position = Vector2(417, 334)
 quick = true
 positionning = 3
 minimum_width = 300

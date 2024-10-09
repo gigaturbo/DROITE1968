@@ -147,15 +147,13 @@ var adminSkip = false
 signal anyMissionSelected
 signal anyDialogAnswered
 
-var res = preload("res://scenes/ResultsMission.tscn").instantiate()
-
+var res_scene = preload("res://scenes/ResultsMission.tscn")
 
 var radioMusic = true
 var basevolume_theme_menu
 var basevolume_theme_menu_radio
 
 var audioAnnonces:Array[AudioStreamPlayer]
-signal startSignal
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -382,21 +380,31 @@ func startDays():
 					Vector2(500,100), 
 					DialogManager.TextBoxTypes.MILITANT,
 					reponses[i_day][i_mil][1-rep1]).inputFinished
-				
-			# Now instanciate day missions of militant
+
+			# Now instanciate day missions of militant (disabled state)
 			for i in day["missions"][i_mil].size():
 				var mis = getMission(day["missions"][i_mil][i])
 				mis.e_mission = day["missions"][i_mil][i]
+				mis.disable()
 				dayMissions.append(mis)
 				mis.selected.connect(_mission_selected)
 				mis.position = Vector2(100 + 220*(i+1), 680)
 				add_child(mis)
 				mis.show()
 			
+			# Show tutorial panel
+			$TED.setText("")
+			$TED.show()
+			await $TED.setText("[center]DONNEZ-LUI LA BONNE MISSION\nOU RISQUEZ L'ÉCHEC![/center]").startText().textFinished
+			await $TED.mousePressed
+			$TED.hide()
+			
+			# enable missions clicking
+			for mis in dayMissions:
+				mis.enable()
+			
 			# Await a mission select, then fire militant
 			var ms = await self.anyMissionSelected
-			
-			
 			
 			# Pour les deux derniers militants, une musique spéciale
 			if(i_day == 2 && i_mil == 0) :
@@ -433,9 +441,10 @@ func startDays():
 			ncontext = ncontext + 1
 			
 			# Mission results
+			var res = res_scene.instantiate()
+			add_child(res)
 			res.reset()
 			res.show()
-			add_child(res)
 			bg.hide()
 			
 			await res.showPanel(scores[i_day][i_mil][ms.e_mission % 3]["text"],
@@ -450,8 +459,6 @@ func startDays():
 			await res.quitResults
 			res.hide()
 			remove_child(res)
-			
-			
 			
 			bg.show()
 			# To next cycle

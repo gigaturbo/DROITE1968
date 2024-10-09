@@ -2,7 +2,7 @@ extends Node
 
 
 @onready var text_box_scene_militant = preload("res://scenes/elements/textbox/TextBoxMilitant.tscn")
-@onready var text_box_scene_reponse = preload("res://scenes/elements/textbox//TextBoxReponse.tscn")
+@onready var text_box_scene_reponse = preload("res://scenes/elements/textbox/TextBoxReponse.tscn")
 @onready var text_box_scene_elec = preload("res://scenes/elements/textbox/TextBoxElec.tscn")
 
 var dialog_lines = []
@@ -31,7 +31,7 @@ var flip
 var quickText
 
 # flip not working yet
-# aquickText true if the text should be instantly shown
+# quickText true if the text should be instantly shown
 func start_dialog(position:Vector2, 
 					apanelInitialSize:Vector2,
 					type:TextBoxTypes,
@@ -104,8 +104,6 @@ func inputCloseDialog():
 		crayon4.stop()
 		tournerPage.play()
 	
-	
-	
 	if is_instance_valid(text_box):
 		text_box.queue_free()
 	current_line_index += 1
@@ -122,10 +120,10 @@ func _on_text_box_button_pressed():
 	
 
 func _unhandled_input(event):
-	if( event.is_action_pressed("advanced_dialog") && is_dialog_active):
-		if( text_box_type == TextBoxTypes.REPONSE ):
-			if(current_line_index + 1 >= dialog_lines.size() ):
+	if(event.is_action_pressed("advanced_dialog") && is_dialog_active):
+		if(text_box_type == TextBoxTypes.REPONSE ):
+			if(current_line_index + 1 >= dialog_lines.size()):
 				return
 		
-		if( can_advance_line):
+		if(can_advance_line):
 			inputCloseDialog()

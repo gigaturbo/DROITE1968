@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cakpsc8hxpp4q"]
+[gd_scene load_steps=36 format=3 uid="uid://cakpsc8hxpp4q"]
 
 [ext_resource type="Script" path="res://scripts/Main.gd" id="1_3ouxd"]
 [ext_resource type="PackedScene" uid="uid://7d74krn38k4p" path="res://scenes/Titre.tscn" id="2_soksl"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bsgomoihxbkhq" path="res://scenes/Score.tscn" id="4_ei2rq"]
 [ext_resource type="PackedScene" uid="uid://cj6equ6e6k0h7" path="res://scenes/Credits.tscn" id="5_vykkf"]
 [ext_resource type="AudioStream" uid="uid://kqx84kthy2fx" path="res://assets/audio/musiques/Musique partie 1 radio.mp3" id="6_or610"]
+[ext_resource type="PackedScene" uid="uid://tuyb0ip2x6tu" path="res://scenes/elements/textbox/TextExtraDiegetique.tscn" id="6_y7sca"]
 [ext_resource type="AudioStream" uid="uid://bwhkwdvdk0ees" path="res://assets/audio/musiques/Musique partie 1 .mp3" id="7_xdedb"]
 [ext_resource type="AudioStream" uid="uid://bfxp3fk4geu2t" path="res://assets/audio/musiques/musique 2/boucle 1.mp3" id="8_vxwbx"]
 [ext_resource type="AudioStream" uid="uid://rxv7jekw2dph" path="res://assets/audio/musiques/musique 2/break 1.mp3" id="9_p234n"]
@@ -69,6 +70,12 @@ position = Vector2(335, 880)
 
 [node name="ResponseLocation" type="Marker2D" parent="."]
 position = Vector2(538, 632)
+
+[node name="TED" parent="." instance=ExtResource("6_y7sca")]
+z_index = 300
+position = Vector2(538, 360)
+font_size = 35
+minimum_width = 750
 
 [node name="Musiques" type="Node" parent="."]
 
