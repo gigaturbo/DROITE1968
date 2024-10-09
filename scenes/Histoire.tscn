@@ -14,10 +14,10 @@ texture = ExtResource("1_u2ksp")
 centered = false
 
 [node name="Retour" type="TextureButton" parent="."]
-offset_left = 25.0
-offset_top = 21.0
-offset_right = 340.0
-offset_bottom = 236.0
+offset_left = 498.0
+offset_top = 15.0
+offset_right = 813.0
+offset_bottom = 230.0
 scale = Vector2(0.324298, 0.324298)
 texture_normal = ExtResource("2_em32p")
 texture_pressed = ExtResource("3_y8shw")

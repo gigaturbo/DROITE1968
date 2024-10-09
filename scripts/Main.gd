@@ -131,7 +131,7 @@ func _ready():
 	$CendrierFumee.hide()
 	
 	# Make a list of object appear smoothly
-	var appearTime = 0.5
+	var appearTime = 1.0
 	var objList = [$Titre.get_node("Start"), 
 					$Titre.get_node("Credits"), 
 					$Titre.get_node("Histoire"), 
@@ -140,10 +140,14 @@ func _ready():
 					$CanvasLayer/QuitButton
 					]
 	for o in objList:
-		var modulateMem = o.modulate
-		o.modulate = Color(1,1,1,0)
-		create_tween().tween_property(o, "modulate", modulateMem, appearTime)
+		o.modulate = Color.TRANSPARENT
+		create_tween().tween_property(o, "modulate", Color.WHITE, appearTime).set_trans(Tween.TRANS_QUINT)
 	
+	# Animate play button
+	var tween = get_tree().create_tween().set_loops()
+	tween.tween_property($Titre.get_node("Start"), "position:y", -4, 0.75).as_relative().set_trans(Tween.TRANS_LINEAR)
+	tween.tween_property($Titre.get_node("Start"), "position:y", 8, 1.5).as_relative().set_trans(Tween.TRANS_LINEAR)
+	tween.tween_property($Titre.get_node("Start"), "position:y", -4, 0.75).as_relative().set_trans(Tween.TRANS_LINEAR)
 	
 	audioAnnonces = [$Bruitages/Radio1, $Bruitages/Radio2, $Bruitages/Talkie1, $Bruitages/Talkie2, $Bruitages/Phone1, $Bruitages/Phone2]
 	basevolume_theme_menu = $Musiques/Musique1.volume_db
@@ -305,13 +309,14 @@ func startDays():
 				await mil.iAmReady
 			
 				await get_tree().create_timer(0.2).timeout
-			
-				# Show tutorial panel (militant)
-				$TED.setText("")
-				$TED.show()
-				await $TED.setText("[center]ANALYSEZ LE MILITANT[/center]").startText().textFinished
-				await $TED.mousePressed
-				$TED.hide()
+				
+				if i_day == 0 && i_mil == 0 :
+					# Show tutorial panel (militant)
+					$TED.setText("")
+					$TED.show()
+					await $TED.setText("[center]ANALYSEZ LE MILITANT[/center]").startText().textFinished
+					await $TED.mousePressed
+					$TED.hide()
 			
 				# Militant present him/herself
 				await DialogManager.start_dialog($ResponseLocation.position, 
@@ -375,12 +380,13 @@ func startDays():
 				mis.show()
 			
 			if(!adminSkip):
-				# Show tutorial panel (mission)
-				await $TED.setText("")
-				$TED.show()
-				await $TED.setText("[center]DONNEZ-LUI LA BONNE MISSION\nOU RISQUEZ L'ÉCHEC![/center]").startText().textFinished
-				await $TED.mousePressed
-				$TED.hide()
+				if i_day == 0 && i_mil == 0 :
+					# Show tutorial panel (mission)
+					await $TED.setText("")
+					$TED.show()
+					await $TED.setText("[center]DONNEZ-LUI LA BONNE MISSION\nOU RISQUEZ L'ÉCHEC![/center]").startText().textFinished
+					await $TED.mousePressed
+					$TED.hide()
 			
 			# enable missions clicking
 			for mis in dayMissions:
@@ -472,6 +478,7 @@ func _dialog_manager_response(cdialog):
 	DialogManager.inputCloseDialog()
 	DialogManager2.inputCloseDialog()
 	anyDialogAnswered.emit(answered)
+
 
 # for GUI
 func _dialog_manager_response_GUI(cdialog):

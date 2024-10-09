@@ -1,32 +1,37 @@
-[gd_scene load_steps=4 format=3 uid="uid://xpyssfnyfg1s"]
+[gd_scene load_steps=8 format=3 uid="uid://xpyssfnyfg1s"]
 
 [ext_resource type="Script" path="res://scripts/Tuto.gd" id="1_2luo7"]
 [ext_resource type="PackedScene" uid="uid://cbb6xjwmrc4f7" path="res://scenes/elements/Bureau.tscn" id="2_epp7i"]
 [ext_resource type="FontFile" uid="uid://c1114d7vgm2up" path="res://assets/fonts/Helvetica Neue Condensed Bold.ttf" id="3_c4555"]
+[ext_resource type="Texture2D" uid="uid://3b6omh5h35wy" path="res://assets/image/fonds/asset_tutoriel.jpg" id="4_8dmn3"]
+[ext_resource type="Texture2D" uid="uid://c0n35tla03ybl" path="res://assets/image/interfaces/ui_bouton_jouer_nbormal.png" id="5_62xhf"]
+[ext_resource type="Texture2D" uid="uid://cs02pevskud4o" path="res://assets/image/interfaces/ui_bouton_jouer_selected.png" id="6_qxprn"]
+[ext_resource type="Texture2D" uid="uid://bpoaa3vyrb5en" path="res://assets/image/interfaces/ui_bouton_jouer_highlight.png" id="7_aaj66"]
 
 [node name="Tuto" type="Node2D"]
 script = ExtResource("1_2luo7")
 
 [node name="Bureau" parent="." instance=ExtResource("2_epp7i")]
+visible = false
 
-[node name="MarginContainer2" type="MarginContainer" parent="."]
+[node name="contexte" type="MarginContainer" parent="."]
 offset_left = 184.0
 offset_top = 179.0
 offset_right = 897.0
 offset_bottom = 441.0
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer2"]
+[node name="ColorRect" type="ColorRect" parent="contexte"]
 layout_mode = 2
 color = Color(0.196078, 0.196078, 0.196078, 0.917647)
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer2"]
+[node name="MarginContainer" type="MarginContainer" parent="contexte"]
 layout_mode = 2
 theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 20
 
-[node name="Label" type="Label" parent="MarginContainer2/MarginContainer"]
+[node name="Label" type="Label" parent="contexte/MarginContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_c4555")
 theme_override_font_sizes/font_size = 28
@@ -34,3 +39,22 @@ text = "La chienlit gauchiste est aux portes du pouvoir ! Charles Prairie brigue
 "
 horizontal_alignment = 3
 autowrap_mode = 3
+
+[node name="tuto" type="Node2D" parent="."]
+
+[node name="tuto_img" type="Sprite2D" parent="tuto"]
+scale = Vector2(0.308, 0.308)
+texture = ExtResource("4_8dmn3")
+centered = false
+
+[node name="jouer" type="TextureButton" parent="tuto"]
+offset_left = 445.0
+offset_top = 671.0
+offset_right = 946.0
+offset_bottom = 835.0
+scale = Vector2(0.411112, 0.411112)
+texture_normal = ExtResource("5_62xhf")
+texture_pressed = ExtResource("6_qxprn")
+texture_hover = ExtResource("7_aaj66")
+
+[connection signal="pressed" from="tuto/jouer" to="." method="_on_jouer_pressed"]
