@@ -131,7 +131,7 @@ func _ready():
 	$CendrierFumee.hide()
 	
 	# Make a list of object appear smoothly
-	var appearTime = 0.5
+	var appearTime = 1.0
 	var objList = [$Titre.get_node("Start"), 
 					$Titre.get_node("Credits"), 
 					$Titre.get_node("Histoire"), 
@@ -139,10 +139,13 @@ func _ready():
 					$CanvasLayer/QuitButton
 					]
 	for o in objList:
-		var modulateMem = o.modulate
-		o.modulate = Color(1,1,1,0)
-		create_tween().tween_property(o, "modulate", modulateMem, appearTime)
+		o.modulate = Color.TRANSPARENT
+		create_tween().tween_property(o, "modulate", Color.WHITE, appearTime).set_trans(Tween.TRANS_QUINT)
 	
+	var tween = get_tree().create_tween().set_loops()
+	tween.tween_property($Titre.get_node("Start"), "position:y", -4, 0.75).as_relative().set_trans(Tween.TRANS_LINEAR)
+	tween.tween_property($Titre.get_node("Start"), "position:y", 8, 1.5).as_relative().set_trans(Tween.TRANS_LINEAR)
+	tween.tween_property($Titre.get_node("Start"), "position:y", -4, 0.75).as_relative().set_trans(Tween.TRANS_LINEAR)
 	
 	audioAnnonces = [$Bruitages/Radio1, $Bruitages/Radio2, $Bruitages/Talkie1, $Bruitages/Talkie2, $Bruitages/Phone1, $Bruitages/Phone2]
 	basevolume_theme_menu = $Musiques/Musique1.volume_db
