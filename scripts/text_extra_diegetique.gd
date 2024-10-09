@@ -9,6 +9,7 @@ var _PTIME = 0.2
 var _QFACTOR = 3
 
 signal textFinished
+signal mousePressed
 
 enum EnumPosition {CENTER, TOP_LEFT, TOP_RIGHT, BOTTOM_LEFT, BOTTOM_RIGHT}
 
@@ -34,12 +35,13 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	
-	if _finalState == 0:
-		_rtl.visible_ratio = 1
-		_finalState = 1
+	# State loop
+	if _finalState == 0: 				  # Needs resizing, prepare box
 		$MarginContainer.modulate = Color.TRANSPARENT
 		$MarginContainer.show()
-	elif _finalState == 1:
+		_rtl.visible_ratio = 1
+		_finalState = 1
+	elif _finalState == 1: 				  # Save valid size
 		_finalSize = $MarginContainer.size
 		_finalState = 2
 		if presize_box:
@@ -48,17 +50,17 @@ func _process(_delta: float) -> void:
 			_cc.vertical = true
 		$MarginContainer.hide()
 		$MarginContainer.modulate = Color.WHITE
-	elif _finalState == 2:
+	elif _finalState == 2: 				  # Reset to initial state 
 		_rtl.visible_characters = 0
 		_finalState = 3
-	elif _finalState == 3:
-		_finalState = 4 # Ready to start
-	elif _finalState == 4 and _started:
+	elif _finalState == 3:				  # Ready to start
+		_finalState = 4
+	elif _finalState == 4 and _started:	  # Started
 		_finalState = 5
 		_textStart()
 		
 
-func setText(ntext : String, nposition : Vector2 = self.position):
+func setText(ntext : String, _nposition : Vector2 = self.position):
 	
 	_bbtext = ntext
 	_rtl.clear()
@@ -70,11 +72,6 @@ func setText(ntext : String, nposition : Vector2 = self.position):
 	_rtl.pop()
 	_rtl.visible_characters = 0
 	
-	print(self.position)
-	print(nposition)
-	$MarginContainer.global_position = nposition
-	
-	#$MarginContainer.position = nposition
 	$MarginContainer.custom_minimum_size = Vector2(minimum_width, 0)
 	
 	match positionning:
@@ -137,3 +134,7 @@ func _nextLetter():
 
 func _on_timer_timeout() -> void:
 	_nextLetter()
+	
+func _input(event):
+	if(event.is_action_pressed("Lclick_TED") and _rtl.visible_ratio == 1):
+		mousePressed.emit(self)

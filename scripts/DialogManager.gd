@@ -137,5 +137,5 @@ func _unhandled_input(event):
 			if(current_line_index + 1 >= dialog_lines.size() ):
 				return
 		
-		if( can_advance_line):
+		if(can_advance_line):
 			inputCloseDialog()

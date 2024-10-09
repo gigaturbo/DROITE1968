@@ -1,24 +1,134 @@
-[gd_scene load_steps=5 format=3 uid="uid://bsgomoihxbkhq"]
+[gd_scene load_steps=19 format=3 uid="uid://bsgomoihxbkhq"]
 
 [ext_resource type="Script" path="res://scripts/Score.gd" id="1_roevx"]
-[ext_resource type="Texture2D" uid="uid://cwaswctt5o2dr" path="res://assets/image/fonds/Win_Screen.jpg" id="2_tnjfn"]
-[ext_resource type="Texture2D" uid="uid://egct3n84mfn4" path="res://assets/image/fonds/Lose_Screen.jpg" id="3_ljfiy"]
-[ext_resource type="Texture2D" uid="uid://cjqwltytvkek7" path="res://assets/image/fonds/Super_Win_Screen.jpg" id="4_byewc"]
+[ext_resource type="Texture2D" uid="uid://22jmbjmy8bfb" path="res://assets/image/fonds/score_fond_defaite.jpg" id="2_wbg1m"]
+[ext_resource type="Texture2D" uid="uid://bxldmrajuemoc" path="res://assets/image/fonds/score_fond_victoire.jpg" id="3_lfeuq"]
+[ext_resource type="Texture2D" uid="uid://b0hd7x3qx8vvc" path="res://assets/image/interfaces/asset_lettre success.png" id="4_cw203"]
+[ext_resource type="Texture2D" uid="uid://d002bs7e86m04" path="res://assets/image/interfaces/UI_asset_score.png" id="5_6o8fn"]
+[ext_resource type="Texture2D" uid="uid://b7pj4f6veerxi" path="res://assets/image/interfaces/UI_mission_resultat_echec.png" id="6_stxf3"]
+[ext_resource type="Texture2D" uid="uid://cxkx7pabu2w2j" path="res://assets/image/interfaces/UI_mission_resultat_neutre.png" id="7_1kouk"]
+[ext_resource type="Texture2D" uid="uid://c8kvqffie85bx" path="res://assets/image/interfaces/UI_mission_resultat_succes.png" id="8_ywu1c"]
+[ext_resource type="Texture2D" uid="uid://dn4duftgwv3i1" path="res://assets/image/interfaces/ui_bouton_quitter_normal.png" id="9_j3vn7"]
+[ext_resource type="Texture2D" uid="uid://h78u66xsijrn" path="res://assets/image/interfaces/ui_bouton_rejouer_normal.png" id="9_ofaey"]
+[ext_resource type="Texture2D" uid="uid://btioh6yfg58yg" path="res://assets/image/interfaces/ui_bouton_rejouer_selected.png" id="10_76v8n"]
+[ext_resource type="Texture2D" uid="uid://cugm5nfshvpvc" path="res://assets/image/interfaces/ui_bouton_quiter_selected.png" id="10_w881m"]
+[ext_resource type="Texture2D" uid="uid://dpgsjs0ru6v1s" path="res://assets/image/interfaces/ui_bouton_rejouer_highlight.png" id="11_hqx62"]
+[ext_resource type="Texture2D" uid="uid://byrhytovfilfi" path="res://assets/image/interfaces/ui_bouton_quitter_highlight.png" id="11_jn3go"]
+[ext_resource type="Texture2D" uid="uid://si3l3eilwtux" path="res://assets/image/interfaces/ui_bouton_credits_normal.png" id="15_2do5s"]
+[ext_resource type="Texture2D" uid="uid://bhlvemx6rl5mg" path="res://assets/image/interfaces/ui_bouton_credits_selected.png" id="16_ogypv"]
+[ext_resource type="Texture2D" uid="uid://y3su3xp5csww" path="res://assets/image/interfaces/ui_bouton_credits_highlight.png" id="17_isouf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fvw2m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_stxf3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_1kouk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ywu1c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="ScoreScreen" type="Node2D"]
 script = ExtResource("1_roevx")
 
-[node name="win" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_tnjfn")
-centered = false
-
 [node name="loose" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("3_ljfiy")
+scale = Vector2(0.308, 0.308)
+texture = ExtResource("2_wbg1m")
 centered = false
 
-[node name="perfect" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_byewc")
+[node name="win" type="Sprite2D" parent="."]
+scale = Vector2(0.308, 0.308)
+texture = ExtResource("3_lfeuq")
 centered = false
+
+[node name="letter" type="Sprite2D" parent="."]
+position = Vector2(187.639, 435.375)
+scale = Vector2(0.270958, 0.270958)
+texture = ExtResource("4_cw203")
+
+[node name="letter_pos" type="Marker2D" parent="."]
+position = Vector2(190.639, 440.375)
+scale = Vector2(0.270958, 0.270958)
+
+[node name="calepin" type="Node2D" parent="."]
+position = Vector2(846, 308)
+scale = Vector2(0.278762, 0.278762)
+metadata/_edit_group_ = true
+
+[node name="calepin_sprite" type="Sprite2D" parent="calepin"]
+position = Vector2(-12, 0)
+texture = ExtResource("5_6o8fn")
+
+[node name="result1" type="AnimatedSprite2D" parent="calepin"]
+position = Vector2(493.921, -473.772)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_fvw2m")
+
+[node name="result2" type="AnimatedSprite2D" parent="calepin"]
+position = Vector2(388.355, -183.464)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_fvw2m")
+
+[node name="result3" type="AnimatedSprite2D" parent="calepin"]
+position = Vector2(295.984, 124.438)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_fvw2m")
+
+[node name="result4" type="AnimatedSprite2D" parent="calepin"]
+position = Vector2(208.012, 414.747)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_fvw2m")
+
+[node name="result5" type="AnimatedSprite2D" parent="calepin"]
+position = Vector2(124.438, 700.656)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_fvw2m")
+
+[node name="calepin_pos" type="Marker2D" parent="."]
+position = Vector2(845.71, 344.71)
+scale = Vector2(0.270958, 0.270958)
+
+[node name="buttons" type="Node2D" parent="."]
+position = Vector2(535, 696)
+metadata/_edit_group_ = true
+
+[node name="quitter" type="TextureButton" parent="buttons"]
+offset_left = -365.0
+offset_top = -30.0
+offset_right = 273.0
+offset_bottom = 148.0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("9_j3vn7")
+texture_pressed = ExtResource("10_w881m")
+texture_hover = ExtResource("11_jn3go")
+
+[node name="rejouer" type="TextureButton" parent="buttons"]
+offset_left = -101.0
+offset_top = -30.0
+offset_right = 596.0
+offset_bottom = 135.0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("9_ofaey")
+texture_pressed = ExtResource("10_76v8n")
+texture_hover = ExtResource("11_hqx62")
+
+[node name="credits" type="TextureButton" parent="buttons"]
+offset_left = 185.0
+offset_top = -30.0
+offset_right = 833.0
+offset_bottom = 134.0
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("15_2do5s")
+texture_pressed = ExtResource("16_ogypv")
+texture_hover = ExtResource("17_isouf")
+
+[connection signal="pressed" from="buttons/quitter" to="." method="_on_quitter_pressed"]
+[connection signal="pressed" from="buttons/rejouer" to="." method="_on_rejouer_pressed"]
+[connection signal="pressed" from="buttons/credits" to="." method="_on_credits_pressed"]

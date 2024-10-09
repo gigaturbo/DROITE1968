@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://7d74krn38k4p"]
+[gd_scene load_steps=15 format=3 uid="uid://7d74krn38k4p"]
 
 [ext_resource type="Script" path="res://scripts/Titre.gd" id="1_hojoq"]
 [ext_resource type="Texture2D" uid="uid://c5trwlfkw27ri" path="res://assets/image/fonds/menu.jpg" id="2_n7xqo"]
@@ -10,7 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://y3su3xp5csww" path="res://assets/image/interfaces/ui_bouton_credits_highlight.png" id="9_hbhi7"]
 [ext_resource type="Texture2D" uid="uid://dn4duftgwv3i1" path="res://assets/image/interfaces/ui_bouton_quitter_normal.png" id="10_eqb8w"]
 [ext_resource type="Texture2D" uid="uid://cugm5nfshvpvc" path="res://assets/image/interfaces/ui_bouton_quiter_selected.png" id="11_7qfa6"]
+[ext_resource type="Texture2D" uid="uid://sjfv2rmyn74i" path="res://assets/image/interfaces/ui_bouton_histoire_normal.png" id="12_fwqb5"]
 [ext_resource type="Texture2D" uid="uid://byrhytovfilfi" path="res://assets/image/interfaces/ui_bouton_quitter_highlight.png" id="12_g436w"]
+[ext_resource type="Texture2D" uid="uid://byipe2imgmpsj" path="res://assets/image/interfaces/ui_bouton_histoire_selected.png" id="13_ioydf"]
+[ext_resource type="Texture2D" uid="uid://dnuopw64fw01f" path="res://assets/image/interfaces/ui_bouton_histoire_highlight.png" id="14_my7sw"]
 
 [node name="Titre" type="Node2D"]
 script = ExtResource("1_hojoq")
@@ -21,19 +24,20 @@ texture = ExtResource("2_n7xqo")
 centered = false
 
 [node name="Start" type="TextureButton" parent="."]
-offset_left = 322.0
-offset_top = 540.0
-offset_right = 823.0
-offset_bottom = 704.0
+offset_left = 147.5
+offset_top = 487.0
+offset_right = 648.5
+offset_bottom = 651.0
 scale = Vector2(0.35, 0.35)
+pivot_offset = Vector2(250, 82)
 texture_normal = ExtResource("4_ib5wl")
 texture_pressed = ExtResource("5_115du")
 texture_hover = ExtResource("6_g7e5v")
 
 [node name="Credits" type="TextureButton" parent="."]
-offset_left = 600.0
+offset_left = 526.5
 offset_top = 540.0
-offset_right = 1248.0
+offset_right = 1174.5
 offset_bottom = 704.0
 scale = Vector2(0.35, 0.35)
 texture_normal = ExtResource("7_e3r78")
@@ -41,16 +45,26 @@ texture_pressed = ExtResource("8_6cg4m")
 texture_hover = ExtResource("9_hbhi7")
 
 [node name="Quitter" type="TextureButton" parent="."]
-visible = false
-offset_left = 756.0
+offset_left = 798.5
 offset_top = 540.0
-offset_right = 1394.0
+offset_right = 1436.5
 offset_bottom = 718.0
 scale = Vector2(0.35, 0.35)
 texture_normal = ExtResource("10_eqb8w")
 texture_pressed = ExtResource("11_7qfa6")
 texture_hover = ExtResource("12_g436w")
 
+[node name="Histoire" type="TextureButton" parent="."]
+offset_left = 534.0
+offset_top = 618.0
+offset_right = 1172.0
+offset_bottom = 796.0
+scale = Vector2(0.35, 0.35)
+texture_normal = ExtResource("12_fwqb5")
+texture_pressed = ExtResource("13_ioydf")
+texture_hover = ExtResource("14_my7sw")
+
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="Quitter" to="." method="_on_quitter_pressed"]
+[connection signal="pressed" from="Histoire" to="." method="_on_histoire_pressed"]

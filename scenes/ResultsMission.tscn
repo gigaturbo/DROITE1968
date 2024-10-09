@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ddi5mp50sahga"]
+[gd_scene load_steps=12 format=3 uid="uid://ddi5mp50sahga"]
 
 [ext_resource type="Script" path="res://scripts/ResultsMission.gd" id="1_raxi0"]
 [ext_resource type="Texture2D" uid="uid://bivg67cgbn53g" path="res://assets/image/fonds/FOND.jpg" id="2_2r1n1"]
@@ -7,9 +7,14 @@
 [ext_resource type="Texture2D" uid="uid://dei4sutncpiis" path="res://assets/image/fonds/asset_bureau.png" id="4_tkb1l"]
 [ext_resource type="Texture2D" uid="uid://cljutdeml8v81" path="res://assets/image/personnages/Pasqua_Happy_F.png" id="5_4q4df"]
 [ext_resource type="FontFile" uid="uid://c1114d7vgm2up" path="res://assets/fonts/Helvetica Neue Condensed Bold.ttf" id="6_dcc6n"]
+[ext_resource type="Texture2D" uid="uid://ccogwjucg2g3u" path="res://assets/image/interfaces/UI_mission_resultat.png" id="8_wo8l3"]
+[ext_resource type="Texture2D" uid="uid://c8kvqffie85bx" path="res://assets/image/interfaces/UI_mission_resultat_succes.png" id="9_fq7sb"]
+[ext_resource type="Texture2D" uid="uid://b7pj4f6veerxi" path="res://assets/image/interfaces/UI_mission_resultat_echec.png" id="10_2jb3n"]
+[ext_resource type="Texture2D" uid="uid://cxkx7pabu2w2j" path="res://assets/image/interfaces/UI_mission_resultat_neutre.png" id="11_vb3bl"]
 
 [node name="ResultsMission" type="Node2D"]
 script = ExtResource("1_raxi0")
+textSize = 25
 
 [node name="fond" type="Sprite2D" parent="."]
 scale = Vector2(0.308, 0.308)
@@ -22,7 +27,6 @@ texture = ExtResource("2_ifkbg")
 centered = false
 
 [node name="charles_bof" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(355, 485)
 rotation = -0.0174533
 scale = Vector2(0.308, 0.308)
@@ -34,43 +38,74 @@ rotation = -0.0174533
 scale = Vector2(0.308, 0.308)
 texture = ExtResource("5_4q4df")
 
+[node name="charles_neutre" type="Sprite2D" parent="."]
+position = Vector2(355, 484)
+rotation = -0.0174533
+scale = Vector2(0.308, 0.308)
+texture = ExtResource("5_4q4df")
+
+[node name="charles_fury" type="Sprite2D" parent="."]
+position = Vector2(355, 484)
+rotation = -0.0174533
+scale = Vector2(0.308, 0.308)
+texture = ExtResource("5_4q4df")
+
+[node name="charles_joy" type="Sprite2D" parent="."]
+position = Vector2(355, 484)
+rotation = -0.0174533
+scale = Vector2(0.308, 0.308)
+texture = ExtResource("5_4q4df")
+
 [node name="table" type="Sprite2D" parent="."]
 z_index = 128
 scale = Vector2(0.308, 0.308)
 texture = ExtResource("4_tkb1l")
 centered = false
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-z_index = 175
-custom_minimum_size = Vector2(500, 500)
-anchors_preset = 6
-anchor_left = 1.0
+[node name="ResultsSheet" type="Node2D" parent="."]
+position = Vector2(735, 263)
+
+[node name="Sprite2D" type="Sprite2D" parent="ResultsSheet"]
+position = Vector2(4.34998, 7.70001)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("8_wo8l3")
+
+[node name="VBContainer" type="VBoxContainer" parent="ResultsSheet"]
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
-anchor_right = 1.0
+anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 500.0
-offset_top = 75.0
-offset_right = 1000.0
-offset_bottom = 575.0
-grow_horizontal = 0
+offset_left = -224.0
+offset_top = -146.0
+offset_right = 241.0
+offset_bottom = 123.0
+grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 2
+size_flags_vertical = 3
 
-[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="ResultsSheet/VBContainer"]
+z_index = 1125
 layout_mode = 2
-color = Color(0.141176, 0.141176, 0.141176, 0.92549)
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/MarginContainer"]
-layout_mode = 2
-theme_override_colors/default_color = Color(1, 1, 1, 1)
+size_flags_vertical = 3
+theme_override_colors/default_color = Color(0.101961, 0.133333, 0.258824, 1)
 theme_override_fonts/normal_font = ExtResource("6_dcc6n")
-theme_override_font_sizes/normal_font_size = 25
 bbcode_enabled = true
 scroll_active = false
-threaded = true
+
+[node name="stamps" type="Node2D" parent="ResultsSheet"]
+z_index = 1000
+position = Vector2(132.35, 57.7)
+scale = Vector2(0.295, 0.295)
+
+[node name="success" type="Sprite2D" parent="ResultsSheet/stamps"]
+z_index = 500
+texture = ExtResource("9_fq7sb")
+
+[node name="echec" type="Sprite2D" parent="ResultsSheet/stamps"]
+z_index = 500
+texture = ExtResource("10_2jb3n")
+
+[node name="mouais" type="Sprite2D" parent="ResultsSheet/stamps"]
+texture = ExtResource("11_vb3bl")

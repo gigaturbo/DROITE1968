@@ -14,6 +14,8 @@ var e_mission = -1
 var rscale = Vector2(1,1)
 var zMem
 
+var _disabled = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
@@ -35,7 +37,7 @@ func init(itemType: String, missionText:String):
 	$TextureButton.set_texture_pressed(load("res://assets/image/objets/asset_" + itemType + "_selected" + ".png"))
 	$TextureButton.set_click_mask(load("res://assets/image/objets/asset_" + itemType + "_clickmap" + ".png"))
 	
-	$MissionText/MarginContainerText/Label.set_text(missionText)
+	$MissionText/MarginContainerText/Label.parse_bbcode(missionText)
 	
 	match itemType:
 		"machine":
@@ -57,33 +59,46 @@ func init(itemType: String, missionText:String):
 		"journal":
 			$TextureButton.scale = 0.7 * Vector2(1,1)
 			rscale = $TextureButton.scale
-	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
+
+func disable():
+	_disabled = true
+	$TextureButton.disabled = true
+
+
+func enable():
+	_disabled = false
+	$TextureButton.disabled = false
+
 func _process(_delta):
-	if state == 1:
+	if state == 1 and not _disabled:
 		var percent_proc = 1.0 - ($Timer.time_left / SELECT_TIME)
 		var nscale =  Vector2(1,1) * (1.0 + percent_proc * 0.3)
 		$TextureButton.scale = rscale * nscale
 	else :
 		$TextureButton.scale = rscale
+
 	
 func _on_texture_button_button_down():
-	$Timer.start()
-	state = 1
-	
-	# passe au dessus des autres item
-	z_index = 200
+	if not _disabled:
+		$Timer.start()
+		state = 1
+		# passe au dessus des autres item
+		z_index = 200
+
 
 func _on_texture_button_button_up():
-	$Timer.wait_time = SELECT_TIME
-	$Timer.stop()
-	state = 0
-	$TextureButton.scale = rscale
-	
-	z_index = zMem
+	if not _disabled:
+		$Timer.wait_time = SELECT_TIME
+		$Timer.stop()
+		state = 0
+		$TextureButton.scale = rscale
+		z_index = zMem
+
 
 func _on_timer_timeout():
 	selected.emit(self)
+
 
 func go_away():
 	var apos = $TextureButton.position
@@ -99,10 +114,13 @@ func get_selected():
 	tween.tween_property($TextureButton, "position", -5000*Vector2(1,1), 0.1)
 	$MissionText.hide()
 
+
 func _on_texture_button_mouse_entered():
-	$MissionText.show()
+	if not _disabled:
+		$MissionText.show()
 
 
 func _on_texture_button_mouse_exited():
-	$MissionText.hide()
-	_on_texture_button_button_up()
+	if not _disabled:
+		$MissionText.hide()
+		_on_texture_button_button_up()
