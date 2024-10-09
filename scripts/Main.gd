@@ -164,21 +164,23 @@ func _ready():
 	$Score.hide()
 	$Credits.hide()
 	
-	var appearTime = 0.5
-	var startModulateMem = $Titre.get_node("Start").modulate
-	var creditsModulateMem = $Titre.get_node("Credits").modulate
-	var quitterModulateMem = $Titre.get_node("Quitter").modulate
-	var muteModulateMem = $CanvasLayer/MuteButton.modulate
+	var appearTime = 1
 	
-	$Titre.get_node("Start").modulate = Color(1,1,1,0)
-	$Titre.get_node("Credits").modulate = Color(1,1,1,0)
-	$Titre.get_node("Quitter").modulate = Color(1,1,1,0)
-	$CanvasLayer/MuteButton.modulate = Color(1,1,1,0)
+	$Titre.get_node("Start").modulate = Color.TRANSPARENT
+	$Titre.get_node("Credits").modulate = Color.TRANSPARENT
+	$Titre.get_node("Quitter").modulate = Color.TRANSPARENT
+	$CanvasLayer/MuteButton.modulate = Color.TRANSPARENT
 	
-	create_tween().tween_property($Titre.get_node("Start"), "modulate", startModulateMem, appearTime)
-	create_tween().tween_property($Titre.get_node("Credits"), "modulate", creditsModulateMem, appearTime)
-	create_tween().tween_property($Titre.get_node("Quitter"), "modulate", quitterModulateMem, appearTime)
-	create_tween().tween_property($CanvasLayer/MuteButton, "modulate", muteModulateMem, appearTime)
+	var tween = get_tree().create_tween()
+	tween.parallel().tween_property($Titre.get_node("Start"), "modulate", Color.WHITE, appearTime).set_trans(Tween.TRANS_CUBIC)
+	tween.parallel().tween_property($Titre.get_node("Credits"), "modulate", Color.WHITE, appearTime).set_trans(Tween.TRANS_CUBIC)
+	tween.parallel().tween_property($Titre.get_node("Quitter"), "modulate", Color.WHITE, appearTime).set_trans(Tween.TRANS_CUBIC)
+	tween.parallel().tween_property($CanvasLayer/MuteButton, "modulate", Color.WHITE, appearTime).set_trans(Tween.TRANS_CUBIC)
+	
+	tween = get_tree().create_tween().set_loops()
+	tween.tween_property($Titre.get_node("Start"), "position:y", -4, 0.75).as_relative().set_trans(Tween.TRANS_LINEAR)
+	tween.tween_property($Titre.get_node("Start"), "position:y", 8, 1.5).as_relative().set_trans(Tween.TRANS_LINEAR)
+	tween.tween_property($Titre.get_node("Start"), "position:y", -4, 0.75).as_relative().set_trans(Tween.TRANS_LINEAR)
 	
 	audioAnnonces = [$Bruitages/Radio1, $Bruitages/Radio2, $Bruitages/Talkie1, $Bruitages/Talkie2, $Bruitages/Phone1, $Bruitages/Phone2]
 	basevolume_theme_menu = $Musiques/Musique1.volume_db

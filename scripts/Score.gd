@@ -11,7 +11,7 @@ signal rejouerPressed
 signal quitterPressed
 signal creditsPressed
 
-@export var _DEBUG : bool = true
+@export var _DEBUG : bool = false
 
 func _ready():
 	reset()
