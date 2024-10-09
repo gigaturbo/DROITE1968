@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://cakpsc8hxpp4q"]
+[gd_scene load_steps=77 format=3 uid="uid://cakpsc8hxpp4q"]
 
 [ext_resource type="Script" path="res://scripts/Main.gd" id="1_3ouxd"]
 [ext_resource type="PackedScene" uid="uid://7d74krn38k4p" path="res://scenes/Titre.tscn" id="2_soksl"]
@@ -45,9 +45,10 @@
 [ext_resource type="Texture2D" uid="uid://cybrv8eutiifl" path="res://assets/image/FX/fumee/fumee_00007.png" id="41_obcal"]
 [ext_resource type="Texture2D" uid="uid://bwwbxxkrrt1aa" path="res://assets/image/FX/fumee/fumee_00008.png" id="42_8mmr7"]
 [ext_resource type="Texture2D" uid="uid://cd3le74b4t744" path="res://assets/image/FX/fumee/fumee_00009.png" id="43_12ix6"]
+[ext_resource type="Texture2D" uid="uid://gy4almypv5dr" path="res://assets/image/FX/UI_radio_note_1234.png" id="44_06c0l"]
 [ext_resource type="Texture2D" uid="uid://dq3jlaatqj2ry" path="res://assets/image/FX/fumee/fumee_00010.png" id="44_tyjl8"]
 [ext_resource type="Texture2D" uid="uid://ch3hq1wc0gep4" path="res://assets/image/FX/fumee/fumee_00011.png" id="45_hftjt"]
-[ext_resource type="Texture2D" uid="uid://bokp4ed6m6288" path="res://assets/image/FX/UI_radio_note_1.png" id="46_qyrua"]
+[ext_resource type="Texture2D" uid="uid://68n7vlkvwkfi" path="res://assets/image/FX/UI_onde.png" id="45_l4xa6"]
 [ext_resource type="Texture2D" uid="uid://drdgbri1ojt73" path="res://assets/image/FX/fumee/fumee_00012.png" id="46_s0232"]
 [ext_resource type="Texture2D" uid="uid://ca2j8tvb7yk2t" path="res://assets/image/FX/fumee/fumee_00013.png" id="47_toqnr"]
 [ext_resource type="Texture2D" uid="uid://chwi6xvjsjrnf" path="res://assets/image/FX/fumee/fumee_00014.png" id="48_8w5ho"]
@@ -190,8 +191,11 @@ animations = [{
 "speed": 15.0
 }]
 
-[sub_resource type="Gradient" id="Gradient_b2do6"]
-colors = PackedColorArray(0.4752, 0.56958, 0.99, 1, 0.97, 0.452667, 0.3492, 1)
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ajkne"]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 1
+particles_anim_loop = true
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_3ouxd")
@@ -244,12 +248,13 @@ sprite_frames = SubResource("SpriteFrames_hqb8y")
 centered = false
 
 [node name="NotesMusique" type="CPUParticles2D" parent="FX"]
+material = SubResource("CanvasItemMaterial_ajkne")
 position = Vector2(122, 590)
 amount = 3
 lifetime = 2.0
 explosiveness = 0.1
 randomness = 0.2
-texture = ExtResource("46_qyrua")
+texture = ExtResource("44_06c0l")
 direction = Vector2(1, -0.8)
 spread = 30.0
 gravity = Vector2(0, 0)
@@ -259,7 +264,32 @@ damping_min = 10.0
 damping_max = 10.0
 scale_amount_min = 0.15
 scale_amount_max = 0.2
-color_ramp = SubResource("Gradient_b2do6")
+anim_offset_max = 1.0
+
+[node name="Eclairs" type="CPUParticles2D" parent="FX"]
+visible = false
+z_index = 1650
+position = Vector2(538, 607)
+amount = 2
+preprocess = 0.9
+explosiveness = 0.1
+randomness = 0.2
+texture = ExtResource("45_l4xa6")
+emission_shape = 1
+emission_sphere_radius = 50.0
+direction = Vector2(0, 1)
+spread = 35.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
+linear_accel_min = 4.72
+linear_accel_max = 4.72
+radial_accel_min = 3.15
+radial_accel_max = 3.15
+damping_min = 1.0
+damping_max = 1.0
+scale_amount_min = 0.1
+scale_amount_max = 0.15
 
 [node name="Musiques" type="Node" parent="."]
 
