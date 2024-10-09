@@ -70,12 +70,14 @@ bbcode_enabled = true
 scroll_active = false
 
 [node name="stamps" type="Node2D" parent="ResultsSheet"]
-z_index = 500
+z_index = 1000
 position = Vector2(132.35, 57.7)
 scale = Vector2(0.295, 0.295)
 
 [node name="success" type="Sprite2D" parent="ResultsSheet/stamps"]
+z_index = 500
 texture = ExtResource("9_fq7sb")
 
 [node name="echec" type="Sprite2D" parent="ResultsSheet/stamps"]
+z_index = 500
 texture = ExtResource("10_2jb3n")
