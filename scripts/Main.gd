@@ -134,6 +134,7 @@ func _ready():
 	var appearTime = 0.5
 	var objList = [$Titre.get_node("Start"), 
 					$Titre.get_node("Credits"), 
+					$Titre.get_node("Histoire"), 
 					$CanvasLayer/MuteButton,
 					$CanvasLayer/QuitButton
 					]

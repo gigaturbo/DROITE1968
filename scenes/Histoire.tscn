@@ -21,5 +21,6 @@ offset_bottom = 236.0
 scale = Vector2(0.324298, 0.324298)
 texture_normal = ExtResource("2_em32p")
 texture_pressed = ExtResource("3_y8shw")
+texture_hover = ExtResource("3_y8shw")
 
 [connection signal="pressed" from="Retour" to="." method="_on_retour_pressed"]
