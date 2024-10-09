@@ -180,7 +180,6 @@ func _ready():
 	create_tween().tween_property($Titre.get_node("Quitter"), "modulate", quitterModulateMem, appearTime)
 	create_tween().tween_property($CanvasLayer/MuteButton, "modulate", muteModulateMem, appearTime)
 	
-	
 	audioAnnonces = [$Bruitages/Radio1, $Bruitages/Radio2, $Bruitages/Talkie1, $Bruitages/Talkie2, $Bruitages/Phone1, $Bruitages/Phone2]
 	basevolume_theme_menu = $Musiques/Musique1.volume_db
 	basevolume_theme_menu_radio = $Musiques/Musique1Radio.volume_db
@@ -286,6 +285,9 @@ func startDays():
 	$Score.hide()
 	$Credits.hide()
 	score = 0 
+	dayMissions = []
+	militant = null
+	answers = []
 	var ncontext = 0
 		
 	# LOAD BG1 (Generic)
@@ -418,7 +420,9 @@ func startDays():
 			for mission in dayMissions:
 				if mission.e_mission == ms.e_mission:
 					mission.get_selected()
-					answers.append({"militant": militant.e_militant,
+					answers.append({"hum": scores[i_day][i_mil][ms.e_mission % 3]["hum"],
+									"score": scores[i_day][i_mil][ms.e_mission % 3]["score"],
+									"militant": militant.e_militant,
 									"mission": ms.e_mission})
 					var toadd = scores[i_day][i_mil][ms.e_mission % 3]["score"]
 					score = score + toadd
@@ -475,6 +479,7 @@ func _mission_selected(obj):
 	anyMissionSelected.emit(obj)
 
 
+
 func _dialog_manager_response(cdialog):
 	var answered = cdialog.id
 	DialogManager.inputCloseDialog()
@@ -499,14 +504,9 @@ func processMusic():
 	else:
 		vol_theme_menu_radio = -60
 	
-#	print("\nmusicSwitchRelative " + str(musicSwitchRelative))
-#	print("vol_theme_menu " + str(vol_theme_menu))
-#	print("vol_theme_menu_radio " + str(vol_theme_menu_radio))
-	
 	$Musiques/Musique1.set_volume_db(vol_theme_menu)
 	$Musiques/Musique1Radio.set_volume_db(vol_theme_menu_radio)
 	
-
 
 func _on_credits_exit_credits():
 	$Titre.show()
@@ -538,14 +538,13 @@ func _input(event):
 		else:
 			$CanvasLayer/AdminSkipON.hide()
 
+
 # wait before starting the radio music
 func _on_radio_start_waiter_timeout():
 	$Musiques/Musique1Radio.set_volume_db(-60)
 	$Musiques/Musique1Radio.play()
 	$Musiques/Musique1.play()
 	$Musiques/RadioStartFader.start()
-	
-
 
 
 func _on_mute_button_pressed():
@@ -558,3 +557,11 @@ func _on_mute_button_mouse_entered():
 
 func _on_mute_button_mouse_exited():
 	$CanvasLayer/MuteButton.modulate = Color(1,1,1,0.5)
+
+
+func _on_score_menu_pressed() -> void:
+	pass # TODO
+
+
+func _on_score_rejouer_pressed() -> void:
+	startDays()
