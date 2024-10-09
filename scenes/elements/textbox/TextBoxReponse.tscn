@@ -50,10 +50,10 @@ patch_margin_bottom = 141
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
-theme_override_constants/margin_left = 90
-theme_override_constants/margin_top = 60
-theme_override_constants/margin_right = 90
-theme_override_constants/margin_bottom = 60
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 30
 
 [node name="Label" type="Label" parent="MarginContainer"]
 layout_mode = 2

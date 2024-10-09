@@ -419,6 +419,7 @@ func startDays():
 			
 			if(!adminSkip):
 				await mil.byeBye
+				mil.queue_free()
 			
 			# Show context before results
 			await showContext(ncontext)
@@ -452,6 +453,7 @@ func startDays():
 	bg.hide()
 	$CendrierFumee.hide()
 	$CendrierFumee.stop()
+	$CanvasLayer/QuitButton.hide()
 	$Score.show()
 	$Score.init(score, answers)
 	
