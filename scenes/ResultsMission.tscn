@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ddi5mp50sahga"]
+[gd_scene load_steps=12 format=3 uid="uid://ddi5mp50sahga"]
 
 [ext_resource type="Script" path="res://scripts/ResultsMission.gd" id="1_raxi0"]
 [ext_resource type="Texture2D" uid="uid://bivg67cgbn53g" path="res://assets/image/fonds/FOND.jpg" id="2_2r1n1"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://ccogwjucg2g3u" path="res://assets/image/interfaces/UI_mission_resultat.png" id="8_wo8l3"]
 [ext_resource type="Texture2D" uid="uid://c8kvqffie85bx" path="res://assets/image/interfaces/UI_mission_resultat_succes.png" id="9_fq7sb"]
 [ext_resource type="Texture2D" uid="uid://b7pj4f6veerxi" path="res://assets/image/interfaces/UI_mission_resultat_echec.png" id="10_2jb3n"]
+[ext_resource type="Texture2D" uid="uid://cxkx7pabu2w2j" path="res://assets/image/interfaces/UI_mission_resultat_neutre.png" id="11_vb3bl"]
 
 [node name="ResultsMission" type="Node2D"]
 script = ExtResource("1_raxi0")
@@ -37,6 +38,12 @@ rotation = -0.0174533
 scale = Vector2(0.308, 0.308)
 texture = ExtResource("5_4q4df")
 
+[node name="charles_neutre" type="Sprite2D" parent="."]
+position = Vector2(355, 484)
+rotation = -0.0174533
+scale = Vector2(0.308, 0.308)
+texture = ExtResource("5_4q4df")
+
 [node name="table" type="Sprite2D" parent="."]
 z_index = 128
 scale = Vector2(0.308, 0.308)
@@ -52,11 +59,17 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("8_wo8l3")
 
 [node name="VBContainer" type="VBoxContainer" parent="ResultsSheet"]
-custom_minimum_size = Vector2(500, 300)
-offset_left = -250.65
-offset_top = -164.3
-offset_right = 267.35
-offset_bottom = 135.7
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -224.0
+offset_top = -146.0
+offset_right = 241.0
+offset_bottom = 123.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 2
 size_flags_vertical = 3
 
@@ -81,3 +94,6 @@ texture = ExtResource("9_fq7sb")
 [node name="echec" type="Sprite2D" parent="ResultsSheet/stamps"]
 z_index = 500
 texture = ExtResource("10_2jb3n")
+
+[node name="mouais" type="Sprite2D" parent="ResultsSheet/stamps"]
+texture = ExtResource("11_vb3bl")
