@@ -33,13 +33,14 @@ signal finished_displaying()
 
 signal buttonPressed()
 
+var buttonHoverScaleRatio = 1.3
 
 func display_text(aDialogManager, text_to_display: String, panelInitialSize:Vector2 = Vector2(0,0)):
 	myDialogManager = aDialogManager
-	crayon1 = get_node("../Main/Bruitages/Crayon1")
-	crayon2 = get_node("../Main/Bruitages/Crayon2")
-	crayon3 = get_node("../Main/Bruitages/Crayon3")
-	crayon4 = get_node("../Main/Bruitages/Crayon4")
+	crayon1 = get_node("../Bruitages/Crayon1")
+	crayon2 = get_node("../Bruitages/Crayon2")
+	crayon3 = get_node("../Bruitages/Crayon3")
+	crayon4 = get_node("../Bruitages/Crayon4")
 	crayons=[crayon1, crayon2, crayon3, crayon4]
 	
 	MAX_WIDTH /= scale.x
@@ -112,14 +113,29 @@ func _on_button_pressed():
 
 
 func _on_button_mouse_entered():
-	$NinePatchRectReponse.hide()
-	$NinePatchRectReponseHL.show()
-	$NinePatchRectReponseSEL.hide()
+	match myDialogManager.text_box_type:
+		myDialogManager.TextBoxTypes.REPONSE:
+			$NinePatchRectReponse.hide()
+			$NinePatchRectReponseHL.show()
+			$NinePatchRectReponseSEL.hide()
+		myDialogManager.TextBoxTypes.SIMPLEBUTTON:
+			# offset pivot point to scale in relation to the center of the text
+			position += (pivot_offset - size * 0.5)*0.5
+			pivot_offset = size * 0.5
+			scale *= buttonHoverScaleRatio
 
 func _on_button_mouse_exited():
-	$NinePatchRectReponse.show()
-	$NinePatchRectReponseHL.hide()
-	$NinePatchRectReponseSEL.hide()
+	
+	match myDialogManager.text_box_type:
+		myDialogManager.TextBoxTypes.REPONSE:
+			$NinePatchRectReponse.show()
+			$NinePatchRectReponseHL.hide()
+			$NinePatchRectReponseSEL.hide()
+		myDialogManager.TextBoxTypes.SIMPLEBUTTON:
+			# offset pivot point to scale in relation to the center of the text
+			position += (pivot_offset - size * 0.5)*0.5
+			pivot_offset = size * 0.5
+			scale /= buttonHoverScaleRatio
 
 
 func _on_button_button_down():

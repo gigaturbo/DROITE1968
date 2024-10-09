@@ -47,7 +47,7 @@ grow_vertical = 0
 
 [node name="ColorRect2" type="ColorRect" parent="MissionText"]
 layout_mode = 2
-color = Color(0.803922, 0.239216, 0.0901961, 1)
+color = Color(0.890196, 0.266667, 0.145098, 1)
 
 [node name="MarginContainer3" type="MarginContainer" parent="MissionText"]
 layout_mode = 2
@@ -58,7 +58,7 @@ theme_override_constants/margin_bottom = 7
 
 [node name="ColorRect" type="ColorRect" parent="MissionText/MarginContainer3"]
 layout_mode = 2
-color = Color(0.960784, 0.921569, 0.901961, 1)
+color = Color(0.960784, 0.921569, 0.898039, 1)
 
 [node name="MarginContainerText" type="MarginContainer" parent="MissionText"]
 layout_mode = 2

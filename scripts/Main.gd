@@ -1,5 +1,6 @@
 extends Node2D
 
+var quitingState = false
 enum EnumMissions{A, B, C, D, E,
 				  F, G, H, I, J,
 				  K, L, M, N, O} # n=15
@@ -88,7 +89,7 @@ var questions = [[["Pourquoi tu milites, toi ?",
 			  	["Qu’est-ce qui vous motive, Monsieur ?",
 			   	 "Et pourquoi vous ?"]]]
 
-var reponses = [[[["C’est simple... J’en ai ras-le-bol de ces p’tits jeunes gauchistes qui foutent le bordel partout. Ces chevelus, là...",
+var reponses = [[[["C’est simple... J’en ai ras-le-bol de ces p’tits jeunes gauchistes fous qui foutent le bordel partout. Ces chevelus, là...",
 					"Prairie, lui, au moins, il va les remettre à leur place. C’est un type avec du cran. Comme dans les films d’espionnage que j’aime bien, où y'a toujours un gars qui règle les choses à sa façon."],
 			  	["Judo, karaté, boxe française. J'pense me mettre à la lutte bretonne. C’est bon pour vous ?"]]],
 			 	[[["Monsieur, je réponds à l'appel du Général. Je crois qu’il est de notre devoir de jeunes Fançais de se lever et de participer à l'action civique."],
@@ -146,6 +147,7 @@ var adminSkip = false
 
 signal anyMissionSelected
 signal anyDialogAnswered
+signal anyDialogAnsweredGUI
 
 var res = preload("res://scenes/ResultsMission.tscn").instantiate()
 
@@ -165,21 +167,17 @@ func _ready():
 	$Score.hide()
 	$Credits.hide()
 	
+	# Make a list of object appear smoothly
 	var appearTime = 0.5
-	var startModulateMem = $Titre.get_node("Start").modulate
-	var creditsModulateMem = $Titre.get_node("Credits").modulate
-	var quitterModulateMem = $Titre.get_node("Quitter").modulate
-	var muteModulateMem = $CanvasLayer/MuteButton.modulate
-	
-	$Titre.get_node("Start").modulate = Color(1,1,1,0)
-	$Titre.get_node("Credits").modulate = Color(1,1,1,0)
-	$Titre.get_node("Quitter").modulate = Color(1,1,1,0)
-	$CanvasLayer/MuteButton.modulate = Color(1,1,1,0)
-	
-	create_tween().tween_property($Titre.get_node("Start"), "modulate", startModulateMem, appearTime)
-	create_tween().tween_property($Titre.get_node("Credits"), "modulate", creditsModulateMem, appearTime)
-	create_tween().tween_property($Titre.get_node("Quitter"), "modulate", quitterModulateMem, appearTime)
-	create_tween().tween_property($CanvasLayer/MuteButton, "modulate", muteModulateMem, appearTime)
+	var objList = [$Titre.get_node("Start"), 
+					$Titre.get_node("Credits"), 
+					$CanvasLayer/MuteButton,
+					$CanvasLayer/QuitButton
+					]
+	for o in objList:
+		var modulateMem = o.modulate
+		o.modulate = Color(1,1,1,0)
+		create_tween().tween_property(o, "modulate", modulateMem, appearTime)
 	
 	
 	audioAnnonces = [$Bruitages/Radio1, $Bruitages/Radio2, $Bruitages/Talkie1, $Bruitages/Talkie2, $Bruitages/Phone1, $Bruitages/Phone2]
@@ -342,7 +340,7 @@ func startDays():
 			if(!adminSkip):
 				# Q1
 				DialogManager.start_dialog($AnswerLocation.position, 
-					Vector2(250,75), 
+					Vector2(350,75), 
 					DialogManager.TextBoxTypes.REPONSE,
 					[questions[i_day][i_mil][0]],
 					0
@@ -350,8 +348,8 @@ func startDays():
 				DialogManager.buttonPressed.connect(_dialog_manager_response)
 
 				# Q2
-				DialogManager2.start_dialog($AnswerLocation.position + Vector2(300, 0), 
-					Vector2(250,75), 
+				DialogManager2.start_dialog($AnswerLocation.position + Vector2(400, 0), 
+					Vector2(350,75), 
 					DialogManager2.TextBoxTypes.REPONSE,
 					[questions[i_day][i_mil][1]],
 					1
@@ -367,8 +365,8 @@ func startDays():
 					reponses[i_day][i_mil][rep1]).inputFinished
 				
 				# Show remaining question
-				DialogManager.start_dialog($AnswerLocation.position + Vector2(150, 0), 
-					Vector2(250,75), 
+				DialogManager.start_dialog($AnswerLocation.position + Vector2(200, 0), 
+					Vector2(350,75), 
 					DialogManager.TextBoxTypes.REPONSE,
 					[questions[i_day][i_mil][1-rep1]],
 					0
@@ -467,11 +465,20 @@ func _mission_selected(obj):
 	anyMissionSelected.emit(obj)
 
 
+# for dialogs
 func _dialog_manager_response(cdialog):
 	var answered = cdialog.id
 	DialogManager.inputCloseDialog()
 	DialogManager2.inputCloseDialog()
 	anyDialogAnswered.emit(answered)
+
+# for GUI
+func _dialog_manager_response_GUI(cdialog):
+	var answered = cdialog.id
+	DialogManagerGUI.inputCloseDialog()
+	DialogManagerGUIYes.inputCloseDialog()
+	DialogManagerGUINo.inputCloseDialog()
+	anyDialogAnsweredGUI.emit(answered)
 
 
 func processMusic():
@@ -516,11 +523,90 @@ func _on_titre_credit_button_pressed():
 	$Credits.show()
 	$Credits.init()
 
+func tryQuitGame():
+	# tout bloquer
+	quitingState = true
+	DialogManager.blockDialog = true
+	DialogManager2.blockDialog = true
+	DialogManager3.blockDialog = true
+	
+	# Disable all buttons (except GUI ones)
+	for _i:Node in getallnodes_rec(self):
+		#if ! _i in [DialogManagerGUIYes.text_box.get_node("MarginContainer/Label/Button"), DialogManagerGUINo.text_box.get_node("MarginContainer/Label/Button")]:
+		if ! _i in [$CanvasLayer/MuteButton]:
+			if _i.get_class() in ["TextureButton", "Button"]:
+				_i.disabled = true
+	
+	var quitwindowsize = Vector2(300, 100)
+	DialogManagerGUI.start_dialog($CanvasLayer/QuitWindowLocation.position,
+			quitwindowsize, DialogManager.TextBoxTypes.SIMPLETEXT, ["Quitter?"])
+	
+	var shifttocenterx = 50
+	var shifttocentery = -150
+	DialogManagerGUIYes.start_dialog(DialogManagerGUI.text_box_position + Vector2(shifttocenterx, shifttocentery),
+			Vector2(0, 0), DialogManager.TextBoxTypes.SIMPLEBUTTON, ["OUI"],
+			0)
+	DialogManagerGUIYes.buttonPressed.connect(_dialog_manager_response_GUI)
+	DialogManagerGUINo.start_dialog(DialogManagerGUI.text_box_position 
+					+ Vector2(DialogManagerGUI.text_box.size.x * DialogManagerGUI.text_box.scale.x - 50 - shifttocenterx, shifttocentery),
+			Vector2(0, 0), DialogManager.TextBoxTypes.SIMPLEBUTTON, ["NON"],
+			1)
+	DialogManagerGUINo.buttonPressed.connect(_dialog_manager_response_GUI)
+	
+				
+	# Darken every node, except the GUI ones
+	for _i in self.get_children():
+		if "modulate" in _i:
+			if ! _i in [DialogManagerGUI.text_box, DialogManagerGUIYes.text_box, DialogManagerGUINo.text_box,
+			$CanvasLayer/MuteButton, $CanvasLayer/QuitButton, $CanvasLayer/AdminSkipON]:
+				_i.modulate = Color(0.5,0.5,0.5)
+	
+	$CanvasLayer/QuitButton.hide()
+	var rep = await anyDialogAnsweredGUI
+	
+	if rep == 0 :
+		reallyQuitGame()
+	else:
+		dontQuitGame()
+
+func reallyQuitGame():
+	DialogManagerGUI.inputCloseDialog()
+	DialogManagerGUIYes.inputCloseDialog()
+	DialogManagerGUINo.inputCloseDialog()
+	modulate = Color(0.2,0.2,0.2)
+	get_tree().quit()
+
+func dontQuitGame():
+	# go back to normal color
+	DialogManagerGUI.inputCloseDialog()
+	DialogManagerGUIYes.inputCloseDialog()
+	DialogManagerGUINo.inputCloseDialog()
+	# Darken every node, except the GUI ones
+	for _i in self.get_children():
+		if "modulate" in _i:
+			if ! _i in [DialogManagerGUI.text_box, DialogManagerGUIYes.text_box, DialogManagerGUINo.text_box,
+			$CanvasLayer/MuteButton, $CanvasLayer/QuitButton, $CanvasLayer/AdminSkipON]:
+				_i.modulate = Color(1,1,1)
+	$CanvasLayer/QuitButton.show()
+	
+	# tout debloquer
+	quitingState = false
+	DialogManager.blockDialog = false
+	DialogManager2.blockDialog = false
+	DialogManager3.blockDialog = false
+	
+	# Enable all buttons
+	for _i:Node in getallnodes_rec(self):
+		if _i.get_class() in ["TextureButton", "Button"]:
+			_i.disabled = false
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):
-		get_tree().quit()
-		
+		if quitingState:
+			dontQuitGame()
+		else:
+			tryQuitGame()
+	
 	
 	if event.is_action_pressed("admin_skip"):
 		adminSkip = !adminSkip
@@ -541,12 +627,14 @@ func _on_radio_start_waiter_timeout():
 
 
 func _on_mute_button_pressed():
+	print("pressed")
 	AudioServer.set_bus_mute(0, $CanvasLayer/MuteButton.button_pressed)
 
 
-func _on_mute_button_mouse_entered():
-	$CanvasLayer/MuteButton.modulate = Color(1,1,1,1)
 
-
-func _on_mute_button_mouse_exited():
-	$CanvasLayer/MuteButton.modulate = Color(1,1,1,0.5)
+func getallnodes_rec(node):
+	var nodelist = node.get_children()
+	for N in node.get_children():
+		if N.get_child_count() > 0:
+			nodelist.append_array(getallnodes_rec(N))
+	return nodelist

@@ -18,5 +18,3 @@ func _input(event):
 				endTuto.emit()
 				histState = 2 # Avoid other tuto launch later
 						
-
-

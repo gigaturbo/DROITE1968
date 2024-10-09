@@ -2,14 +2,16 @@ extends Node
 
 
 @onready var text_box_scene_militant = preload("res://scenes/elements/textbox/TextBoxMilitant.tscn")
-@onready var text_box_scene_reponse = preload("res://scenes/elements/textbox//TextBoxReponse.tscn")
+@onready var text_box_scene_reponse = preload("res://scenes/elements/textbox/TextBoxReponse.tscn")
+@onready var text_box_scene_simplebutton = preload("res://scenes/elements/textbox/TextBoxSimpleButton.tscn")
+@onready var text_box_scene_simpletext = preload("res://scenes/elements/textbox/TextBoxSimpleText.tscn")
 @onready var text_box_scene_elec = preload("res://scenes/elements/textbox/TextBoxElec.tscn")
 
 var dialog_lines = []
 var current_line_index =  0
 var text_box
 
-enum TextBoxTypes{MILITANT, REPONSE, ELEC, TEST}
+enum TextBoxTypes{MILITANT, REPONSE, ELEC, TEST, SIMPLEBUTTON, SIMPLETEXT}
 
 var text_box_type
 
@@ -30,6 +32,8 @@ signal buttonPressed
 var flip
 var quickText
 
+var blockDialog = false
+
 # flip not working yet
 # aquickText true if the text should be instantly shown
 func start_dialog(position:Vector2, 
@@ -42,7 +46,7 @@ func start_dialog(position:Vector2,
 	text_box_type = type
 	flip = aflip
 	
-	if type == TextBoxTypes.REPONSE:
+	if type in [TextBoxTypes.REPONSE, TextBoxTypes.SIMPLEBUTTON, TextBoxTypes.SIMPLETEXT]:
 		aquickText = true
 	quickText = aquickText
 	
@@ -67,8 +71,16 @@ func _show_text_box():
 		TextBoxTypes.MILITANT:
 			text_box = text_box_scene_militant.instantiate()
 		TextBoxTypes.REPONSE:
+			# Texte avec encart, cliquable
 			text_box = text_box_scene_reponse.instantiate()
 			text_box.buttonPressed.connect(_on_text_box_button_pressed)
+		TextBoxTypes.SIMPLEBUTTON:
+			# Texte sans encart, cliquable
+			text_box = text_box_scene_simplebutton.instantiate()
+			text_box.buttonPressed.connect(_on_text_box_button_pressed)
+		TextBoxTypes.SIMPLETEXT:
+			# Texte avec encart, non cliquable
+			text_box = text_box_scene_simpletext.instantiate()
 		TextBoxTypes.ELEC:
 			text_box = text_box_scene_elec.instantiate()
 			if flip:
@@ -78,7 +90,7 @@ func _show_text_box():
 	
 	
 	text_box.finished_displaying.connect(_on_text_box_finished_displaying)
-	get_tree().root.add_child(text_box)
+	get_tree().root.get_node("Main").add_child(text_box)
 	text_box.global_position = text_box_position - Vector2(0, text_box.size.y)
 	text_box.display_text(self, dialog_lines[current_line_index], panelInitialSize)
 	text_box.quickTextSpeed = quickText
@@ -91,18 +103,12 @@ func _on_text_box_finished_displaying():
 
 func inputCloseDialog():
 	
-	var crayon1 = get_node("../Main/Bruitages/Crayon1")
-	var crayon2 = get_node("../Main/Bruitages/Crayon2")
-	var crayon3 = get_node("../Main/Bruitages/Crayon3")
-	var crayon4 = get_node("../Main/Bruitages/Crayon4")
-	
 	if text_box_type == TextBoxTypes.MILITANT:
-		var tournerPage = get_node("../Main/Bruitages/TournerPage")
-		crayon1.stop()
-		crayon2.stop()
-		crayon3.stop()
-		crayon4.stop()
-		tournerPage.play()
+		get_node("../Main/Bruitages/Crayon1").stop()
+		get_node("../Main/Bruitages/Crayon2").stop()
+		get_node("../Main/Bruitages/Crayon3").stop()
+		get_node("../Main/Bruitages/Crayon4").stop()
+		get_node("../Main/Bruitages/TournerPage").play()
 	
 	
 	
@@ -122,8 +128,12 @@ func _on_text_box_button_pressed():
 	
 
 func _unhandled_input(event):
+	if blockDialog:
+		return
+	
 	if( event.is_action_pressed("advanced_dialog") && is_dialog_active):
-		if( text_box_type == TextBoxTypes.REPONSE ):
+		# do not close dialoge for response and simple button
+		if( text_box_type in [TextBoxTypes.REPONSE, TextBoxTypes.SIMPLEBUTTON, TextBoxTypes.SIMPLETEXT] ):
 			if(current_line_index + 1 >= dialog_lines.size() ):
 				return
 		

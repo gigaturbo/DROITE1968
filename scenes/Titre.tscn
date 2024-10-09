@@ -21,9 +21,9 @@ texture = ExtResource("2_n7xqo")
 centered = false
 
 [node name="Start" type="TextureButton" parent="."]
-offset_left = 269.0
+offset_left = 322.0
 offset_top = 540.0
-offset_right = 770.0
+offset_right = 823.0
 offset_bottom = 704.0
 scale = Vector2(0.35, 0.35)
 texture_normal = ExtResource("4_ib5wl")
@@ -31,9 +31,9 @@ texture_pressed = ExtResource("5_115du")
 texture_hover = ExtResource("6_g7e5v")
 
 [node name="Credits" type="TextureButton" parent="."]
-offset_left = 491.0
+offset_left = 600.0
 offset_top = 540.0
-offset_right = 1139.0
+offset_right = 1248.0
 offset_bottom = 704.0
 scale = Vector2(0.35, 0.35)
 texture_normal = ExtResource("7_e3r78")
@@ -41,6 +41,7 @@ texture_pressed = ExtResource("8_6cg4m")
 texture_hover = ExtResource("9_hbhi7")
 
 [node name="Quitter" type="TextureButton" parent="."]
+visible = false
 offset_left = 756.0
 offset_top = 540.0
 offset_right = 1394.0

@@ -39,17 +39,17 @@ func init(itemType: String, missionText:String):
 	
 	match itemType:
 		"machine":
-			$TextureButton.scale = 0.9 * Vector2(1,1)
+			$TextureButton.scale = 1.05 * Vector2(1,1)
 			rscale = $TextureButton.scale
 		"manger":
 			$TextureButton.position += Vector2(0, -20)
-			$TextureButton.scale = 1 * Vector2(1,1)
+			$TextureButton.scale = 1.25 * Vector2(1,1)
 			rscale = $TextureButton.scale
 		"carnet":
-			$TextureButton.scale = 0.9 * Vector2(1,1)
+			$TextureButton.scale = 0.8 * Vector2(1,1)
 			rscale = $TextureButton.scale
 		"matraque":
-			$TextureButton.scale = 1.35 * Vector2(1,1)
+			$TextureButton.scale = 1.45 * Vector2(1,1)
 			rscale = $TextureButton.scale
 		"collagepiege":
 			$TextureButton.scale = 0.9 * Vector2(1,1)
