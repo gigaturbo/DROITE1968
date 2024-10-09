@@ -15,21 +15,15 @@ signal quitResults
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	isFinished = false
-	$charles_bien.modulate = Color.TRANSPARENT
-	$charles_bof.modulate = Color.TRANSPARENT
-	$charles_neutre.modulate = Color.TRANSPARENT
-	_suc.modulate = Color.TRANSPARENT
-	_ech.modulate = Color.TRANSPARENT
-	_neu.modulate = Color.TRANSPARENT
-	_cont.modulate = Color.TRANSPARENT
-	_rtl.clear()
+	reset()
 	
 func reset():
 	isFinished = false
 	$charles_bien.modulate = Color.TRANSPARENT
 	$charles_bof.modulate = Color.TRANSPARENT
 	$charles_neutre.modulate = Color.TRANSPARENT
+	$charles_joy.modulate = Color.TRANSPARENT
+	$charles_fury.modulate = Color.TRANSPARENT
 	_suc.modulate = Color.TRANSPARENT
 	_ech.modulate = Color.TRANSPARENT
 	_neu.modulate = Color.TRANSPARENT
@@ -38,7 +32,8 @@ func reset():
 	
 func showPanel(text, hum):
 	
-	_rtl.clear()
+	reset()
+	
 	_rtl.push_font_size(textSize)
 	_rtl.append_text(text)
 	_rtl.pop()
@@ -51,26 +46,26 @@ func showPanel(text, hum):
 	tween.tween_property(_cont, "modulate", Color.WHITE, 0.75)
 	tween.tween_property(_rtl, "visible_characters", parsedText.length(), 0.015*parsedText.length())
 	
+	
 	# Make stamp and Pasqua appear
 	match hum:
+		-2:
+			# TODO update sprite
+			tween.tween_property(_ech, "modulate", Color.WHITE, 0.75)
+			tween.parallel().tween_property($charles_fury, "modulate", Color.WHITE, 1.5)
 		-1:
-			$charles_bien.modulate = Color.TRANSPARENT
-			$charles_bof.modulate = Color.TRANSPARENT
-			$charles_neutre.modulate = Color.TRANSPARENT
 			tween.tween_property(_ech, "modulate", Color.WHITE, 0.75)
 			tween.parallel().tween_property($charles_bof, "modulate", Color.WHITE, 1.5)
 		0:
-			$charles_bien.modulate = Color.TRANSPARENT
-			$charles_bof.modulate = Color.TRANSPARENT
-			$charles_neutre.modulate = Color.TRANSPARENT
 			tween.tween_property(_neu, "modulate", Color.WHITE, 0.75)
 			tween.parallel().tween_property($charles_neutre, "modulate", Color.WHITE, 1.5)
 		1:
-			$charles_bien.modulate = Color.TRANSPARENT
-			$charles_bof.modulate = Color.TRANSPARENT
-			$charles_neutre.modulate = Color.TRANSPARENT
 			tween.tween_property(_suc, "modulate", Color.WHITE, 0.75)
 			tween.parallel().tween_property($charles_bien, "modulate", Color.WHITE, 1.5)
+		2:
+			# TODO update sprite
+			tween.tween_property(_suc, "modulate", Color.WHITE, 0.75)
+			tween.parallel().tween_property($charles_joy, "modulate", Color.WHITE, 1.5)
 	
 	
 	return tween.finished

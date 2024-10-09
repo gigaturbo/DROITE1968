@@ -44,6 +44,18 @@ rotation = -0.0174533
 scale = Vector2(0.308, 0.308)
 texture = ExtResource("5_4q4df")
 
+[node name="charles_fury" type="Sprite2D" parent="."]
+position = Vector2(355, 484)
+rotation = -0.0174533
+scale = Vector2(0.308, 0.308)
+texture = ExtResource("5_4q4df")
+
+[node name="charles_joy" type="Sprite2D" parent="."]
+position = Vector2(355, 484)
+rotation = -0.0174533
+scale = Vector2(0.308, 0.308)
+texture = ExtResource("5_4q4df")
+
 [node name="table" type="Sprite2D" parent="."]
 z_index = 128
 scale = Vector2(0.308, 0.308)
