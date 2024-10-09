@@ -163,18 +163,21 @@ func _ready():
 	$Tuto.hide()
 	$Score.hide()
 	$Credits.hide()
+	$Histoire.hide()
 	
 	var appearTime = 1
 	
 	$Titre.get_node("Start").modulate = Color.TRANSPARENT
 	$Titre.get_node("Credits").modulate = Color.TRANSPARENT
 	$Titre.get_node("Quitter").modulate = Color.TRANSPARENT
+	$Titre.get_node("Histoire").modulate = Color.TRANSPARENT
 	$CanvasLayer/MuteButton.modulate = Color.TRANSPARENT
 	
 	var tween = get_tree().create_tween()
 	tween.parallel().tween_property($Titre.get_node("Start"), "modulate", Color.WHITE, appearTime).set_trans(Tween.TRANS_CUBIC)
 	tween.parallel().tween_property($Titre.get_node("Credits"), "modulate", Color.WHITE, appearTime).set_trans(Tween.TRANS_CUBIC)
 	tween.parallel().tween_property($Titre.get_node("Quitter"), "modulate", Color.WHITE, appearTime).set_trans(Tween.TRANS_CUBIC)
+	tween.parallel().tween_property($Titre.get_node("Histoire"), "modulate", Color.WHITE, appearTime).set_trans(Tween.TRANS_CUBIC)
 	tween.parallel().tween_property($CanvasLayer/MuteButton, "modulate", Color.WHITE, appearTime).set_trans(Tween.TRANS_CUBIC)
 	
 	tween = get_tree().create_tween().set_loops()
@@ -246,6 +249,7 @@ func _on_titre_start_button_pressed():
 	$Titre.hide()
 	$Score.hide()
 	$Credits.hide()
+	$Histoire.hide()
 	$Tuto.show()
 	$Tuto.startTuto()
 	
@@ -253,6 +257,7 @@ func _on_tuto_end_tuto():
 	$Titre.hide()
 	$Tuto.hide()
 	$Score.hide()
+	$Histoire.hide()
 	$Credits.hide()
 	startDays() # START OF THE FUN
 	
@@ -286,6 +291,7 @@ func startDays():
 	$Titre.hide()
 	$Tuto.hide()
 	$Score.hide()
+	$Histoire.hide()
 	$Credits.hide()
 	score = 0 
 	dayMissions = []
@@ -482,7 +488,6 @@ func _mission_selected(obj):
 	anyMissionSelected.emit(obj)
 
 
-
 func _dialog_manager_response(cdialog):
 	var answered = cdialog.id
 	DialogManager.inputCloseDialog()
@@ -572,3 +577,17 @@ func _on_score_credits_pressed() -> void:
 
 func _on_score_quitter_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_titre_histoire_button_pressed() -> void:
+	$Titre.hide()
+	if is_instance_valid($CPUParticles2D):
+		$CPUParticles2D.hide()
+	$Histoire.show()
+
+
+func _on_histoire_retour_pressed() -> void:
+	$Histoire.hide()
+	$Titre.show()
+	if is_instance_valid($CPUParticles2D):
+		$CPUParticles2D.hide()

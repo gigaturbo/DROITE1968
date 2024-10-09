@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://kjwkp7hja2wp"]
+
+[ext_resource type="Script" path="res://scripts/histoire.gd" id="1_oqb2d"]
+[ext_resource type="Texture2D" uid="uid://6808uypa5p5n" path="res://assets/image/fonds/page contexte.png" id="1_u2ksp"]
+[ext_resource type="Texture2D" uid="uid://djsuewtmyrd4e" path="res://assets/image/interfaces/ui_fleche_normal.png" id="2_em32p"]
+[ext_resource type="Texture2D" uid="uid://cg50oracp1h5u" path="res://assets/image/interfaces/ui_fleche_selected et highlight.png" id="3_y8shw"]
+
+[node name="Histoire" type="Node2D"]
+script = ExtResource("1_oqb2d")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.308, 0.308)
+texture = ExtResource("1_u2ksp")
+centered = false
+
+[node name="Retour" type="TextureButton" parent="."]
+offset_left = 25.0
+offset_top = 21.0
+offset_right = 340.0
+offset_bottom = 236.0
+scale = Vector2(0.324298, 0.324298)
+texture_normal = ExtResource("2_em32p")
+texture_pressed = ExtResource("3_y8shw")
+
+[connection signal="pressed" from="Retour" to="." method="_on_retour_pressed"]
