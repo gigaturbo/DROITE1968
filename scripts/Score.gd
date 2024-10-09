@@ -42,7 +42,7 @@ func init(score, answers):
 		$loose.show()
 		if not _DEBUG:
 			get_node("../Musiques/MarseillaiseFluteBad").play()
-	elif score <= 12:
+	else :
 		$win.show()
 		if not _DEBUG:
 			get_node("../Musiques/MarseillaisePianoGood").play()

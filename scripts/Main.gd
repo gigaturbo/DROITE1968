@@ -343,6 +343,13 @@ func startDays():
 			
 				await get_tree().create_timer(0.2).timeout
 			
+				# Show tutorial panel (militant)
+				$TED.setText("")
+				$TED.show()
+				await $TED.setText("[center]ANALYSEZ LE MILITANT[/center]").startText().textFinished
+				await $TED.mousePressed
+				$TED.hide()
+			
 				# Militant present him/herself
 				await DialogManager.start_dialog($ResponseLocation.position, 
 					Vector2(400,100), 
@@ -404,12 +411,13 @@ func startDays():
 				add_child(mis)
 				mis.show()
 			
-			# Show tutorial panel
-			$TED.setText("")
-			$TED.show()
-			await $TED.setText("[center]DONNEZ-LUI LA BONNE MISSION\nOU RISQUEZ L'ÉCHEC![/center]").startText().textFinished
-			await $TED.mousePressed
-			$TED.hide()
+			if(!adminSkip):
+				# Show tutorial panel (mission)
+				await $TED.setText("")
+				$TED.show()
+				await $TED.setText("[center]DONNEZ-LUI LA BONNE MISSION\nOU RISQUEZ L'ÉCHEC![/center]").startText().textFinished
+				await $TED.mousePressed
+				$TED.hide()
 			
 			# enable missions clicking
 			for mis in dayMissions:
