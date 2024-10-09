@@ -8,7 +8,8 @@ extends Node2D
 
 
 signal rejouerPressed
-signal menuPressed
+signal quitterPressed
+signal creditsPressed
 
 
 func _ready():
@@ -28,17 +29,17 @@ func reset():
 func init(score, answers):
 	reset()
 	
-	#get_node("../Musiques/Musique1Radio").stop()
-	#get_node("../Musiques/Musique1").stop()
+	get_node("../Musiques/Musique1Radio").stop()
+	get_node("../Musiques/Musique1").stop()
 	
 	var tween = get_tree().create_tween()
 	
 	if score < 6:
 		$loose.show()
-		#get_node("../Musiques/MarseillaiseFluteBad").play()
+		get_node("../Musiques/MarseillaiseFluteBad").play()
 	elif score <= 12:
 		$win.show()
-		#get_node("../Musiques/MarseillaisePianoGood").play()
+		get_node("../Musiques/MarseillaisePianoGood").play()
 
 	$calepin.show()
 	tween.parallel().tween_property($calepin, "position", $calepin_pos.position, 2).set_trans(Tween.TRANS_ELASTIC)
@@ -59,5 +60,9 @@ func _on_rejouer_pressed() -> void:
 	rejouerPressed.emit()
 
 
-func _on_menu_pressed() -> void:
-	menuPressed.emit()
+func _on_quitter_pressed() -> void:
+	quitterPressed.emit()
+
+
+func _on_credits_pressed() -> void:
+	creditsPressed.emit()

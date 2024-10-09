@@ -239,7 +239,8 @@ func getContext(mcont : EnumContexts):
 func _on_titre_start_button_pressed():
 	radioMusic = false # change music to the main one (music 1 with no radio mode)
 	$Musiques/RadioSwitchFader.start()
-	$CPUParticles2D.queue_free()
+	if is_instance_valid($CPUParticles2D):
+		$CPUParticles2D.queue_free()
 	$Titre.hide()
 	$Score.hide()
 	$Credits.hide()
@@ -559,9 +560,13 @@ func _on_mute_button_mouse_exited():
 	$CanvasLayer/MuteButton.modulate = Color(1,1,1,0.5)
 
 
-func _on_score_menu_pressed() -> void:
-	pass # TODO
-
-
 func _on_score_rejouer_pressed() -> void:
 	startDays()
+
+
+func _on_score_credits_pressed() -> void:
+	_on_titre_credit_button_pressed()
+
+
+func _on_score_quitter_pressed() -> void:
+	get_tree().quit()
