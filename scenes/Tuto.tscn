@@ -12,7 +12,6 @@
 script = ExtResource("1_2luo7")
 
 [node name="Bureau" parent="." instance=ExtResource("2_epp7i")]
-visible = false
 
 [node name="contexte" type="MarginContainer" parent="."]
 offset_left = 184.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://cakpsc8hxpp4q"]
+[gd_scene load_steps=76 format=3 uid="uid://cakpsc8hxpp4q"]
 
 [ext_resource type="Script" path="res://scripts/Main.gd" id="1_3ouxd"]
 [ext_resource type="PackedScene" uid="uid://7d74krn38k4p" path="res://scenes/Titre.tscn" id="2_soksl"]
@@ -32,8 +32,6 @@
 [ext_resource type="AudioStream" uid="uid://dwir2bv7dskdx" path="res://assets/audio/bruitages/zip.mp3" id="27_ieiqw"]
 [ext_resource type="AudioStream" uid="uid://xbdatc4ynnon" path="res://assets/audio/bruitages/reussite_echec/echec.mp3" id="28_7kkeb"]
 [ext_resource type="AudioStream" uid="uid://eo8i83eogpha" path="res://assets/audio/bruitages/reussite_echec/reussite.mp3" id="29_nshja"]
-[ext_resource type="Texture2D" uid="uid://b5kyywgf3myph" path="res://assets/image/FX/chemin_blanc.png" id="30_7frup"]
-[ext_resource type="Script" path="res://scripts/radio_CPUParticles2D.gd" id="31_j4dn1"]
 [ext_resource type="Texture2D" uid="uid://bwe73k1qvuxih" path="res://assets/image/interfaces/bouton_music_off.png" id="33_bt3gb"]
 [ext_resource type="Script" path="res://scripts/global_button.gd" id="34_q8p1b"]
 [ext_resource type="Texture2D" uid="uid://f3f3debgt1pk" path="res://assets/image/FX/fumee/fumee_00000.png" id="34_ui7fl"]
@@ -49,6 +47,7 @@
 [ext_resource type="Texture2D" uid="uid://cd3le74b4t744" path="res://assets/image/FX/fumee/fumee_00009.png" id="43_12ix6"]
 [ext_resource type="Texture2D" uid="uid://dq3jlaatqj2ry" path="res://assets/image/FX/fumee/fumee_00010.png" id="44_tyjl8"]
 [ext_resource type="Texture2D" uid="uid://ch3hq1wc0gep4" path="res://assets/image/FX/fumee/fumee_00011.png" id="45_hftjt"]
+[ext_resource type="Texture2D" uid="uid://bokp4ed6m6288" path="res://assets/image/FX/UI_radio_note_1.png" id="46_qyrua"]
 [ext_resource type="Texture2D" uid="uid://drdgbri1ojt73" path="res://assets/image/FX/fumee/fumee_00012.png" id="46_s0232"]
 [ext_resource type="Texture2D" uid="uid://ca2j8tvb7yk2t" path="res://assets/image/FX/fumee/fumee_00013.png" id="47_toqnr"]
 [ext_resource type="Texture2D" uid="uid://chwi6xvjsjrnf" path="res://assets/image/FX/fumee/fumee_00014.png" id="48_8w5ho"]
@@ -74,10 +73,6 @@
 [ext_resource type="Texture2D" uid="uid://dv1m8s1pext5s" path="res://assets/image/FX/fumee/fumee_00034.png" id="68_54plf"]
 [ext_resource type="Texture2D" uid="uid://bullebpuqrurj" path="res://assets/image/FX/fumee/fumee_00035.png" id="69_ntkpa"]
 [ext_resource type="Texture2D" uid="uid://cfnd0h0aq0pmg" path="res://assets/image/interfaces/bouton_replay.png" id="73_aq4lc"]
-
-[sub_resource type="Gradient" id="Gradient_dy0w0"]
-offsets = PackedFloat32Array(0, 0.284211, 0.368421, 0.857895, 0.994737)
-colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hqb8y"]
 animations = [{
@@ -195,8 +190,13 @@ animations = [{
 "speed": 15.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_b2do6"]
+colors = PackedColorArray(0.4752, 0.56958, 0.99, 1, 0.97, 0.452667, 0.3492, 1)
+
 [node name="Main" type="Node2D"]
 script = ExtResource("1_3ouxd")
+
+[node name="Histoire" parent="." instance=ExtResource("6_cm2kw")]
 
 [node name="Titre" parent="." instance=ExtResource("2_soksl")]
 
@@ -205,8 +205,6 @@ script = ExtResource("1_3ouxd")
 [node name="Score" parent="." instance=ExtResource("4_ei2rq")]
 
 [node name="Credits" parent="." instance=ExtResource("5_vykkf")]
-
-[node name="Histoire" parent="." instance=ExtResource("6_cm2kw")]
 
 [node name="DoorLocation" type="Marker2D" parent="."]
 position = Vector2(285, 488)
@@ -234,6 +232,34 @@ z_index = 300
 position = Vector2(538, 360)
 font_size = 35
 minimum_width = 750
+
+[node name="FX" type="Node2D" parent="."]
+
+[node name="CendrierFumee" type="AnimatedSprite2D" parent="FX"]
+z_index = 145
+z_as_relative = false
+position = Vector2(0, -1)
+scale = Vector2(0.308, 0.308)
+sprite_frames = SubResource("SpriteFrames_hqb8y")
+centered = false
+
+[node name="NotesMusique" type="CPUParticles2D" parent="FX"]
+position = Vector2(122, 590)
+amount = 3
+lifetime = 2.0
+explosiveness = 0.1
+randomness = 0.2
+texture = ExtResource("46_qyrua")
+direction = Vector2(1, -0.8)
+spread = 30.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 85.0
+initial_velocity_max = 85.0
+damping_min = 10.0
+damping_max = 10.0
+scale_amount_min = 0.15
+scale_amount_max = 0.2
+color_ramp = SubResource("Gradient_b2do6")
 
 [node name="Musiques" type="Node" parent="."]
 
@@ -340,37 +366,6 @@ stream = ExtResource("28_7kkeb")
 stream = ExtResource("29_nshja")
 volume_db = 3.0
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-position = Vector2(141, 580)
-amount = 3
-lifetime = 3.0
-fixed_fps = 24
-texture = ExtResource("30_7frup")
-direction = Vector2(0.422618, -0.906308)
-spread = 10.0
-gravity = Vector2(0, 0)
-initial_velocity_min = 101.69
-initial_velocity_max = 101.69
-damping_min = 28.813
-damping_max = 28.813
-angle_min = -25.0
-angle_max = -25.0
-scale_amount_min = 0.45
-scale_amount_max = 0.45
-color = Color(0.894118, 0.909804, 0.964706, 0.870588)
-color_ramp = SubResource("Gradient_dy0w0")
-script = ExtResource("31_j4dn1")
-scaleTexture = 0.45
-angleTexture = 65
-
-[node name="CendrierFumee" type="AnimatedSprite2D" parent="."]
-z_index = 145
-z_as_relative = false
-position = Vector2(0, -1)
-scale = Vector2(0.308, 0.308)
-sprite_frames = SubResource("SpriteFrames_hqb8y")
-centered = false
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="MuteButton" type="TextureButton" parent="CanvasLayer"]
@@ -433,6 +428,7 @@ position = Vector2(408, 572)
 [node name="ReplayWindowLocation" type="Marker2D" parent="CanvasLayer"]
 position = Vector2(326, 571)
 
+[connection signal="retourPressed" from="Histoire" to="." method="_on_histoire_retour_pressed"]
 [connection signal="creditButtonPressed" from="Titre" to="." method="_on_titre_credit_button_pressed"]
 [connection signal="histoireButtonPressed" from="Titre" to="." method="_on_titre_histoire_button_pressed"]
 [connection signal="startButtonPressed" from="Titre" to="." method="_on_titre_start_button_pressed"]
@@ -441,7 +437,6 @@ position = Vector2(326, 571)
 [connection signal="quitterPressed" from="Score" to="." method="_on_score_quitter_pressed"]
 [connection signal="rejouerPressed" from="Score" to="." method="_on_score_rejouer_pressed"]
 [connection signal="exitCredits" from="Credits" to="." method="_on_credits_exit_credits"]
-[connection signal="retourPressed" from="Histoire" to="." method="_on_histoire_retour_pressed"]
 [connection signal="timeout" from="Musiques/RadioStartWaiter" to="." method="_on_radio_start_waiter_timeout"]
 [connection signal="mouse_entered" from="CanvasLayer/MuteButton" to="CanvasLayer/MuteButton" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/MuteButton" to="CanvasLayer/MuteButton" method="_on_mouse_exited"]

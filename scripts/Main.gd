@@ -128,7 +128,7 @@ func _ready():
 	$Score.hide()
 	$Credits.hide()
 	$Histoire.hide()
-	$CendrierFumee.hide()
+	$FX/CendrierFumee.hide()
 	
 	# Make a list of object appear smoothly
 	var appearTime = 1.0
@@ -208,12 +208,12 @@ func getContext(mcont : EnumContexts):
 func _on_titre_start_button_pressed():
 	radioMusic = false # change music to the main one (music 1 with no radio mode)
 	$Musiques/RadioSwitchFader.start()
-	$CPUParticles2D.hide()
+	$FX/NotesMusique.hide()
 	$Titre.hide()
 	$Score.hide()
 	$Credits.hide()
 	$Histoire.hide()
-	$CendrierFumee.hide()
+	$FX/CendrierFumee.hide()
 	$Tuto.show()
 	$Tuto.startTuto()
 	
@@ -221,9 +221,9 @@ func _on_tuto_end_tuto():
 	$Titre.hide()
 	$Tuto.hide()
 	$Score.hide()
-	$CPUParticles2D.hide()
+	$FX/NotesMusique.hide()
 	$Histoire.hide()
-	$CendrierFumee.hide()
+	$FX/CendrierFumee.hide()
 	$Credits.hide()
 	startDays() # START OF THE FUN
 	
@@ -259,9 +259,9 @@ func startDays():
 	$Score.hide()
 	$Histoire.hide()
 	$Credits.hide()
-	$CPUParticles2D.hide()
-	$CendrierFumee.show()
-	$CendrierFumee.play()
+	$FX/NotesMusique.hide()
+	$FX/CendrierFumee.show()
+	$FX/CendrierFumee.play()
 	score = 0 
 	dayMissions = []
 	militant = null
@@ -457,8 +457,8 @@ func startDays():
 	
 	# Show scores
 	bg.hide()
-	$CendrierFumee.hide()
-	$CendrierFumee.stop()
+	$FX/CendrierFumee.hide()
+	$FX/CendrierFumee.stop()
 	$CanvasLayer/QuitButton.hide()
 	$CanvasLayer/ReplayButton.hide()
 	$Score.show()
@@ -514,7 +514,7 @@ func _on_credits_exit_credits():
 	$Score.hide()
 	$Credits.hide()
 	$Credits.init()
-	$CPUParticles2D.show()
+	$FX/NotesMusique.show()
 
 
 func _on_titre_credit_button_pressed():
@@ -523,7 +523,7 @@ func _on_titre_credit_button_pressed():
 	$Score.hide()
 	$Credits.show()
 	$Credits.init()
-	$CPUParticles2D.show()
+	$FX/NotesMusique.show()
 
 func setPauseMode(mybool):
 	
@@ -573,7 +573,6 @@ func setPauseMode(mybool):
 				_i.disabled = false
 
 func tryQuitGame():
-	
 	
 	DialogManagerGUI.inputCloseDialog()
 	DialogManagerGUIYes.inputCloseDialog()
@@ -684,7 +683,11 @@ func _on_radio_start_waiter_timeout():
 
 func _on_mute_button_pressed():
 	AudioServer.set_bus_mute(0, $CanvasLayer/MuteButton.button_pressed)
-
+	if AudioServer.is_bus_mute(0):
+		$FX/NotesMusique.emitting = false
+	else:
+		$FX/NotesMusique.emitting = true
+	
 
 func getallnodes_rec(node):
 	var nodelist = node.get_children()
@@ -707,11 +710,11 @@ func _on_score_quitter_pressed() -> void:
 
 func _on_titre_histoire_button_pressed() -> void:
 	$Titre.hide()
-	$CPUParticles2D.hide()
+	$FX/NotesMusique.hide()
 	$Histoire.show()
 
 
 func _on_histoire_retour_pressed() -> void:
 	$Histoire.hide()
 	$Titre.show()
-	$CPUParticles2D.show()
+	$FX/NotesMusique.show()
