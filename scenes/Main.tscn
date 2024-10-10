@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://cakpsc8hxpp4q"]
+[gd_scene load_steps=129 format=3 uid="uid://cakpsc8hxpp4q"]
 
 [ext_resource type="Script" path="res://scripts/Main.gd" id="1_3ouxd"]
 [ext_resource type="PackedScene" uid="uid://7d74krn38k4p" path="res://scenes/Titre.tscn" id="2_soksl"]
@@ -46,34 +46,84 @@
 [ext_resource type="Texture2D" uid="uid://bwwbxxkrrt1aa" path="res://assets/image/FX/fumee/fumee_00008.png" id="42_8mmr7"]
 [ext_resource type="Texture2D" uid="uid://cd3le74b4t744" path="res://assets/image/FX/fumee/fumee_00009.png" id="43_12ix6"]
 [ext_resource type="Texture2D" uid="uid://gy4almypv5dr" path="res://assets/image/FX/UI_radio_note_1234.png" id="44_06c0l"]
+[ext_resource type="Texture2D" uid="uid://dcxl4sup2t0eg" path="res://assets/image/FX/lumiere/lumiere lampe_00000.png" id="44_rmtxl"]
 [ext_resource type="Texture2D" uid="uid://dq3jlaatqj2ry" path="res://assets/image/FX/fumee/fumee_00010.png" id="44_tyjl8"]
+[ext_resource type="Texture2D" uid="uid://deoodgndvk2dw" path="res://assets/image/FX/lumiere/lumiere lampe_00001.png" id="45_2r8x1"]
 [ext_resource type="Texture2D" uid="uid://ch3hq1wc0gep4" path="res://assets/image/FX/fumee/fumee_00011.png" id="45_hftjt"]
 [ext_resource type="Texture2D" uid="uid://68n7vlkvwkfi" path="res://assets/image/FX/UI_onde.png" id="45_l4xa6"]
+[ext_resource type="Texture2D" uid="uid://d0o2glas711k4" path="res://assets/image/FX/lumiere/lumiere lampe_00002.png" id="46_3naeb"]
 [ext_resource type="Texture2D" uid="uid://drdgbri1ojt73" path="res://assets/image/FX/fumee/fumee_00012.png" id="46_s0232"]
 [ext_resource type="Texture2D" uid="uid://ca2j8tvb7yk2t" path="res://assets/image/FX/fumee/fumee_00013.png" id="47_toqnr"]
+[ext_resource type="Texture2D" uid="uid://d2py5aixmv3d4" path="res://assets/image/FX/lumiere/lumiere lampe_00003.png" id="47_vmo11"]
+[ext_resource type="Texture2D" uid="uid://h23esdc8rtpc" path="res://assets/image/FX/lumiere/lumiere lampe_00004.png" id="48_3hjsi"]
 [ext_resource type="Texture2D" uid="uid://chwi6xvjsjrnf" path="res://assets/image/FX/fumee/fumee_00014.png" id="48_8w5ho"]
+[ext_resource type="Texture2D" uid="uid://bodcklavn8ffx" path="res://assets/image/FX/lumiere/lumiere lampe_00005.png" id="49_1npqu"]
 [ext_resource type="Texture2D" uid="uid://7g33mh0mws0w" path="res://assets/image/FX/fumee/fumee_00015.png" id="49_ilo3b"]
+[ext_resource type="Texture2D" uid="uid://bokvclnm11nky" path="res://assets/image/FX/lumiere/lumiere lampe_00006.png" id="50_q6yt1"]
 [ext_resource type="Texture2D" uid="uid://s8ei8arr62rt" path="res://assets/image/FX/fumee/fumee_00016.png" id="50_sjkqp"]
+[ext_resource type="Texture2D" uid="uid://b0uci36d1e12d" path="res://assets/image/FX/lumiere/lumiere lampe_00007.png" id="51_03fd3"]
 [ext_resource type="Texture2D" uid="uid://xvfa8ablsqrt" path="res://assets/image/FX/fumee/fumee_00017.png" id="51_op8ym"]
+[ext_resource type="Texture2D" uid="uid://cxmq8etgvt71f" path="res://assets/image/FX/lumiere/lumiere lampe_00008.png" id="52_j0csp"]
 [ext_resource type="Texture2D" uid="uid://dn1jv2wd2voey" path="res://assets/image/FX/fumee/fumee_00018.png" id="52_qfmgy"]
 [ext_resource type="Texture2D" uid="uid://bvdhqa7oau7ic" path="res://assets/image/FX/fumee/fumee_00019.png" id="53_5dd0i"]
+[ext_resource type="Texture2D" uid="uid://bksa1oukeyrg6" path="res://assets/image/FX/lumiere/lumiere lampe_00009.png" id="53_8ad37"]
+[ext_resource type="Texture2D" uid="uid://jawrnmypauai" path="res://assets/image/FX/lumiere/lumiere lampe_00010.png" id="54_4gwgf"]
 [ext_resource type="Texture2D" uid="uid://dvmtvlsiffj4j" path="res://assets/image/FX/fumee/fumee_00020.png" id="54_bj5us"]
+[ext_resource type="Texture2D" uid="uid://bqoo35jyefmdk" path="res://assets/image/FX/lumiere/lumiere lampe_00011.png" id="55_4d8of"]
 [ext_resource type="Texture2D" uid="uid://dhg84gy1uw25" path="res://assets/image/FX/fumee/fumee_00021.png" id="55_qrkdp"]
 [ext_resource type="Texture2D" uid="uid://bayojx1fvpcmn" path="res://assets/image/FX/fumee/fumee_00022.png" id="56_7yaii"]
+[ext_resource type="Texture2D" uid="uid://cru1ng5yf4kvj" path="res://assets/image/FX/lumiere/lumiere lampe_00012.png" id="56_idfo3"]
 [ext_resource type="Texture2D" uid="uid://ch4t48o4n151d" path="res://assets/image/FX/fumee/fumee_00023.png" id="57_0aapm"]
+[ext_resource type="Texture2D" uid="uid://cn24ffipqxwhn" path="res://assets/image/FX/lumiere/lumiere lampe_00013.png" id="57_g1unr"]
 [ext_resource type="Texture2D" uid="uid://cyiyj7plv2op3" path="res://assets/image/FX/fumee/fumee_00024.png" id="58_6eymm"]
+[ext_resource type="Texture2D" uid="uid://bat7gph40lu5r" path="res://assets/image/FX/lumiere/lumiere lampe_00014.png" id="58_q2q2q"]
+[ext_resource type="Texture2D" uid="uid://r61n5fvo74c4" path="res://assets/image/FX/lumiere/lumiere lampe_00015.png" id="59_dlea5"]
 [ext_resource type="Texture2D" uid="uid://70oaeiqlqa2t" path="res://assets/image/FX/fumee/fumee_00025.png" id="59_u2047"]
+[ext_resource type="Texture2D" uid="uid://d3oux7413p07m" path="res://assets/image/FX/lumiere/lumiere lampe_00016.png" id="60_v4wrk"]
 [ext_resource type="Texture2D" uid="uid://b1mp8v8bfulc" path="res://assets/image/FX/fumee/fumee_00026.png" id="60_wp16n"]
 [ext_resource type="Texture2D" uid="uid://8ricv21cyifq" path="res://assets/image/FX/fumee/fumee_00027.png" id="61_4t82b"]
+[ext_resource type="Texture2D" uid="uid://cq08iu0lke871" path="res://assets/image/FX/lumiere/lumiere lampe_00017.png" id="61_y787i"]
+[ext_resource type="Texture2D" uid="uid://bpaixelaa8fms" path="res://assets/image/FX/lumiere/lumiere lampe_00018.png" id="62_cc3jv"]
 [ext_resource type="Texture2D" uid="uid://dbr72kdiuks4" path="res://assets/image/FX/fumee/fumee_00028.png" id="62_ms3g2"]
 [ext_resource type="Texture2D" uid="uid://bx6nuoc2ve85t" path="res://assets/image/FX/fumee/fumee_00029.png" id="63_7wkbc"]
+[ext_resource type="Texture2D" uid="uid://bjpm2y8bx74wm" path="res://assets/image/FX/lumiere/lumiere lampe_00019.png" id="63_sg5sl"]
+[ext_resource type="Texture2D" uid="uid://centb3dicxs0m" path="res://assets/image/FX/lumiere/lumiere lampe_00020.png" id="64_1f8t1"]
 [ext_resource type="Texture2D" uid="uid://sn3y0m37jodn" path="res://assets/image/FX/fumee/fumee_00030.png" id="64_8224r"]
 [ext_resource type="Texture2D" uid="uid://dxdfy071gbda3" path="res://assets/image/FX/fumee/fumee_00031.png" id="65_jcuvb"]
+[ext_resource type="Texture2D" uid="uid://bkmr8fygs6gdk" path="res://assets/image/FX/lumiere/lumiere lampe_00021.png" id="65_yiq1w"]
 [ext_resource type="Texture2D" uid="uid://clqi3o3rs41v1" path="res://assets/image/FX/fumee/fumee_00032.png" id="66_khhxe"]
+[ext_resource type="Texture2D" uid="uid://c5116vouwtdwd" path="res://assets/image/FX/lumiere/lumiere lampe_00022.png" id="66_shsll"]
 [ext_resource type="Texture2D" uid="uid://cgqnmun46ckdh" path="res://assets/image/FX/fumee/fumee_00033.png" id="67_glst1"]
+[ext_resource type="Texture2D" uid="uid://7ub8clbwx0kr" path="res://assets/image/FX/lumiere/lumiere lampe_00023.png" id="67_xwyxi"]
 [ext_resource type="Texture2D" uid="uid://dv1m8s1pext5s" path="res://assets/image/FX/fumee/fumee_00034.png" id="68_54plf"]
+[ext_resource type="Texture2D" uid="uid://ro0aytx2wce2" path="res://assets/image/FX/lumiere/lumiere lampe_00024.png" id="68_bk18y"]
 [ext_resource type="Texture2D" uid="uid://bullebpuqrurj" path="res://assets/image/FX/fumee/fumee_00035.png" id="69_ntkpa"]
+[ext_resource type="Texture2D" uid="uid://bwwq5samxgbo" path="res://assets/image/FX/lumiere/lumiere lampe_00025.png" id="69_otni8"]
+[ext_resource type="Texture2D" uid="uid://bvxbx67p5ma74" path="res://assets/image/FX/lumiere/lumiere lampe_00026.png" id="70_h5mm5"]
+[ext_resource type="Texture2D" uid="uid://c5kdys7b5h7x2" path="res://assets/image/FX/lumiere/lumiere lampe_00027.png" id="71_c5n6m"]
+[ext_resource type="Texture2D" uid="uid://cxas3u5se808k" path="res://assets/image/FX/lumiere/lumiere lampe_00028.png" id="72_b0oaj"]
+[ext_resource type="Texture2D" uid="uid://k37h8s30nsvq" path="res://assets/image/FX/lumiere/lumiere lampe_00029.png" id="73_5xvy6"]
 [ext_resource type="Texture2D" uid="uid://cfnd0h0aq0pmg" path="res://assets/image/interfaces/bouton_replay.png" id="73_aq4lc"]
+[ext_resource type="Texture2D" uid="uid://dheg8n4fientn" path="res://assets/image/FX/lumiere/lumiere lampe_00030.png" id="74_m2lx6"]
+[ext_resource type="Texture2D" uid="uid://b3jg115apjcxq" path="res://assets/image/FX/lumiere/lumiere lampe_00031.png" id="75_lqp14"]
+[ext_resource type="Texture2D" uid="uid://cy4y1hk6kjmn8" path="res://assets/image/FX/lumiere/lumiere lampe_00032.png" id="76_05kgn"]
+[ext_resource type="Texture2D" uid="uid://csslven28s26w" path="res://assets/image/FX/lumiere/lumiere lampe_00033.png" id="77_n3266"]
+[ext_resource type="Texture2D" uid="uid://cx3mwgvap1djf" path="res://assets/image/FX/lumiere/lumiere lampe_00034.png" id="78_qalxj"]
+[ext_resource type="Texture2D" uid="uid://dlvl8t5pmrxqm" path="res://assets/image/FX/lumiere/lumiere lampe_00035.png" id="79_x37xg"]
+[ext_resource type="Texture2D" uid="uid://cecueqfga4smr" path="res://assets/image/FX/lumiere/lumiere lampe_00036.png" id="80_hdkyy"]
+[ext_resource type="Texture2D" uid="uid://cpyvm3jtec54w" path="res://assets/image/FX/lumiere/lumiere lampe_00037.png" id="81_6ehcy"]
+[ext_resource type="Texture2D" uid="uid://0c1xi8b7nlyh" path="res://assets/image/FX/lumiere/lumiere lampe_00038.png" id="82_d2dqx"]
+[ext_resource type="Texture2D" uid="uid://covx1mervpms0" path="res://assets/image/FX/lumiere/lumiere lampe_00039.png" id="83_ajwab"]
+[ext_resource type="Texture2D" uid="uid://ba3golgcgt5aa" path="res://assets/image/FX/lumiere/lumiere lampe_00040.png" id="84_ufilv"]
+[ext_resource type="Texture2D" uid="uid://petx26xmarht" path="res://assets/image/FX/lumiere/lumiere lampe_00041.png" id="85_t4aja"]
+[ext_resource type="Texture2D" uid="uid://u3catkr4jce5" path="res://assets/image/FX/lumiere/lumiere lampe_00042.png" id="86_0s71c"]
+[ext_resource type="Texture2D" uid="uid://dvtuw1md1kqa5" path="res://assets/image/FX/lumiere/lumiere lampe_00043.png" id="87_hxal1"]
+[ext_resource type="Texture2D" uid="uid://dg3uqg07p8i75" path="res://assets/image/FX/lumiere/lumiere lampe_00044.png" id="88_yi61b"]
+[ext_resource type="Texture2D" uid="uid://nlfycuycn361" path="res://assets/image/FX/lumiere/lumiere lampe_00045.png" id="89_uloxh"]
+[ext_resource type="Texture2D" uid="uid://ceagw3xocsbmc" path="res://assets/image/FX/lumiere/lumiere lampe_00046.png" id="90_v7pn0"]
+[ext_resource type="Texture2D" uid="uid://iahpi3h3nj40" path="res://assets/image/FX/lumiere/lumiere lampe_00047.png" id="91_4omef"]
+[ext_resource type="Texture2D" uid="uid://dcgpkksvxajah" path="res://assets/image/FX/lumiere/lumiere lampe_00048.png" id="92_wqvgc"]
+[ext_resource type="Texture2D" uid="uid://b1espfvpijhor" path="res://assets/image/FX/lumiere/lumiere lampe_00049.png" id="93_23fmy"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hqb8y"]
 animations = [{
@@ -191,6 +241,164 @@ animations = [{
 "speed": 15.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_k0204"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("44_rmtxl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_2r8x1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_3naeb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_vmo11")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_3hjsi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_1npqu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_q6yt1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_03fd3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_j0csp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_8ad37")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_4gwgf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_4d8of")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_idfo3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_g1unr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_q2q2q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_dlea5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_v4wrk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("61_y787i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("62_cc3jv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("63_sg5sl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("64_1f8t1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("65_yiq1w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66_shsll")
+}, {
+"duration": 1.0,
+"texture": ExtResource("67_xwyxi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("68_bk18y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("69_otni8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("70_h5mm5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("71_c5n6m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("72_b0oaj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("73_5xvy6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("74_m2lx6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("75_lqp14")
+}, {
+"duration": 1.0,
+"texture": ExtResource("76_05kgn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("77_n3266")
+}, {
+"duration": 1.0,
+"texture": ExtResource("78_qalxj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("79_x37xg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("80_hdkyy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("81_6ehcy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("82_d2dqx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("83_ajwab")
+}, {
+"duration": 1.0,
+"texture": ExtResource("84_ufilv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("85_t4aja")
+}, {
+"duration": 1.0,
+"texture": ExtResource("86_0s71c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("87_hxal1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("88_yi61b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("89_uloxh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("90_v7pn0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("91_4omef")
+}, {
+"duration": 1.0,
+"texture": ExtResource("92_wqvgc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("93_23fmy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 25.0
+}]
+
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ajkne"]
 particles_animation = true
 particles_anim_h_frames = 4
@@ -249,6 +457,15 @@ z_as_relative = false
 position = Vector2(0, -1)
 scale = Vector2(0.308, 0.308)
 sprite_frames = SubResource("SpriteFrames_hqb8y")
+centered = false
+
+[node name="Lumiere" type="AnimatedSprite2D" parent="FX"]
+z_index = 145
+z_as_relative = false
+position = Vector2(0, -1)
+scale = Vector2(0.616, 0.616)
+sprite_frames = SubResource("SpriteFrames_k0204")
+frame_progress = 0.424408
 centered = false
 
 [node name="NotesMusique" type="CPUParticles2D" parent="FX"]

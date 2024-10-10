@@ -130,8 +130,6 @@ var scores = [[[{"text": "Raymond n'a pas tenu. Les discours de ces petits rouge
 			 	"hum":0, "score":1}]]]
 
 
-
-
 var day = allDays[0]
 var dayMissions = []
 var	militant = null
@@ -162,6 +160,7 @@ func _ready():
 	$Credits.hide()
 	$Histoire.hide()
 	$FX/CendrierFumee.hide()
+	$FX/Lumiere.hide()
 	
 	# Make a list of object appear smoothly
 	var appearTime = 1.0
@@ -249,6 +248,7 @@ func _on_titre_start_button_pressed():
 	$Credits.hide()
 	$Histoire.hide()
 	$FX/CendrierFumee.hide()
+	$FX/Lumiere.hide()
 	$FX/Eclairs.emitting = false
 	$Tuto.show()
 	$Tuto.startTuto()
@@ -260,6 +260,7 @@ func _on_tuto_end_tuto():
 	$FX/NotesMusique.hide()
 	$Histoire.hide()
 	$FX/CendrierFumee.hide()
+	$FX/Lumiere.hide()
 	$FX/Eclairs.emitting = false
 	$Credits.hide()
 	startDays() # START OF THE FUN
@@ -306,6 +307,8 @@ func startDays():
 	$FX/NotesMusique.hide()
 	$FX/CendrierFumee.show()
 	$FX/CendrierFumee.play()
+	$FX/Lumiere.show()
+	$FX/Lumiere.play()
 	$FX/Eclairs.emitting = false
 	score = 0 
 	dayMissions = []
@@ -501,6 +504,8 @@ func startDays():
 	bg.hide()
 	$FX/CendrierFumee.hide()
 	$FX/CendrierFumee.stop()
+	$FX/Lumiere.hide()
+	$FX/Lumiere.stop()
 	$FX/Eclairs.emitting = false
 	$CanvasLayer/QuitButton.hide()
 	$CanvasLayer/ReplayButton.hide()
