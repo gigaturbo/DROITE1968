@@ -16,21 +16,51 @@ var allDays = [{"militants": [EnumMilitants.M1],
 				"missions": [[EnumMissions.J, 	EnumMissions.K, EnumMissions.L],
 							 [EnumMissions.M, 	EnumMissions.N, EnumMissions.O]]}]
 
-var missionContent = {EnumMissions.A: ["deguisement", "titre", "[font_size=20]Au lycée Jacques-Decour, [color=#e34425]une bande de communistes[/color] se réunit tous les midis pour organiser [b]l'arrachage de nos affiches[/b] de campagne. On a besoin d'informations à leur sujet, il faut aller les [b][u]observer discrètement[/u][/b][/font_size].\n\n[font_size=18][center] \"[i]Pourquoi espionner quand on peut effrayer ?\"[/i]\nCharles Prairie[/center][/font_size]"],
-				   	  EnumMissions.B: ["collage", "titre", "[font_size=20]La ville voisine est [color=#e34425]un bastion communiste[/color] et leur candidat y a un soutien solide. Allez [b][u]coller nos affiches[/u][/b] dans ses rues principales.[/font_size]\n\n[font_size=18][center] \"[i]Et si jamais vous croisez leurs gars, collez-leur autre chose dans la figure !\"[/i]\nCharles Prairie[/center][/font_size]"],
-					  EnumMissions.C: ["matraque", "titre", "[font_size=20][b]Nos militants[/b] distribuent des tracts, mais la dernière fois ça s'est mal terminé : ils [b]se sont fait cabosser[/b] par [color=#e34425]des opposants[/color]. Il faut envoyer un gars pour [b][u]les protéger[/u][/b] cette fois-ci.[/font_size]\n\n[font_size=18][center]  \"[i]Au premier regard de travers, on règle ça sans attendre.\"[/i]\nCharles Prairie[/center][/font_size]"],
-					  EnumMissions.D: ["collage", "titre", "[font_size=20]Il faut [b][u]recouvrir les affiches [color=#e34425]des rouges[/color][/u][/b] d'ici [b]demain matin[/b]. C’est de nuit que ce travail doit se faire, quand personne ne regarde...[/font_size]\n\n[font_size=18][center]  \"[i]La nuit, on ne sait jamais qui peut traîner dans l’ombre...\"[/i]\nCharles Prairie[/center][/font_size]"],
-					  EnumMissions.E: ["deguisement", "titre", "[font_size=20]Des [color=#e34425]étudiants en sociologie[/color] organisent des assemblées à la Maison des [color=#e34425]Syndicats[/color]. Ils y discutent de leurs prochaines actions et [b]recrutent des militants[/b]. Il est temps d’y envoyer quelqu’un [b][u]se fondre dans la masse et écouter[/u][/b] ce qui se dit.[/font_size]\n\n[font_size=18][center]  \"[i]Aucun vrai gaulliste ne peut se faire passer pour de la racaille...\"[/i]\nCharles Prairie[/center][/font_size]"],
-					  EnumMissions.F: ["collagepiege", "titre", "[font_size=20]Le visage de Charles Prairie est [b]régulièrement arraché[/b] des murs. Il faut [b][u]coller des affiches piégées[/u][/b] avec du verre pilé pour que ceux qui tentent de les retirer se [color=#e34425]blessent[/color]. Cette mission sera escortée.[/font_size]\n\n[font_size=18][center]  \"[i]Des coupures plein les mains, ça leur apprendra à toucher à ma tête !\"[/i]\nCharles Prairie[/center][/font_size]"],
-					  EnumMissions.G: ["machine", "titre", "[font_size=20][color=MediumOrchid]Cent tracts doivent être [u][b]tapés à la machine[/b][/u] pour la distribution de demain matin. C'est une tâche importante qui demande [i]précision et rapidité[/i].[/color][/font_size]\n\n[font_size=18][center]  \"[i]Se battre sur le terrain ou taper à la machine, même combat !\"[/i]\nCharles Prairie[/center][/font_size]"],
-					  EnumMissions.H: ["manger", "titre", "[font_size=20][color=MediumOrchid]Nos gars ont besoin d’être soutenus dans leur effort. [u][b]Préparer des sandwichs[/b][/u] et servir du vin est une tâche essentielle, un véritable [i]acte de dévouement[/i], pour leur donner la force de continuer.[/color][/font_size]\n\n[font_size=18][center]  \"[i]Et rien de tel qu'une touche féminine pour leur donner du baume au cœur !\"[/i]\nCharles Prairie[/center][/font_size]"],
-					  EnumMissions.I: ["carnet", "titre", "[font_size=20][color=MediumOrchid]Il faut [u][b]convaincre des gars[/b][/u] [i]solides, motivés et athlétiques[/i] que Charles Prairie est capable de faire cesser le chaos. On a besoin de militants qui [i]ne reculeront pas[/i]	.[/color][/font_size]\n\n[font_size=18][center]  \"[i]Faut nous ramener des costauds, et c’est pas pour déménager des meubles...\"[/i]\nCharles Prairie[/center][/font_size]"],
-					  EnumMissions.J: ["matraque", "titre", "[font_size=20][b]Notre équipe de colleurs[/b] d’affiches a été malmenée hier, [b]attaquée[/b] à coup de [color=#e34425]barres de fer[/color] et de [color=#e34425]chaînes de vélo[/color]. On a besoin d’hommes solides pour [u][b]les escorter[/b][/u] ce soir. Ça va chauffer...[/font_size]\n\n[font_size=18][center]  \"[i]Nom de nom ! Si j’avais deux minutes, j’irais avec vous...\"[/i]\nCharles Prairie[/center][/font_size]"],
-					  EnumMissions.K: ["collage", "titre", "[font_size=20]Il faut [u][b]recouvrir les affiches de [color=#e34425]nos adversaires[/color][/b][/u] en passant derrière eux : que les leurs [b]restent à peine en place[/b]. Pas de risque de bagarre, c'est [b]une bande de mômes[/b] qu'il faut suivre.[/font_size]\n\n[font_size=18][center]  \"[i]Ces gamins sont rapides comme des lapins, mais aussi facilement impressionnables.\"[/i]\nCharles Prairie[/center][/font_size]"],
-					  EnumMissions.L: ["talkiewalkie", "titre", "[font_size=20]Il faut [u][b]patrouiller en ville avec six jeunes[/b][/u] cadets de Gironde, fraîchement débarqués et [b]un peu perdus[/b]. L'objectif : surveiller les alentours et repérer [color=#e34425]toute bande[/color] qui viendrait vandaliser nos affiches.[/font_size]\n\n[font_size=18][center]  \"[i]Au premier groupe suspect, pas de quartier, on leur casse la figure.\"[/i]\nCharles Prairie[/center][/font_size]"],
-					  EnumMissions.M: ["journal", "titre", "[font_size=20]Le journal Le Monde veut [b]interviewer un de nos militants[/b]. Il nous faut quelqu’un qui s’exprime bien pour [u][b]donner une image impeccable[/b][/u] de notre mouvement.[/font_size]\n\n[font_size=18][center]  \"[i]Les journalistes prennent ce qu’on dit et le transforment. Il faut être clair, propre et précis.\"[/i]\nCharles Prairie[/center][/font_size]"],
-					  EnumMissions.N: ["papillon", "titre", "[font_size=20]Distribution de tracts [b]à la sortie de la messe[/b]. Le public est acquis, mais il faut [u][b]les encourager à aller voter[/b][/u] et les rassurer.[/font_size]\n\n[font_size=18][center]  \"[i]Ils savent bien, ces braves gens, que si les rouges prennent le pouvoir, ce sera l'Apocalypse.\"[/i]\nCharles Prairie[/center][/font_size]"],
-					  EnumMissions.O: ["carnet", "titre", "[font_size=20]Il faut [u][b]coller des papillons[/b][/u] avec des slogans provocateurs, et [b]le faire vite[/b]. Sur les murs et bien sûr sur les affiches [color=#e34425]adverses[/color] ! C’est du [b]vandalisme[/b], donc attention à la police : [i]discrétion et rapidité[/i] ![/font_size]\n\n[font_size=18][center]  \"[i]Ah, j’aime beaucoup celui-ci : \'La réforme oui ! La chienlit non !\'\"[/i]\nCharles Prairie[/center][/font_size]"]}
+var missionContent = {EnumMissions.A: ["deguisement", "titre", "[font_size=20]Au lycée Jacques-Decour, [color=#e44424]une bande de communistes[/color] se réunit tous les midis pour organiser [b]l'arrachage de nos affiches[/b] de campagne. On a besoin d'informations à leur sujet, il faut aller les [b][u]observer discrètement[/u][/b][/font_size].
+
+[font_size=18][center] \"[i]Pourquoi espionner quand on peut effrayer ?\"[/i]\nCharles Prairie[/center][/font_size]"],
+						EnumMissions.B: ["collage", "titre", "[font_size=20]La ville voisine est [color=#e44424]un bastion communiste[/color] et leur candidat y a un soutien solide. Allez [b][u]coller nos affiches[/u][/b] dans ses rues principales.[/font_size]
+
+[font_size=18][center] \"[i]Et si jamais vous croisez leurs gars, collez-leur autre chose dans la figure !\"[/i]\nCharles Prairie[/center][/font_size]"],
+						EnumMissions.C: ["matraque", "titre", "[font_size=20][b]Nos militants[/b] distribuent des tracts, mais la dernière fois ça s'est mal terminé : ils [b]se sont fait cabosser[/b] par [color=#e44424]des opposants[/color]. Il faut envoyer un gars pour [b][u]les protéger[/u][/b] cette fois-ci.[/font_size]
+
+[font_size=18][center]  \"[i]Au premier regard de travers, on règle ça sans attendre.\"[/i]\nCharles Prairie[/center][/font_size]"],
+						EnumMissions.D: ["collage", "titre", "[font_size=20]Il faut [b][u]recouvrir les affiches [color=#e44424]des rouges[/color][/u][/b] d'ici [b]demain matin[/b]. C’est de nuit que ce travail doit se faire, quand personne ne regarde...[/font_size]
+
+[font_size=18][center]  \"[i]La nuit, on ne sait jamais qui peut traîner dans l’ombre...\"[/i]\nCharles Prairie[/center][/font_size]"],
+						EnumMissions.E: ["deguisement", "titre", "[font_size=20]Des [color=#e44424]étudiants en sociologie[/color] organisent des assemblées à la Maison des [color=#e44424]Syndicats[/color]. Ils y discutent de leurs prochaines actions et [b]recrutent des militants[/b]. Il est temps d’y envoyer quelqu’un [b][u]se fondre dans la masse et écouter[/u][/b] ce qui se dit.[/font_size]
+
+[font_size=18][center]  \"[i]Aucun vrai gaulliste ne peut se faire passer pour de la racaille...\"[/i]\nCharles Prairie[/center][/font_size]"],
+						EnumMissions.F: ["collagepiege", "titre", "[font_size=20]Le visage de Charles Prairie est [b]régulièrement arraché[/b] des murs. Il faut [b][u]coller des affiches piégées[/u][/b] avec du verre pilé pour que ceux qui tentent de les retirer se [color=#e44424]blessent[/color]. Cette mission sera escortée.[/font_size]
+
+[font_size=18][center]  \"[i]Des coupures plein les mains, ça leur apprendra à toucher à ma tête !\"[/i]\nCharles Prairie[/center][/font_size]"],
+						EnumMissions.G: ["machine", "titre", "[font_size=20]Cent tracts doivent être [u][b]tapés à la machine[/b][/u] pour la distribution de demain matin. C'est une tâche importante qui demande précision et rapidité.[/font_size]
+
+[font_size=18][center]  \"[i]Se battre sur le terrain ou taper à la machine, même combat !\"[/i]\nCharles Prairie[/center][/font_size]"],
+						EnumMissions.H: ["manger", "titre", "[font_size=20]Nos gars ont besoin d’être soutenus dans leur effort. [u][b]Préparer des sandwichs[/b][/u] et servir du vin est une tâche essentielle, un véritable [b]acte de dévouement[/b], pour leur donner la force de continuer.[/font_size]
+
+[font_size=18][center]  \"[i]Et rien de tel qu'une touche féminine pour leur donner du baume au cœur !\"[/i]\nCharles Prairie[/center][/font_size]"],
+						EnumMissions.I: ["carnet", "titre", "[font_size=20]Il faut [u][b]convaincre des gars[/b][/u] solides, motivés et athlétiques que Charles Prairie est capable de faire [b]cesser le chaos[/b]. On a besoin de militants qui [b]ne reculeront pas[/b].[/font_size]
+
+[font_size=18][center]  \"[i]Faut nous ramener des costauds, et c’est pas pour déménager des meubles...\"[/i]\nCharles Prairie[/center][/font_size]"],
+						EnumMissions.J: ["matraque", "titre", "[font_size=20][b]Notre équipe de colleurs[/b] d’affiches a été malmenée hier, [b]attaquée[/b] à coup de [color=#e44424]barres de fer[/color] et de [color=#e44424]chaînes de vélo[/color]. On a besoin d’hommes solides pour [u][b]les escorter[/b][/u] ce soir. Ça va chauffer...[/font_size]
+
+[font_size=18][center]  \"[i]Nom de nom ! Si j’avais deux minutes, j’irais avec vous...\"[/i]\nCharles Prairie[/center][/font_size]"],
+						EnumMissions.K: ["collage", "titre", "[font_size=20]Il faut [u][b]recouvrir les affiches de [color=#e44424]nos adversaires[/color][/b][/u] en passant derrière eux : que les leurs [b]restent à peine en place[/b]. Pas de risque de bagarre, c'est [b]une bande de mômes[/b] qu'il faut suivre.[/font_size]
+
+[font_size=18][center]  \"[i]Ces gamins sont rapides comme des lapins, mais aussi facilement impressionnables.\"[/i]\nCharles Prairie[/center][/font_size]"],
+						EnumMissions.L: ["talkiewalkie", "titre", "[font_size=20]Il faut [u][b]patrouiller en ville avec six jeunes[/b][/u] cadets de Gironde, fraîchement débarqués et [b]un peu perdus[/b]. L'objectif : surveiller les alentours et repérer [color=#e44424]toute bande[/color] qui viendrait vandaliser nos affiches.[/font_size]
+
+[font_size=18][center]  \"[i]Au premier groupe suspect, pas de quartier, on leur casse la figure.\"[/i]\nCharles Prairie[/center][/font_size]"],
+						EnumMissions.M: ["journal", "titre", "[font_size=20]Le journal Le Monde veut [b]interviewer un de nos militants[/b]. Il nous faut quelqu’un qui s’exprime bien pour [u][b]donner une image impeccable[/b][/u] de notre mouvement.[/font_size]
+
+[font_size=18][center]  \"[i]Les journalistes prennent ce qu’on dit et le transforment. Il faut être clair, propre et précis.\"[/i]\nCharles Prairie[/center][/font_size]"],
+						EnumMissions.N: ["papillon", "titre", "[font_size=20]Distribution de tracts [b]à la sortie de la messe[/b]. Le public est acquis, mais il faut [u][b]les encourager à aller voter[/b][/u] et les rassurer.[/font_size]
+
+[font_size=18][center]  \"[i]Ils savent bien, ces braves gens, que si les rouges prennent le pouvoir, ce sera l'Apocalypse.\"[/i]\nCharles Prairie[/center][/font_size]"],
+						EnumMissions.O: ["carnet", "titre", "[font_size=20]Il faut [u][b]coller des papillons[/b][/u] avec des slogans provocateurs, et [b]le faire vite[/b]. Sur les murs et bien sûr sur les affiches [color=#e44424]adverses[/color] ! C’est du [b]vandalisme[/b], donc attention à la police : discrétion et rapidité ![/font_size]
+
+[font_size=18][center]  \"[i]Ah, j’aime beaucoup celui-ci : \'La réforme oui ! La chienlit non !\'\"[/i]\nCharles Prairie[/center][/font_size]"]}
 
 var presentations = [[["Salut, moi c'est Raymond. Charcutier à Levallois. C'est ici qu'on signe ou quoi ?"]],
 				 	[["Bonjour Monsieur, j'me présente : Nicolas, je suis en deuxième année de droit à Assas et je voudrais m'engager pour Monsieur Prairie."],
@@ -40,33 +70,33 @@ var presentations = [[["Salut, moi c'est Raymond. Charcutier à Levallois. C'est
 				 	"Il est urgent de réagir, et je suis prêt à défendre notre pays."]]]
 
 var questions = [[["Pourquoi tu milites, toi ?",
-				   "Et t'es bon à quoi ?"]],
-			 	 [["Pourquoi maintenant, gamin ?",
-				   "Et tu sais faire quoi ?"],
-			  	  ["C’est bien mon petit, mais pourquoi chez nous ?",
-				   "Et elle sait faire quoi la championne ?"]],
-			 	 [["(sa motivation n'est pas à questionner)",
-				   "Bien, sur quoi on peut compter avec toi ?"],
-			  	  ["Qu’est-ce qui vous motive, Monsieur ?",
-				   "Et pourquoi vous ?"]]]
+				  	"Et t'es bon à quoi ?"]],
+			 	[["Pourquoi maintenant, gamin ?",
+				 	"Et tu sais faire quoi ?"],
+			  	["C’est bien mon petit, mais pourquoi chez nous ?",
+					"Et elle sait faire quoi la championne ?"]],
+			 	[["(sa motivation n'est pas à questionner)",
+				 	"Bien, sur quoi on peut compter avec toi ?"],
+			  	["Qu’est-ce qui vous motive, Monsieur ?",
+					"Et pourquoi vous ?"]]]
 
 var reponses = [[[["C’est simple... J’en ai ras-le-bol de ces p’tits jeunes gauchistes qui foutent le bordel partout. Ces chevelus, là...",
-				   "Prairie, il va les remettre à leur place. C’est un type avec du cran, comme dans les films d’espionnage que j’aime bien."],
-			  	  ["Judo, karaté, boxe française. J'pense me mettre à la lutte bretonne. C’est bon pour vous ?"]]],
+					"Prairie, il va les remettre à leur place. C’est un type avec du cran, comme dans les films d’espionnage que j’aime bien."],
+			  	["Judo, karaté, boxe française. J'pense me mettre à la lutte bretonne. C’est bon pour vous ?"]]],
 			 	[[["Monsieur, je réponds à l'appel du Général. Je crois qu’il est de notre devoir de jeunes Français de se lever et de participer à l'action civique."],
-			   	  ["Je suis très discret, Monsieur, on ne me remarque pas… Mais je suis prêt à… à \"casser des gueules\", s'il le faut !",
-				   "Enfin… je veux dire, je suis prêt à me faire respecter, à montrer que je suis un homme !"]],
-			  	 [["Je n’aime pas le bazar que ces gens de gauche mettent. Moi, je crois en une droite sociale, mais bien ordonnée.",
-				   "Une droite comme celle du Général et de Monsieur Prairie, c'est de ça dont la France a besoin."],
-			   	  ["Je suis audacieuse et volontaire, quand il y a du travail à faire, je ne recule jamais.",
-				   "Je suis sportive, aussi : l'effort et la discipline, ça me connaît !"]]],
+			   	["Je suis très discret, Monsieur, on ne me remarque pas… Mais je suis prêt à… à \"casser des gueules\", s'il le faut !",
+					"Enfin… je veux dire, je suis prêt à me faire respecter, à montrer que je suis un homme !"]],
+			  	[["Je n’aime pas le bazar que ces gens de gauche mettent. Moi, je crois en une droite sociale, mais bien ordonnée.",
+					"Une droite comme celle du Général et de Monsieur Prairie, c'est de ça dont la France a besoin."],
+			   	["Je suis audacieuse et volontaire, quand il y a du travail à faire, je ne recule jamais.",
+					"Je suis sportive, aussi : l'effort et la discipline, ça me connaît !"]]],
 			 	[[["..."],
-			   	  ["Moi, je suis un homme de terrain. Simple. J’ai l’habitude d’encadrer des gars, je sais comment les mettre au maille... les faire bosser, quoi.",
-				   "Mais ici, c’est pas comme chez nous, hein... C’est un peu la jungle..."]],
-			  	 [["Le Général et ses compagnons… ce sont les seuls à saisir l’ampleur réelle de la situation. Leur vision dépasse celle des autres.",
-				   " Ils comprennent les forces qui menacent notre nation. Je suis convaincu qu’eux seuls peuvent guider la France."],
-			   	  ["Je m'efforce toujours de voir au-delà des apparences, là où la vérité réside. Chaque décision que je prends est un pas vers un ordre supérieur...",
-				   "J'ai la conviction que tout acte participe à un grand dessein."]]]]
+			   	["Moi, je suis un homme de terrain. Simple. J’ai l’habitude d’encadrer des gars, je sais comment les mettre au maille... les faire bosser, quoi.",
+					"Mais ici, c’est pas comme chez nous, hein... C’est un peu la jungle..."]],
+			  	[["Le Général et ses compagnons… ce sont les seuls à saisir l’ampleur réelle de la situation. Leur vision dépasse celle des autres.",
+					" Ils comprennent les forces qui menacent notre nation. Je suis convaincu qu’eux seuls peuvent guider la France."],
+			   	["Je m'efforce toujours de voir au-delà des apparences, là où la vérité réside. Chaque décision que je prends est un pas vers un ordre supérieur...",
+					"J'ai la conviction que tout acte participe à un grand dessein."]]]]
 
 var scores = [[[{"text": "Raymond n'a pas tenu. Les discours de ces petits rouges l’ont rendu fou de rage, et il a flanqué une raclée à sept d’entre eux. Il est actuellement entendu par les flics.",
 			 	"hum":-1, "score":0},
@@ -94,10 +124,12 @@ var scores = [[[{"text": "Raymond n'a pas tenu. Les discours de ces petits rouge
 			 	"hum":-2, "score":0}],
 				[{"text": "Catastrophe totale ! Jacques a raconté à la presse que les évènements de Mai 68 avait été orchestrés par une alliance improbable : la Chine de Mao, Israël, la CIA, Cuba, la Suisse et même la Bulgarie ! Le journaliste n’en a pas raté une miette et Charles Prairie est la risée de tout le monde.",
 			 	"hum":-2, "score":0},
-				{"text": "À la sortie de la messe, Jacques a livré un véritable sermon mystique, parlant de la mission sacrée du Général face à l'antéchrist rouge. Les fidèles, encore sous l'effet des cantiques, étaient captivés et buvaient chacune de ses paroles. Ils ont pris les tracts avec ferveur, on peut dire qu’il les a conquis !",
+				{"text": "À la sortie de la messe, Jacques a livré un véritable sermon mystique, parlant de la mission sacrée du Général face à l'antéchrist rouge. Les fidèles  étaient captivés ! Ils ont pris les tracts avec ferveur, on peut dire qu’il les a conquis !",
 			 	"hum":2, "score":3},
 				{"text": "Malheureusement, Jacques n'a pas vraiment les jambes pour ce genre de course. Il s'est fait attraper par la police avant d'avoir pu finir son travail. Avec son statut et sa manière de parler, il s'en tirera sans trop de problèmes et il a tout de même réussi à coller une dizaine de papillons... c’est déjà ça.",
 			 	"hum":0, "score":1}]]]
+
+
 
 
 var day = allDays[0]
@@ -190,22 +222,22 @@ func getContext(mcont : EnumContexts):
 		match mcont:
 			EnumContexts.C1:
 				return {"medium" : "talkie",
-						"data": "François Mitterrand fustige la dérive autoritaire après l'annonce de la dissolution de l'Assemblée nationale par le général De Gaulle !"}
+						"data": "Dissolution de l'Assemblée nationale par le général de Gaulle : François Mitterrand dénonce une dérive autoritaire !"}
 			EnumContexts.C2:
-				return {"medium" : "phone",
-						"data": "Le Général a sérieusement envisagé de démissionner avant de décider de rester pour s'opposer à \"l’entreprise communiste totalitaire\". Le combat continue !"}
+				return {"medium" : "radio",
+						"data": "Évènements de Mai 68 : De Gaulle a pensé démissionner avant de rester pour s'opposer à \"l’entreprise communiste totalitaire\"."}
 			EnumContexts.C3:
 				return {"medium" : "talkie",
-						"data": "André Malraux l'a dit clairement : si la gauche prend le pouvoir, elle se fera renverser par ses propres alliés révolutionnaires. Et après, c'est la dictature, sous une forme ou une autre ! Recrute bien, compagnon..."}
+						"data": "André Malraux l'a dit : si la gauche prend le pouvoir, elle se fera renverser par ses alliés révolutionnaires. Et après, c'est la dictature !"}
 			EnumContexts.C4:
 				return {"medium" : "phone",
 						"data": "Compagnon, les renforts que tu m’as demandés de Gironde sont arrivés."}
 			EnumContexts.C5:
 				return {"medium" : "radio",
-						"data": "Drame aujourd’hui chez Peugeot : après 22 jours de grève, la police a investi les usines de Sochaux. Bilan tragique : 2 morts et 150 blessés."}
+						"data": "Drame chez Peugeot : après 22 jours de grève, la police a investi les usines de Sochaux. Bilan tragique : 2 morts et 150 blessés."}
 			EnumContexts.C6:
-				return {"medium" : "talkie",
-						"data": "Un jeune militant communiste a été tué à coups de pistolet à Achicourt, par des membres d'un groupe d'action civique."}
+				return {"medium" : "radio",
+						"data": "Un communiste de 18 ans a été tué près d'Arras par des membres d'un groupe de militants gaullistes..."}
 
 
 func _on_titre_start_button_pressed():
@@ -313,13 +345,14 @@ func startDays():
 			
 				await get_tree().create_timer(0.2).timeout
 				
-				if i_day == 0 && i_mil == 0 :
-					# Show tutorial panel (militant)
-					$TED.setText("")
-					$TED.show()
-					await $TED.setText("[center]ANALYSEZ LE MILITANT[/center]").startText().textFinished
-					await $TED.mousePressed
-					$TED.hide()
+				# Remove by camille ^^
+				#if i_day == 0 && i_mil == 0 :
+					## Show tutorial panel (militant)
+					#$TED.setText("")
+					#$TED.show()
+					#await $TED.setText("[center]ANALYSEZ LE MILITANT[/center]").startText().textFinished
+					#await $TED.mousePressed
+					#$TED.hide()
 			
 				# Militant present him/herself
 				await DialogManager.start_dialog($ResponseLocation.position, 
@@ -520,6 +553,7 @@ func _on_credits_exit_credits():
 	$Credits.hide()
 	$Credits.init()
 	$FX/NotesMusique.show()
+	
 
 
 func _on_titre_credit_button_pressed():
@@ -529,6 +563,11 @@ func _on_titre_credit_button_pressed():
 	$Credits.show()
 	$Credits.init()
 	$FX/NotesMusique.show()
+	
+	# utile de remettre les boutons si on vient de la fin
+	$CanvasLayer/MuteButton.show()
+	$CanvasLayer/ReplayButton.show()
+	$CanvasLayer/QuitButton.show()
 
 func setPauseMode(mybool):
 	
@@ -669,6 +708,12 @@ func reallyReplayGame():
 
 
 func _input(event):
+	#if event.is_action_pressed("A_button"):
+		#print("triche")
+		#$Score.show()
+		#$Score.init(12, [])
+		
+	
 	if event.is_action_pressed("ui_cancel"):
 		if pauseStateOn:
 			setPauseMode(false)

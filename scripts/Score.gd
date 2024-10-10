@@ -23,8 +23,10 @@ func reset():
 	$loose.hide()
 	$calepin.hide()
 	$letter.hide()
+	$letter2.hide()
 	$calepin.position = Vector2(1400,413)
 	$letter.position = Vector2(233,-100)
+	$letter2.position = Vector2(233,-100)
 	$buttons.modulate = Color.TRANSPARENT
 	for r in _rs:
 		r.modulate = Color.TRANSPARENT
@@ -57,8 +59,11 @@ func init(score, answers):
 		tween.tween_property(_rs[i_ans], "modulate", Color.WHITE, 0.8)
 
 	if score == 12:
-		$letter.show()
-		tween.tween_property($letter, "position", $letter_pos.position, 2).set_trans(Tween.TRANS_QUINT)
+		$letter2.show()
+		tween.tween_property($letter2, "position", $letter_pos.position, 2).set_trans(Tween.TRANS_QUINT)
+		tween.tween_property($letter2, "visible", false, 0)
+		$letter.position = $letter_pos.position
+		tween.tween_property($letter, "visible", true, 0)
 	
 	tween.tween_property($buttons, "modulate", Color.WHITE, 0.5)
 
