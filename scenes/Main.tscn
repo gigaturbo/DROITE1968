@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://cakpsc8hxpp4q"]
+[gd_scene load_steps=78 format=3 uid="uid://cakpsc8hxpp4q"]
 
 [ext_resource type="Script" path="res://scripts/Main.gd" id="1_3ouxd"]
 [ext_resource type="PackedScene" uid="uid://7d74krn38k4p" path="res://scenes/Titre.tscn" id="2_soksl"]
@@ -197,6 +197,10 @@ particles_anim_h_frames = 4
 particles_anim_v_frames = 1
 particles_anim_loop = true
 
+[sub_resource type="Gradient" id="Gradient_csyje"]
+offsets = PackedFloat32Array(0, 0.0846561, 0.708995, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.991572, 1, 1, 1, 0.929412, 1, 1, 1, 0)
+
 [node name="Main" type="Node2D"]
 script = ExtResource("1_3ouxd")
 
@@ -264,6 +268,7 @@ damping_min = 10.0
 damping_max = 10.0
 scale_amount_min = 0.15
 scale_amount_max = 0.2
+color_ramp = SubResource("Gradient_csyje")
 anim_offset_max = 1.0
 
 [node name="Eclairs" type="CPUParticles2D" parent="FX"]

@@ -52,6 +52,7 @@ func start_dialog(position:Vector2,
 	
 	
 	if is_dialog_active:
+		print("Dialog manager is already active. Cannot start new dialog")
 		return
 	
 	id = mid
@@ -139,3 +140,17 @@ func _unhandled_input(event):
 		
 		if(can_advance_line):
 			inputCloseDialog()
+
+
+func clear():
+	blockDialog = false
+	text_box_type = null
+	id = -1
+	is_dialog_active = false
+	can_advance_line = false
+	quickText = false
+	flip = false
+	current_line_index = 0
+	
+	if is_instance_valid(text_box):
+		text_box.queue_free()

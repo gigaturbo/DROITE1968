@@ -1,10 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://bsgomoihxbkhq"]
+[gd_scene load_steps=20 format=3 uid="uid://bsgomoihxbkhq"]
 
 [ext_resource type="Script" path="res://scripts/Score.gd" id="1_roevx"]
 [ext_resource type="Texture2D" uid="uid://22jmbjmy8bfb" path="res://assets/image/fonds/score_fond_defaite.jpg" id="2_wbg1m"]
 [ext_resource type="Texture2D" uid="uid://bxldmrajuemoc" path="res://assets/image/fonds/score_fond_victoire.jpg" id="3_lfeuq"]
 [ext_resource type="Texture2D" uid="uid://b0hd7x3qx8vvc" path="res://assets/image/interfaces/asset_lettre success.png" id="4_cw203"]
 [ext_resource type="Texture2D" uid="uid://d002bs7e86m04" path="res://assets/image/interfaces/UI_asset_score.png" id="5_6o8fn"]
+[ext_resource type="Texture2D" uid="uid://bia6dhtgvxtrg" path="res://assets/image/interfaces/asset_lettre success_ferme.png" id="5_guc86"]
 [ext_resource type="Texture2D" uid="uid://b7pj4f6veerxi" path="res://assets/image/interfaces/UI_mission_resultat_echec.png" id="6_stxf3"]
 [ext_resource type="Texture2D" uid="uid://cxkx7pabu2w2j" path="res://assets/image/interfaces/UI_mission_resultat_neutre.png" id="7_1kouk"]
 [ext_resource type="Texture2D" uid="uid://c8kvqffie85bx" path="res://assets/image/interfaces/UI_mission_resultat_succes.png" id="8_ywu1c"]
@@ -52,6 +53,11 @@ centered = false
 position = Vector2(187.639, 435.375)
 scale = Vector2(0.270958, 0.270958)
 texture = ExtResource("4_cw203")
+
+[node name="letter2" type="Sprite2D" parent="."]
+position = Vector2(187.639, 435.375)
+scale = Vector2(0.270958, 0.270958)
+texture = ExtResource("5_guc86")
 
 [node name="letter_pos" type="Marker2D" parent="."]
 position = Vector2(190.639, 440.375)
