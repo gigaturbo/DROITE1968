@@ -465,7 +465,7 @@ z_as_relative = false
 position = Vector2(0, -1)
 scale = Vector2(0.616, 0.616)
 sprite_frames = SubResource("SpriteFrames_k0204")
-frame_progress = 0.424408
+frame_progress = 0.70255
 centered = false
 
 [node name="NotesMusique" type="CPUParticles2D" parent="FX"]
