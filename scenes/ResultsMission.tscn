@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://cxkx7pabu2w2j" path="res://assets/image/interfaces/UI_mission_resultat_neutre.png" id="11_vb3bl"]
 
 [node name="ResultsMission" type="Node2D"]
+visible = false
 script = ExtResource("1_raxi0")
 textSize = 25
 

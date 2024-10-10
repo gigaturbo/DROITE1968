@@ -485,8 +485,9 @@ func startDays():
 				res.show()
 				$Bureau.hide()
 				
-				await res.showPanel(scores[i_day][i_mil][ms.e_mission % 3]["text"],
+				res.showPanel(scores[i_day][i_mil][ms.e_mission % 3]["text"],
 									scores[i_day][i_mil][ms.e_mission % 3]["hum"])
+				await res.tween.finished
 				res.isFinished = true
 				
 				await res.quitResults

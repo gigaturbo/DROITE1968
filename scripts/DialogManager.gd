@@ -48,7 +48,8 @@ func start_dialog(position:Vector2,
 	text_box_type = type
 	flip = aflip
 	
-	get_tree().root.get_node("Main").get_node("ContextTimer").start(minlifeduration)
+	if !get_tree().root.get_node("Main").adminSkip:
+		get_tree().root.get_node("Main").get_node("ContextTimer").start(minlifeduration)
 	
 	if type in [TextBoxTypes.REPONSE, TextBoxTypes.SIMPLEBUTTON, TextBoxTypes.SIMPLETEXT]:
 		aquickText = true

@@ -10,7 +10,7 @@ var parsedText = ""
 @onready var _suc = $ResultsSheet/stamps/success
 @onready var _neu = $ResultsSheet/stamps/mouais
 var isFinished = false
-
+var tween
 signal quitResults
 
 # Called when the node enters the scene tree for the first time.
@@ -41,11 +41,25 @@ func showPanel(text, hum):
 	_rtl.visible_characters = 0
 	_rtl.visible_characters_behavior = 2
 	
-	var tween = create_tween()
+	tween = create_tween()
 	_cont.modulate = Color.TRANSPARENT
 	tween.tween_property(_cont, "modulate", Color.WHITE, 0.75)
+	
+	
+	# bruits de crayon au choix, une fois (j'ai pas réussi à faire un loop qui s'arrête avec la fin de tween)
+	#var crayon1 = get_node("../Bruitages/Crayon1")
+	#var crayon2 = get_node("../Bruitages/Crayon2")
+	#var crayon3 = get_node("../Bruitages/Crayon3")
+	#var crayon4 = get_node("../Bruitages/Crayon4")
+	#var crayons = [crayon1, crayon2, crayon3, crayon4]
+	#crayons[randi() % 4].play()
+	
 	await tween.tween_property(_rtl, "visible_characters", parsedText.length(), 0.015*parsedText.length()).finished
 	
+	#crayon1.stop()
+	#crayon2.stop()
+	#crayon3.stop()
+	#crayon4.stop()
 	
 	if hum >= 1:
 		get_tree().current_scene.get_node("Bruitages/MissionReussite").play()
@@ -72,12 +86,11 @@ func showPanel(text, hum):
 			# TODO update sprite
 			tween.tween_property(_suc, "modulate", Color.WHITE, 0.75)
 			tween.parallel().tween_property($charles_joy, "modulate", Color.WHITE, 1.5)
-	
-	
-	return tween.finished
+
 
 func _input(event):
 	if isFinished and event is InputEventMouseButton:
 		if event.is_pressed():
 			if event.button_index == 1:
 				quitResults.emit(self)
+	
