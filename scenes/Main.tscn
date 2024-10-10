@@ -1,4 +1,4 @@
-[gd_scene load_steps=109 format=3 uid="uid://cakpsc8hxpp4q"]
+[gd_scene load_steps=108 format=3 uid="uid://cakpsc8hxpp4q"]
 
 [ext_resource type="Script" path="res://scripts/Main.gd" id="1_3ouxd"]
 [ext_resource type="PackedScene" uid="uid://7d74krn38k4p" path="res://scenes/Titre.tscn" id="2_soksl"]
@@ -322,10 +322,6 @@ particles_anim_loop = true
 offsets = PackedFloat32Array(0, 0.0846561, 0.708995, 1)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.991572, 1, 1, 1, 0.929412, 1, 1, 1, 0)
 
-[sub_resource type="Gradient" id="Gradient_62aob"]
-offsets = PackedFloat32Array(0, 0.114603, 0.249538, 0.421442, 0.578558, 0.743068, 1)
-colors = PackedColorArray(1, 0.8845, 0.23, 1, 1, 1, 1, 1, 1, 0.886275, 0.231373, 1, 1, 1, 1, 1, 1, 0.886275, 0.231373, 1, 1, 1, 1, 1, 1, 1, 1, 0)
-
 [node name="Main" type="Node2D"]
 script = ExtResource("1_3ouxd")
 
@@ -404,30 +400,6 @@ scale_amount_min = 0.15
 scale_amount_max = 0.2
 color_ramp = SubResource("Gradient_csyje")
 anim_offset_max = 1.0
-
-[node name="Eclairs" type="CPUParticles2D" parent="FX"]
-z_index = 1650
-position = Vector2(535, 484)
-emitting = false
-amount = 10
-lifetime = 3.0
-one_shot = true
-randomness = 0.1
-texture = ExtResource("45_l4xa6")
-emission_shape = 2
-emission_sphere_radius = 5.0
-direction = Vector2(0, 0)
-spread = 180.0
-gravity = Vector2(0, 0)
-initial_velocity_min = 40.0
-initial_velocity_max = 40.0
-damping_min = 10.0
-damping_max = 10.0
-angle_min = -360.0
-angle_max = 360.0
-scale_amount_min = 0.05
-scale_amount_max = 0.06
-color_ramp = SubResource("Gradient_62aob")
 
 [node name="Eclairs2" type="Node2D" parent="FX"]
 z_index = 990
