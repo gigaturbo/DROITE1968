@@ -250,17 +250,17 @@ func showContext(n):
 			contextPosition = $RadioLocation.position
 			audioAnnonces[rand].play()
 			fxPosition = Vector2(535, 484)
-			fxAngle = -45
+			fxAngle = -55
 		"talkie":
 			contextPosition = $TalkieLocation.position
 			audioAnnonces[2 + rand].play()
 			fxPosition = Vector2(71, 561)
-			fxAngle = 10
+			fxAngle = 35
 		"phone":
 			contextPosition = $PhoneLocation.position
 			audioAnnonces[4 + rand].play()
 			fxPosition = Vector2(975, 620)
-			fxAngle = -85
+			fxAngle = -75
 			flip = true
 
 	$FX/Eclairs2.position = fxPosition
@@ -285,12 +285,12 @@ func startDays():
 	$FX/CendrierFumee.modulate = Color.TRANSPARENT
 	$FX/CendrierFumee.show()
 	$FX/CendrierFumee.play()
-	create_tween().tween_property($FX/CendrierFumee, "modulate", Color.WHITE, 1).set_trans(Tween.TRANS_QUINT).finished
+	create_tween().tween_property($FX/CendrierFumee, "modulate", Color.WHITE, 1).set_trans(Tween.TRANS_QUINT)
 	
 	$FX/Lumiere.modulate = Color.TRANSPARENT
 	$FX/Lumiere.show()
 	$FX/Lumiere.play()
-	create_tween().tween_property($FX/Lumiere, "modulate", Color.WHITE, 1).set_trans(Tween.TRANS_QUINT).finished
+	create_tween().tween_property($FX/Lumiere, "modulate", Color.WHITE, 1).set_trans(Tween.TRANS_QUINT)
 	score = 0 
 	dayMissions = []
 	militant = null

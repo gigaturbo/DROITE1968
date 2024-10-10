@@ -19,23 +19,23 @@ func animate(angle: int):
 	
 	rotation_degrees = angle
 	
+	e3.modulate = Color.WHITE
+	e1.modulate = Color.TRANSPARENT
+	e2.modulate = Color.TRANSPARENT
+	await get_tree().create_timer(0.25).timeout
+	
+	e3.modulate = Color.TRANSPARENT
 	e1.modulate = Color.WHITE
 	e2.modulate = Color.TRANSPARENT
-	e3.modulate = Color.TRANSPARENT
 	await get_tree().create_timer(0.25).timeout
 	
+	e3.modulate = Color.TRANSPARENT
 	e1.modulate = Color.TRANSPARENT
 	e2.modulate = Color.WHITE
-	e3.modulate = Color.TRANSPARENT
 	await get_tree().create_timer(0.25).timeout
 	
-	e1.modulate = Color.TRANSPARENT
-	e2.modulate = Color.TRANSPARENT
-	e3.modulate = Color.WHITE
-	await get_tree().create_timer(0.25).timeout
-	
-	e1.modulate = Color.TRANSPARENT
-	e2.modulate = Color.TRANSPARENT
 	e3.modulate = Color.TRANSPARENT
+	e1.modulate = Color.TRANSPARENT
+	e2.modulate = Color.TRANSPARENT
 	
 	await get_tree().create_timer(0.5).timeout
