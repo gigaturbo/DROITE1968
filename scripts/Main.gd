@@ -657,7 +657,13 @@ func tryReplayGame():
 
 
 func reallyReplayGame():
-		
+	# Must clear dialog box so that they dont fuck everything later : they are not in main scene so they wont be really refreshed
+	DialogManager.clear()
+	DialogManager2.clear()
+	DialogManager3.clear()
+	DialogManagerGUI.clear()
+	DialogManagerGUINo.clear()
+	DialogManagerGUIYes.clear()
 	var mainScene = preload("res://scenes/Main.tscn")
 	get_tree().change_scene_to_packed(mainScene)
 
