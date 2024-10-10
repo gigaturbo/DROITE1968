@@ -150,6 +150,7 @@ var basevolume_theme_menu
 var basevolume_theme_menu_radio
 
 var audioAnnonces:Array[AudioStreamPlayer]
+signal startSignal
 
 var playbuttontween:Tween
 
@@ -178,7 +179,7 @@ func _ready():
 		create_tween().tween_property(o, "modulate", colorMem, appearTime).set_trans(Tween.TRANS_QUINT)
 	
 	# Animate play button
-	playbuttontween = create_tween().set_loops()
+	var playbuttontween = create_tween().set_loops()
 	playbuttontween.tween_property($Titre.get_node("Start"), "position:y", -4, 0.75).as_relative().set_trans(Tween.TRANS_LINEAR)
 	playbuttontween.tween_property($Titre.get_node("Start"), "position:y", 8, 1.5).as_relative().set_trans(Tween.TRANS_LINEAR)
 	playbuttontween.tween_property($Titre.get_node("Start"), "position:y", -4, 0.75).as_relative().set_trans(Tween.TRANS_LINEAR)
