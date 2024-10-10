@@ -12,11 +12,18 @@ func startTuto():
 	$tuto.hide()
 	$Bureau.show()
 	$contexte.show()
-	histState = 0
+	
+	if get_tree().root.get_node("Main").adminSkip:
+		histState = 0
+	else:
+		await get_tree().create_timer(3).timeout
+		histState = 0
+		
 
 func _input(event):
 	if histState == 0 and event is InputEventMouseButton:
 		if event.is_pressed():
+			$tuto.modulate = Color.WHITE
 			$tuto.show()
 			$Bureau.hide()
 			$contexte.hide()
