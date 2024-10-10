@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://yvltm6sg8tii"
+path="res://.godot/imported/telephone 2 V2.mp3-4b08e5df36469aace651f8e0c2c6a7d9.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/bruitages/tel_talkie_radio/telephone 2 V2.mp3"
+dest_files=["res://.godot/imported/telephone 2 V2.mp3-4b08e5df36469aace651f8e0c2c6a7d9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
