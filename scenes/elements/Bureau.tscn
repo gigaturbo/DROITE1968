@@ -7,20 +7,20 @@
 [node name="Background1" type="Node2D"]
 
 [node name="fond" type="Sprite2D" parent="."]
-scale = Vector2(0.308, 0.308)
+scale = Vector2(0.616, 0.616)
 texture = ExtResource("1_e7bq1")
 centered = false
 metadata/_edit_group_ = true
 
 [node name="mur" type="Sprite2D" parent="."]
-scale = Vector2(0.308, 0.308)
+scale = Vector2(0.616, 0.616)
 texture = ExtResource("2_ernt3")
 centered = false
 metadata/_edit_group_ = true
 
 [node name="table" type="Sprite2D" parent="."]
 z_index = 6
-scale = Vector2(0.308, 0.308)
+scale = Vector2(0.616, 0.616)
 texture = ExtResource("3_rux51")
 centered = false
 metadata/_edit_group_ = true

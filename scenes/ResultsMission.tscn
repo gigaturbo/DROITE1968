@@ -20,48 +20,43 @@ script = ExtResource("1_raxi0")
 textSize = 25
 
 [node name="fond" type="Sprite2D" parent="."]
-scale = Vector2(0.308, 0.308)
+scale = Vector2(0.616, 0.616)
 texture = ExtResource("2_2r1n1")
 centered = false
 
 [node name="mur" type="Sprite2D" parent="."]
-scale = Vector2(0.308, 0.308)
+scale = Vector2(0.616, 0.616)
 texture = ExtResource("2_ifkbg")
 centered = false
 
 [node name="charles_bof" type="Sprite2D" parent="."]
-position = Vector2(355, 485)
-rotation = -0.0174533
+position = Vector2(354, 485)
 scale = Vector2(0.308, 0.308)
 texture = ExtResource("4_0h4ku")
 
 [node name="charles_bien" type="Sprite2D" parent="."]
-position = Vector2(355, 484)
-rotation = -0.0174533
+position = Vector2(354, 484)
 scale = Vector2(0.308, 0.308)
 texture = ExtResource("5_lxe60")
 
 [node name="charles_neutre" type="Sprite2D" parent="."]
-position = Vector2(355, 484)
-rotation = -0.0174533
+position = Vector2(354, 484)
 scale = Vector2(0.308, 0.308)
 texture = ExtResource("6_itsvs")
 
 [node name="charles_fury" type="Sprite2D" parent="."]
-position = Vector2(355, 484)
-rotation = -0.0174533
+position = Vector2(354, 484)
 scale = Vector2(0.308, 0.308)
 texture = ExtResource("7_nq40p")
 
 [node name="charles_joy" type="Sprite2D" parent="."]
-position = Vector2(355, 484)
-rotation = -0.0174533
+position = Vector2(354, 484)
 scale = Vector2(0.308, 0.308)
 texture = ExtResource("8_ns2lk")
 
 [node name="table" type="Sprite2D" parent="."]
 z_index = 128
-scale = Vector2(0.308, 0.308)
+scale = Vector2(0.616, 0.616)
 texture = ExtResource("4_tkb1l")
 centered = false
 

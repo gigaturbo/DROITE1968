@@ -42,7 +42,7 @@ autowrap_mode = 3
 [node name="tuto" type="Node2D" parent="."]
 
 [node name="tuto_img" type="Sprite2D" parent="tuto"]
-scale = Vector2(0.308, 0.308)
+scale = Vector2(0.616, 0.616)
 texture = ExtResource("4_8dmn3")
 centered = false
 
