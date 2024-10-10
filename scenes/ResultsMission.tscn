@@ -1,12 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://ddi5mp50sahga"]
+[gd_scene load_steps=15 format=3 uid="uid://ddi5mp50sahga"]
 
 [ext_resource type="Script" path="res://scripts/ResultsMission.gd" id="1_raxi0"]
 [ext_resource type="Texture2D" uid="uid://bivg67cgbn53g" path="res://assets/image/fonds/FOND.jpg" id="2_2r1n1"]
 [ext_resource type="Texture2D" uid="uid://cut7bqf2w0gqm" path="res://assets/image/fonds/DECOR.png" id="2_ifkbg"]
-[ext_resource type="Texture2D" uid="uid://b44wpeihxup6g" path="res://assets/image/personnages/Pasqua__NotHappy_F.png" id="4_b5x8b"]
+[ext_resource type="Texture2D" uid="uid://ckqdtwhjjynpl" path="res://assets/image/personnages/Pasqua_Angry_Mid.png" id="4_0h4ku"]
 [ext_resource type="Texture2D" uid="uid://dei4sutncpiis" path="res://assets/image/fonds/asset_bureau.png" id="4_tkb1l"]
-[ext_resource type="Texture2D" uid="uid://cljutdeml8v81" path="res://assets/image/personnages/Pasqua_Happy_F.png" id="5_4q4df"]
+[ext_resource type="Texture2D" uid="uid://d2fephv1klyil" path="res://assets/image/personnages/Pasqua_Happy_Mid.png" id="5_lxe60"]
 [ext_resource type="FontFile" uid="uid://c1114d7vgm2up" path="res://assets/fonts/Helvetica Neue Condensed Bold.ttf" id="6_dcc6n"]
+[ext_resource type="Texture2D" uid="uid://p64htgcgqk4p" path="res://assets/image/personnages/Pasqua_Neutral.png" id="6_itsvs"]
+[ext_resource type="Texture2D" uid="uid://buc7tlq5p4xob" path="res://assets/image/personnages/Pasqua_Angry_Max.png" id="7_nq40p"]
+[ext_resource type="Texture2D" uid="uid://beb73iapbdfxx" path="res://assets/image/personnages/Pasqua_Happy_Max.png" id="8_ns2lk"]
 [ext_resource type="Texture2D" uid="uid://ccogwjucg2g3u" path="res://assets/image/interfaces/UI_mission_resultat.png" id="8_wo8l3"]
 [ext_resource type="Texture2D" uid="uid://c8kvqffie85bx" path="res://assets/image/interfaces/UI_mission_resultat_succes.png" id="9_fq7sb"]
 [ext_resource type="Texture2D" uid="uid://b7pj4f6veerxi" path="res://assets/image/interfaces/UI_mission_resultat_echec.png" id="10_2jb3n"]
@@ -30,31 +33,31 @@ centered = false
 position = Vector2(355, 485)
 rotation = -0.0174533
 scale = Vector2(0.308, 0.308)
-texture = ExtResource("4_b5x8b")
+texture = ExtResource("4_0h4ku")
 
 [node name="charles_bien" type="Sprite2D" parent="."]
 position = Vector2(355, 484)
 rotation = -0.0174533
 scale = Vector2(0.308, 0.308)
-texture = ExtResource("5_4q4df")
+texture = ExtResource("5_lxe60")
 
 [node name="charles_neutre" type="Sprite2D" parent="."]
 position = Vector2(355, 484)
 rotation = -0.0174533
 scale = Vector2(0.308, 0.308)
-texture = ExtResource("5_4q4df")
+texture = ExtResource("6_itsvs")
 
 [node name="charles_fury" type="Sprite2D" parent="."]
 position = Vector2(355, 484)
 rotation = -0.0174533
 scale = Vector2(0.308, 0.308)
-texture = ExtResource("5_4q4df")
+texture = ExtResource("7_nq40p")
 
 [node name="charles_joy" type="Sprite2D" parent="."]
 position = Vector2(355, 484)
 rotation = -0.0174533
 scale = Vector2(0.308, 0.308)
-texture = ExtResource("5_4q4df")
+texture = ExtResource("8_ns2lk")
 
 [node name="table" type="Sprite2D" parent="."]
 z_index = 128

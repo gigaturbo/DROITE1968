@@ -94,7 +94,7 @@ var reponses = [[[["C’est simple... J’en ai ras-le-bol de ces p’tits jeune
 			   	["Moi, je suis un homme de terrain. Simple. J’ai l’habitude d’encadrer des gars, je sais comment les mettre au maille... les faire bosser, quoi.",
 					"Mais ici, c’est pas comme chez nous, hein... C’est un peu la jungle..."]],
 			  	[["Le Général et ses compagnons… ce sont les seuls à saisir l’ampleur réelle de la situation. Leur vision dépasse celle des autres.",
-					" Ils comprennent les forces qui menacent notre nation. Je suis convaincu qu’eux seuls peuvent guider la France."],
+					"Ils comprennent les forces qui menacent notre nation. Je suis convaincu qu’eux seuls peuvent guider la France."],
 			   	["Je m'efforce toujours de voir au-delà des apparences, là où la vérité réside. Chaque décision que je prends est un pas vers un ordre supérieur...",
 					"J'ai la conviction que tout acte participe à un grand dessein."]]]]
 
@@ -656,8 +656,6 @@ func reallyQuitGame():
 	DialogManagerGUI.inputCloseDialog()
 	DialogManagerGUIYes.inputCloseDialog()
 	DialogManagerGUINo.inputCloseDialog()
-	modulate = Color(0.2,0.2,0.2)
-	print(self)
 	get_tree().quit()
 	
 func tryReplayGame():
