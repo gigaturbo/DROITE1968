@@ -224,8 +224,11 @@ func _on_titre_start_button_pressed():
 	$Tuto.startTuto()
 	
 func _on_tuto_end_tuto():
+	$Bureau.show()
+	await create_tween().tween_property($Tuto, "modulate", Color.TRANSPARENT, 0.5).set_trans(Tween.TRANS_QUINT).finished
 	$Titre.hide()
 	$Tuto.hide()
+	$Tuto.modulate = Color.WHITE
 	$Score.hide()
 	$FX/NotesMusique.hide()
 	$Histoire.hide()
@@ -269,26 +272,30 @@ func showContext(n):
 		flip).inputFinished
 	
 func startDays():
+	$Bureau.show()
 	$Titre.hide()
 	$Tuto.hide()
 	$Score.hide()
 	$Histoire.hide()
 	$Credits.hide()
 	$FX/NotesMusique.hide()
+	
+	$FX/CendrierFumee.modulate = Color.TRANSPARENT
 	$FX/CendrierFumee.show()
 	$FX/CendrierFumee.play()
+	create_tween().tween_property($FX/CendrierFumee, "modulate", Color.WHITE, 1).set_trans(Tween.TRANS_QUINT).finished
+	
+	$FX/Lumiere.modulate = Color.TRANSPARENT
 	$FX/Lumiere.show()
 	$FX/Lumiere.play()
+	create_tween().tween_property($FX/Lumiere, "modulate", Color.WHITE, 1).set_trans(Tween.TRANS_QUINT).finished
 	$FX/Eclairs.emitting = false
 	score = 0 
 	dayMissions = []
 	militant = null
 	answers = []
 	var ncontext = 0
-		
-	# LOAD BG1 (Generic)
-	var bg = preload("res://scenes/elements/Bureau.tscn").instantiate()
-	add_child(bg)
+	
 	
 	if(!adminSkip):
 		await get_tree().create_timer(1.5).timeout
@@ -452,7 +459,7 @@ func startDays():
 				add_child(res)
 				res.reset()
 				res.show()
-				bg.hide()
+				$Bureau.hide()
 				
 				await res.showPanel(scores[i_day][i_mil][ms.e_mission % 3]["text"],
 									scores[i_day][i_mil][ms.e_mission % 3]["hum"])
@@ -467,11 +474,11 @@ func startDays():
 				res.hide()
 				remove_child(res)
 			
-			bg.show()
+			$Bureau.show()
 			# To next cycle
 	
 	# Show scores
-	bg.hide()
+	$Bureau.hide()
 	$FX/CendrierFumee.hide()
 	$FX/CendrierFumee.stop()
 	$FX/Lumiere.hide()
@@ -560,7 +567,7 @@ func setPauseMode(mybool):
 		DialogManager3.blockDialog = true
 		
 		# Disable all buttons (except GUI ones)
-		for _i:Node in getallnodes_rec(self):
+		for _i:Node in getAllChildrenRecursively(self):
 			if ! _i in [$CanvasLayer/MuteButton, $CanvasLayer/QuitButton, $CanvasLayer/ReplayButton, 
 			DialogManagerGUIYes.text_box.get_node("MarginContainer/Label/Button"), DialogManagerGUINo.text_box.get_node("MarginContainer/Label/Button")]:
 				if _i.get_class() in ["TextureButton", "Button"]:
@@ -594,7 +601,7 @@ func setPauseMode(mybool):
 		
 		
 		# Enable all buttons
-		for _i:Node in getallnodes_rec(self):
+		for _i:Node in getAllChildrenRecursively(self):
 			if _i.get_class() in ["TextureButton", "Button"]:
 				_i.disabled = false
 
@@ -728,11 +735,11 @@ func _on_mute_button_pressed():
 		$FX/NotesMusique.emitting = true
 	
 
-func getallnodes_rec(node):
+func getAllChildrenRecursively(node):
 	var nodelist = node.get_children()
 	for N in node.get_children():
 		if N.get_child_count() > 0:
-			nodelist.append_array(getallnodes_rec(N))
+			nodelist.append_array(getAllChildrenRecursively(N))
 	return nodelist
 
 func _on_score_rejouer_pressed() -> void:

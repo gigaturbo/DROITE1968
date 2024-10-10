@@ -1,4 +1,4 @@
-[gd_scene load_steps=129 format=3 uid="uid://cakpsc8hxpp4q"]
+[gd_scene load_steps=130 format=3 uid="uid://cakpsc8hxpp4q"]
 
 [ext_resource type="Script" path="res://scripts/Main.gd" id="1_3ouxd"]
 [ext_resource type="PackedScene" uid="uid://7d74krn38k4p" path="res://scenes/Titre.tscn" id="2_soksl"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://kjwkp7hja2wp" path="res://scenes/Histoire.tscn" id="6_cm2kw"]
 [ext_resource type="AudioStream" uid="uid://kqx84kthy2fx" path="res://assets/audio/musiques/Musique partie 1 radio.mp3" id="6_or610"]
 [ext_resource type="PackedScene" uid="uid://tuyb0ip2x6tu" path="res://scenes/elements/textbox/TextExtraDiegetique.tscn" id="6_y7sca"]
+[ext_resource type="PackedScene" uid="uid://cbb6xjwmrc4f7" path="res://scenes/elements/Bureau.tscn" id="7_4ji88"]
 [ext_resource type="AudioStream" uid="uid://bwhkwdvdk0ees" path="res://assets/audio/musiques/Musique partie 1 .mp3" id="7_xdedb"]
 [ext_resource type="AudioStream" uid="uid://bfxp3fk4geu2t" path="res://assets/audio/musiques/musique 2/boucle 1.mp3" id="8_vxwbx"]
 [ext_resource type="AudioStream" uid="uid://rxv7jekw2dph" path="res://assets/audio/musiques/musique 2/break 1.mp3" id="9_p234n"]
@@ -415,6 +416,9 @@ script = ExtResource("1_3ouxd")
 [node name="Histoire" parent="." instance=ExtResource("6_cm2kw")]
 
 [node name="Titre" parent="." instance=ExtResource("2_soksl")]
+
+[node name="Bureau" parent="." instance=ExtResource("7_4ji88")]
+visible = false
 
 [node name="Tuto" parent="." instance=ExtResource("3_iwt3s")]
 
