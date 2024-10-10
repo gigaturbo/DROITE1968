@@ -157,8 +157,6 @@ func _ready():
 	basevolume_theme_menu = $Musiques/Musique1.volume_db
 	basevolume_theme_menu_radio = $Musiques/Musique1Radio.volume_db
 	
-	
-	
 func _process(_delta):
 	processMusic()
 
@@ -221,7 +219,6 @@ func _on_titre_start_button_pressed():
 	$Histoire.hide()
 	$FX/CendrierFumee.hide()
 	$FX/Lumiere.hide()
-	$FX/Eclairs.emitting = false
 	$Tuto.show()
 	$Tuto.startTuto()
 	
@@ -236,7 +233,6 @@ func _on_tuto_end_tuto():
 	$Histoire.hide()
 	$FX/CendrierFumee.hide()
 	$FX/Lumiere.hide()
-	$FX/Eclairs.emitting = false
 	$Credits.hide()
 	startDays() # START OF THE FUN
 	
@@ -245,6 +241,7 @@ func showContext(n):
 	var	medium = getContext(n).medium
 	var contextPosition = null
 	var fxPosition = null
+	var fxAngle = null
 	var rand = randi()%2
 	
 	var flip = false
@@ -257,19 +254,22 @@ func showContext(n):
 			contextPosition = $RadioLocation.position
 			audioAnnonces[rand].play()
 			fxPosition = Vector2(535, 484)
+			fxAngle = -55
 		"talkie":
 			contextPosition = $TalkieLocation.position
 			audioAnnonces[2 + rand].play()
 			fxPosition = Vector2(71, 561)
+			fxAngle = 35
 		"phone":
 			contextPosition = $PhoneLocation.position
 			audioAnnonces[4 + rand].play()
 			fxPosition = Vector2(975, 620)
+			fxAngle = -75
 			flip = true
 
-	$FX/Eclairs.position = fxPosition
-	$FX/Eclairs.emitting = true
-	
+	$FX/Eclairs2.position = fxPosition
+	$FX/Eclairs2.animate(fxAngle)
+			
 	DialogManager.start_dialog(contextPosition, 
 		Vector2(500,100), 
 		DialogManager.TextBoxTypes.ELEC,
@@ -293,13 +293,12 @@ func startDays():
 	$FX/CendrierFumee.modulate = Color.TRANSPARENT
 	$FX/CendrierFumee.show()
 	$FX/CendrierFumee.play()
-	create_tween().tween_property($FX/CendrierFumee, "modulate", Color.WHITE, 1).set_trans(Tween.TRANS_QUINT).finished
+	create_tween().tween_property($FX/CendrierFumee, "modulate", Color.WHITE, 1).set_trans(Tween.TRANS_QUINT)
 	
 	$FX/Lumiere.modulate = Color.TRANSPARENT
 	$FX/Lumiere.show()
 	$FX/Lumiere.play()
-	create_tween().tween_property($FX/Lumiere, "modulate", Color.WHITE, 1).set_trans(Tween.TRANS_QUINT).finished
-	$FX/Eclairs.emitting = false
+	create_tween().tween_property($FX/Lumiere, "modulate", Color.WHITE, 1).set_trans(Tween.TRANS_QUINT)
 	score = 0 
 	dayMissions = []
 	militant = null
@@ -309,7 +308,6 @@ func startDays():
 	
 	if(!adminSkip):
 		await get_tree().create_timer(1.5).timeout
-	
 	
 	await showContext(0)
 	ncontext = ncontext + 1
@@ -487,8 +485,6 @@ func startDays():
 				res.show()
 				$Bureau.hide()
 				
-				
-					
 				await res.showPanel(scores[i_day][i_mil][ms.e_mission % 3]["text"],
 									scores[i_day][i_mil][ms.e_mission % 3]["hum"])
 				res.isFinished = true
@@ -506,7 +502,6 @@ func startDays():
 	$FX/CendrierFumee.stop()
 	$FX/Lumiere.hide()
 	$FX/Lumiere.stop()
-	$FX/Eclairs.emitting = false
 	$CanvasLayer/QuitButton.hide()
 	$CanvasLayer/ReplayButton.hide()
 	$Score.show()

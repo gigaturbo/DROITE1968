@@ -99,6 +99,7 @@
 [ext_resource type="Texture2D" uid="uid://bbsd4m6mmxace" path="res://assets/image/FX/lumiere/lumiere lampe_00026.png" id="70_h5mm5"]
 [ext_resource type="Texture2D" uid="uid://bmnqyjga7jsy2" path="res://assets/image/FX/lumiere/lumiere lampe_00027.png" id="71_c5n6m"]
 [ext_resource type="Texture2D" uid="uid://cfnd0h0aq0pmg" path="res://assets/image/interfaces/bouton_replay.png" id="73_aq4lc"]
+[ext_resource type="Script" path="res://scripts/eclairs.gd" id="74_qirs0"]
 [ext_resource type="AudioStream" uid="uid://cax5v1is5601y" path="res://assets/audio/musiques/marseillaise/marseillaise piano  v2.mp3" id="81_pux6u"]
 [ext_resource type="AudioStream" uid="uid://v85p25knnxaf" path="res://assets/audio/musiques/marseillaise/marseillaise shity flute v2.mp3" id="82_k6a2w"]
 [ext_resource type="AudioStream" uid="uid://wiumcao4q286" path="res://assets/audio/bruitages/tel_talkie_radio/telephone 1 V2.mp3" id="94_j5pho"]
@@ -322,10 +323,6 @@ particles_anim_loop = true
 offsets = PackedFloat32Array(0, 0.0846561, 0.708995, 1)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.991572, 1, 1, 1, 0.929412, 1, 1, 1, 0)
 
-[sub_resource type="Gradient" id="Gradient_62aob"]
-offsets = PackedFloat32Array(0, 0.114603, 0.249538, 0.421442, 0.578558, 0.743068, 1)
-colors = PackedColorArray(1, 0.8845, 0.23, 1, 1, 1, 1, 1, 1, 0.886275, 0.231373, 1, 1, 1, 1, 1, 1, 0.886275, 0.231373, 1, 1, 1, 1, 1, 1, 1, 1, 0)
-
 [node name="Main" type="Node2D"]
 script = ExtResource("1_3ouxd")
 
@@ -408,29 +405,30 @@ scale_amount_max = 0.2
 color_ramp = SubResource("Gradient_csyje")
 anim_offset_max = 1.0
 
-[node name="Eclairs" type="CPUParticles2D" parent="FX"]
-z_index = 1650
-position = Vector2(535, 484)
-emitting = false
-amount = 10
-lifetime = 3.0
-one_shot = true
-randomness = 0.1
+[node name="Eclairs2" type="Node2D" parent="FX"]
+z_index = 990
+position = Vector2(0.00012207, 6.10352e-05)
+rotation = -0.00340465
+scale = Vector2(0.419093, 0.419093)
+script = ExtResource("74_qirs0")
+metadata/_edit_group_ = true
+
+[node name="e1" type="Sprite2D" parent="FX/Eclairs2"]
+position = Vector2(55.7003, -240.809)
+rotation = -0.32649
+scale = Vector2(0.755682, 0.755682)
 texture = ExtResource("45_l4xa6")
-emission_shape = 2
-emission_sphere_radius = 5.0
-direction = Vector2(0, 0)
-spread = 180.0
-gravity = Vector2(0, 0)
-initial_velocity_min = 40.0
-initial_velocity_max = 40.0
-damping_min = 10.0
-damping_max = 10.0
-angle_min = -360.0
-angle_max = 360.0
-scale_amount_min = 0.05
-scale_amount_max = 0.06
-color_ramp = SubResource("Gradient_62aob")
+
+[node name="e2" type="Sprite2D" parent="FX/Eclairs2"]
+position = Vector2(198.5, -132.947)
+rotation = 0.439706
+scale = Vector2(0.754326, 0.747178)
+texture = ExtResource("45_l4xa6")
+
+[node name="e3" type="Sprite2D" parent="FX/Eclairs2"]
+position = Vector2(161, -243)
+rotation = 0.03609
+texture = ExtResource("45_l4xa6")
 
 [node name="Musiques" type="Node" parent="."]
 
