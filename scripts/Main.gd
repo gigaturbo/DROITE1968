@@ -157,6 +157,8 @@ func _ready():
 	basevolume_theme_menu = $Musiques/Musique1.volume_db
 	basevolume_theme_menu_radio = $Musiques/Musique1Radio.volume_db
 	
+	
+	
 func _process(_delta):
 	processMusic()
 
@@ -246,6 +248,10 @@ func showContext(n):
 	var rand = randi()%2
 	
 	var flip = false
+	
+	# put sound modification to normal
+	AudioServer.get_bus_effect(1, 0).volume_db = 0
+	
 	match medium:
 		"radio":
 			contextPosition = $RadioLocation.position
@@ -263,13 +269,17 @@ func showContext(n):
 
 	$FX/Eclairs.position = fxPosition
 	$FX/Eclairs.emitting = true
-			
-	return DialogManager.start_dialog(contextPosition, 
+	
+	DialogManager.start_dialog(contextPosition, 
 		Vector2(500,100), 
 		DialogManager.TextBoxTypes.ELEC,
 		[textContext], 
 		-1,
-		flip).inputFinished
+		flip, 
+		false,
+		2)
+	
+	return DialogManager.inputFinished
 	
 func startDays():
 	$Bureau.show()
@@ -300,9 +310,12 @@ func startDays():
 	if(!adminSkip):
 		await get_tree().create_timer(1.5).timeout
 	
+	
 	await showContext(0)
 	ncontext = ncontext + 1
 	
+	if(!adminSkip):
+		await get_tree().create_timer(0.25).timeout
 	
 	# Loop all days
 	for i_day in allDays.size():
@@ -450,8 +463,21 @@ func startDays():
 			mil.queue_free()
 			
 			# Show context before results
+			if(!adminSkip):
+				await get_tree().create_timer(0.5).timeout
 			await showContext(ncontext)
 			ncontext = ncontext + 1
+			
+			
+			
+			
+			
+			if(!adminSkip):
+				await get_tree().create_timer(0.5).timeout
+			
+			# shut context audio when showing score
+			var amp = AudioServer.get_bus_effect(1, 0)
+			var tweenaudio = create_tween().tween_property(amp, "volume_db", -80, 1)
 			
 			# Mission results
 			if(!adminSkip):
@@ -461,14 +487,11 @@ func startDays():
 				res.show()
 				$Bureau.hide()
 				
+				
+					
 				await res.showPanel(scores[i_day][i_mil][ms.e_mission % 3]["text"],
 									scores[i_day][i_mil][ms.e_mission % 3]["hum"])
 				res.isFinished = true
-				
-				if scores[i_day][i_mil][ms.e_mission % 3]["hum"] == -1:
-					$Bruitages/MissionEchec.play()
-				if scores[i_day][i_mil][ms.e_mission % 3]["hum"] == 1:
-					$Bruitages/MissionReussite.play()
 				
 				await res.quitResults
 				res.hide()

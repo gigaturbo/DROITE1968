@@ -16,7 +16,7 @@ func startTuto():
 	if get_tree().root.get_node("Main").adminSkip:
 		histState = 0
 	else:
-		await get_tree().create_timer(3).timeout
+		await get_tree().create_timer(2).timeout
 		histState = 0
 		
 

@@ -44,8 +44,14 @@ func showPanel(text, hum):
 	var tween = create_tween()
 	_cont.modulate = Color.TRANSPARENT
 	tween.tween_property(_cont, "modulate", Color.WHITE, 0.75)
-	tween.tween_property(_rtl, "visible_characters", parsedText.length(), 0.015*parsedText.length())
+	await tween.tween_property(_rtl, "visible_characters", parsedText.length(), 0.015*parsedText.length()).finished
 	
+	
+	if hum >= 1:
+		get_tree().current_scene.get_node("Bruitages/MissionReussite").play()
+	else:
+		get_tree().current_scene.get_node("Bruitages/MissionEchec").play()
+	tween = create_tween()
 	
 	# Make stamp and Pasqua appear
 	match hum:

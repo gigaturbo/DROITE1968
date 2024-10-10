@@ -34,6 +34,7 @@ var quickText
 
 var blockDialog = false
 
+
 # flip not working yet
 # aquickText true if the text should be instantly shown
 func start_dialog(position:Vector2, 
@@ -42,9 +43,12 @@ func start_dialog(position:Vector2,
 					lines,
 					mid=-1,
 					aflip=false,
-					aquickText = false):
+					aquickText = false, 
+					minlifeduration = 0.1):
 	text_box_type = type
 	flip = aflip
+	
+	get_tree().root.get_node("Main").get_node("ContextTimer").start(minlifeduration)
 	
 	if type in [TextBoxTypes.REPONSE, TextBoxTypes.SIMPLEBUTTON, TextBoxTypes.SIMPLETEXT]:
 		aquickText = true
@@ -132,14 +136,19 @@ func _unhandled_input(event):
 	if blockDialog:
 		return
 	
+	
 	if( event.is_action_pressed("advanced_dialog") && is_dialog_active):
-		# do not close dialoge for response and simple button
-		if( text_box_type in [TextBoxTypes.REPONSE, TextBoxTypes.SIMPLEBUTTON, TextBoxTypes.SIMPLETEXT] ):
-			if(current_line_index + 1 >= dialog_lines.size() ):
-				return
 		
-		if(can_advance_line):
-			inputCloseDialog()
+		var contextTimerisOver = get_tree().root.get_node("Main").get_node("ContextTimer").is_stopped()
+		
+		if contextTimerisOver:
+			# do not close dialog for response and simple button
+			if( text_box_type in [TextBoxTypes.REPONSE, TextBoxTypes.SIMPLEBUTTON, TextBoxTypes.SIMPLETEXT] ):
+				if(current_line_index + 1 >= dialog_lines.size() ):
+					return
+			
+			if(can_advance_line):
+				inputCloseDialog()
 
 
 func clear():
