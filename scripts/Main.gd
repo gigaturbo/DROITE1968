@@ -118,7 +118,6 @@ var basevolume_theme_menu
 var basevolume_theme_menu_radio
 
 var audioAnnonces:Array[AudioStreamPlayer]
-signal startSignal
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -655,8 +654,8 @@ func tryReplayGame():
 
 
 func reallyReplayGame():
-			var mainScene = preload("res://scenes/Main.tscn")
-			get_tree().change_scene_to_packed(mainScene)
+	var mainScene = preload("res://scenes/Main.tscn")
+	get_tree().change_scene_to_packed(mainScene)
 
 
 func _input(event):
