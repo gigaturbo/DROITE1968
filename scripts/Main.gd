@@ -354,15 +354,6 @@ func startDays():
 				await mil.iAmReady
 			
 				await get_tree().create_timer(0.2).timeout
-				
-				# Remove by camille ^^
-				#if i_day == 0 && i_mil == 0 :
-					## Show tutorial panel (militant)
-					#$TED.setText("")
-					#$TED.show()
-					#await $TED.setText("[center]ANALYSEZ LE MILITANT[/center]").startText().textFinished
-					#await $TED.mousePressed
-					#$TED.hide()
 			
 				# Militant present him/herself
 				await DialogManager.start_dialog($ResponseLocation.position, 
@@ -378,7 +369,8 @@ func startDays():
 					[questions[i_day][i_mil][0]],
 					0
 				)
-				DialogManager.buttonPressed.connect(_dialog_manager_response)
+				if not DialogManager.buttonPressed.is_connected(_dialog_manager_response):
+					DialogManager.buttonPressed.connect(_dialog_manager_response)
 
 				# Q2
 				DialogManager2.start_dialog($AnswerLocation.position + Vector2(400, 0), 
@@ -387,7 +379,8 @@ func startDays():
 					[questions[i_day][i_mil][1]],
 					1
 				)
-				DialogManager2.buttonPressed.connect(_dialog_manager_response)
+				if not DialogManager2.buttonPressed.is_connected(_dialog_manager_response):
+					DialogManager2.buttonPressed.connect(_dialog_manager_response)
 				
 				var rep1 = await anyDialogAnswered
 				
@@ -404,7 +397,8 @@ func startDays():
 					[questions[i_day][i_mil][1-rep1]],
 					0
 				)
-				DialogManager.buttonPressed.connect(_dialog_manager_response)
+				if not DialogManager.buttonPressed.is_connected(_dialog_manager_response):
+					DialogManager.buttonPressed.connect(_dialog_manager_response)
 				
 				var _rep2 = await anyDialogAnswered
 				
