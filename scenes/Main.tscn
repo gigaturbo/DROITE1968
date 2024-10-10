@@ -1,4 +1,4 @@
-[gd_scene load_steps=129 format=3 uid="uid://cakpsc8hxpp4q"]
+[gd_scene load_steps=130 format=3 uid="uid://cakpsc8hxpp4q"]
 
 [ext_resource type="Script" path="res://scripts/Main.gd" id="1_3ouxd"]
 [ext_resource type="PackedScene" uid="uid://7d74krn38k4p" path="res://scenes/Titre.tscn" id="2_soksl"]
@@ -409,6 +409,11 @@ particles_anim_loop = true
 offsets = PackedFloat32Array(0, 0.0846561, 0.708995, 1)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.991572, 1, 1, 1, 0.929412, 1, 1, 1, 0)
 
+[sub_resource type="Gradient" id="Gradient_62aob"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.0926276, 0.378072, 0.47259, 0.697543, 0.795841)
+colors = PackedColorArray(1, 0.8845, 0.23, 1, 1, 1, 1, 1, 1, 0.886275, 0.231373, 1, 1, 1, 1, 1, 1, 0.886275, 0.231373, 1, 1, 1, 1, 1)
+
 [node name="Main" type="Node2D"]
 script = ExtResource("1_3ouxd")
 
@@ -492,24 +497,24 @@ anim_offset_max = 1.0
 z_index = 1650
 position = Vector2(535, 484)
 emitting = false
-amount = 15
+amount = 10
 lifetime = 3.0
 one_shot = true
 randomness = 0.1
 texture = ExtResource("45_l4xa6")
+emission_shape = 4
+emission_points = PackedVector2Array(0, 0)
+emission_colors = PackedColorArray()
 direction = Vector2(0, 0)
 spread = 180.0
 gravity = Vector2(0, 0)
-initial_velocity_min = 40.0
-initial_velocity_max = 40.0
-radial_accel_min = 3.0
-radial_accel_max = 3.0
 damping_min = 10.0
 damping_max = 10.0
 angle_min = -360.0
 angle_max = 360.0
-scale_amount_min = 0.05
-scale_amount_max = 0.05
+scale_amount_min = 0.1
+scale_amount_max = 0.1
+color_ramp = SubResource("Gradient_62aob")
 
 [node name="Musiques" type="Node" parent="."]
 
