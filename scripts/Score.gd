@@ -11,12 +11,9 @@ signal rejouerPressed
 signal quitterPressed
 signal creditsPressed
 
-@export var _DEBUG : bool = false
 
 func _ready():
 	reset()
-	if _DEBUG:
-		init(2, [{"hum": -2},{"hum": -1},{"hum": -0},{"hum": 1},{"hum": 2}])
 
 func reset():
 	$win.hide()
@@ -34,20 +31,17 @@ func reset():
 func init(score, answers):
 	reset()
 	
-	if not _DEBUG:
-		get_node("../Musiques/Musique1Radio").stop()
-		get_node("../Musiques/Musique1").stop()
-	
-	var tween = get_tree().create_tween()
+	get_node("../Musiques/Musique1Radio").stop()
+	get_node("../Musiques/Musique1").stop()
+
+	var tween = create_tween()
 	
 	if score < 6:
 		$loose.show()
-		if not _DEBUG:
-			get_node("../Musiques/MarseillaiseFluteBad").play()
+		get_node("../Musiques/MarseillaiseFluteBad").play()
 	else :
 		$win.show()
-		if not _DEBUG:
-			get_node("../Musiques/MarseillaisePianoGood").play()
+		get_node("../Musiques/MarseillaisePianoGood").play()
 
 	$calepin.show()
 	tween.parallel().tween_property($calepin, "position", $calepin_pos.position, 2).set_trans(Tween.TRANS_ELASTIC)

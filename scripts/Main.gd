@@ -673,20 +673,28 @@ func tryReplayGame():
 		
 	var replaywindowsize = Vector2(500, 100)
 	DialogManagerGUI.start_dialog($CanvasLayer/ReplayWindowLocation.position,
-			replaywindowsize, DialogManager.TextBoxTypes.SIMPLETEXT, ["Recommencez depuis le début ?"])
+								  replaywindowsize,
+								  DialogManager.TextBoxTypes.SIMPLETEXT,
+								  ["Recommencez depuis le début ?"])
 	
 	var shifttocenterx = 75
 	var shifttocentery = -150
-	DialogManagerGUIYes.start_dialog(DialogManagerGUI.text_box_position + Vector2(shifttocenterx, shifttocentery),
-			Vector2(0, 0), DialogManager.TextBoxTypes.SIMPLEBUTTON, ["RECOMMENCER"],
-			2)
-	DialogManagerGUIYes.buttonPressed.connect(_dialog_manager_response_GUI)
-	DialogManagerGUINo.start_dialog(DialogManagerGUI.text_box_position 
-					+ Vector2(DialogManagerGUI.text_box.size.x * DialogManagerGUI.text_box.scale.x - 112 - shifttocenterx, shifttocentery),
-			Vector2(0, 0), DialogManager.TextBoxTypes.SIMPLEBUTTON, ["CONTINUER"],
-			3)
-	DialogManagerGUINo.buttonPressed.connect(_dialog_manager_response_GUI)
 	
+	DialogManagerGUIYes.start_dialog(DialogManagerGUI.text_box_position + Vector2(shifttocenterx, shifttocentery),
+									 Vector2(0, 0),
+									 DialogManager.TextBoxTypes.SIMPLEBUTTON,
+									 ["RECOMMENCER"],
+									 2)
+	if not DialogManagerGUIYes.buttonPressed.is_connected(_dialog_manager_response_GUI):
+		DialogManagerGUIYes.buttonPressed.connect(_dialog_manager_response_GUI)
+		
+	DialogManagerGUINo.start_dialog(DialogManagerGUI.text_box_position + Vector2(DialogManagerGUI.text_box.size.x * DialogManagerGUI.text_box.scale.x - 112 - shifttocenterx, shifttocentery),
+									Vector2(0, 0),
+									DialogManager.TextBoxTypes.SIMPLEBUTTON,
+									["CONTINUER"],
+									3)
+	if not DialogManagerGUINo.buttonPressed.is_connected(_dialog_manager_response_GUI):		
+		DialogManagerGUINo.buttonPressed.connect(_dialog_manager_response_GUI)
 	
 	setPauseMode(true)
 	
@@ -713,18 +721,12 @@ func reallyReplayGame():
 
 
 func _input(event):
-	#if event.is_action_pressed("A_button"):
-		#print("triche")
-		#$Score.show()
-		#$Score.init(12, [])
-		
 	
 	if event.is_action_pressed("ui_cancel"):
 		if pauseStateOn:
 			setPauseMode(false)
 		else:
 			tryQuitGame()
-	
 	
 	if event.is_action_pressed("admin_skip"):
 		adminSkip = !adminSkip

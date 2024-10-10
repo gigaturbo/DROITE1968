@@ -41,7 +41,7 @@ func showPanel(text, hum):
 	_rtl.visible_characters = 0
 	_rtl.visible_characters_behavior = 2
 	
-	var tween = get_tree().create_tween()
+	var tween = create_tween()
 	_cont.modulate = Color.TRANSPARENT
 	tween.tween_property(_cont, "modulate", Color.WHITE, 0.75)
 	tween.tween_property(_rtl, "visible_characters", parsedText.length(), 0.015*parsedText.length())
