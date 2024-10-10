@@ -172,6 +172,7 @@ func _ready():
 					$CanvasLayer/ReplayButton,
 					$CanvasLayer/QuitButton
 					]
+					
 	for o in objList:
 		var colorMem = o.modulate
 		o.modulate = Color.TRANSPARENT
@@ -248,6 +249,7 @@ func _on_titre_start_button_pressed():
 	$Credits.hide()
 	$Histoire.hide()
 	$FX/CendrierFumee.hide()
+	$FX/Eclairs.emitting = false
 	$Tuto.show()
 	$Tuto.startTuto()
 	
@@ -258,6 +260,7 @@ func _on_tuto_end_tuto():
 	$FX/NotesMusique.hide()
 	$Histoire.hide()
 	$FX/CendrierFumee.hide()
+	$FX/Eclairs.emitting = false
 	$Credits.hide()
 	startDays() # START OF THE FUN
 	
@@ -265,6 +268,7 @@ func showContext(n):
 	var	textContext = getContext(n).data
 	var	medium = getContext(n).medium
 	var contextPosition = null
+	var fxPosition = null
 	var rand = randi()%2
 	
 	var flip = false
@@ -272,13 +276,19 @@ func showContext(n):
 		"radio":
 			contextPosition = $RadioLocation.position
 			audioAnnonces[rand].play()
+			fxPosition = Vector2(535, 484)
 		"talkie":
 			contextPosition = $TalkieLocation.position
 			audioAnnonces[2 + rand].play()
+			fxPosition = Vector2(71, 561)
 		"phone":
 			contextPosition = $PhoneLocation.position
 			audioAnnonces[4 + rand].play()
+			fxPosition = Vector2(975, 620)
 			flip = true
+
+	$FX/Eclairs.position = fxPosition
+	$FX/Eclairs.emitting = true
 			
 	return DialogManager.start_dialog(contextPosition, 
 		Vector2(500,100), 
@@ -296,6 +306,7 @@ func startDays():
 	$FX/NotesMusique.hide()
 	$FX/CendrierFumee.show()
 	$FX/CendrierFumee.play()
+	$FX/Eclairs.emitting = false
 	score = 0 
 	dayMissions = []
 	militant = null
@@ -496,6 +507,7 @@ func startDays():
 	bg.hide()
 	$FX/CendrierFumee.hide()
 	$FX/CendrierFumee.stop()
+	$FX/Eclairs.emitting = false
 	$CanvasLayer/QuitButton.hide()
 	$CanvasLayer/ReplayButton.hide()
 	$Score.show()
@@ -551,6 +563,7 @@ func _on_credits_exit_credits():
 	$Score.hide()
 	$Credits.hide()
 	$Credits.init()
+	$FX/Eclairs.emitting = false
 	$FX/NotesMusique.show()
 	
 
@@ -562,6 +575,7 @@ func _on_titre_credit_button_pressed():
 	$Credits.show()
 	$Credits.init()
 	$FX/NotesMusique.show()
+	$FX/Eclairs.emitting = false
 	
 	# utile de remettre les boutons si on vient de la fin
 	$CanvasLayer/MuteButton.show()
@@ -765,6 +779,7 @@ func _on_score_quitter_pressed() -> void:
 func _on_titre_histoire_button_pressed() -> void:
 	$Titre.hide()
 	$FX/NotesMusique.hide()
+	$FX/Eclairs.emitting = false
 	$Histoire.show()
 
 
@@ -772,3 +787,4 @@ func _on_histoire_retour_pressed() -> void:
 	$Histoire.hide()
 	$Titre.show()
 	$FX/NotesMusique.show()
+	$FX/Eclairs.emitting = false
