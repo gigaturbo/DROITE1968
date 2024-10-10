@@ -237,7 +237,7 @@ func getContext(mcont : EnumContexts):
 						"data": "Drame chez Peugeot : après 22 jours de grève, la police a investi les usines de Sochaux. Bilan tragique : 2 morts et 150 blessés."}
 			EnumContexts.C6:
 				return {"medium" : "radio",
-						"data": "Un communiste de 18 ans a été tué près d'Arras par des membres d'un groupe de militants gaullistes..."}
+						"data": "Un communiste de 18 ans a été tué près d'Arras par les membres d'un groupe de militants gaullistes..."}
 
 
 func _on_titre_start_button_pressed():
@@ -420,7 +420,7 @@ func startDays():
 					# Show tutorial panel (mission)
 					await $TED.setText("")
 					$TED.show()
-					await $TED.setText("[center]DONNEZ-LUI LA BONNE MISSION\nOU RISQUEZ L'ÉCHEC![/center]").startText().textFinished
+					await $TED.setText("[center]Attribuez-lui la mission qui lui correspond\n[i][font_size=20](sauf si vous préférez échouer !)[/font_size][/i][/center]").startText().textFinished
 					await $TED.mousePressed
 					$TED.hide()
 			
