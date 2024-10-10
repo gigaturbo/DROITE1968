@@ -1,4 +1,4 @@
-[gd_scene load_steps=108 format=3 uid="uid://cakpsc8hxpp4q"]
+[gd_scene load_steps=109 format=3 uid="uid://cakpsc8hxpp4q"]
 
 [ext_resource type="Script" path="res://scripts/Main.gd" id="1_3ouxd"]
 [ext_resource type="PackedScene" uid="uid://7d74krn38k4p" path="res://scenes/Titre.tscn" id="2_soksl"]
@@ -102,6 +102,7 @@
 [ext_resource type="Texture2D" uid="uid://bbsd4m6mmxace" path="res://assets/image/FX/lumiere/lumiere lampe_00026.png" id="70_h5mm5"]
 [ext_resource type="Texture2D" uid="uid://bmnqyjga7jsy2" path="res://assets/image/FX/lumiere/lumiere lampe_00027.png" id="71_c5n6m"]
 [ext_resource type="Texture2D" uid="uid://cfnd0h0aq0pmg" path="res://assets/image/interfaces/bouton_replay.png" id="73_aq4lc"]
+[ext_resource type="Script" path="res://scripts/eclairs.gd" id="74_qirs0"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hqb8y"]
 animations = [{
@@ -427,6 +428,29 @@ angle_max = 360.0
 scale_amount_min = 0.05
 scale_amount_max = 0.06
 color_ramp = SubResource("Gradient_62aob")
+
+[node name="Eclairs2" type="Node2D" parent="FX"]
+z_index = 990
+position = Vector2(527, 373)
+scale = Vector2(0.419093, 0.419093)
+script = ExtResource("74_qirs0")
+metadata/_edit_group_ = true
+
+[node name="e1" type="Sprite2D" parent="FX/Eclairs2"]
+position = Vector2(30, -261)
+rotation = -0.468547
+scale = Vector2(0.755682, 0.755682)
+texture = ExtResource("45_l4xa6")
+
+[node name="e2" type="Sprite2D" parent="FX/Eclairs2"]
+position = Vector2(232, -53)
+rotation = 1.02127
+scale = Vector2(0.754326, 0.747178)
+texture = ExtResource("45_l4xa6")
+
+[node name="e3" type="Sprite2D" parent="FX/Eclairs2"]
+position = Vector2(161, -243)
+texture = ExtResource("45_l4xa6")
 
 [node name="Musiques" type="Node" parent="."]
 
