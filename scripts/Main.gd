@@ -475,7 +475,7 @@ func startDays():
 			
 			# shut context audio when showing score
 			var amp = AudioServer.get_bus_effect(1, 0)
-			var tweenaudio = create_tween().tween_property(amp, "volume_db", -80, 1)
+			create_tween().tween_property(amp, "volume_db", -80, 1)
 			
 			# Mission results
 			if(!adminSkip):
@@ -776,7 +776,6 @@ func _on_score_quitter_pressed() -> void:
 func _on_titre_histoire_button_pressed() -> void:
 	$Titre.hide()
 	$FX/NotesMusique.hide()
-	$FX/Eclairs.emitting = false
 	$Histoire.show()
 
 
@@ -784,4 +783,3 @@ func _on_histoire_retour_pressed() -> void:
 	$Histoire.hide()
 	$Titre.show()
 	$FX/NotesMusique.show()
-	$FX/Eclairs.emitting = false
