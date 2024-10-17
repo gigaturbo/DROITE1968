@@ -1,10 +1,22 @@
 # [DROITE 1968](https://aimeube.itch.io/droite-1968)
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./prixspecial_blanc.png?raw=true">
+  <source media="(prefers-color-scheme: light)" srcset="./prixspecial_noir.png?raw=true">
+  <img alt="" src="./prixspecial_noir.png?raw=true" width="128" height="128">
+</picture>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./coupdecoeur_blanc.png?raw=true">
+  <source media="(prefers-color-scheme: light)" srcset="./coupdecoeur_noir.png?raw=true">
+  <img alt="" src="./coupdecoeur_noir.png?raw=true" width="128" height="128">
+</picture>
+
 *Jeu créé pendant la Game Jam des [Rendez-Vous de l'Histoire 2024](http://rdvh2024.lascienceentreenjeu.fr/)*
 
 *Lien vers tous les jeux : http://jeux.lascienceentreenjeu.fr*
 
-*Lien de la page [itch.io](https://aimeube.itch.io/droite-1968) du jeu (jeu en ligne possible)*
+*Lien de la page [itch.io](https://aimeube.itch.io/droite-1968) du jeu ([**jouer en ligne**](https://aimeube.itch.io/droite-1968))*
 
 ---
 ### *Paris, 1968...*
@@ -31,24 +43,24 @@ https://pur-editions.fr/product/10018/l-armee-des-partisans-de-la-ve-republique
 
 **Game Design**
 
-- *Fantôme Apparent* | https://fantome-apparent.itch.io/
+- *Fantôme Apparent* | [fantome-apparent.itch.io](https://fantome-apparent.itch.io/)
 
 **Développement**
 
-- *Baptiste Lac* | https://github.com/gigaturbo
+- *Baptiste Lac* | [github.com/gigaturbo](https://github.com/gigaturbo)
 
-- *Camille Rouet* | https://github.com/camille-rouet/
+- *Camille Rouet* | [github.com/camille-rouet](https://github.com/camille-rouet/)
 
 **Art**
 
-- *Théo Gottis - Personnages et Illustration* | https://www.artstation.com/theo_gottis | https://www.instagram.com/charlescharlescharle/
+- *Théo Gottis - Personnages et Illustration* | [www.artstation.com/theo_gottis](https://www.artstation.com/theo_gottis) | [www.instagram.com/charlescharlescharle](https://www.instagram.com/charlescharlescharle/)
 
-- *Marie-Bérénice Forsans - UI art, Props et  Environnement* | https://www.artstation.com/marib
+- *Marie-Bérénice Forsans - UI art, Props et  Environnement* | [www.artstation.com/marib](https://www.artstation.com/marib)
 
 **Sound Design & Trailer**
 
-- *Tobiii*
+- *Tobiii* | [www.youtube.com/@diippink](https://www.youtube.com/@diippink)
 
 **Historien**
 
-- *Bryan Muller* | https://univ-lorraine.academia.edu/BryanMuller/CurriculumVitae
+- *Bryan Muller* | [univ-lorraine.academia.edu/BryanMuller/CurriculumVitae](https://univ-lorraine.academia.edu/BryanMuller/CurriculumVitae)
